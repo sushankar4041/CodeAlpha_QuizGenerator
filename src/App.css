@@ -567,3 +567,56 @@
   .podium-grid { grid-template-columns: 1fr; align-items: center; }
   .podium-card.gold { transform: none; }
 }
+
+/* Settings & Learner Profile View Styles - Phase 6A */
+.settings-container { display: flex; flex-direction: column; gap: 2rem; }
+.settings-header-banner { background-color: var(--color-surface); border: 1px solid var(--color-border); border-radius: var(--radius-xl); padding: 2rem; display: flex; flex-direction: column; gap: 0.5rem; box-shadow: var(--shadow-sm); }
+.settings-main-title { font-size: 1.75rem; font-weight: var(--font-weight-bold); }
+.settings-main-subtitle { font-size: var(--font-size-sm); color: var(--color-text-secondary); }
+.settings-grid { display: flex; flex-direction: column; gap: 1.75rem; }
+.settings-card { background-color: var(--color-surface); border: 1px solid var(--color-border); border-radius: var(--radius-xl); padding: 1.75rem; display: flex; flex-direction: column; gap: 1.5rem; box-shadow: var(--shadow-sm); }
+.settings-card.danger-card { border-color: rgba(239, 68, 68, 0.3); }
+.settings-card-header { display: flex; flex-direction: column; gap: 0.25rem; }
+.settings-card-title { font-size: 1.25rem; font-weight: var(--font-weight-bold); }
+.settings-card-desc { font-size: var(--font-size-xs); color: var(--color-text-muted); }
+
+.settings-form { display: flex; flex-direction: column; gap: 1.25rem; }
+.profile-edit-flex { display: flex; align-items: center; gap: 1.5rem; }
+.user-avatar-large { width: 64px; height: 64px; border-radius: var(--radius-full); background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-accent) 100%); color: #ffffff; font-size: 1.75rem; font-weight: var(--font-weight-bold); display: flex; align-items: center; justify-content: center; box-shadow: var(--shadow-md); flex-shrink: 0; }
+.profile-fields-col { flex: 1; display: flex; flex-direction: column; gap: 0.5rem; }
+.form-help-text { font-size: 0.75rem; color: var(--color-text-muted); }
+.settings-action-row { display: flex; align-items: center; justify-content: flex-end; gap: 1rem; }
+.save-success-badge { font-size: var(--font-size-xs); font-weight: var(--font-weight-bold); color: var(--color-success); background-color: var(--color-success-bg); padding: 0.35rem 0.75rem; border-radius: var(--radius-full); }
+
+.theme-options-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1rem; }
+.theme-option-card { background-color: var(--color-bg); border: 2px solid var(--color-border); border-radius: var(--radius-lg); padding: 1.25rem; display: flex; flex-direction: column; gap: 0.5rem; text-align: left; cursor: pointer; transition: all var(--transition-fast); }
+.theme-option-card:hover { border-color: var(--color-primary); background-color: var(--color-surface-hover); }
+.theme-option-card.selected { border-color: var(--color-primary); background-color: var(--color-primary-light); }
+.theme-option-icon { font-size: 1.75rem; }
+.theme-option-label { font-size: var(--font-size-sm); font-weight: var(--font-weight-bold); color: var(--color-text-primary); }
+.theme-option-desc { font-size: 0.75rem; color: var(--color-text-secondary); }
+
+.preferences-group { display: flex; flex-direction: column; gap: 1.25rem; }
+.preference-item { display: flex; flex-direction: column; gap: 0.5rem; }
+.pref-label { font-size: var(--font-size-xs); font-weight: var(--font-weight-bold); color: var(--color-text-secondary); }
+
+.data-actions-grid { display: flex; flex-direction: column; gap: 1.25rem; }
+.data-action-item { display: flex; align-items: center; justify-content: space-between; gap: 1.5rem; padding: 1.25rem; background-color: var(--color-bg); border: 1px solid var(--color-border); border-radius: var(--radius-lg); }
+.data-title { font-size: var(--font-size-sm); font-weight: var(--font-weight-bold); color: var(--color-text-primary); }
+.data-desc { font-size: 0.75rem; color: var(--color-text-secondary); margin-top: 0.25rem; }
+.btn-danger-text { color: var(--color-error); border-color: rgba(239, 68, 68, 0.3); }
+.btn-danger-text:hover { background-color: var(--color-error-bg); border-color: var(--color-error); }
+.btn-danger-sm { background-color: var(--color-error); color: #ffffff; font-weight: var(--font-weight-bold); border: none; padding: 0.6rem 1.25rem; border-radius: var(--radius-md); font-size: var(--font-size-xs); cursor: pointer; transition: all var(--transition-fast); }
+.btn-danger-sm:hover { opacity: 0.9; }
+
+.warning-modal-body { padding: 1.5rem 1.75rem; }
+.warning-text { font-size: var(--font-size-sm); color: var(--color-text-secondary); line-height: 1.6; }
+
+.user-profile-pill.clickable { cursor: pointer; transition: transform var(--transition-fast); }
+.user-profile-pill.clickable:hover { transform: translateY(-1px); border-color: var(--color-primary); }
+
+@media (max-width: 640px) {
+  .profile-edit-flex { flex-direction: column; align-items: flex-start; }
+  .data-action-item { flex-direction: column; align-items: flex-start; gap: 1rem; }
+  .theme-options-grid { grid-template-columns: 1fr; }
+}

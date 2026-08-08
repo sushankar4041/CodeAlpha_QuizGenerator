@@ -2,7 +2,14 @@
  * Top Header Component
  * Contains section metadata, theme toggle, mobile menu toggle, and user-neutral profile pill
  */
-export default function Header({ activeView, theme, onToggleTheme, onOpenMobileMenu }) {
+export default function Header({
+  activeView,
+  themeMode,
+  profile = {},
+  onToggleTheme,
+  onOpenMobileMenu,
+  onNavigateView
+}) {
   const getHeaderMeta = () => {
     switch (activeView) {
       case 'dashboard':
@@ -30,6 +37,11 @@ export default function Header({ activeView, theme, onToggleTheme, onOpenMobileM
           title: 'Statistics & Progress',
           subtitle: 'Track your quiz scores, study progress, and accuracy trends.'
         };
+      case 'settings':
+        return {
+          title: 'Settings & Preferences',
+          subtitle: 'Manage your learner profile, theme mode, and data settings.'
+        };
       default:
         return {
           title: 'Quiz Generator',
@@ -39,6 +51,8 @@ export default function Header({ activeView, theme, onToggleTheme, onOpenMobileM
   };
 
   const meta = getHeaderMeta();
+  const displayName = profile.displayName || 'Learner';
+  const avatarChar = displayName.charAt(0).toUpperCase();
 
   return (
     <header className="app-header">
@@ -62,34 +76,46 @@ export default function Header({ activeView, theme, onToggleTheme, onOpenMobileM
       </div>
 
       <div className="header-right">
-        {/* Dark/Light Theme Switcher */}
+        {/* Dark/Light/System Theme Switcher */}
         <button
           type="button"
           className="theme-toggle-btn"
           onClick={onToggleTheme}
-          aria-label={`Switch to ${theme === 'light' ? 'dark' : 'light'} theme`}
-          title={`Switch to ${theme === 'light' ? 'dark' : 'light'} mode`}
+          aria-label={`Switch theme mode (Current: ${themeMode})`}
+          title={`Theme mode: ${themeMode}`}
         >
-          {theme === 'light' ? (
+          {themeMode === 'light' ? (
+            <>
+              <span className="theme-icon">☀️</span>
+              <span className="theme-label">Light</span>
+            </>
+          ) : themeMode === 'dark' ? (
             <>
               <span className="theme-icon">🌙</span>
               <span className="theme-label">Dark</span>
             </>
           ) : (
             <>
-              <span className="theme-icon">☀️</span>
-              <span className="theme-label">Light</span>
+              <span className="theme-icon">🖥️</span>
+              <span className="theme-label">System</span>
             </>
           )}
         </button>
 
-        {/* User-Neutral Identity Pill */}
-        <div className="user-profile-pill">
-          <div className="user-avatar" title="Learner Profile">
-            L
+        {/* Persisted User Identity Pill */}
+        <div
+          className="user-profile-pill clickable"
+          onClick={() => onNavigateView('settings')}
+          title="Click to manage profile settings"
+          role="button"
+          tabIndex={0}
+          onKeyDown={(e) => e.key === 'Enter' && onNavigateView('settings')}
+        >
+          <div className="user-avatar">
+            {avatarChar}
           </div>
           <div className="user-info">
-            <span className="user-name">Learner</span>
+            <span className="user-name">{displayName}</span>
             <span className="user-role">Student Account</span>
           </div>
         </div>

@@ -10,15 +10,16 @@ import {
   submitPlayerAnswer,
   lockCurrentQuestion,
   advanceNextQuestion,
-  closeLiveRoom,
-  getLocalDisplayName
+  closeLiveRoom
 } from '../services/liveQuizService';
 import { ensureAnonymousAuth } from '../services/firebase';
 import { getCategoryIcon } from '../utils/quizUtils';
+import { getStoredLearnerProfile, getStoredPreferences } from '../services/storage';
 
 /**
- * Live Quiz Master Coordinator Component - Remediation
+ * Live Quiz Master Coordinator Component - Phase 6A
  * Manages Host Setup, Join Room form, Real-Time Lobby, Active Session, and Podium Results.
+ * Pre-populates stored learner profile and preferences.
  */
 export default function LiveQuiz({ flashcards = [], onNavigateView }) {
   const [mode, setMode] = useState('select'); // 'select' | 'host_setup' | 'join_setup' | 'room_active'
@@ -28,18 +29,21 @@ export default function LiveQuiz({ flashcards = [], onNavigateView }) {
   const [errorMessage, setErrorMessage] = useState('');
   const [authUid, setAuthUid] = useState(null);
 
-  const initialName = getLocalDisplayName();
+  const storedProfile = useMemo(() => getStoredLearnerProfile(), []);
+  const storedPrefs = useMemo(() => getStoredPreferences(), []);
+
+  const initialName = storedProfile.displayName || 'Learner';
 
   // Host Setup Form state
-  const [hostName, setHostName] = useState(initialName || 'Learner');
+  const [hostName, setHostName] = useState(initialName);
   const [selectedCategory, setSelectedCategory] = useState('All Categories');
-  const [selectedDifficulty, setSelectedDifficulty] = useState('All Difficulties');
-  const [questionCount, setQuestionCount] = useState(5);
-  const [timePerQuestion, setTimePerQuestion] = useState(15);
+  const [selectedDifficulty, setSelectedDifficulty] = useState(storedPrefs.preferredDifficulty || 'All Difficulties');
+  const [questionCount, setQuestionCount] = useState(storedPrefs.preferredQuestionCount || 5);
+  const [timePerQuestion, setTimePerQuestion] = useState(storedPrefs.preferredTimeLimit || 15);
 
   // Join Setup Form state
   const [joinCodeInput, setJoinCodeInput] = useState('');
-  const [playerNameInput, setPlayerNameInput] = useState(initialName || 'Learner');
+  const [playerNameInput, setPlayerNameInput] = useState(initialName);
 
   // Categories list derived from flashcards
   const categoriesList = useMemo(() => {

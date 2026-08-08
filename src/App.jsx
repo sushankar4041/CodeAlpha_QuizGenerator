@@ -6,33 +6,59 @@ import FlashcardList from './components/FlashcardList';
 import MockQuiz from './components/MockQuiz';
 import Statistics from './components/Statistics';
 import LiveQuiz from './components/LiveQuiz';
+import Settings from './components/Settings';
 import {
   getStoredFlashcards,
   saveStoredFlashcards,
+  resetStoredFlashcards,
   getStoredQuizHistory,
   saveQuizResult,
-  getStoredTheme,
-  saveStoredTheme
+  clearStoredQuizHistory,
+  getStoredLearnerProfile,
+  saveStoredLearnerProfile,
+  getStoredPreferences,
+  saveStoredPreferences,
+  getStoredThemeMode,
+  saveStoredThemeMode
 } from './services/storage';
 import './App.css';
 
 /**
- * Main Application Component - Phase 5
- * Coordinates Flashcard CRUD, Mock Quiz generator engine, Statistics & Analytics Dashboard,
- * Real-Time Multiplayer Live Quiz, theme state, and section navigation.
+ * Main Application Component - Phase 6A
+ * Coordinates Flashcards, Mock Quiz, Statistics, Live Quiz, Settings & Learner Profile,
+ * Theme Mode (Light/Dark/System), and activeView navigation.
  */
 function App() {
   const [activeView, setActiveView] = useState('dashboard');
-  const [theme, setTheme] = useState(getStoredTheme);
+  const [themeMode, setThemeMode] = useState(getStoredThemeMode);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+
   const [flashcards, setFlashcards] = useState(getStoredFlashcards);
   const [quizHistory, setQuizHistory] = useState(getStoredQuizHistory);
+  const [profile, setProfile] = useState(getStoredLearnerProfile);
+  const [preferences, setPreferences] = useState(getStoredPreferences);
 
-  // Sync theme attribute on document root
+  // Sync theme attribute on document root (handling Light, Dark, and System Auto)
   useEffect(() => {
-    document.documentElement.setAttribute('data-theme', theme);
-    saveStoredTheme(theme);
-  }, [theme]);
+    const applyTheme = () => {
+      let resolved = themeMode;
+      if (themeMode === 'system') {
+        const isSystemDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+        resolved = isSystemDark ? 'dark' : 'light';
+      }
+      document.documentElement.setAttribute('data-theme', resolved);
+    };
+
+    applyTheme();
+    saveStoredThemeMode(themeMode);
+
+    if (themeMode === 'system') {
+      const mediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
+      const handleChange = () => applyTheme();
+      mediaQuery.addEventListener('change', handleChange);
+      return () => mediaQuery.removeEventListener('change', handleChange);
+    }
+  }, [themeMode]);
 
   // Persist flashcards changes to localStorage
   const updateAndSaveCards = (newCards) => {
@@ -94,14 +120,43 @@ function App() {
     updateAndSaveCards(updatedCollection);
   };
 
-  // Quiz History Handler
+  // Quiz History Handlers
   const handleSaveQuizResult = (resultData) => {
     const updatedHistory = saveQuizResult(resultData);
     setQuizHistory(updatedHistory);
   };
 
+  const handleClearQuizHistory = () => {
+    const cleared = clearStoredQuizHistory();
+    setQuizHistory(cleared);
+  };
+
+  const handleResetFlashcards = () => {
+    const resetDeck = resetStoredFlashcards();
+    setFlashcards(resetDeck);
+  };
+
+  // Profile & Preferences Handlers
+  const handleUpdateProfile = (newProfile) => {
+    setProfile(newProfile);
+    saveStoredLearnerProfile(newProfile);
+  };
+
+  const handleUpdatePreferences = (newPrefs) => {
+    setPreferences(newPrefs);
+    saveStoredPreferences(newPrefs);
+  };
+
+  const handleUpdateThemeMode = (mode) => {
+    setThemeMode(mode);
+  };
+
   const toggleTheme = () => {
-    setTheme((prevTheme) => (prevTheme === 'light' ? 'dark' : 'light'));
+    setThemeMode((prev) => {
+      if (prev === 'light') return 'dark';
+      if (prev === 'dark') return 'system';
+      return 'light';
+    });
   };
 
   const handleNavigate = (viewId) => {
@@ -123,9 +178,11 @@ function App() {
       <div className="app-main-wrapper">
         <Header
           activeView={activeView}
-          theme={theme}
+          themeMode={themeMode}
+          profile={profile}
           onToggleTheme={toggleTheme}
           onOpenMobileMenu={() => setIsMobileMenuOpen(true)}
+          onNavigateView={handleNavigate}
         />
 
         <main className="app-main-content">
@@ -134,6 +191,7 @@ function App() {
               onNavigateView={handleNavigate}
               flashcards={flashcards}
               quizHistory={quizHistory}
+              profile={profile}
             />
           )}
 
@@ -167,6 +225,19 @@ function App() {
               flashcards={flashcards}
               quizHistory={quizHistory}
               onNavigateView={handleNavigate}
+            />
+          )}
+
+          {activeView === 'settings' && (
+            <Settings
+              profile={profile}
+              preferences={preferences}
+              themeMode={themeMode}
+              onUpdateProfile={handleUpdateProfile}
+              onUpdatePreferences={handleUpdatePreferences}
+              onUpdateThemeMode={handleUpdateThemeMode}
+              onClearQuizHistory={handleClearQuizHistory}
+              onResetFlashcards={handleResetFlashcards}
             />
           )}
         </main>

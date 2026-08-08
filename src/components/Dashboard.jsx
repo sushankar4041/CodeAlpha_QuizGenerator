@@ -2,15 +2,17 @@ import { getCategoryIcon } from '../utils/quizUtils';
 import { calculateOverviewStats } from '../utils/statisticsUtils';
 
 /**
- * Dashboard View Component - Phase 5
- * Learner portal showing real persisted stats and links to all 4 core active experiences
+ * Dashboard View Component - Phase 6A
+ * Learner portal showing real persisted stats and personalized learner greeting
  */
 export default function Dashboard({
   onNavigateView,
   flashcards = [],
-  quizHistory = []
+  quizHistory = [],
+  profile = {}
 }) {
   const overview = calculateOverviewStats(flashcards, quizHistory);
+  const displayName = profile.displayName || 'Learner';
 
   // Compute category breakdown from active flashcards
   const categoryCounts = {};
@@ -27,11 +29,13 @@ export default function Dashboard({
 
   return (
     <div className="dashboard-container">
-      {/* 1. User-Neutral Welcome Banner */}
+      {/* 1. Personalized Welcome Banner */}
       <section className="welcome-banner">
         <div className="welcome-content">
           <div className="welcome-pill">⚡ Learning Workspace</div>
-          <h1 className="welcome-title">Ready to learn something new?</h1>
+          <h1 className="welcome-title">
+            {displayName !== 'Learner' ? `Ready to learn something new, ${displayName}?` : 'Ready to learn something new?'}
+          </h1>
           <p className="welcome-subtitle">
             Create flashcards, test your knowledge, or challenge others in real-time.
           </p>

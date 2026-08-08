@@ -1,14 +1,18 @@
 import { useState, useMemo } from 'react';
 import { getCategoryIcon } from '../utils/quizUtils';
+import { getStoredPreferences } from '../services/storage';
 
 /**
  * Mock Quiz Configuration Component
  * Allows user to select Category, Difficulty, and Question Count before generating quiz
+ * Pre-populates default preferences from storage
  */
 export default function MockQuizConfig({ flashcards = [], onStartQuiz, onNavigateToFlashcards }) {
+  const initialPrefs = useMemo(() => getStoredPreferences(), []);
+
   const [selectedCategory, setSelectedCategory] = useState('All Categories');
-  const [selectedDifficulty, setSelectedDifficulty] = useState('All Difficulties');
-  const [requestedCount, setRequestedCount] = useState(5);
+  const [selectedDifficulty, setSelectedDifficulty] = useState(initialPrefs.preferredDifficulty || 'All Difficulties');
+  const [requestedCount, setRequestedCount] = useState(initialPrefs.preferredQuestionCount || 5);
 
   // Extract unique categories from flashcards collection
   const categoriesList = useMemo(() => {

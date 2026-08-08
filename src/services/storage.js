@@ -1,6 +1,6 @@
 /**
  * Storage Service
- * Handles persistence for Quiz Generator flashcards, quiz history, and user preferences
+ * Handles persistence for Quiz Generator flashcards, quiz history, learner profile, preferences, and theme
  */
 
 import { defaultFlashcards } from '../data/defaultFlashcards';
@@ -8,6 +8,9 @@ import { defaultFlashcards } from '../data/defaultFlashcards';
 const FLASHCARDS_KEY = 'quiz_generator_flashcards';
 const QUIZ_HISTORY_KEY = 'quiz_generator_history';
 const THEME_KEY = 'quiz_generator_theme';
+const PROFILE_KEY = 'quiz_generator_learner_profile';
+const PREFERENCES_KEY = 'quiz_generator_preferences';
+const DISPLAY_NAME_KEY = 'quiz_generator_live_display_name';
 
 /**
  * Helper to normalize a card object ensuring all required Phase 2 fields exist
@@ -53,6 +56,15 @@ export const saveStoredFlashcards = (cards) => {
   } catch (error) {
     console.error('Error saving flashcards to localStorage:', error);
   }
+};
+
+/**
+ * Reset flashcards to default sample deck
+ */
+export const resetStoredFlashcards = () => {
+  const resetCollection = defaultFlashcards.map((card, idx) => normalizeCard(card, idx));
+  saveStoredFlashcards(resetCollection);
+  return resetCollection;
 };
 
 /**
@@ -102,6 +114,18 @@ export const saveQuizResult = (result) => {
 };
 
 /**
+ * Clear completed quiz history from localStorage
+ */
+export const clearStoredQuizHistory = () => {
+  try {
+    localStorage.removeItem(QUIZ_HISTORY_KEY);
+  } catch (error) {
+    console.error('Error clearing quiz history:', error);
+  }
+  return [];
+};
+
+/**
  * Calculate average percentage score across completed quizzes
  */
 export const getAverageQuizScore = (history) => {
@@ -110,7 +134,70 @@ export const getAverageQuizScore = (history) => {
   return Math.round(totalPercentage / history.length);
 };
 
-export const getStoredTheme = () => {
+/**
+ * Learner Profile Storage
+ */
+export const getStoredLearnerProfile = () => {
+  try {
+    const saved = localStorage.getItem(PROFILE_KEY);
+    if (saved) {
+      const parsed = JSON.parse(saved);
+      if (parsed && typeof parsed.displayName === 'string') {
+        return parsed;
+      }
+    }
+    // Fallback to existing live quiz display name key if set
+    const fallbackName = localStorage.getItem(DISPLAY_NAME_KEY) || 'Learner';
+    return { displayName: fallbackName };
+  } catch {
+    return { displayName: 'Learner' };
+  }
+};
+
+export const saveStoredLearnerProfile = (profile) => {
+  try {
+    localStorage.setItem(PROFILE_KEY, JSON.stringify(profile));
+    if (profile.displayName) {
+      localStorage.setItem(DISPLAY_NAME_KEY, profile.displayName);
+    }
+  } catch (error) {
+    console.error('Error saving learner profile:', error);
+  }
+};
+
+/**
+ * Quiz Preferences Storage
+ */
+export const getStoredPreferences = () => {
+  const defaultPrefs = {
+    preferredDifficulty: 'Medium',
+    preferredQuestionCount: 5,
+    preferredTimeLimit: 15
+  };
+  try {
+    const saved = localStorage.getItem(PREFERENCES_KEY);
+    if (saved) {
+      const parsed = JSON.parse(saved);
+      return { ...defaultPrefs, ...parsed };
+    }
+  } catch (error) {
+    console.error('Error loading preferences:', error);
+  }
+  return defaultPrefs;
+};
+
+export const saveStoredPreferences = (preferences) => {
+  try {
+    localStorage.setItem(PREFERENCES_KEY, JSON.stringify(preferences));
+  } catch (error) {
+    console.error('Error saving preferences:', error);
+  }
+};
+
+/**
+ * Theme Preference Storage ('light' | 'dark' | 'system')
+ */
+export const getStoredThemeMode = () => {
   try {
     return localStorage.getItem(THEME_KEY) || 'light';
   } catch {
@@ -118,10 +205,13 @@ export const getStoredTheme = () => {
   }
 };
 
-export const saveStoredTheme = (theme) => {
+export const saveStoredThemeMode = (mode) => {
   try {
-    localStorage.setItem(THEME_KEY, theme);
+    localStorage.setItem(THEME_KEY, mode);
   } catch (error) {
-    console.error('Error saving theme:', error);
+    console.error('Error saving theme mode:', error);
   }
 };
+
+export const getStoredTheme = () => getStoredThemeMode();
+export const saveStoredTheme = (theme) => saveStoredThemeMode(theme);
