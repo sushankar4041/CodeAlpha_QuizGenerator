@@ -25,7 +25,11 @@ const normalizeCard = (card, index) => {
     difficulty: card.difficulty || 'Medium',
     createdAt: card.createdAt || now,
     updatedAt: card.updatedAt || now,
-    studiedCount: typeof card.studiedCount === 'number' ? card.studiedCount : 0
+    studiedCount: typeof card.studiedCount === 'number' ? card.studiedCount : 0,
+    ...(card.difficultySource ? { difficultySource: card.difficultySource } : {}),
+    ...(card.difficultyConfidence ? { difficultyConfidence: card.difficultyConfidence } : {}),
+    ...(card.difficultyScore !== undefined ? { difficultyScore: card.difficultyScore } : {}),
+    ...(card.difficultyReason ? { difficultyReason: card.difficultyReason } : {})
   };
 };
 

@@ -832,8 +832,17 @@ textarea:focus-visible,
 .status-tag.duplicate { background-color: var(--color-warning-bg); color: var(--color-warning); }
 .status-tag.invalid { background-color: var(--color-error-bg); color: var(--color-error); }
 
-.cell-warning { display: block; font-size: 0.7rem; color: var(--color-error); margin-top: 0.25rem; font-weight: var(--font-weight-semibold); white-space: normal; }
-.cat-chip-sm { display: inline-block; font-size: 0.7rem; padding: 0.2rem 0.5rem; border-radius: var(--radius-md); background-color: var(--color-surface); border: 1px solid var(--color-border); font-weight: var(--font-weight-medium); white-space: nowrap; }
+.diff-cell-wrapper { display: flex; flex-direction: column; gap: 0.25rem; align-items: flex-start; }
+.diff-select-sm { font-size: 0.7rem; font-weight: var(--font-weight-bold); padding: 0.15rem 0.4rem; border-radius: var(--radius-sm); border: 1px solid var(--color-border); cursor: pointer; white-space: nowrap; transition: all var(--transition-fast); }
+.diff-select-sm.easy { background-color: var(--color-success-bg); color: var(--color-success); border-color: rgba(34, 197, 94, 0.4); }
+.diff-select-sm.medium { background-color: var(--color-warning-bg); color: var(--color-warning); border-color: rgba(245, 158, 11, 0.4); }
+.diff-select-sm.hard { background-color: var(--color-error-bg); color: var(--color-error); border-color: rgba(239, 68, 68, 0.4); }
+
+.diff-source-tag { font-size: 0.65rem; font-weight: var(--font-weight-semibold); white-space: nowrap; line-height: 1; display: inline-block; margin-top: 0.1rem; }
+.diff-source-tag.heuristic { color: var(--color-primary); }
+.diff-source-tag.ai { color: var(--color-info); }
+.diff-source-tag.manual { color: var(--color-text-muted); }
+
 .diff-badge-sm { display: inline-block; font-size: 0.7rem; font-weight: var(--font-weight-bold); padding: 0.2rem 0.55rem; border-radius: var(--radius-sm); white-space: nowrap; }
 .diff-badge-sm.easy { background-color: var(--color-success-bg); color: var(--color-success); }
 .diff-badge-sm.medium { background-color: var(--color-warning-bg); color: var(--color-warning); }

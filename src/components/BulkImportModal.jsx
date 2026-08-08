@@ -19,7 +19,7 @@ export default function BulkImportModal({
   const [fallbackCategory, setFallbackCategory] = useState(() => existingCategories[0] || 'General');
   const [customCategory, setCustomCategory] = useState('');
   const [isCustomCategory, setIsCustomCategory] = useState(false);
-  const [fallbackDifficulty, setFallbackDifficulty] = useState('Medium');
+  const [fallbackDifficulty, setFallbackDifficulty] = useState('AUTO');
 
   const [parseError, setParseError] = useState('');
   const [previewResult, setPreviewResult] = useState(null);
@@ -69,8 +69,24 @@ export default function BulkImportModal({
       fallbackDifficulty
     });
 
-    setPreviewResult(validated);
-    setItemsState(validated.items);
+    // If user explicitly chose a manual fallback difficulty (not AUTO), override heuristic items
+    let finalItems = validated.items;
+    if (fallbackDifficulty !== 'AUTO') {
+      finalItems = finalItems.map((item) => {
+        if (!item.hasExplicitDifficulty) {
+          return {
+            ...item,
+            difficulty: fallbackDifficulty,
+            difficultySource: 'manual',
+            difficultyReason: `Manually set via import fallback option (${fallbackDifficulty})`
+          };
+        }
+        return item;
+      });
+    }
+
+    setPreviewResult({ ...validated, items: finalItems });
+    setItemsState(finalItems);
     setStep('preview');
   };
 
@@ -80,6 +96,22 @@ export default function BulkImportModal({
         if (item.id === id) {
           if (item.status === 'invalid') return item; // invalid items cannot be selected
           return { ...item, selected: !item.selected };
+        }
+        return item;
+      })
+    );
+  };
+
+  const handleItemDifficultyChange = (id, newDifficulty) => {
+    setItemsState((prev) =>
+      prev.map((item) => {
+        if (item.id === id) {
+          return {
+            ...item,
+            difficulty: newDifficulty,
+            difficultySource: 'manual',
+            difficultyReason: `Manually overridden by user (${newDifficulty})`
+          };
         }
         return item;
       })
@@ -108,8 +140,11 @@ export default function BulkImportModal({
       question: item.question,
       answer: item.answer,
       category: item.category || targetCategory,
-      difficulty: item.difficulty || fallbackDifficulty,
+      difficulty: item.difficulty,
       difficultySource: item.difficultySource || 'manual',
+      ...(item.difficultyConfidence ? { difficultyConfidence: item.difficultyConfidence } : {}),
+      ...(item.difficultyReason ? { difficultyReason: item.difficultyReason } : {}),
+      ...(item.difficultyScore !== undefined ? { difficultyScore: item.difficultyScore } : {}),
       createdAt: new Date().toISOString(),
       updatedAt: new Date().toISOString(),
       studiedCount: 0
@@ -224,7 +259,7 @@ A: User Datagram Protocol`}
 
               <div className="form-group flex-1">
                 <label htmlFor="fallback-difficulty" className="form-label">
-                  Default Difficulty (for unassigned cards)
+                  Default Difficulty Handling
                 </label>
                 <select
                   id="fallback-difficulty"
@@ -232,9 +267,10 @@ A: User Datagram Protocol`}
                   value={fallbackDifficulty}
                   onChange={(e) => setFallbackDifficulty(e.target.value)}
                 >
-                  <option value="Easy">Easy</option>
-                  <option value="Medium">Medium</option>
-                  <option value="Hard">Hard</option>
+                  <option value="AUTO">✨ Auto Estimate (Quizelle Engine)</option>
+                  <option value="Easy">Force Easy</option>
+                  <option value="Medium">Force Medium</option>
+                  <option value="Hard">Force Hard</option>
                 </select>
               </div>
             </div>
@@ -337,10 +373,34 @@ A: User Datagram Protocol`}
                       <td className="col-category">
                         <span className="cat-chip-sm">{item.category}</span>
                       </td>
-                      <td className="col-difficulty">
-                        <span className={`diff-badge-sm ${item.difficulty.toLowerCase()}`}>
-                          {item.difficulty}
-                        </span>
+                      <td className="col-difficulty" title={item.difficultyReason || ''}>
+                        <div className="diff-cell-wrapper">
+                          <select
+                            className={`diff-select-sm ${item.difficulty.toLowerCase()}`}
+                            value={item.difficulty}
+                            onChange={(e) => handleItemDifficultyChange(item.id, e.target.value)}
+                            title={item.difficultyReason || 'Click to override difficulty'}
+                          >
+                            <option value="Easy">Easy</option>
+                            <option value="Medium">Medium</option>
+                            <option value="Hard">Hard</option>
+                          </select>
+                          {item.difficultySource === 'heuristic' && (
+                            <span className="diff-source-tag heuristic" title={item.difficultyReason}>
+                              Quizelle Estimate
+                            </span>
+                          )}
+                          {item.difficultySource === 'ai' && (
+                            <span className="diff-source-tag ai" title="Explicitly provided in import payload">
+                              Imported
+                            </span>
+                          )}
+                          {item.difficultySource === 'manual' && (
+                            <span className="diff-source-tag manual" title="Manually selected or overridden">
+                              Manual
+                            </span>
+                          )}
+                        </div>
                       </td>
                     </tr>
                   ))}

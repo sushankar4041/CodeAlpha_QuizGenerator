@@ -1,3 +1,5 @@
+import { estimateInitialDifficulty } from './difficultyUtils.js';
+
 /**
  * Utility functions for parsing, validating, and deduplicating bulk flashcard imports.
  */
@@ -49,6 +51,7 @@ export const parseRawImportText = (rawText = '') => {
         answer: typeof item.answer === 'string' ? item.answer : (item.a || item.response || ''),
         category: typeof item.category === 'string' ? item.category : null,
         difficulty: typeof item.difficulty === 'string' ? item.difficulty : null,
+        distractors: Array.isArray(item.distractors) ? item.distractors : null,
         raw: item
       }));
 
@@ -107,7 +110,7 @@ export const validateAndDeduplicateImport = ({
   records = [],
   existingCards = [],
   fallbackCategory = 'General',
-  fallbackDifficulty = 'Medium'
+  fallbackDifficulty = 'AUTO'
 }) => {
   const existingQuestionSet = new Set(
     existingCards.map((c) => normalizeQuestion(c.question))
@@ -122,6 +125,55 @@ export const validateAndDeduplicateImport = ({
   const items = records.map((rec, index) => {
     const questionTrimmed = (rec.question || '').trim();
     const answerTrimmed = (rec.answer || '').trim();
+    const finalCat = (rec.category || '').trim() || fallbackCategory || 'General';
+
+    // Validate explicit distractors array if present
+    let validDistractors = undefined;
+    if (Array.isArray(rec.distractors) && rec.distractors.length > 0) {
+      const answerNorm = answerTrimmed.toLowerCase();
+      const seenNorm = new Set([answerNorm]);
+      const cleaned = [];
+
+      for (const d of rec.distractors) {
+        if (typeof d === 'string') {
+          const trimmed = d.trim();
+          const norm = trimmed.toLowerCase();
+          if (trimmed.length >= 2 && !seenNorm.has(norm)) {
+            cleaned.push(trimmed);
+            seenNorm.add(norm);
+          }
+        }
+      }
+      if (cleaned.length > 0) {
+        validDistractors = cleaned;
+      }
+    }
+
+    const normDiff = normalizeDifficulty(rec.difficulty);
+
+    let finalDiff = normDiff;
+    let diffSource = normDiff ? 'ai' : 'heuristic';
+    let diffConfidence = normDiff ? 'high' : 'medium';
+    let diffReason = normDiff ? 'Explicitly provided in import payload' : '';
+    let diffScore = undefined;
+
+    if (!finalDiff && fallbackDifficulty && fallbackDifficulty !== 'AUTO') {
+      finalDiff = normalizeDifficulty(fallbackDifficulty) || 'Medium';
+      diffSource = 'manual';
+      diffConfidence = 'high';
+      diffReason = `Manually set via fallback selection (${finalDiff})`;
+    } else if (!finalDiff) {
+      const est = estimateInitialDifficulty({
+        question: questionTrimmed,
+        answer: answerTrimmed,
+        category: finalCat
+      });
+      finalDiff = est.difficulty;
+      diffSource = 'heuristic';
+      diffConfidence = est.confidence;
+      diffReason = est.reason;
+      diffScore = est.score;
+    }
 
     // Check validity
     if (!questionTrimmed || questionTrimmed.length < 3) {
@@ -130,9 +182,14 @@ export const validateAndDeduplicateImport = ({
         id: `import-temp-${index + 1}`,
         question: questionTrimmed || '(Missing Question)',
         answer: answerTrimmed || '(Missing Answer)',
-        category: (rec.category || fallbackCategory || 'General').trim(),
-        difficulty: normalizeDifficulty(rec.difficulty) || fallbackDifficulty || 'Medium',
-        difficultySource: rec.difficulty ? 'ai' : 'manual',
+        category: finalCat,
+        difficulty: finalDiff,
+        difficultySource: diffSource,
+        difficultyConfidence: diffConfidence,
+        difficultyReason: diffReason,
+        difficultyScore: diffScore,
+        hasExplicitDifficulty: !!normDiff,
+        ...(validDistractors ? { distractors: validDistractors } : {}),
         status: 'invalid',
         invalidReason: !questionTrimmed ? 'Question is required' : 'Question must be at least 3 characters',
         selected: false
@@ -145,9 +202,14 @@ export const validateAndDeduplicateImport = ({
         id: `import-temp-${index + 1}`,
         question: questionTrimmed,
         answer: answerTrimmed || '(Missing Answer)',
-        category: (rec.category || fallbackCategory || 'General').trim(),
-        difficulty: normalizeDifficulty(rec.difficulty) || fallbackDifficulty || 'Medium',
-        difficultySource: rec.difficulty ? 'ai' : 'manual',
+        category: finalCat,
+        difficulty: finalDiff,
+        difficultySource: diffSource,
+        difficultyConfidence: diffConfidence,
+        difficultyReason: diffReason,
+        difficultyScore: diffScore,
+        hasExplicitDifficulty: !!normDiff,
+        ...(validDistractors ? { distractors: validDistractors } : {}),
         status: 'invalid',
         invalidReason: !answerTrimmed ? 'Answer is required' : 'Answer must be at least 2 characters',
         selected: false
@@ -162,11 +224,6 @@ export const validateAndDeduplicateImport = ({
 
     batchQuestionSet.add(normQ);
 
-    const normDiff = normalizeDifficulty(rec.difficulty);
-    const finalDiff = normDiff || fallbackDifficulty || 'Medium';
-    const diffSource = normDiff ? 'ai' : 'manual';
-    const finalCat = (rec.category || '').trim() || fallbackCategory || 'General';
-
     if (isDupInExisting || isDupInBatch) {
       duplicateCount += 1;
       return {
@@ -176,6 +233,11 @@ export const validateAndDeduplicateImport = ({
         category: finalCat,
         difficulty: finalDiff,
         difficultySource: diffSource,
+        difficultyConfidence: diffConfidence,
+        difficultyReason: diffReason,
+        difficultyScore: diffScore,
+        hasExplicitDifficulty: !!normDiff,
+        ...(validDistractors ? { distractors: validDistractors } : {}),
         status: 'duplicate',
         invalidReason: isDupInExisting
           ? 'Question already exists in flashcard collection'
@@ -192,6 +254,11 @@ export const validateAndDeduplicateImport = ({
       category: finalCat,
       difficulty: finalDiff,
       difficultySource: diffSource,
+      difficultyConfidence: diffConfidence,
+      difficultyReason: diffReason,
+      difficultyScore: diffScore,
+      hasExplicitDifficulty: !!normDiff,
+      ...(validDistractors ? { distractors: validDistractors } : {}),
       status: 'valid',
       invalidReason: null,
       selected: true // Valid new cards selected by default
