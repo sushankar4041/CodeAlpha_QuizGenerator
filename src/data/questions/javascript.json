@@ -1,0 +1,162 @@
+[
+  {
+    "id": "qz-js-001",
+    "question": "What is the output of typeof NaN in JavaScript?",
+    "options": ["number", "NaN", "undefined", "object"],
+    "answer": "number",
+    "category": "JavaScript",
+    "difficulty": "Easy",
+    "explanation": "In JavaScript, NaN is a numeric value representing an unrepresentable value, so typeof NaN evaluates to 'number'."
+  },
+  {
+    "id": "qz-js-002",
+    "question": "Which method removes the last element from an array and returns that element?",
+    "options": ["pop()", "push()", "shift()", "slice()"],
+    "answer": "pop()",
+    "category": "JavaScript",
+    "difficulty": "Easy",
+    "explanation": "The pop() method removes the last element from an array and returns that element, mutating the original array."
+  },
+  {
+    "id": "qz-js-003",
+    "question": "Which of the following is NOT a primitive data type in JavaScript?",
+    "options": ["Array", "String", "Number", "Boolean"],
+    "answer": "Array",
+    "category": "JavaScript",
+    "difficulty": "Easy",
+    "explanation": "Array is an Object (reference type) in JavaScript, whereas String, Number, and Boolean are primitive types."
+  },
+  {
+    "id": "qz-js-004",
+    "question": "What is the difference between '==' and '===' in JavaScript?",
+    "options": [
+      "== performs type coercion before comparing, while === compares value and type without coercion.",
+      "=== performs type coercion, while == compares strictly.",
+      "Both operators perform identical comparisons.",
+      "== is only used for string comparison, while === is for numbers."
+    ],
+    "answer": "== performs type coercion before comparing, while === compares value and type without coercion.",
+    "category": "JavaScript",
+    "difficulty": "Easy",
+    "explanation": "The abstract equality operator (==) converts operands to a common type before comparison, while strict equality (===) checks both value and type without conversion."
+  },
+  {
+    "id": "qz-js-005",
+    "question": "What keyword is used to declare a block-scoped variable that cannot be reassigned?",
+    "options": ["const", "let", "var", "static"],
+    "answer": "const",
+    "category": "JavaScript",
+    "difficulty": "Easy",
+    "explanation": "Variables declared with const are block-scoped and cannot be reassigned after initialization."
+  },
+  {
+    "id": "qz-js-006",
+    "question": "What is the default value of a variable declared with 'let' that has not been initialized?",
+    "options": ["undefined", "null", "0", "false"],
+    "answer": "undefined",
+    "category": "JavaScript",
+    "difficulty": "Easy",
+    "explanation": "In JavaScript, uninitialized variables declared with let or var automatically receive the value undefined."
+  },
+  {
+    "id": "qz-js-007",
+    "question": "What will 'console.log(1 + \"2\" + 3)' output?",
+    "options": ["123", "6", "15", "NaN"],
+    "answer": "123",
+    "category": "JavaScript",
+    "difficulty": "Medium",
+    "explanation": "First, 1 + '2' evaluates to string '12'. Then '12' + 3 evaluates to string '123' due to string concatenation."
+  },
+  {
+    "id": "qz-js-008",
+    "question": "What is a closure in JavaScript?",
+    "options": [
+      "A function bundled together with references to its surrounding lexical environment.",
+      "A method to terminate a loop prematurely.",
+      "A syntax rule that closes an object literal.",
+      "A feature used strictly for asynchronous network requests."
+    ],
+    "answer": "A function bundled together with references to its surrounding lexical environment.",
+    "category": "JavaScript",
+    "difficulty": "Medium",
+    "explanation": "A closure gives an inner function access to variables in its outer enclosing scope, even after the outer function has returned."
+  },
+  {
+    "id": "qz-js-009",
+    "question": "Which method creates a new array populated with the results of calling a provided function on every element in the calling array?",
+    "options": ["map()", "forEach()", "filter()", "reduce()"],
+    "answer": "map()",
+    "category": "JavaScript",
+    "difficulty": "Medium",
+    "explanation": "Array.prototype.map() constructs and returns a new array containing the transformed results for every element."
+  },
+  {
+    "id": "qz-js-010",
+    "question": "What does Promise.all() do when one of the input Promises rejects?",
+    "options": [
+      "It immediately rejects with the reason of the first Promise that rejected.",
+      "It waits for all other Promises to settle before rejecting.",
+      "It resolves with an array of errors.",
+      "It ignores the rejected Promise and returns only resolved values."
+    ],
+    "answer": "It immediately rejects with the reason of the first Promise that rejected.",
+    "category": "JavaScript",
+    "difficulty": "Hard",
+    "explanation": "Promise.all() has a fail-fast behavior: if any input promise rejects, the returned promise immediately rejects with that rejection reason."
+  },
+  {
+    "id": "qz-js-011",
+    "question": "What is the Temporal Dead Zone (TDZ) in JavaScript?",
+    "options": [
+      "The period between entering scope and the line where a let or const variable is declared.",
+      "The interval during which an async function waits for a Promise.",
+      "A state when the garbage collector pauses execution.",
+      "The delay period before setTimeout executes."
+    ],
+    "answer": "The period between entering scope and the line where a let or const variable is declared.",
+    "category": "JavaScript",
+    "difficulty": "Hard",
+    "explanation": "Accessing a let or const variable inside its Temporal Dead Zone (before initialization line) throws a ReferenceError."
+  },
+  {
+    "id": "qz-js-012",
+    "question": "Which built-in object in JavaScript is used to handle key-value pairs where keys can be of any type, including functions and objects?",
+    "options": ["Map", "Object", "Set", "WeakSet"],
+    "answer": "Map",
+    "category": "JavaScript",
+    "difficulty": "Medium",
+    "explanation": "Unlike standard Objects whose keys are strings or Symbols, JavaScript Map allows keys of any arbitrary data type."
+  },
+  {
+    "id": "qz-js-013",
+    "question": "What is the event loop in JavaScript responsible for?",
+    "options": [
+      "Monitoring the Call Stack and Task Queue to execute asynchronous callbacks.",
+      "Compiling JavaScript bytecode into machine instructions.",
+      "Managing DOM tree re-renders inside browser engines.",
+      "Enforcing strict type declarations at runtime."
+    ],
+    "answer": "Monitoring the Call Stack and Task Queue to execute asynchronous callbacks.",
+    "category": "JavaScript",
+    "difficulty": "Hard",
+    "explanation": "The event loop continuously checks if the call stack is empty; if empty, it pushes the first task from the callback queue onto the stack."
+  },
+  {
+    "id": "qz-js-014",
+    "question": "Which operator is used for optional chaining in modern JavaScript?",
+    "options": ["?.", "??", "||", "::"],
+    "answer": "?.",
+    "category": "JavaScript",
+    "difficulty": "Easy",
+    "explanation": "The optional chaining operator (?.) enables reading deeply nested object properties without causing a TypeError if a reference is nullish."
+  },
+  {
+    "id": "qz-js-015",
+    "question": "What value is returned by Array.prototype.findIndex() when no element passes the test?",
+    "options": ["-1", "null", "undefined", "false"],
+    "answer": "-1",
+    "category": "JavaScript",
+    "difficulty": "Easy",
+    "explanation": "findIndex() returns -1 if no array element satisfies the testing callback function."
+  }
+]

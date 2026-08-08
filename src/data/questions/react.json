@@ -1,0 +1,127 @@
+[
+  {
+    "id": "qz-react-001",
+    "question": "What is the primary purpose of React's useState Hook?",
+    "options": [
+      "To add state variables to functional components.",
+      "To manage side effects and network requests.",
+      "To perform DOM manipulation directly.",
+      "To optimize rendering performance with memoization."
+    ],
+    "answer": "To add state variables to functional components.",
+    "category": "React",
+    "difficulty": "Easy",
+    "explanation": "useState allows functional React components to preserve state across renders and trigger re-renders upon state updates."
+  },
+  {
+    "id": "qz-react-002",
+    "question": "Which Hook should be used to execute side effects in a functional React component?",
+    "options": ["useEffect", "useCallback", "useReducer", "useRef"],
+    "answer": "useEffect",
+    "category": "React",
+    "difficulty": "Easy",
+    "explanation": "useEffect is designed for handling side effects such as data fetching, manual DOM subscriptions, and timers."
+  },
+  {
+    "id": "qz-react-003",
+    "question": "What is JSX in React?",
+    "options": [
+      "A syntax extension for JavaScript that allows writing HTML-like code inside JS.",
+      "A specialized database querying language for React applications.",
+      "A state management library created by Facebook.",
+      "A server-side routing protocol for Single Page Applications."
+    ],
+    "answer": "A syntax extension for JavaScript that allows writing HTML-like code inside JS.",
+    "category": "React",
+    "difficulty": "Easy",
+    "explanation": "JSX stands for JavaScript XML, allowing developers to write HTML elements in JavaScript and place them in the DOM."
+  },
+  {
+    "id": "qz-react-004",
+    "question": "Why are 'keys' important when rendering lists of elements in React?",
+    "options": [
+      "Keys help React identify which items have changed, been added, or been removed.",
+      "Keys automatically sort elements alphabetically in the DOM.",
+      "Keys encrypt list elements to prevent state leakage.",
+      "Keys make components asynchronous and faster."
+    ],
+    "answer": "Keys help React identify which items have changed, been added, or been removed.",
+    "category": "React",
+    "difficulty": "Medium",
+    "explanation": "Keys give elements a stable identity, allowing React's reconciliation algorithm to reorder or update list items efficiently."
+  },
+  {
+    "id": "qz-react-005",
+    "question": "What is the Virtual DOM in React?",
+    "options": [
+      "A lightweight in-memory representation of the real DOM used for diffing and batching updates.",
+      "A browser extension that speeds up HTML parsing.",
+      "A backup server that stores previous component tree snapshots.",
+      "A shadow DOM implementation for CSS encapsulation."
+    ],
+    "answer": "A lightweight in-memory representation of the real DOM used for diffing and batching updates.",
+    "category": "React",
+    "difficulty": "Medium",
+    "explanation": "React compares the Virtual DOM tree with a previous snapshot (reconciliation) and updates only the necessary nodes in the real DOM."
+  },
+  {
+    "id": "qz-react-006",
+    "question": "Which Hook returns a mutable ref object whose '.current' property is persisted across renders without causing re-renders?",
+    "options": ["useRef", "useState", "useMemo", "useContext"],
+    "answer": "useRef",
+    "category": "React",
+    "difficulty": "Medium",
+    "explanation": "useRef creates a persistent container for references to DOM elements or mutable variables without triggering component re-renders when changed."
+  },
+  {
+    "id": "qz-react-007",
+    "question": "What does React's useMemo Hook do?",
+    "options": [
+      "Memoizes the result of a calculation between renders based on dependency array changes.",
+      "Caches HTTP network responses in local storage.",
+      "Stores component state in browser session memory.",
+      "Prevents child components from rendering permanently."
+    ],
+    "answer": "Memoizes the result of a calculation between renders based on dependency array changes.",
+    "category": "React",
+    "difficulty": "Hard",
+    "explanation": "useMemo caches a computed value and recomputes it only when one of its specified dependencies has changed."
+  },
+  {
+    "id": "qz-react-008",
+    "question": "What is Prop Drilling in React?",
+    "options": [
+      "Passing props down through multiple layers of nested components to reach a deeply nested child.",
+      "Modifying prop values directly inside a child component.",
+      "Extracting props into global CSS custom properties.",
+      "Using props to fetch REST API data asynchronously."
+    ],
+    "answer": "Passing props down through multiple layers of nested components to reach a deeply nested child.",
+    "category": "React",
+    "difficulty": "Easy",
+    "explanation": "Prop drilling occurs when data is passed through intermediate components that do not need the data themselves, solved by React Context or Redux."
+  },
+  {
+    "id": "qz-react-009",
+    "question": "Which hook is used to subscribe to React Context values in functional components?",
+    "options": ["useContext", "useProvider", "useConsumer", "useStore"],
+    "answer": "useContext",
+    "category": "React",
+    "difficulty": "Easy",
+    "explanation": "useContext accepts a context object created by React.createContext and returns the current context value."
+  },
+  {
+    "id": "qz-react-0010",
+    "question": "What is the purpose of React.memo()?",
+    "options": [
+      "A higher-order component that skips re-rendering a component if its props have not changed.",
+      "A hook that manages state persistent across page refreshes.",
+      "A function that compiles JSX directly to WebAssembly.",
+      "A utility to inspect memory leaks in browser DevTools."
+    ],
+    "answer": "A higher-order component that skips re-rendering a component if its props have not changed.",
+    "category": "React",
+    "difficulty": "Hard",
+    "explanation": "React.memo memoizes component render output; if props are shallowly equal, React reuses the last rendered output."
+  }
+]

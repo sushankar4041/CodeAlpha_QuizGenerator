@@ -1,0 +1,97 @@
+[
+  {
+    "id": "qz-gen-001",
+    "question": "Which planet in our solar system is known as the Red Planet?",
+    "options": ["Mars", "Venus", "Jupiter", "Saturn"],
+    "answer": "Mars",
+    "category": "General Knowledge",
+    "difficulty": "Easy",
+    "explanation": "Mars appears reddish because its surface is rich in iron oxide (rust)."
+  },
+  {
+    "id": "qz-gen-002",
+    "question": "Who is considered the father of computer science and artificial intelligence?",
+    "options": ["Alan Turing", "Charles Babbage", "Ada Lovelace", "John von Neumann"],
+    "answer": "Alan Turing",
+    "category": "General Knowledge",
+    "difficulty": "Easy",
+    "explanation": "Alan Turing formalized concepts of algorithm and computation with the Turing machine and laid foundations for modern AI."
+  },
+  {
+    "id": "qz-gen-003",
+    "question": "What is the chemical symbol for Gold on the periodic table?",
+    "options": ["Au", "Ag", "Fe", "Pb"],
+    "answer": "Au",
+    "category": "General Knowledge",
+    "difficulty": "Easy",
+    "explanation": "The symbol Au derives from the Latin word for gold, 'aurum'."
+  },
+  {
+    "id": "qz-gen-004",
+    "question": "Which element has the atomic number 1?",
+    "options": ["Hydrogen", "Helium", "Lithium", "Carbon"],
+    "answer": "Hydrogen",
+    "category": "General Knowledge",
+    "difficulty": "Easy",
+    "explanation": "Hydrogen is the lightest and most abundant chemical element, with atomic number 1."
+  },
+  {
+    "id": "qz-gen-005",
+    "question": "Which scientist formulated the laws of motion and universal gravitation?",
+    "options": ["Sir Isaac Newton", "Albert Einstein", "Galileo Galilei", "Nikola Tesla"],
+    "answer": "Sir Isaac Newton",
+    "category": "General Knowledge",
+    "difficulty": "Easy",
+    "explanation": "Newton published Philosophiae Naturalis Principia Mathematica in 1687, laying the groundwork for classical mechanics."
+  },
+  {
+    "id": "qz-gen-006",
+    "question": "What is the speed of light in a vacuum approximately?",
+    "options": ["3 × 10⁸ meters per second", "3 × 10⁵ meters per second", "1.5 × 10⁸ meters per second", "3 × 10⁶ meters per second"],
+    "answer": "3 × 10⁸ meters per second",
+    "category": "General Knowledge",
+    "difficulty": "Medium",
+    "explanation": "The speed of light in vacuum (c) is an exact physical constant equal to 299,792,458 m/s (~300,000 km/s)."
+  },
+  {
+    "id": "qz-gen-007",
+    "question": "Which organ in the human body consumes approximately 20% of the body's total oxygen and energy?",
+    "options": ["Brain", "Heart", "Liver", "Lungs"],
+    "answer": "Brain",
+    "category": "General Knowledge",
+    "difficulty": "Medium",
+    "explanation": "Although accounting for only ~2% of body mass, the human brain consumes about 20% of resting metabolic energy."
+  },
+  {
+    "id": "qz-gen-008",
+    "question": "In logical reasoning, what is a Syllogism?",
+    "options": [
+      "A form of deductive reasoning where a conclusion is drawn from two given or assumed premises.",
+      "A mathematical proof by induction.",
+      "A statistical correlation between unrelated variables.",
+      "A fallacy based on emotional appeal."
+    ],
+    "answer": "A form of deductive reasoning where a conclusion is drawn from two given or assumed premises.",
+    "category": "General Knowledge",
+    "difficulty": "Medium",
+    "explanation": "An example of a syllogism: 'All humans are mortal. Socrates is human. Therefore, Socrates is mortal.'"
+  },
+  {
+    "id": "qz-gen-009",
+    "question": "Which programming language was developed by James Gosling at Sun Microsystems in 1995?",
+    "options": ["Java", "Python", "C++", "C#"],
+    "answer": "Java",
+    "category": "General Knowledge",
+    "difficulty": "Easy",
+    "explanation": "Java was developed by James Gosling and released in 1995 with the slogan 'Write Once, Run Anywhere'."
+  },
+  {
+    "id": "qz-gen-010",
+    "question": "What mathematical constant represents the ratio of a circle's circumference to its diameter?",
+    "options": ["Pi (π)", "Euler's Number (e)", "Golden Ratio (φ)", "Tau (τ)"],
+    "answer": "Pi (π)",
+    "category": "General Knowledge",
+    "difficulty": "Easy",
+    "explanation": "Pi (π) is an irrational number approximately equal to 3.14159..."
+  }
+]

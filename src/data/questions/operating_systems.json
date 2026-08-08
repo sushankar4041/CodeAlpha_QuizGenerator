@@ -1,0 +1,132 @@
+[
+  {
+    "id": "qz-os-001",
+    "question": "What is a Process Control Block (PCB)?",
+    "options": [
+      "A data structure maintained by the OS containing state information about a specific process.",
+      "A hardware chip that manages thermal throttling.",
+      "A memory sector reserved for the BIOS bootloader.",
+      "A system call used to kill active threads."
+    ],
+    "answer": "A data structure maintained by the OS containing state information about a specific process.",
+    "category": "Operating Systems",
+    "difficulty": "Easy",
+    "explanation": "The PCB stores essential process info, including process ID, CPU registers, program counter, memory limits, and open file descriptors."
+  },
+  {
+    "id": "qz-os-002",
+    "question": "What is Virtual Memory in an Operating System?",
+    "options": [
+      "A memory management technique that creates an illusion of a large RAM by swapping pages between physical RAM and secondary disk storage.",
+      "A cloud backup service for operating system logs.",
+      "A GPU video memory buffer used for rendering 3D graphics.",
+      "A temporary cache inside CPU registers."
+    ],
+    "answer": "A memory management technique that creates an illusion of a large RAM by swapping pages between physical RAM and secondary disk storage.",
+    "category": "Operating Systems",
+    "difficulty": "Easy",
+    "explanation": "Virtual memory maps virtual address space to physical RAM or page files on disk using page tables and MMU hardware."
+  },
+  {
+    "id": "qz-os-003",
+    "question": "What is Thrashing in an Operating System?",
+    "options": [
+      "A condition where the OS spends more time swapping pages in and out of disk than executing useful work.",
+      "A process termination signal sent by the kernel during Out-Of-Memory events.",
+      "A hard drive head crash caused by excessive read operations.",
+      "An automated virus scanning routine."
+    ],
+    "answer": "A condition where the OS spends more time swapping pages in and out of disk than executing useful work.",
+    "category": "Operating Systems",
+    "difficulty": "Medium",
+    "explanation": "Thrashing occurs when active processes lack sufficient physical RAM pages, triggering high page fault rates and near-zero CPU utilization."
+  },
+  {
+    "id": "qz-os-004",
+    "question": "Which scheduling algorithm is non-preemptive and selects the process with the smallest execution burst time?",
+    "options": [
+      "Shortest Job First (SJF)",
+      "Round Robin (RR)",
+      "First-Come, First-Served (FCFS)",
+      "Priority Scheduling (Preemptive)"
+    ],
+    "answer": "Shortest Job First (SJF)",
+    "category": "Operating Systems",
+    "difficulty": "Medium",
+    "explanation": "Non-preemptive SJF assigns the CPU to the waiting process with the lowest estimated CPU burst time."
+  },
+  {
+    "id": "qz-os-005",
+    "question": "What is a Semaphore in IPC and synchronization?",
+    "options": [
+      "An integer variable used to solve critical section problems by regulating thread access to shared resources via wait() and signal() primitive operations.",
+      "A high-speed network cable interface.",
+      "A hardware interrupt controller on the motherboard.",
+      "A system log file formatted in JSON."
+    ],
+    "answer": "An integer variable used to solve critical section problems by regulating thread access to shared resources via wait() and signal() primitive operations.",
+    "category": "Operating Systems",
+    "difficulty": "Medium",
+    "explanation": "Semaphores provide synchronization primitives (Dijkstra) preventing race conditions when concurrent processes access shared memory."
+  },
+  {
+    "id": "qz-os-006",
+    "question": "What condition is NOT one of Coffman's four necessary conditions for a Deadlock to occur?",
+    "options": [
+      "Preemption allowed",
+      "Mutual Exclusion",
+      "Hold and Wait",
+      "Circular Wait"
+    ],
+    "answer": "Preemption allowed",
+    "category": "Operating Systems",
+    "difficulty": "Hard",
+    "explanation": "Coffman's conditions are: 1. Mutual Exclusion, 2. Hold and Wait, 3. No Preemption (resources cannot be forcibly taken away), 4. Circular Wait."
+  },
+  {
+    "id": "qz-os-007",
+    "question": "What is a Page Fault?",
+    "options": [
+      "An interrupt raised by hardware when a program accesses a page that is mapped into virtual memory but not currently loaded in physical RAM.",
+      "A physical hardware defect on a RAM chip.",
+      "A syntax error inside a kernel C driver.",
+      "An invalid address pointer caused by buffer overflow."
+    ],
+    "answer": "An interrupt raised by hardware when a program accesses a page that is mapped into virtual memory but not currently loaded in physical RAM.",
+    "category": "Operating Systems",
+    "difficulty": "Medium",
+    "explanation": "When a page fault occurs, the OS traps to kernel mode, fetches the missing page from disk, updates the page table, and resumes execution."
+  },
+  {
+    "id": "qz-os-008",
+    "question": "Which algorithm is used by operating systems for deadlock avoidance?",
+    "options": ["Banker's Algorithm", "LRU Page Replacement", "Elevator Disk Scheduling", "Round Robin"],
+    "answer": "Banker's Algorithm",
+    "category": "Operating Systems",
+    "difficulty": "Hard",
+    "explanation": "Dijkstra's Banker's Algorithm evaluates resource allocation requests to ensure the system remains in a safe state before granting resources."
+  },
+  {
+    "id": "qz-os-009",
+    "question": "What is the difference between a Process and a Thread?",
+    "options": [
+      "A process has its own isolated address space, while threads within a process share the same memory space.",
+      "A thread has an independent memory space, while processes share heap memory.",
+      "Processes run on GPU, while threads run on CPU.",
+      "Threads cannot run concurrently on multi-core processors."
+    ],
+    "answer": "A process has its own isolated address space, while threads within a process share the same memory space.",
+    "category": "Operating Systems",
+    "difficulty": "Easy",
+    "explanation": "Threads are lightweight execution units within a process sharing code, data, and OS resources, but maintaining independent stacks."
+  },
+  {
+    "id": "qz-os-010",
+    "question": "Which system call in Unix-like operating systems creates a new child process by duplicating the calling process?",
+    "options": ["fork()", "exec()", "pthread_create()", "wait()"],
+    "answer": "fork()",
+    "category": "Operating Systems",
+    "difficulty": "Easy",
+    "explanation": "fork() spawns an exact duplicate child process, returning 0 to the child and the child's PID to the parent process."
+  }
+]

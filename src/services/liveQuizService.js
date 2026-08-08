@@ -1,6 +1,6 @@
 import { ref, set, get, update, onValue, off, remove } from 'firebase/database';
 import { database, ensureAnonymousAuth } from './firebase';
-import { generateMockQuiz } from '../utils/quizUtils';
+import { getQuestions } from './questionBankService';
 
 const DISPLAY_NAME_KEY = 'quiz_generator_live_display_name';
 
@@ -68,16 +68,17 @@ export const createLiveRoom = async ({
   // 2. Generate unique room code with collision prevention
   const roomCode = await getUniqueRoomCode();
 
-  // 3. Generate randomized questions from flashcards
-  const generated = generateMockQuiz({
-    flashcards,
+  // 3. Generate randomized questions from System Question Bank
+  const generated = await getQuestions({
     category,
     difficulty,
-    requestedCount: questionCount
+    requestedCount: questionCount,
+    source: 'system',
+    flashcards
   });
 
   if (!generated.success || generated.questions.length === 0) {
-    throw new Error('Insufficient flashcards available for selected settings.');
+    throw new Error('Insufficient questions available for selected settings.');
   }
 
   const fullQuestions = generated.questions;

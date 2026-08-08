@@ -1,0 +1,102 @@
+[
+  {
+    "id": "qz-ds-001",
+    "question": "What is the worst-case time complexity of Quick Sort?",
+    "options": ["O(n²)", "O(n log n)", "O(n)", "O(log n)"],
+    "answer": "O(n²)",
+    "category": "Data Structures",
+    "difficulty": "Easy",
+    "explanation": "Quick Sort has a worst-case time complexity of O(n²) when the pivot selection consistently chooses the smallest or largest element (e.g. sorted arrays without random pivots)."
+  },
+  {
+    "id": "qz-ds-002",
+    "question": "Which data structure operates on a Last-In, First-Out (LIFO) principle?",
+    "options": ["Stack", "Queue", "Array", "Linked List"],
+    "answer": "Stack",
+    "category": "Data Structures",
+    "difficulty": "Easy",
+    "explanation": "A Stack inserts and removes elements from the same end, executing operations in Last-In, First-Out (LIFO) order."
+  },
+  {
+    "id": "qz-ds-003",
+    "question": "What is the average time complexity for searching an element in a balanced Binary Search Tree (BST)?",
+    "options": ["O(log n)", "O(n)", "O(1)", "O(n log n)"],
+    "answer": "O(log n)",
+    "category": "Data Structures",
+    "difficulty": "Easy",
+    "explanation": "A balanced BST cuts the remaining search space in half at each step, yielding logarithmic search time O(log n)."
+  },
+  {
+    "id": "qz-ds-004",
+    "question": "Which traversal of a Binary Search Tree produces elements in sorted non-decreasing order?",
+    "options": ["In-order Traversal", "Pre-order Traversal", "Post-order Traversal", "Level-order Traversal"],
+    "answer": "In-order Traversal",
+    "category": "Data Structures",
+    "difficulty": "Medium",
+    "explanation": "In-order traversal visits (Left, Root, Right). In a BST, all left descendants are smaller and right descendants are larger, producing a sorted sequence."
+  },
+  {
+    "id": "qz-ds-005",
+    "question": "What is the average time complexity of insertion and lookup in a Hash Table with a good hash function?",
+    "options": ["O(1)", "O(n)", "O(log n)", "O(n²)"],
+    "answer": "O(1)",
+    "category": "Data Structures",
+    "difficulty": "Medium",
+    "explanation": "Hash tables compute array indices directly using a hash function, achieving average constant-time O(1) operations."
+  },
+  {
+    "id": "qz-ds-006",
+    "question": "What is the primary advantage of a Doubly Linked List over a Singly Linked List?",
+    "options": [
+      "Traversing elements in both forward and backward directions.",
+      "Less memory consumption per node.",
+      "O(1) random access by index.",
+      "Automatic dynamic array reallocation."
+    ],
+    "answer": "Traversing elements in both forward and backward directions.",
+    "category": "Data Structures",
+    "difficulty": "Medium",
+    "explanation": "Nodes in a Doubly Linked List maintain pointers to both next and previous nodes, enabling bidirectional navigation and O(1) tail deletion if pointers exist."
+  },
+  {
+    "id": "qz-ds-007",
+    "question": "Which graph algorithm finds the shortest path from a single source vertex to all other vertices in a weighted graph with non-negative edge weights?",
+    "options": ["Dijkstra's Algorithm", "Kruskal's Algorithm", "Prim's Algorithm", "Depth-First Search (DFS)"],
+    "answer": "Dijkstra's Algorithm",
+    "category": "Data Structures",
+    "difficulty": "Hard",
+    "explanation": "Dijkstra's algorithm uses a priority queue to iteratively extract the minimum tentative distance vertex, finding shortest non-negative paths."
+  },
+  {
+    "id": "qz-ds-008",
+    "question": "What is a Max-Heap?",
+    "options": [
+      "A complete binary tree where the value of every parent node is greater than or equal to the values of its children.",
+      "A binary search tree sorted in descending order.",
+      "A hash table with linear probing.",
+      "A linked list sorted from highest to lowest."
+    ],
+    "answer": "A complete binary tree where the value of every parent node is greater than or equal to the values of its children.",
+    "category": "Data Structures",
+    "difficulty": "Medium",
+    "explanation": "In a Max-Heap binary tree, the key at the root node is the maximum key among all keys in the heap."
+  },
+  {
+    "id": "qz-ds-009",
+    "question": "Which asymptotic notation describes an absolute tight bound on an algorithm's running time?",
+    "options": ["Theta Notation (Θ)", "Big O Notation (O)", "Big Omega Notation (Ω)", "Little o Notation (o)"],
+    "answer": "Theta Notation (Θ)",
+    "category": "Data Structures",
+    "difficulty": "Hard",
+    "explanation": "Theta notation (Θ) bounds a function from both above and below, representing an asymptotically tight bound."
+  },
+  {
+    "id": "qz-ds-010",
+    "question": "What data structure is typically used to implement Breadth-First Search (BFS) on a graph?",
+    "options": ["Queue", "Stack", "Priority Queue", "Binary Search Tree"],
+    "answer": "Queue",
+    "category": "Data Structures",
+    "difficulty": "Easy",
+    "explanation": "BFS uses a First-In, First-Out (FIFO) queue to visit all neighbor vertices at the current depth before moving deeper."
+  }
+]

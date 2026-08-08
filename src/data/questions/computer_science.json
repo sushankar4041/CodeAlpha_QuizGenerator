@@ -1,0 +1,117 @@
+[
+  {
+    "id": "qz-cs-001",
+    "question": "Which component of the CPU performs arithmetic and logical operations?",
+    "options": ["Arithmetic Logic Unit (ALU)", "Control Unit (CU)", "Register File", "Cache Memory"],
+    "answer": "Arithmetic Logic Unit (ALU)",
+    "category": "Computer Science",
+    "difficulty": "Easy",
+    "explanation": "The ALU is a digital circuit within the CPU that carries out integer arithmetic (add, subtract) and bitwise logic operations (AND, OR, NOT)."
+  },
+  {
+    "id": "qz-cs-002",
+    "question": "What does Von Neumann Architecture use for storing both program instructions and data?",
+    "options": [
+      "A single shared physical memory space",
+      "Separate isolated instruction and data memories",
+      "Optical magnetic tape drives",
+      "Hardware registers only"
+    ],
+    "answer": "A single shared physical memory space",
+    "category": "Computer Science",
+    "difficulty": "Medium",
+    "explanation": "Von Neumann architecture stores both code instructions and data in the same unified main memory system."
+  },
+  {
+    "id": "qz-cs-003",
+    "question": "Which compiler phase checks whether the token stream adheres to the grammatical rules of the programming language?",
+    "options": ["Syntax Analysis (Parsing)", "Lexical Analysis (Scanning)", "Semantic Analysis", "Code Generation"],
+    "answer": "Syntax Analysis (Parsing)",
+    "category": "Computer Science",
+    "difficulty": "Medium",
+    "explanation": "Syntax analysis (or parsing) takes tokens produced by the lexical analyzer and constructs a Parse Tree or Abstract Syntax Tree (AST)."
+  },
+  {
+    "id": "qz-cs-004",
+    "question": "What is the primary function of an Assembler?",
+    "options": [
+      "Translates assembly language code into machine code (binary object code).",
+      "Translates high-level code directly into HTML.",
+      "Executes script lines one by one at runtime.",
+      "Manages system thread scheduling."
+    ],
+    "answer": "Translates assembly language code into machine code (binary object code).",
+    "category": "Computer Science",
+    "difficulty": "Easy",
+    "explanation": "An assembler converts low-level assembly mnemonics (e.g. MOV, ADD) into direct binary machine code instructions."
+  },
+  {
+    "id": "qz-cs-005",
+    "question": "In Object-Oriented Programming, what concept allows a subclass to provide a specific implementation of a method already defined in its superclass?",
+    "options": ["Method Overriding", "Method Overloading", "Encapsulation", "Abstraction"],
+    "answer": "Method Overriding",
+    "category": "Computer Science",
+    "difficulty": "Easy",
+    "explanation": "Method overriding allows a derived class to redefine a method inherited from a parent class with a matching signature."
+  },
+  {
+    "id": "qz-cs-006",
+    "question": "What is the decimal equivalent of the binary number 10110?",
+    "options": ["22", "18", "26", "20"],
+    "answer": "22",
+    "category": "Computer Science",
+    "difficulty": "Easy",
+    "explanation": "1*16 + 0*8 + 1*4 + 1*2 + 0*1 = 16 + 4 + 2 = 22."
+  },
+  {
+    "id": "qz-cs-007",
+    "question": "Which design pattern restricts the instantiation of a class to a single global instance?",
+    "options": ["Singleton Pattern", "Factory Pattern", "Observer Pattern", "Strategy Pattern"],
+    "answer": "Singleton Pattern",
+    "category": "Computer Science",
+    "difficulty": "Medium",
+    "explanation": "The Singleton pattern ensures a class has only one instance while providing a global point of access to that instance."
+  },
+  {
+    "id": "qz-cs-008",
+    "question": "What problem does Turing Completeness address?",
+    "options": [
+      "Whether a system can simulate any single-taped Turing machine and solve any computable algorithm given sufficient memory.",
+      "The rate at which processor clock speeds double every 18 months.",
+      "The bandwidth capacity of wireless transmission lines.",
+      "The memory leakage rate of garbage collectors."
+    ],
+    "answer": "Whether a system can simulate any single-taped Turing machine and solve any computable algorithm given sufficient memory.",
+    "category": "Computer Science",
+    "difficulty": "Hard",
+    "explanation": "A system is Turing complete if it can perform any computation that a universal Turing machine can execute."
+  },
+  {
+    "id": "qz-cs-009",
+    "question": "What is the difference between static and dynamic linking?",
+    "options": [
+      "Static linking includes library code into the final executable at compile time, while dynamic linking resolves library references at runtime.",
+      "Dynamic linking includes code at compile time, while static linking resolves references via network.",
+      "Static linking only works for interpreted languages.",
+      "There is no functional difference between static and dynamic linking."
+    ],
+    "answer": "Static linking includes library code into the final executable at compile time, while dynamic linking resolves library references at runtime.",
+    "category": "Computer Science",
+    "difficulty": "Medium",
+    "explanation": "Static binaries bundle all dependencies into a single binary file; dynamic binaries reference shared libraries (.so / .dll) loaded into memory at launch."
+  },
+  {
+    "id": "qz-cs-010",
+    "question": "Which principle of SOLID design states that software entities should be open for extension, but closed for modification?",
+    "options": [
+      "Open/Closed Principle (OCP)",
+      "Single Responsibility Principle (SRP)",
+      "Liskov Substitution Principle (LSP)",
+      "Dependency Inversion Principle (DIP)"
+    ],
+    "answer": "Open/Closed Principle (OCP)",
+    "category": "Computer Science",
+    "difficulty": "Hard",
+    "explanation": "The Open/Closed Principle advocates designing software modules so new behavior can be added via sub-typing or interfaces without modifying existing source code."
+  }
+]

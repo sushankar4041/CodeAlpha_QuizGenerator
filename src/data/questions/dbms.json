@@ -1,0 +1,112 @@
+[
+  {
+    "id": "qz-dbms-001",
+    "question": "Which SQL clause is used to filter records after an aggregate function (e.g. GROUP BY) has been applied?",
+    "options": ["HAVING", "WHERE", "ORDER BY", "FILTER"],
+    "answer": "HAVING",
+    "category": "DBMS",
+    "difficulty": "Easy",
+    "explanation": "The HAVING clause filters aggregated group results, whereas WHERE filters individual rows before aggregation occurs."
+  },
+  {
+    "id": "qz-dbms-002",
+    "question": "What does ACID stand for in Database Transaction Management?",
+    "options": [
+      "Atomicity, Consistency, Isolation, Durability",
+      "Authentication, Concurrency, Integrity, Dependency",
+      "Access, Control, Indexing, Data",
+      "Aggregation, Compression, Isolation, Distribution"
+    ],
+    "answer": "Atomicity, Consistency, Isolation, Durability",
+    "category": "DBMS",
+    "difficulty": "Easy",
+    "explanation": "ACID properties ensure reliable processing of database transactions: Atomicity (all-or-nothing), Consistency, Isolation, and Durability."
+  },
+  {
+    "id": "qz-dbms-003",
+    "question": "Which Normal Form eliminates transitive dependencies in a database relation?",
+    "options": ["Third Normal Form (3NF)", "First Normal Form (1NF)", "Second Normal Form (2NF)", "Boyce-Codd Normal Form (BCNF)"],
+    "answer": "Third Normal Form (3NF)",
+    "category": "DBMS",
+    "difficulty": "Medium",
+    "explanation": "A relation is in 3NF if it is in 2NF and no non-prime attribute is transitively dependent on the primary key."
+  },
+  {
+    "id": "qz-dbms-004",
+    "question": "Which of the following keys uniquely identifies a tuple in a database relation and can contain a minimal set of attributes?",
+    "options": ["Candidate Key", "Foreign Key", "Super Key", "Secondary Key"],
+    "answer": "Candidate Key",
+    "category": "DBMS",
+    "difficulty": "Medium",
+    "explanation": "A Candidate Key is a minimal Super Key, meaning no proper subset of the attributes can uniquely identify tuples."
+  },
+  {
+    "id": "qz-dbms-005",
+    "question": "What is a Foreign Key in a relational database?",
+    "options": [
+      "A field in one table that uniquely identifies a row in another table by referencing its Primary Key.",
+      "A primary key generated automatically by a remote database server.",
+      "An index used exclusively for full-text search operations.",
+      "A key used to encrypt sensitive columns stored on disk."
+    ],
+    "answer": "A field in one table that uniquely identifies a row in another table by referencing its Primary Key.",
+    "category": "DBMS",
+    "difficulty": "Easy",
+    "explanation": "Foreign Keys enforce referential integrity between child and parent tables in relational database management systems."
+  },
+  {
+    "id": "qz-dbms-006",
+    "question": "Which SQL JOIN type returns all records when there is a match in either left or right table records?",
+    "options": ["FULL OUTER JOIN", "INNER JOIN", "LEFT JOIN", "CROSS JOIN"],
+    "answer": "FULL OUTER JOIN",
+    "category": "DBMS",
+    "difficulty": "Medium",
+    "explanation": "FULL OUTER JOIN combines the results of both LEFT and RIGHT joins, returning all matching and non-matching rows from both sides."
+  },
+  {
+    "id": "qz-dbms-007",
+    "question": "What is the primary data structure used for database indexing in B-Tree index implementations?",
+    "options": ["Balanced B+ Tree", "Hash Table", "Binary Search Tree", "Linked List"],
+    "answer": "Balanced B+ Tree",
+    "category": "DBMS",
+    "difficulty": "Hard",
+    "explanation": "B+ Trees are self-balancing search trees widely used in disk-based storage engines because all data pointers reside in leaf nodes, supporting fast sequential block access."
+  },
+  {
+    "id": "qz-dbms-008",
+    "question": "What is a Deadlock in database transaction concurrency control?",
+    "options": [
+      "A scenario where two or more transactions are waiting indefinitely for locks held by each other.",
+      "A disk crash that corrupts log files.",
+      "A query that runs for longer than the timeout limit.",
+      "A table lock applied during index rebuilding."
+    ],
+    "answer": "A scenario where two or more transactions are waiting indefinitely for locks held by each other.",
+    "category": "DBMS",
+    "difficulty": "Hard",
+    "explanation": "Deadlocks occur when transaction T1 holds lock A and requests lock B, while transaction T2 holds lock B and requests lock A."
+  },
+  {
+    "id": "qz-dbms-009",
+    "question": "Which command is used to permanently undo changes made in the current transaction block before a COMMIT?",
+    "options": ["ROLLBACK", "DROP", "TRUNCATE", "REVOKE"],
+    "answer": "ROLLBACK",
+    "category": "DBMS",
+    "difficulty": "Easy",
+    "explanation": "ROLLBACK aborts the current transaction, discarding all modifications made since the BEGIN TRANSACTION statement."
+  },
+  {
+    "id": "qz-dbms-010",
+    "question": "What is the key difference between DELETE and TRUNCATE statements in SQL?",
+    "options": [
+      "DELETE is a DML command that can be rolled back, while TRUNCATE is a DDL command that deallocates table data pages faster.",
+      "TRUNCATE allows WHERE clauses, while DELETE operates on the entire table only.",
+      "DELETE drops table schema, while TRUNCATE deletes specific rows.",
+      "Both commands perform identical operations in SQL databases."
+    ],
+    "answer": "DELETE is a DML command that can be rolled back, while TRUNCATE is a DDL command that deallocates table data pages faster.",
+    "category": "DBMS",
+    "difficulty": "Hard",
+    "explanation": "TRUNCATE resets identity columns and deallocates data pages quickly without logging individual row deletions, whereas DELETE logs row by row."
+  }
+]

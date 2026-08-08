@@ -15,6 +15,7 @@ import {
 import { ensureAnonymousAuth } from '../services/firebase';
 import { getCategoryIcon } from '../utils/quizUtils';
 import { getStoredLearnerProfile, getStoredPreferences } from '../services/storage';
+import { SYSTEM_CATEGORIES } from '../services/questionBankService';
 
 /**
  * Live Quiz Master Coordinator Component - Phase 6C
@@ -46,10 +47,10 @@ export default function LiveQuiz({ flashcards = [], profile = {}, preferences, o
   const [joinCodeInput, setJoinCodeInput] = useState('');
   const [playerNameInput, setPlayerNameInput] = useState(activeName);
 
-  // Categories list derived from flashcards
+  // Categories list derived from System Question Bank & flashcards
   const categoriesList = useMemo(() => {
-    const set = new Set(flashcards.map((c) => c.category));
-    return ['All Categories', ...Array.from(set)];
+    const set = new Set([...SYSTEM_CATEGORIES, ...flashcards.map((c) => c.category)]);
+    return Array.from(set);
   }, [flashcards]);
 
   // Ensure Anonymous Auth on mount

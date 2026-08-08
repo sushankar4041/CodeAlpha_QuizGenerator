@@ -3,12 +3,12 @@ import MockQuizConfig from './MockQuizConfig';
 import MockQuizSession from './MockQuizSession';
 import MockQuizResults from './MockQuizResults';
 import MockQuizReview from './MockQuizReview';
-import { generateMockQuiz } from '../utils/quizUtils';
+import { getQuestions } from '../services/questionBankService';
 
 /**
- * Mock Quiz Master Coordinator Component - Phase 6C
+ * Mock Quiz Master Coordinator Component - Phase 8B
  * Orchestrates Mock Quiz stages: Config -> Active Session -> Results -> Answer Review
- * Migrated browser alert to toast notification system.
+ * Consumes questionBankService for System Question Bank & User Flashcards.
  */
 export default function MockQuiz({ flashcards = [], preferences, onSaveQuizResult, onNavigateToFlashcards, onShowToast }) {
   const [stage, setStage] = useState('config'); // 'config' | 'active' | 'results' | 'review'
@@ -16,29 +16,45 @@ export default function MockQuiz({ flashcards = [], preferences, onSaveQuizResul
   const [questions, setQuestions] = useState([]);
   const [userAnswers, setUserAnswers] = useState({});
   const [result, setResult] = useState(null);
+  const [loading, setLoading] = useState(false);
 
   // 1. Start Quiz Handler (Generate Quiz & Begin Session)
-  const handleStartQuiz = (configData) => {
+  const handleStartQuiz = async (configData) => {
     setActiveConfig(configData);
+    setLoading(true);
 
-    const generated = generateMockQuiz({
-      flashcards,
-      category: configData.category,
-      difficulty: configData.difficulty,
-      requestedCount: configData.questionCount
-    });
+    try {
+      const generated = await getQuestions({
+        category: configData.category,
+        difficulty: configData.difficulty,
+        requestedCount: configData.questionCount,
+        source: configData.source || 'system',
+        flashcards
+      });
 
-    if (!generated.success) {
-      if (onShowToast) {
-        onShowToast('Could not generate quiz with selected settings.', 'error');
+      if (!generated.success || generated.questions.length === 0) {
+        if (onShowToast) {
+          onShowToast('Could not generate quiz with selected settings.', 'error');
+        }
+        return;
       }
-      return;
-    }
 
-    setQuestions(generated.questions);
-    setUserAnswers({});
-    setResult(null);
-    setStage('active');
+      if (generated.warning && onShowToast) {
+        onShowToast(generated.warning, 'info');
+      }
+
+      setQuestions(generated.questions);
+      setUserAnswers({});
+      setResult(null);
+      setStage('active');
+    } catch (err) {
+      console.error('Error starting mock quiz:', err);
+      if (onShowToast) {
+        onShowToast('An error occurred while generating the quiz.', 'error');
+      }
+    } finally {
+      setLoading(false);
+    }
   };
 
   // 2. Select Answer Handler
@@ -119,6 +135,7 @@ export default function MockQuiz({ flashcards = [], preferences, onSaveQuizResul
           preferences={preferences}
           onStartQuiz={handleStartQuiz}
           onNavigateToFlashcards={onNavigateToFlashcards}
+          loading={loading}
         />
       )}
 

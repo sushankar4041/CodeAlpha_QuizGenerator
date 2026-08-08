@@ -1,0 +1,107 @@
+[
+  {
+    "id": "qz-net-001",
+    "question": "Which layer of the OSI model is responsible for end-to-end reliability and flow control (e.g. TCP)?",
+    "options": ["Transport Layer (Layer 4)", "Network Layer (Layer 3)", "Data Link Layer (Layer 2)", "Application Layer (Layer 7)"],
+    "answer": "Transport Layer (Layer 4)",
+    "category": "Networking",
+    "difficulty": "Easy",
+    "explanation": "The Transport Layer (OSI Layer 4) manages end-to-end communication, error detection, flow control, and port multiplexing (TCP / UDP)."
+  },
+  {
+    "id": "qz-net-002",
+    "question": "What is the default TCP port used for secure HTTPS connections?",
+    "options": ["443", "80", "22", "8080"],
+    "answer": "443",
+    "category": "Networking",
+    "difficulty": "Easy",
+    "explanation": "HTTPS (HTTP over TLS/SSL) uses port 443 by default, whereas unencrypted HTTP uses port 80."
+  },
+  {
+    "id": "qz-net-003",
+    "question": "What protocol translates human-readable domain names (e.g. example.com) into IP addresses?",
+    "options": ["DNS (Domain Name System)", "DHCP", "ARP", "ICMP"],
+    "answer": "DNS (Domain Name System)",
+    "category": "Networking",
+    "difficulty": "Easy",
+    "explanation": "DNS acts as the phonebook of the Internet, resolving domain hostnames to IP addresses."
+  },
+  {
+    "id": "qz-net-004",
+    "question": "What protocol resolves IP addresses to physical MAC hardware addresses on a local local area network?",
+    "options": ["ARP (Address Resolution Protocol)", "RARP", "DNS", "BGP"],
+    "answer": "ARP (Address Resolution Protocol)",
+    "category": "Networking",
+    "difficulty": "Medium",
+    "explanation": "ARP maps dynamic 32-bit IPv4 addresses to 48-bit Ethernet MAC addresses for frame transmission inside local network segments."
+  },
+  {
+    "id": "qz-net-005",
+    "question": "What is the key difference between TCP and UDP?",
+    "options": [
+      "TCP is connection-oriented and reliable, while UDP is connectionless and lightweight.",
+      "UDP guarantees packet delivery order, while TCP does not.",
+      "TCP operates at Layer 3, while UDP operates at Layer 7.",
+      "UDP performs 3-way handshakes before transmission."
+    ],
+    "answer": "TCP is connection-oriented and reliable, while UDP is connectionless and lightweight.",
+    "category": "Networking",
+    "difficulty": "Easy",
+    "explanation": "TCP establishes a connection via 3-way handshake and guarantees packet ordering; UDP broadcasts datagrams without handshake overhead."
+  },
+  {
+    "id": "qz-net-006",
+    "question": "What is the subnet mask for a default Class C IPv4 address block (/24)?",
+    "options": ["255.255.255.0", "255.255.0.0", "255.0.0.0", "255.255.255.128"],
+    "answer": "255.255.255.0",
+    "category": "Networking",
+    "difficulty": "Medium",
+    "explanation": "A /24 subnet mask uses 24 contiguous 1 bits, translating to 255.255.255.0 and accommodating up to 254 usable host IPs."
+  },
+  {
+    "id": "qz-net-007",
+    "question": "What steps constitute the TCP Three-Way Handshake?",
+    "options": [
+      "SYN → SYN-ACK → ACK",
+      "ACK → SYN → FIN",
+      "HELLO → CONNECT → OK",
+      "SYN → ACK → DATA"
+    ],
+    "answer": "SYN → SYN-ACK → ACK",
+    "category": "Networking",
+    "difficulty": "Medium",
+    "explanation": "Client sends SYN (synchronize); server responds with SYN-ACK; client sends ACK (acknowledge) to establish a TCP session."
+  },
+  {
+    "id": "qz-net-008",
+    "question": "Which HTTP status code signifies that a requested resource was not found on the server?",
+    "options": ["404 Not Found", "500 Internal Server Error", "403 Forbidden", "301 Moved Permanently"],
+    "answer": "404 Not Found",
+    "category": "Networking",
+    "difficulty": "Easy",
+    "explanation": "404 Not Found indicates that the server cannot locate the requested endpoint or resource URL."
+  },
+  {
+    "id": "qz-net-009",
+    "question": "What is NAT (Network Address Translation) used for?",
+    "options": [
+      "Remapping private IP space into a public IP address space for internet routing.",
+      "Encrypting TLS packets at the application gateway.",
+      "Assigning dynamic host IP configurations automatically.",
+      "Filtering distributed denial-of-service traffic."
+    ],
+    "answer": "Remapping private IP space into a public IP address space for internet routing.",
+    "category": "Networking",
+    "difficulty": "Hard",
+    "explanation": "NAT allows multiple devices on a private local network to share a single public IPv4 address assigned by an ISP."
+  },
+  {
+    "id": "qz-net-010",
+    "question": "Which protocol operates at the Internet/Network layer to report network diagnostic errors (e.g. ping command)?",
+    "options": ["ICMP (Internet Control Message Protocol)", "IGMP", "SNMP", "SMTP"],
+    "answer": "ICMP (Internet Control Message Protocol)",
+    "category": "Networking",
+    "difficulty": "Medium",
+    "explanation": "ICMP is used by network devices to send error messages and operational information (echo request/reply for ping)."
+  }
+]
