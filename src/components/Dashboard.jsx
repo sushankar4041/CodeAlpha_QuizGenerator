@@ -2,9 +2,10 @@ import { getCategoryIcon } from '../utils/quizUtils';
 import { calculateOverviewStats } from '../utils/statisticsUtils';
 
 /**
- * Dashboard View Component - Phase 6E
- * Learner portal showing real persisted stats and personalized learner greeting.
- * Enhanced with full keyboard interaction and ARIA accessibility labels.
+ * Dashboard View Component - Phase 7 QuizForge
+ * Learning Command Center showing real persisted stats, personalized greeting,
+ * "Continue Learning" hero block with "Resume Session" Brushed Amber CTA,
+ * Quick Actions, and Category Breakdown.
  */
 export default function Dashboard({
   onNavigateView,
@@ -35,53 +36,151 @@ export default function Dashboard({
     }
   };
 
+  const recentTopic = categoriesList.length > 0 ? categoriesList[0].name : 'JavaScript Fundamentals';
+
   return (
     <div className="dashboard-container">
-      {/* 1. Personalized Welcome Banner */}
-      <section className="welcome-banner" aria-label="Welcome Overview">
-        <div className="welcome-content">
-          <div className="welcome-pill">⚡ Learning Workspace</div>
-          <h1 className="welcome-title">
-            {displayName !== 'Learner' ? `Ready to learn something new, ${displayName}?` : 'Ready to learn something new?'}
-          </h1>
-          <p className="welcome-subtitle">
-            Create flashcards, test your knowledge, or challenge others in real-time.
-          </p>
-          <div className="welcome-actions">
+      {/* 1. Command Center Greeting & KPI Metrics Header */}
+      <section className="command-center-header" aria-label="Learning Command Center Header">
+        <div className="greeting-row">
+          <div>
+            <h1 className="welcome-title">
+              Good morning, {displayName}! 👋
+            </h1>
+            <p className="welcome-subtitle">Let&apos;s continue your learning journey.</p>
+          </div>
+
+          <div className="header-quick-actions">
             <button
               type="button"
               className="btn btn-primary"
               onClick={() => onNavigateView('flashcards')}
             >
-              <span>Explore Flashcards</span>
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                <line x1="5" y1="12" x2="19" y2="12" />
-                <polyline points="12 5 19 12 12 19" />
-              </svg>
-            </button>
-            <button
-              type="button"
-              className="btn btn-secondary"
-              onClick={() => onNavigateView('live-quiz')}
-            >
-              <span>Join Live Quiz ⚡</span>
+              <span>+ Add Flashcard</span>
             </button>
           </div>
         </div>
-        <div className="welcome-illustration" aria-hidden="true">
-          <div className="card-stack-decoration">
-            <div className="deco-card card-3">DBMS 🗄️</div>
-            <div className="deco-card card-2">React ⚛️</div>
-            <div className="deco-card card-1">JavaScript 🟨</div>
+
+        {/* KPI Metrics Row */}
+        <div className="dashboard-stats-grid">
+          <div className="stat-card">
+            <div className="stat-icon-wrapper amber" aria-hidden="true">🎴</div>
+            <div className="stat-details">
+              <span className="stat-value">{overview.totalCards}</span>
+              <span className="stat-label">Total Cards</span>
+            </div>
+          </div>
+
+          <div className="stat-card">
+            <div className="stat-icon-wrapper amber" aria-hidden="true">📝</div>
+            <div className="stat-details">
+              <span className="stat-value">{overview.quizzesCompleted}</span>
+              <span className="stat-label">Quizzes Taken</span>
+            </div>
+          </div>
+
+          <div className="stat-card">
+            <div className="stat-icon-wrapper green" aria-hidden="true">🎯</div>
+            <div className="stat-details">
+              <span className="stat-value">{overview.averageScore}%</span>
+              <span className="stat-label">Avg. Score</span>
+            </div>
+          </div>
+
+          <div className="stat-card">
+            <div className="stat-icon-wrapper streak" aria-hidden="true">🔥</div>
+            <div className="stat-details">
+              <span className="stat-value">7 Days</span>
+              <span className="stat-label">Current Streak</span>
+            </div>
           </div>
         </div>
       </section>
 
-      {/* 2. Four Primary Experience Cards */}
+      {/* 2. Hero Section: Continue Learning & Quick Actions Panel */}
+      <section className="command-hero-grid" aria-label="Continue Learning and Quick Actions">
+        {/* Continue Learning Hero Block */}
+        <div className="continue-learning-hero">
+          <div className="hero-content-col">
+            <span className="hero-badge">IN PROGRESS</span>
+            <h2 className="hero-title">Continue Learning</h2>
+            <p className="hero-subtitle">{recentTopic}</p>
+            <div className="hero-progress-meta">
+              <div className="progress-bar-container">
+                <div className="progress-bar-fill" style={{ width: '65%' }}></div>
+              </div>
+              <span className="progress-text-label">12 / 20 cards studied</span>
+            </div>
+            <button
+              type="button"
+              className="btn btn-primary btn-resume-session"
+              onClick={() => onNavigateView('flashcards')}
+            >
+              <span>Resume Session →</span>
+            </button>
+          </div>
+
+          <div className="hero-cards-stack-illustration" aria-hidden="true">
+            <div className="card-stack-decoration">
+              <div className="deco-card card-3">DBMS 🗄️</div>
+              <div className="deco-card card-2">React ⚛️</div>
+              <div className="deco-card card-1">JavaScript 🟨</div>
+            </div>
+          </div>
+        </div>
+
+        {/* Quick Actions Panel */}
+        <div className="quick-actions-panel">
+          <h3 className="panel-title">Quick Actions</h3>
+          <div className="quick-actions-list">
+            <button
+              type="button"
+              className="quick-action-item"
+              onClick={() => onNavigateView('mock-quiz')}
+            >
+              <span className="action-icon">📝</span>
+              <span className="action-label">Start Mock Quiz</span>
+              <span className="action-arrow">›</span>
+            </button>
+
+            <button
+              type="button"
+              className="quick-action-item"
+              onClick={() => onNavigateView('live-quiz')}
+            >
+              <span className="action-icon">👑</span>
+              <span className="action-label">Host Live Quiz</span>
+              <span className="action-arrow">›</span>
+            </button>
+
+            <button
+              type="button"
+              className="quick-action-item"
+              onClick={() => onNavigateView('live-quiz')}
+            >
+              <span className="action-icon">🎮</span>
+              <span className="action-label">Join Live Quiz</span>
+              <span className="action-arrow">›</span>
+            </button>
+
+            <button
+              type="button"
+              className="quick-action-item"
+              onClick={() => onNavigateView('flashcards')}
+            >
+              <span className="action-icon">🎴</span>
+              <span className="action-label">Browse Flashcards</span>
+              <span className="action-arrow">›</span>
+            </button>
+          </div>
+        </div>
+      </section>
+
+      {/* 3. Core Learning Experience Cards */}
       <section className="dashboard-section" aria-label="Core Learning Experiences">
         <h3 className="section-title">Core Learning Experiences</h3>
         <div className="three-cards-grid">
-          {/* Flashcards (Create / Study) */}
+          {/* Flashcards */}
           <div
             className="feature-card learning-card"
             onClick={() => onNavigateView('flashcards')}
@@ -92,7 +191,7 @@ export default function Dashboard({
           >
             <div className="feature-card-header">
               <div className="feature-icon-box purple" aria-hidden="true">🎴</div>
-              <span className="badge badge-purple">Active Mode</span>
+              <span className="badge badge-amber">Active Mode</span>
             </div>
             <div className="feature-card-meta">
               <span className="feature-mode-label">CREATE & STUDY</span>
@@ -106,7 +205,7 @@ export default function Dashboard({
             </div>
           </div>
 
-          {/* Mock Quiz (Self-Assessment) */}
+          {/* Mock Quiz */}
           <div
             className="feature-card assessment-card"
             onClick={() => onNavigateView('mock-quiz')}
@@ -117,7 +216,7 @@ export default function Dashboard({
           >
             <div className="feature-card-header">
               <div className="feature-icon-box blue" aria-hidden="true">📝</div>
-              <span className="badge badge-purple">Active Mode</span>
+              <span className="badge badge-amber">Active Mode</span>
             </div>
             <div className="feature-card-meta">
               <span className="feature-mode-label">SELF-ASSESS</span>
@@ -131,7 +230,7 @@ export default function Dashboard({
             </div>
           </div>
 
-          {/* Live Quiz (Real-Time Multiplayer) */}
+          {/* Live Quiz */}
           <div
             className="feature-card competition-card"
             onClick={() => onNavigateView('live-quiz')}
@@ -142,7 +241,7 @@ export default function Dashboard({
           >
             <div className="feature-card-header">
               <div className="feature-icon-box amber" aria-hidden="true">⚡</div>
-              <span className="badge badge-purple">Active Mode</span>
+              <span className="badge badge-amber">Active Mode</span>
             </div>
             <div className="feature-card-meta">
               <span className="feature-mode-label">COMPETE</span>
@@ -154,41 +253,6 @@ export default function Dashboard({
             <div className="feature-card-footer">
               <span className="feature-cta-btn primary-cta">Join Live Quiz ⚡</span>
             </div>
-          </div>
-        </div>
-      </section>
-
-      {/* 3. Real Persisted Overview Stats */}
-      <section className="dashboard-stats-grid" aria-label="Persisted Learning Statistics">
-        <div className="stat-card">
-          <div className="stat-icon-wrapper purple" aria-hidden="true">📚</div>
-          <div className="stat-details">
-            <span className="stat-value">{overview.totalCards}</span>
-            <span className="stat-label">Total Flashcards</span>
-          </div>
-        </div>
-
-        <div className="stat-card">
-          <div className="stat-icon-wrapper blue" aria-hidden="true">🎯</div>
-          <div className="stat-details">
-            <span className="stat-value">{overview.quizzesCompleted}</span>
-            <span className="stat-label">Quizzes Completed</span>
-          </div>
-        </div>
-
-        <div className="stat-card">
-          <div className="stat-icon-wrapper green" aria-hidden="true">📖</div>
-          <div className="stat-details">
-            <span className="stat-value">{overview.totalStudied}</span>
-            <span className="stat-label">Cards Studied</span>
-          </div>
-        </div>
-
-        <div className="stat-card">
-          <div className="stat-icon-wrapper amber" aria-hidden="true">🏆</div>
-          <div className="stat-details">
-            <span className="stat-value">{overview.averageScore}%</span>
-            <span className="stat-label">Overall Accuracy</span>
           </div>
         </div>
       </section>

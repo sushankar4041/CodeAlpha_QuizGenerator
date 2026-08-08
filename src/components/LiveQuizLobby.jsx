@@ -1,8 +1,9 @@
 import { useState } from 'react';
 
 /**
- * Live Quiz Lobby Component - Phase 6C
- * Displays 6-digit room code, player list grid, host controls, and start button
+ * Live Quiz Lobby Component - Phase 7 QuizForge
+ * Displays 6-digit room code with QuizForge Q vinyl-inspired dial icon,
+ * connected player grid, host controls, and start button.
  */
 export default function LiveQuizLobby({ roomData, localPlayerId, onStartQuiz, onLeaveRoom, onShowToast }) {
   const [copied, setCopied] = useState(false);
@@ -26,15 +27,23 @@ export default function LiveQuizLobby({ roomData, localPlayerId, onStartQuiz, on
   return (
     <div className="live-lobby-container animate-fade-in">
       <div className="lobby-header-card">
-        <div className="concept-badge competition">Multiplayer Lobby</div>
+        {/* Subtle QuizForge Q Dial Brand Treatment */}
+        <div className="q-vinyl-dial-wrapper" aria-hidden="true">
+          <div className="q-vinyl-dial">
+            <span className="q-dial-letter">Q</span>
+            <div className="q-dial-ring"></div>
+          </div>
+        </div>
+
+        <div className="concept-badge competition">Multiplayer Competition Lobby</div>
         <h2 className="lobby-title">Waiting for Players...</h2>
         <p className="lobby-subtitle">
-          Share the 6-digit room code with classmates to join this live competition.
+          Share the 6-digit room code with classmates to join this live competition room.
         </p>
 
-        {/* Room Code Display Box */}
+        {/* High-Energy Room Code Display Box */}
         <div className="room-code-display-box">
-          <div className="code-label">JOIN CODE:</div>
+          <div className="code-label">ROOM JOIN CODE:</div>
           <div className="code-value">{roomCode}</div>
           <button
             type="button"

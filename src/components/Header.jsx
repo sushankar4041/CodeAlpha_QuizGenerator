@@ -1,5 +1,5 @@
 /**
- * Top Header Component - Phase 6E
+ * Top Header Component - Phase 7 QuizForge
  * Contains section metadata, theme toggle, mobile menu toggle, and user-neutral profile pill.
  * Fully keyboard accessible with ARIA labels.
  */
@@ -16,7 +16,7 @@ export default function Header({
       case 'dashboard':
         return {
           title: 'Dashboard Overview',
-          subtitle: 'Welcome to your flashcard and quiz learning workspace.'
+          subtitle: 'Welcome to your QuizForge golden learning workspace.'
         };
       case 'flashcards':
         return {
@@ -45,8 +45,8 @@ export default function Header({
         };
       default:
         return {
-          title: 'Quiz Generator',
-          subtitle: 'Learn. Practice. Remember.'
+          title: 'QuizForge',
+          subtitle: 'Learn. Practice. Compete. Improve.'
         };
     }
   };
