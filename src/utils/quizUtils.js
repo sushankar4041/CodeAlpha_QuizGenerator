@@ -86,7 +86,7 @@ export const generateMockQuiz = ({
   // 1. Filter flashcards by category and difficulty
   let matchingCards = flashcards;
 
-  if (category && category !== 'All Categories') {
+  if (category && category.toLowerCase() !== 'all categories') {
     matchingCards = matchingCards.filter(
       (c) => c.category.toLowerCase() === category.toLowerCase()
     );

@@ -426,6 +426,7 @@ export default function LiveQuiz({ flashcards = [], profile = {}, preferences, o
 
           {(roomData.status === 'QUESTION_ACTIVE' || roomData.status === 'QUESTION_LOCKED') && (
             <LiveQuizSession
+              key={`live-session-${roomData.roomCode}-${roomData.currentQuestionIndex}`}
               roomData={roomData}
               localPlayerId={authUid}
               onSubmitAnswer={handleSubmitAnswer}

@@ -20,7 +20,7 @@ const CATEGORY_DATASET_MAP = {
  */
 async function loadCategoryDataset(categoryKey) {
   try {
-    if (categoryKey && categoryKey !== 'all categories') {
+    if (categoryKey && categoryKey.toLowerCase() !== 'all categories') {
       const loader = CATEGORY_DATASET_MAP[categoryKey.toLowerCase()];
       if (loader) {
         const module = await loader();
@@ -91,7 +91,7 @@ export async function getQuestions({
 
   // 3. Filter by category (if 'All Categories' was loaded)
   let filtered = rawQuestions;
-  if (category && category !== 'All Categories') {
+  if (category && category.toLowerCase() !== 'all categories') {
     filtered = filtered.filter(
       (q) => q.category.toLowerCase() === category.toLowerCase()
     );
@@ -169,7 +169,7 @@ export async function getAvailableQuestionCount({
   const rawQuestions = await loadCategoryDataset(category);
   let filtered = rawQuestions;
 
-  if (category && category !== 'All Categories') {
+  if (category && category.toLowerCase() !== 'all categories') {
     filtered = filtered.filter((q) => q.category.toLowerCase() === category.toLowerCase());
   }
 
