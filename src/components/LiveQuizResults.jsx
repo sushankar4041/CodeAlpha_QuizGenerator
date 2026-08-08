@@ -1,8 +1,15 @@
+import { useEffect } from 'react';
+import { recordLearningActivity } from '../services/storage';
+
 /**
  * Live Quiz Results & Podium Component - Phase 7B Quizelle
  * Displays Gold/Silver/Bronze podium standings and final multiplayer score rankings.
  */
 export default function LiveQuizResults({ roomData, localPlayerId, onReturnHome }) {
+  useEffect(() => {
+    recordLearningActivity();
+  }, []);
+
   if (!roomData) return null;
 
   const playersList = Object.values(roomData.players || {}).sort(

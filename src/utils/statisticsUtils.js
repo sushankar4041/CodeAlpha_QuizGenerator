@@ -144,3 +144,50 @@ export const formatQuizDate = (isoString) => {
     return 'Just now';
   }
 };
+
+/**
+ * Returns YYYY-MM-DD in local time zone
+ */
+const getLocalDateString = (dateObj = new Date()) => {
+  const d = new Date(dateObj);
+  const year = d.getFullYear();
+  const month = String(d.getMonth() + 1).padStart(2, '0');
+  const day = String(d.getDate()).padStart(2, '0');
+  return `${year}-${month}-${day}`;
+};
+
+/**
+ * Calculate current consecutive-day learning streak
+ * @param {Array<string>} activityDates - Array of YYYY-MM-DD date strings
+ * @param {Date} [referenceDate] - Optional reference date (defaults to today)
+ * @returns {number} Current streak in days
+ */
+export const calculateCurrentStreak = (activityDates = [], referenceDate = new Date()) => {
+  if (!Array.isArray(activityDates) || activityDates.length === 0) {
+    return 0;
+  }
+
+  const dateSet = new Set(
+    activityDates.filter((d) => typeof d === 'string' && /^\d{4}-\d{2}-\d{2}$/.test(d))
+  );
+
+  const todayStr = getLocalDateString(referenceDate);
+  if (!dateSet.has(todayStr)) {
+    return 0;
+  }
+
+  let streak = 0;
+  const checkDate = new Date(referenceDate.getFullYear(), referenceDate.getMonth(), referenceDate.getDate());
+
+  while (true) {
+    const checkStr = getLocalDateString(checkDate);
+    if (dateSet.has(checkStr)) {
+      streak += 1;
+      checkDate.setDate(checkDate.getDate() - 1);
+    } else {
+      break;
+    }
+  }
+
+  return streak;
+};

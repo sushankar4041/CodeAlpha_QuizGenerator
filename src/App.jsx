@@ -20,7 +20,9 @@ import {
   getStoredPreferences,
   saveStoredPreferences,
   getStoredThemeMode,
-  saveStoredThemeMode
+  saveStoredThemeMode,
+  getLearningActivityDates,
+  recordLearningActivity
 } from './services/storage';
 import './App.css';
 
@@ -39,6 +41,7 @@ function App() {
   const [quizHistory, setQuizHistory] = useState(getStoredQuizHistory);
   const [profile, setProfile] = useState(getStoredLearnerProfile);
   const [preferences, setPreferences] = useState(getStoredPreferences);
+  const [learningActivity, setLearningActivity] = useState(getLearningActivityDates);
 
   // Global Toast Notification State
   const [toasts, setToasts] = useState([]);
@@ -136,12 +139,18 @@ function App() {
       return card;
     });
     updateAndSaveCards(updatedCollection);
+
+    const updatedDates = recordLearningActivity();
+    setLearningActivity(updatedDates);
   };
 
   // Quiz History Handlers
   const handleSaveQuizResult = (resultData) => {
     const updatedHistory = saveQuizResult(resultData);
     setQuizHistory(updatedHistory);
+
+    const updatedDates = recordLearningActivity();
+    setLearningActivity(updatedDates);
   };
 
   const handleClearQuizHistory = () => {
@@ -213,6 +222,7 @@ function App() {
               flashcards={flashcards}
               quizHistory={quizHistory}
               profile={profile}
+              learningActivity={learningActivity}
             />
           )}
 

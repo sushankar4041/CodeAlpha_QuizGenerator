@@ -1,5 +1,5 @@
 import { getCategoryIcon } from '../utils/quizUtils';
-import { calculateOverviewStats } from '../utils/statisticsUtils';
+import { calculateOverviewStats, calculateCurrentStreak } from '../utils/statisticsUtils';
 
 /**
  * Dashboard View Component - Phase 7 Quizelle
@@ -11,9 +11,12 @@ export default function Dashboard({
   onNavigateView,
   flashcards = [],
   quizHistory = [],
-  profile = {}
+  profile = {},
+  learningActivity = []
 }) {
   const overview = calculateOverviewStats(flashcards, quizHistory);
+  const currentStreak = calculateCurrentStreak(learningActivity);
+  const streakDisplay = `${currentStreak} ${currentStreak === 1 ? 'Day' : 'Days'}`;
   const displayName = profile.displayName || 'Learner';
 
   // Compute category breakdown from active flashcards
@@ -90,7 +93,7 @@ export default function Dashboard({
           <div className="stat-card">
             <div className="stat-icon-wrapper streak" aria-hidden="true">🔥</div>
             <div className="stat-details">
-              <span className="stat-value">7 Days</span>
+              <span className="stat-value">{streakDisplay}</span>
               <span className="stat-label">Current Streak</span>
             </div>
           </div>

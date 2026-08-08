@@ -225,3 +225,60 @@ export const saveStoredThemeMode = (mode) => {
 
 export const getStoredTheme = () => getStoredThemeMode();
 export const saveStoredTheme = (theme) => saveStoredThemeMode(theme);
+
+const LEARNING_ACTIVITY_KEY = 'quiz_generator_learning_activity';
+
+/**
+ * Returns YYYY-MM-DD in local time zone
+ */
+export const getTodayLocalDateString = (dateObj = new Date()) => {
+  const d = new Date(dateObj);
+  const year = d.getFullYear();
+  const month = String(d.getMonth() + 1).padStart(2, '0');
+  const day = String(d.getDate()).padStart(2, '0');
+  return `${year}-${month}-${day}`;
+};
+
+/**
+ * Learning Activity Storage
+ * Persists unique local calendar activity dates (YYYY-MM-DD) for streak calculation
+ */
+export const getLearningActivityDates = () => {
+  try {
+    const saved = localStorage.getItem(LEARNING_ACTIVITY_KEY);
+    if (saved) {
+      const parsed = JSON.parse(saved);
+      if (Array.isArray(parsed)) {
+        return parsed.filter((d) => typeof d === 'string' && /^\d{4}-\d{2}-\d{2}$/.test(d));
+      }
+    }
+  } catch (error) {
+    console.error('Error loading learning activity from localStorage:', error);
+  }
+  return [];
+};
+
+export const recordLearningActivity = () => {
+  try {
+    const currentDates = getLearningActivityDates();
+    const todayStr = getTodayLocalDateString();
+    if (!currentDates.includes(todayStr)) {
+      const updatedDates = [todayStr, ...currentDates];
+      localStorage.setItem(LEARNING_ACTIVITY_KEY, JSON.stringify(updatedDates));
+      return updatedDates;
+    }
+    return currentDates;
+  } catch (error) {
+    console.error('Error recording learning activity:', error);
+    return getLearningActivityDates();
+  }
+};
+
+export const clearLearningActivity = () => {
+  try {
+    localStorage.removeItem(LEARNING_ACTIVITY_KEY);
+  } catch (error) {
+    console.error('Error clearing learning activity:', error);
+  }
+  return [];
+};
