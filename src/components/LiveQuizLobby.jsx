@@ -1,10 +1,10 @@
 import { useState } from 'react';
 
 /**
- * Live Quiz Lobby Component
+ * Live Quiz Lobby Component - Phase 6C
  * Displays 6-digit room code, player list grid, host controls, and start button
  */
-export default function LiveQuizLobby({ roomData, localPlayerId, onStartQuiz, onLeaveRoom }) {
+export default function LiveQuizLobby({ roomData, localPlayerId, onStartQuiz, onLeaveRoom, onShowToast }) {
   const [copied, setCopied] = useState(false);
 
   if (!roomData) return null;
@@ -17,6 +17,9 @@ export default function LiveQuizLobby({ roomData, localPlayerId, onStartQuiz, on
   const handleCopyCode = () => {
     navigator.clipboard.writeText(roomCode);
     setCopied(true);
+    if (onShowToast) {
+      onShowToast(`Room code ${roomCode} copied to clipboard!`, 'info');
+    }
     setTimeout(() => setCopied(false), 2000);
   };
 

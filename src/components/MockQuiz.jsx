@@ -6,10 +6,11 @@ import MockQuizReview from './MockQuizReview';
 import { generateMockQuiz } from '../utils/quizUtils';
 
 /**
- * Mock Quiz Master Coordinator Component
+ * Mock Quiz Master Coordinator Component - Phase 6C
  * Orchestrates Mock Quiz stages: Config -> Active Session -> Results -> Answer Review
+ * Migrated browser alert to toast notification system.
  */
-export default function MockQuiz({ flashcards = [], onSaveQuizResult, onNavigateToFlashcards }) {
+export default function MockQuiz({ flashcards = [], onSaveQuizResult, onNavigateToFlashcards, onShowToast }) {
   const [stage, setStage] = useState('config'); // 'config' | 'active' | 'results' | 'review'
   const [activeConfig, setActiveConfig] = useState(null);
   const [questions, setQuestions] = useState([]);
@@ -28,7 +29,9 @@ export default function MockQuiz({ flashcards = [], onSaveQuizResult, onNavigate
     });
 
     if (!generated.success) {
-      alert('Could not generate quiz with selected settings.');
+      if (onShowToast) {
+        onShowToast('Could not generate quiz with selected settings.', 'error');
+      }
       return;
     }
 
@@ -81,6 +84,10 @@ export default function MockQuiz({ flashcards = [], onSaveQuizResult, onNavigate
 
     if (onSaveQuizResult) {
       onSaveQuizResult(resultData);
+    }
+
+    if (onShowToast) {
+      onShowToast(`Mock Quiz completed! Score: ${percentage}%`, 'success');
     }
 
     setStage('results');

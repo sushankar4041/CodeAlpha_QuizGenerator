@@ -7,6 +7,7 @@ import MockQuiz from './components/MockQuiz';
 import Statistics from './components/Statistics';
 import LiveQuiz from './components/LiveQuiz';
 import Settings from './components/Settings';
+import ToastContainer from './components/Toast';
 import {
   getStoredFlashcards,
   saveStoredFlashcards,
@@ -24,9 +25,10 @@ import {
 import './App.css';
 
 /**
- * Main Application Component - Phase 6B
+ * Main Application Component - Phase 6C
  * Coordinates Flashcards, Mock Quiz, Statistics, Live Quiz, Settings & Learner Profile,
- * Theme Mode (Light/Dark/System Auto-detection & OS listener), and activeView navigation.
+ * Theme Mode (Light/Dark/System Auto-detection & OS listener), activeView navigation,
+ * and global Toast Notification System.
  */
 function App() {
   const [activeView, setActiveView] = useState('dashboard');
@@ -37,6 +39,22 @@ function App() {
   const [quizHistory, setQuizHistory] = useState(getStoredQuizHistory);
   const [profile, setProfile] = useState(getStoredLearnerProfile);
   const [preferences, setPreferences] = useState(getStoredPreferences);
+
+  // Global Toast Notification State
+  const [toasts, setToasts] = useState([]);
+
+  const addToast = (message, type = 'info', duration) => {
+    const id = `toast-${Date.now()}-${Math.random().toString(36).substring(2, 6)}`;
+    setToasts((prev) => {
+      // Keep maximum 4 toasts visible at a time
+      const sliced = prev.length >= 4 ? prev.slice(prev.length - 3) : prev;
+      return [...sliced, { id, type, message, duration }];
+    });
+  };
+
+  const removeToast = (id) => {
+    setToasts((prev) => prev.filter((t) => t.id !== id));
+  };
 
   // Sync theme attribute on document root (handling Light, Dark, and System Auto with dynamic OS listener)
   useEffect(() => {
@@ -166,6 +184,9 @@ function App() {
 
   return (
     <div className="app-container">
+      {/* Global Toast Notifications Stack */}
+      <ToastContainer toasts={toasts} onDismiss={removeToast} />
+
       {/* Application Sidebar Navigation */}
       <Sidebar
         activeView={activeView}
@@ -202,6 +223,7 @@ function App() {
               onEditCard={handleEditCard}
               onDeleteCard={handleDeleteCard}
               onStudyCard={handleStudyCard}
+              onShowToast={addToast}
             />
           )}
 
@@ -210,6 +232,7 @@ function App() {
               flashcards={flashcards}
               onSaveQuizResult={handleSaveQuizResult}
               onNavigateToFlashcards={() => handleNavigate('flashcards')}
+              onShowToast={addToast}
             />
           )}
 
@@ -218,6 +241,7 @@ function App() {
               flashcards={flashcards}
               profile={profile}
               onNavigateView={handleNavigate}
+              onShowToast={addToast}
             />
           )}
 
@@ -239,6 +263,7 @@ function App() {
               onUpdateThemeMode={handleUpdateThemeMode}
               onClearQuizHistory={handleClearQuizHistory}
               onResetFlashcards={handleResetFlashcards}
+              onShowToast={addToast}
             />
           )}
         </main>

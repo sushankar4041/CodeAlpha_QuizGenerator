@@ -17,11 +17,12 @@ import { getCategoryIcon } from '../utils/quizUtils';
 import { getStoredLearnerProfile, getStoredPreferences } from '../services/storage';
 
 /**
- * Live Quiz Master Coordinator Component - Phase 6B
+ * Live Quiz Master Coordinator Component - Phase 6C
  * Manages Host Setup, Join Room form, Real-Time Lobby, Active Session, and Podium Results.
  * Pre-populates stored learner profile and preferences, updating display name dynamically.
+ * Replaced browser alert calls with global toast notification system.
  */
-export default function LiveQuiz({ flashcards = [], profile = {}, onNavigateView }) {
+export default function LiveQuiz({ flashcards = [], profile = {}, onNavigateView, onShowToast }) {
   const [mode, setMode] = useState('select'); // 'select' | 'host_setup' | 'join_setup' | 'room_active'
   const [roomCode, setRoomCode] = useState('');
   const [roomData, setRoomData] = useState(null);
@@ -66,7 +67,9 @@ export default function LiveQuiz({ flashcards = [], profile = {}, onNavigateView
 
     const unsubscribe = subscribeToRoom(roomCode, (updatedRoom) => {
       if (!updatedRoom || updatedRoom.status === 'CLOSED') {
-        alert('This room has been closed or does not exist.');
+        if (onShowToast) {
+          onShowToast('This room has been closed or does not exist.', 'warning');
+        }
         setMode('select');
         setRoomCode('');
         setRoomData(null);
@@ -76,7 +79,7 @@ export default function LiveQuiz({ flashcards = [], profile = {}, onNavigateView
     });
 
     return () => unsubscribe();
-  }, [roomCode, mode]);
+  }, [roomCode, mode, onShowToast]);
 
   // Host Room Submit Handler
   const handleHostCreate = async (e) => {
@@ -99,8 +102,15 @@ export default function LiveQuiz({ flashcards = [], profile = {}, onNavigateView
 
       setRoomCode(res.roomCode);
       setMode('room_active');
+      if (onShowToast) {
+        onShowToast(`Live room created! Room code: ${res.roomCode}`, 'success');
+      }
     } catch (err) {
-      setErrorMessage(err.message || 'Failed to create live room.');
+      const msg = err.message || 'Failed to create live room.';
+      setErrorMessage(msg);
+      if (onShowToast) {
+        onShowToast(msg, 'error');
+      }
     } finally {
       setLoading(false);
     }
@@ -123,8 +133,15 @@ export default function LiveQuiz({ flashcards = [], profile = {}, onNavigateView
 
       setRoomCode(res.roomCode);
       setMode('room_active');
+      if (onShowToast) {
+        onShowToast(`Joined room ${res.roomCode} successfully!`, 'success');
+      }
     } catch (err) {
-      setErrorMessage(err.message || 'Failed to join room.');
+      const msg = err.message || 'Failed to join room.';
+      setErrorMessage(msg);
+      if (onShowToast) {
+        onShowToast(msg, 'error');
+      }
     } finally {
       setLoading(false);
     }
@@ -402,6 +419,7 @@ export default function LiveQuiz({ flashcards = [], profile = {}, onNavigateView
               localPlayerId={authUid}
               onStartQuiz={handleStartQuiz}
               onLeaveRoom={handleLeaveRoom}
+              onShowToast={onShowToast}
             />
           )}
 

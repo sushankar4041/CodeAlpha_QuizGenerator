@@ -5,15 +5,16 @@ import EmptyState from './EmptyState';
 import FlashcardForm from './FlashcardForm';
 
 /**
- * Flashcard List Container Component
- * Manages search, category filtering, study deck navigation, and CRUD modals
+ * Flashcard List Container Component - Phase 6C
+ * Manages search, category filtering, study deck navigation, and CRUD modals with toast notifications.
  */
 export default function FlashcardList({
   flashcards,
   onAddCard,
   onEditCard,
   onDeleteCard,
-  onStudyCard
+  onStudyCard,
+  onShowToast
 }) {
   const [selectedCategory, setSelectedCategory] = useState('All Categories');
   const [searchQuery, setSearchQuery] = useState('');
@@ -91,8 +92,21 @@ export default function FlashcardList({
   const handleFormSave = (cardData) => {
     if (editingCard) {
       onEditCard(cardData);
+      if (onShowToast) {
+        onShowToast('Flashcard updated successfully!', 'success');
+      }
     } else {
       onAddCard(cardData);
+      if (onShowToast) {
+        onShowToast('New flashcard created successfully!', 'success');
+      }
+    }
+  };
+
+  const handleDelete = (cardId) => {
+    onDeleteCard(cardId);
+    if (onShowToast) {
+      onShowToast('Flashcard deleted.', 'info');
     }
   };
 
@@ -208,7 +222,7 @@ export default function FlashcardList({
                   key={currentCard.id}
                   card={currentCard}
                   onEdit={handleOpenEditModal}
-                  onDelete={onDeleteCard}
+                  onDelete={handleDelete}
                   onStudy={onStudyCard}
                 />
               </div>
@@ -222,7 +236,7 @@ export default function FlashcardList({
                 key={card.id}
                 card={card}
                 onEdit={handleOpenEditModal}
-                onDelete={onDeleteCard}
+                onDelete={handleDelete}
                 onStudy={onStudyCard}
               />
             ))}

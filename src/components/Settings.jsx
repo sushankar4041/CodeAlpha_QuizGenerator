@@ -1,9 +1,9 @@
 import { useState } from 'react';
 
 /**
- * Settings & Learner Profile View Component - Phase 6A
+ * Settings & Learner Profile View Component - Phase 6C
  * Allows user to edit display name, select theme mode (Light/Dark/System), customize quiz preferences,
- * and manage data reset options with accessible confirmation dialogs.
+ * and manage data reset options with accessible confirmation dialogs and toast feedback.
  */
 export default function Settings({
   profile = {},
@@ -13,7 +13,8 @@ export default function Settings({
   onUpdatePreferences,
   onUpdateThemeMode,
   onClearQuizHistory,
-  onResetFlashcards
+  onResetFlashcards,
+  onShowToast
 }) {
   const [displayNameInput, setDisplayNameInput] = useState(profile.displayName || 'Learner');
   const [nameError, setNameError] = useState('');
@@ -45,12 +46,26 @@ export default function Settings({
     setNameError('');
     onUpdateProfile({ displayName: trimmed });
     setIsSavedNotice(true);
+    if (onShowToast) {
+      onShowToast(`Learner name updated to "${trimmed}"`, 'success');
+    }
     setTimeout(() => setIsSavedNotice(false), 2500);
   };
 
   const handlePreferenceChange = (key, value) => {
     const updated = { ...preferences, [key]: value };
     onUpdatePreferences(updated);
+    if (onShowToast) {
+      onShowToast('Quiz preference updated', 'info');
+    }
+  };
+
+  const handleThemeChange = (mode) => {
+    onUpdateThemeMode(mode);
+    if (onShowToast) {
+      const modeLabel = mode === 'system' ? 'System Auto' : mode === 'dark' ? 'Dark Mode' : 'Light Mode';
+      onShowToast(`Theme switched to ${modeLabel}`, 'info');
+    }
   };
 
   const avatarChar = (displayNameInput.trim() || 'L').charAt(0).toUpperCase();
@@ -118,7 +133,7 @@ export default function Settings({
             <button
               type="button"
               className={`theme-option-card ${themeMode === 'light' ? 'selected' : ''}`}
-              onClick={() => onUpdateThemeMode('light')}
+              onClick={() => handleThemeChange('light')}
             >
               <span className="theme-option-icon">☀️</span>
               <span className="theme-option-label">Light Mode</span>
@@ -128,7 +143,7 @@ export default function Settings({
             <button
               type="button"
               className={`theme-option-card ${themeMode === 'dark' ? 'selected' : ''}`}
-              onClick={() => onUpdateThemeMode('dark')}
+              onClick={() => handleThemeChange('dark')}
             >
               <span className="theme-option-icon">🌙</span>
               <span className="theme-option-label">Dark Mode</span>
@@ -138,7 +153,7 @@ export default function Settings({
             <button
               type="button"
               className={`theme-option-card ${themeMode === 'system' ? 'selected' : ''}`}
-              onClick={() => onUpdateThemeMode('system')}
+              onClick={() => handleThemeChange('system')}
             >
               <span className="theme-option-icon">🖥️</span>
               <span className="theme-option-label">System Auto</span>
@@ -285,6 +300,9 @@ export default function Settings({
                 onClick={() => {
                   onClearQuizHistory();
                   setShowClearHistoryModal(false);
+                  if (onShowToast) {
+                    onShowToast('Quiz history cleared successfully.', 'success');
+                  }
                 }}
               >
                 Clear History
@@ -332,6 +350,9 @@ export default function Settings({
                 onClick={() => {
                   onResetFlashcards();
                   setShowResetCardsModal(false);
+                  if (onShowToast) {
+                    onShowToast('Flashcards reset to default sample deck.', 'success');
+                  }
                 }}
               >
                 Reset Flashcards Deck
