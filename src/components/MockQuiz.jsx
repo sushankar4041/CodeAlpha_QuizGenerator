@@ -10,7 +10,7 @@ import { getQuestions } from '../services/questionBankService';
  * Orchestrates Mock Quiz stages: Config -> Active Session -> Results -> Answer Review
  * Consumes questionBankService for System Question Bank & User Flashcards.
  */
-export default function MockQuiz({ flashcards = [], preferences, onSaveQuizResult, onNavigateToFlashcards, onShowToast }) {
+export default function MockQuiz({ flashcards = [], selectedQuizCardIds = null, preferences, onSaveQuizResult, onNavigateToFlashcards, onShowToast }) {
   const [stage, setStage] = useState('config'); // 'config' | 'active' | 'results' | 'review'
   const [activeConfig, setActiveConfig] = useState(null);
   const [questions, setQuestions] = useState([]);
@@ -30,6 +30,7 @@ export default function MockQuiz({ flashcards = [], preferences, onSaveQuizResul
         requestedCount: configData.questionCount,
         source: configData.source || 'system',
         mode: configData.mode || 'standard',
+        selectedCardIds: configData.selectedCardIds || (configData.source === 'selected' ? selectedQuizCardIds : null),
         flashcards
       });
 
@@ -148,6 +149,7 @@ export default function MockQuiz({ flashcards = [], preferences, onSaveQuizResul
       {stage === 'config' && (
         <MockQuizConfig
           flashcards={flashcards}
+          selectedQuizCardIds={selectedQuizCardIds}
           preferences={preferences}
           onStartQuiz={handleStartQuiz}
           onNavigateToFlashcards={onNavigateToFlashcards}

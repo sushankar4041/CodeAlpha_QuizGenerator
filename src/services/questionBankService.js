@@ -1,4 +1,4 @@
-import { shuffleArray, generateMockQuiz } from '../utils/quizUtils';
+import { shuffleArray, generateMockQuiz } from '../utils/quizUtils.js';
 
 /**
  * Lazy-loaded Question Bank Dataset Registry
@@ -56,12 +56,19 @@ export async function getQuestions({
   requestedCount = 5,
   source = 'system',
   mode = 'standard',
+  selectedCardIds = null,
   flashcards = []
 }) {
-  // 1. Fallback to User Flashcards or Adaptive Modes
-  if (source === 'flashcards' || mode !== 'standard') {
+  let activePool = flashcards;
+  if (source === 'selected' && Array.isArray(selectedCardIds) && selectedCardIds.length > 0) {
+    const idSet = new Set(selectedCardIds);
+    activePool = flashcards.filter((c) => idSet.has(c.id));
+  }
+
+  // 1. Fallback to User Flashcards, Selected Pool, or Adaptive Modes
+  if (source === 'flashcards' || source === 'selected' || mode !== 'standard') {
     return generateMockQuiz({
-      flashcards,
+      flashcards: activePool,
       category,
       difficulty,
       requestedCount,
@@ -156,10 +163,17 @@ export async function getAvailableQuestionCount({
   difficulty = 'All Difficulties',
   source = 'system',
   mode = 'standard',
+  selectedCardIds = null,
   flashcards = []
 }) {
-  if (source === 'flashcards' || mode !== 'standard') {
-    let matching = flashcards;
+  let activePool = flashcards;
+  if (source === 'selected' && Array.isArray(selectedCardIds) && selectedCardIds.length > 0) {
+    const idSet = new Set(selectedCardIds);
+    activePool = flashcards.filter((c) => idSet.has(c.id));
+  }
+
+  if (source === 'flashcards' || source === 'selected' || mode !== 'standard') {
+    let matching = activePool;
     if (category && category !== 'All Categories') {
       matching = matching.filter((c) => c.category.toLowerCase() === category.toLowerCase());
     }

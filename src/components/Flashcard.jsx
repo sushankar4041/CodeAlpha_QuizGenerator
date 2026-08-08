@@ -6,7 +6,7 @@ import { getDifficultyBadgeClass, getCategoryIcon } from '../utils/quizUtils';
  * Features tactile 3D Y-axis card flip interaction, study tracking,
  * and post-reveal review feedback actions ("NEEDS REVIEW" & "GOT IT").
  */
-export default function Flashcard({ card, onEdit, onDelete, onStudy }) {
+export default function Flashcard({ card, isSelected, onToggleSelect, isSelectionMode, onEdit, onDelete, onStudy }) {
   const [isAnswerRevealed, setIsAnswerRevealed] = useState(false);
   const [isDeleting, setIsDeleting] = useState(false);
   const [studyStatus, setStudyStatus] = useState(null); // 'needs_review' | 'got_it'
@@ -48,11 +48,20 @@ export default function Flashcard({ card, onEdit, onDelete, onStudy }) {
   };
 
   return (
-    <div className={`flashcard-3d-wrapper ${isAnswerRevealed ? 'is-flipped' : ''}`}>
+    <div className={`flashcard-3d-wrapper ${isAnswerRevealed ? 'is-flipped' : ''} ${isSelected ? 'is-selected' : ''}`}>
       <div className={`flashcard ${isAnswerRevealed ? 'is-revealed' : ''}`}>
         {/* Top Meta Bar */}
         <div className="flashcard-header">
           <div className="flashcard-category">
+            {isSelectionMode && (
+              <input
+                type="checkbox"
+                className="card-select-checkbox"
+                checked={!!isSelected}
+                onChange={() => onToggleSelect && onToggleSelect(card.id)}
+                aria-label={`Select flashcard ${card.question}`}
+              />
+            )}
             <span className="category-emoji" aria-hidden="true">{getCategoryIcon(card.category)}</span>
             <span className="category-name">{card.category}</span>
           </div>

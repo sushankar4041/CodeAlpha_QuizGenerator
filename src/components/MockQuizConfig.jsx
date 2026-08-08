@@ -8,24 +8,35 @@ import { SYSTEM_CATEGORIES, getAvailableQuestionCount } from '../services/questi
  * Allows user to select Category, Difficulty, Question Count, and Question Source.
  * System Question Bank is lazy-loaded on-demand while user flashcards are preserved.
  */
-export default function MockQuizConfig({ flashcards = [], preferences, onStartQuiz }) {
+export default function MockQuizConfig({ flashcards = [], selectedQuizCardIds = null, preferences, onStartQuiz }) {
   const activePrefs = preferences || getStoredPreferences();
 
+  const hasSelectedPool = Array.isArray(selectedQuizCardIds) && selectedQuizCardIds.length > 0;
+
   const [quizMode, setQuizMode] = useState('standard'); // 'standard' | 'weak_areas' | 'adaptive'
-  const [questionSource, setQuestionSource] = useState('system'); // 'system' | 'flashcards'
+  const [questionSource, setQuestionSource] = useState(() => (hasSelectedPool ? 'selected' : 'system')); // 'system' | 'flashcards' | 'selected'
   const [selectedCategory, setSelectedCategory] = useState('All Categories');
   const [selectedDifficulty, setSelectedDifficulty] = useState(() => activePrefs.preferredDifficulty || 'All Difficulties');
   const [requestedCount, setRequestedCount] = useState(() => Number(activePrefs.preferredQuestionCount) || 5);
   const [availableCount, setAvailableCount] = useState(0);
+
+  // Pool of cards based on source
+  const activeFlashcardPool = useMemo(() => {
+    if (questionSource === 'selected' && hasSelectedPool) {
+      const set = new Set(selectedQuizCardIds);
+      return flashcards.filter((c) => set.has(c.id));
+    }
+    return flashcards;
+  }, [questionSource, hasSelectedPool, selectedQuizCardIds, flashcards]);
 
   // Dynamic category list based on source
   const categoriesList = useMemo(() => {
     if (questionSource === 'system' && quizMode === 'standard') {
       return SYSTEM_CATEGORIES;
     }
-    const set = new Set(flashcards.map((c) => c.category));
+    const set = new Set(activeFlashcardPool.map((c) => c.category));
     return ['All Categories', ...Array.from(set)];
-  }, [questionSource, quizMode, flashcards]);
+  }, [questionSource, quizMode, activeFlashcardPool]);
 
   const effectiveCategory = categoriesList.includes(selectedCategory) ? selectedCategory : 'All Categories';
 
@@ -37,7 +48,7 @@ export default function MockQuizConfig({ flashcards = [], preferences, onStartQu
       difficulty: selectedDifficulty,
       source: questionSource,
       mode: quizMode,
-      flashcards
+      flashcards: activeFlashcardPool
     }).then((count) => {
       if (!isCancelled) {
         setAvailableCount(count);
@@ -47,7 +58,7 @@ export default function MockQuizConfig({ flashcards = [], preferences, onStartQu
     return () => {
       isCancelled = true;
     };
-  }, [effectiveCategory, selectedDifficulty, questionSource, quizMode, flashcards]);
+  }, [effectiveCategory, selectedDifficulty, questionSource, quizMode, activeFlashcardPool]);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -58,7 +69,8 @@ export default function MockQuizConfig({ flashcards = [], preferences, onStartQu
       difficulty: selectedDifficulty,
       questionCount: Math.min(requestedCount, availableCount),
       source: questionSource,
-      mode: quizMode
+      mode: quizMode,
+      selectedCardIds: questionSource === 'selected' ? selectedQuizCardIds : null
     });
   };
 
@@ -94,7 +106,7 @@ export default function MockQuizConfig({ flashcards = [], preferences, onStartQu
               className={`config-chip mode-chip ${quizMode === 'weak_areas' ? 'selected' : ''}`}
               onClick={() => {
                 setQuizMode('weak_areas');
-                setQuestionSource('flashcards');
+                if (questionSource === 'system') setQuestionSource('flashcards');
               }}
               aria-pressed={quizMode === 'weak_areas'}
             >
@@ -109,7 +121,7 @@ export default function MockQuizConfig({ flashcards = [], preferences, onStartQu
               className={`config-chip mode-chip ${quizMode === 'adaptive' ? 'selected' : ''}`}
               onClick={() => {
                 setQuizMode('adaptive');
-                setQuestionSource('flashcards');
+                if (questionSource === 'system') setQuestionSource('flashcards');
               }}
               aria-pressed={quizMode === 'adaptive'}
             >
@@ -145,6 +157,17 @@ export default function MockQuizConfig({ flashcards = [], preferences, onStartQu
               <span className="chip-emoji" aria-hidden="true">🎴</span>
               <span>My Personal Flashcards ({flashcards.length})</span>
             </button>
+            {hasSelectedPool && (
+              <button
+                type="button"
+                className={`config-chip ${questionSource === 'selected' ? 'selected' : ''}`}
+                onClick={() => setQuestionSource('selected')}
+                aria-pressed={questionSource === 'selected'}
+              >
+                <span className="chip-emoji" aria-hidden="true">🎯</span>
+                <span>Selected Cards ({selectedQuizCardIds.length})</span>
+              </button>
+            )}
           </div>
         </div>
 

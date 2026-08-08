@@ -10,7 +10,11 @@ import BulkImportModal from './BulkImportModal';
  * Manages search, category filtering, study deck navigation, CRUD modals, and Bulk Import.
  */
 export default function FlashcardList({
-  flashcards,
+  flashcards = [],
+  selectedFlashcardIds = [],
+  onSelectCardsChange,
+  onBatchDeleteCards,
+  onQuizSelectedCards,
   onAddCard,
   onBulkImportCards,
   onEditCard,
@@ -22,6 +26,10 @@ export default function FlashcardList({
   const [searchQuery, setSearchQuery] = useState('');
   const [viewMode, setViewMode] = useState('deck'); // 'deck' | 'grid'
   const [currentIndex, setCurrentIndex] = useState(0);
+
+  // Selection mode & Batch Delete Confirmation Modal states
+  const [isSelectionMode, setIsSelectionMode] = useState(false);
+  const [isBatchDeleteModalOpen, setIsBatchDeleteModalOpen] = useState(false);
 
   // Form modal state
   const [isFormOpen, setIsFormOpen] = useState(false);
@@ -56,6 +64,49 @@ export default function FlashcardList({
 
     return result;
   }, [flashcards, selectedCategory, searchQuery]);
+
+  // Selection Handlers
+  const selectedSet = useMemo(() => new Set(selectedFlashcardIds), [selectedFlashcardIds]);
+
+  const handleToggleSelect = (cardId) => {
+    const nextSet = new Set(selectedFlashcardIds);
+    if (nextSet.has(cardId)) {
+      nextSet.delete(cardId);
+    } else {
+      nextSet.add(cardId);
+    }
+    if (onSelectCardsChange) {
+      onSelectCardsChange(Array.from(nextSet));
+    }
+  };
+
+  const visibleIds = useMemo(() => filteredCards.map((c) => c.id), [filteredCards]);
+  const areAllVisibleSelected = visibleIds.length > 0 && visibleIds.every((id) => selectedSet.has(id));
+
+  const handleSelectAllVisible = () => {
+    const nextSet = new Set(selectedFlashcardIds);
+    if (areAllVisibleSelected) {
+      visibleIds.forEach((id) => nextSet.delete(id));
+    } else {
+      visibleIds.forEach((id) => nextSet.add(id));
+    }
+    if (onSelectCardsChange) {
+      onSelectCardsChange(Array.from(nextSet));
+    }
+  };
+
+  const handleClearSelection = () => {
+    if (onSelectCardsChange) {
+      onSelectCardsChange([]);
+    }
+  };
+
+  const handleConfirmBatchDelete = () => {
+    if (onBatchDeleteCards && selectedFlashcardIds.length > 0) {
+      onBatchDeleteCards(selectedFlashcardIds);
+    }
+    setIsBatchDeleteModalOpen(false);
+  };
 
   // Reset active card index when filter or search changes
   const handleCategoryChange = (cat) => {
@@ -166,6 +217,15 @@ export default function FlashcardList({
 
           <button
             type="button"
+            className={`btn ${isSelectionMode ? 'btn-primary' : 'btn-secondary'}`}
+            onClick={() => setIsSelectionMode((prev) => !prev)}
+            title="Toggle Selection Mode"
+          >
+            <span>{isSelectionMode ? '✓ Selection Mode' : '☑ Select Cards'}</span>
+          </button>
+
+          <button
+            type="button"
             className="btn btn-secondary"
             onClick={() => setIsBulkImportOpen(true)}
             title="Bulk Import Flashcards"
@@ -181,6 +241,52 @@ export default function FlashcardList({
           </button>
         </div>
       </div>
+
+      {/* Phase 15 Batch Actions Toolbar */}
+      {(isSelectionMode || selectedFlashcardIds.length > 0) && (
+        <div className="batch-actions-toolbar animate-fade-in">
+          <div className="batch-info">
+            <span className="batch-count-badge">
+              <strong>{selectedFlashcardIds.length}</strong> card{selectedFlashcardIds.length === 1 ? '' : 's'} selected
+            </span>
+            <button
+              type="button"
+              className="btn btn-secondary-sm"
+              onClick={handleSelectAllVisible}
+            >
+              {areAllVisibleSelected ? 'Deselect Visible' : `Select All Visible (${filteredCards.length})`}
+            </button>
+            {selectedFlashcardIds.length > 0 && (
+              <button
+                type="button"
+                className="btn btn-outline-sm"
+                onClick={handleClearSelection}
+              >
+                Clear Selection
+              </button>
+            )}
+          </div>
+
+          <div className="batch-buttons">
+            <button
+              type="button"
+              className="btn btn-primary-sm"
+              disabled={selectedFlashcardIds.length === 0}
+              onClick={() => onQuizSelectedCards && onQuizSelectedCards(selectedFlashcardIds)}
+            >
+              <span>📝 Quiz Selected ({selectedFlashcardIds.length})</span>
+            </button>
+            <button
+              type="button"
+              className="btn btn-danger-sm"
+              disabled={selectedFlashcardIds.length === 0}
+              onClick={() => setIsBatchDeleteModalOpen(true)}
+            >
+              <span>🗑 Delete Selected ({selectedFlashcardIds.length})</span>
+            </button>
+          </div>
+        </div>
+      )}
 
       {/* Category Filter Bar */}
       <div className="flashcards-controls-header">
@@ -232,6 +338,9 @@ export default function FlashcardList({
                 <Flashcard
                   key={currentCard.id}
                   card={currentCard}
+                  isSelected={selectedSet.has(currentCard.id)}
+                  onToggleSelect={handleToggleSelect}
+                  isSelectionMode={isSelectionMode || selectedFlashcardIds.length > 0}
                   onEdit={handleOpenEditModal}
                   onDelete={handleDelete}
                   onStudy={onStudyCard}
@@ -246,6 +355,9 @@ export default function FlashcardList({
               <Flashcard
                 key={card.id}
                 card={card}
+                isSelected={selectedSet.has(card.id)}
+                onToggleSelect={handleToggleSelect}
+                isSelectionMode={isSelectionMode || selectedFlashcardIds.length > 0}
                 onEdit={handleOpenEditModal}
                 onDelete={handleDelete}
                 onStudy={onStudyCard}
@@ -266,6 +378,46 @@ export default function FlashcardList({
             setCurrentIndex(0);
           }}
         />
+      )}
+
+      {/* Batch Delete Confirmation Modal */}
+      {isBatchDeleteModalOpen && (
+        <div className="modal-backdrop animate-fade-in" role="dialog" aria-modal="true">
+          <div className="modal-content modal-sm">
+            <div className="modal-header">
+              <h3 className="modal-title">Confirm Batch Deletion</h3>
+              <button
+                type="button"
+                className="btn-modal-close"
+                onClick={() => setIsBatchDeleteModalOpen(false)}
+              >
+                ✕
+              </button>
+            </div>
+            <div className="modal-body">
+              <p>
+                Are you sure you want to permanently delete <strong>{selectedFlashcardIds.length}</strong> selected flashcard{selectedFlashcardIds.length === 1 ? '' : 's'}?
+              </p>
+              <p className="subtle-warning">This action cannot be undone.</p>
+            </div>
+            <div className="modal-footer">
+              <button
+                type="button"
+                className="btn btn-secondary"
+                onClick={() => setIsBatchDeleteModalOpen(false)}
+              >
+                Cancel
+              </button>
+              <button
+                type="button"
+                className="btn btn-danger"
+                onClick={handleConfirmBatchDelete}
+              >
+                Delete {selectedFlashcardIds.length} Cards
+              </button>
+            </div>
+          </div>
+        </div>
       )}
 
       {/* Create / Edit Form Modal */}

@@ -857,3 +857,40 @@ textarea:focus-visible,
 .mode-desc { font-size: var(--font-size-xs); opacity: 0.8; font-weight: var(--font-weight-regular); line-height: 1.3; }
 .mode-auto-notice { padding: 0.75rem 1rem; background-color: var(--color-gold-faint); border: 1px dashed var(--color-gold-border); border-radius: var(--radius-md); font-size: var(--font-size-sm); color: var(--color-gold-bright); }
 .results-mode-notice { margin-top: 0.75rem; font-size: var(--font-size-sm); color: var(--color-gold-bright); background-color: var(--color-gold-faint); padding: 0.5rem 1rem; border-radius: var(--radius-md); border: 1px solid var(--color-gold-border); display: inline-block; }
+.batch-actions-toolbar { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 0.75rem; padding: 0.85rem 1.25rem; background-color: var(--color-gold-faint); border: 1px solid var(--color-gold-border); border-radius: var(--radius-lg); margin-bottom: 1rem; }
+.batch-info { display: flex; align-items: center; gap: 0.75rem; flex-wrap: wrap; }
+.batch-count-badge { font-size: var(--font-size-sm); color: var(--color-gold-bright); background: var(--color-surface); padding: 0.3rem 0.65rem; border-radius: var(--radius-md); border: 1px solid var(--color-border); }
+.batch-buttons { display: flex; align-items: center; gap: 0.5rem; flex-wrap: wrap; }
+.card-select-checkbox { width: 1.15rem; height: 1.15rem; accent-color: var(--color-gold); cursor: pointer; margin-right: 0.35rem; }
+.flashcard-3d-wrapper.is-selected .flashcard { border-color: var(--color-gold-bright); box-shadow: 0 0 0 2px var(--color-gold-border); }
+
+/* Phase 16 Academic Assessment + Achievement Card Polish Styles */
+.academic-results-hero { background-color: var(--color-surface); border: 1px solid var(--color-border); border-radius: var(--radius-xl); padding: 2.25rem; display: flex; flex-direction: column; align-items: center; text-align: center; gap: 1.5rem; box-shadow: var(--shadow-md); border-top: 4px solid var(--color-gold); }
+.academic-hero-header { display: flex; flex-direction: column; align-items: center; gap: 0.5rem; max-width: 620px; }
+.academic-score-card { background: linear-gradient(180deg, #1e293b 0%, #0f172a 100%); border: 2px solid var(--color-gold-border); border-radius: var(--radius-xl); padding: 2rem 2.5rem; display: flex; flex-direction: column; align-items: center; gap: 0.75rem; color: #f8fafc; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25), 0 0 20px rgba(234, 179, 8, 0.15); width: 100%; max-width: 440px; position: relative; }
+.score-laurel-badge { font-size: 0.7rem; font-weight: var(--font-weight-bold); letter-spacing: 0.12em; color: var(--color-gold-bright); background-color: rgba(234, 179, 8, 0.12); padding: 0.25rem 0.75rem; border-radius: var(--radius-full); border: 1px solid rgba(234, 179, 8, 0.3); }
+.score-percentage-main { font-size: clamp(3.2rem, 8vw, 4.2rem); font-weight: 800; color: #ffffff; line-height: 1; text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3); font-feature-settings: "tnum"; }
+.score-fraction-sub { font-size: var(--font-size-md); color: #94a3b8; font-weight: var(--font-weight-medium); }
+.score-fraction-sub strong { color: #f8fafc; font-weight: var(--font-weight-bold); }
+.hero-mode-pill { display: inline-flex; align-items: center; gap: 0.4rem; font-size: var(--font-size-xs); font-weight: var(--font-weight-bold); color: var(--color-gold-bright); background-color: rgba(234, 179, 8, 0.1); padding: 0.35rem 0.85rem; border-radius: var(--radius-full); border: 1px solid rgba(234, 179, 8, 0.25); margin-top: 0.25rem; }
+.hero-mode-notice { font-size: var(--font-size-xs); color: #cbd5e1; background-color: rgba(255, 255, 255, 0.06); padding: 0.5rem 0.85rem; border-radius: var(--radius-md); border: 1px dashed rgba(255, 255, 255, 0.15); margin-top: 0.25rem; max-width: 360px; line-height: 1.4; }
+
+.results-metrics-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 1rem; width: 100%; }
+.metric-card { background-color: var(--color-surface); border: 1px solid var(--color-border); border-radius: var(--radius-lg); padding: 1.25rem 1.5rem; display: flex; align-items: center; gap: 1rem; box-shadow: var(--shadow-sm); }
+.metric-card .metric-info { display: flex; flex-direction: column; align-items: flex-start; }
+.metric-card .metric-val { font-size: 1.6rem; font-weight: 800; line-height: 1.1; color: var(--color-text-primary); }
+.metric-card .metric-lbl { font-size: var(--font-size-xs); color: var(--color-text-muted); font-weight: var(--font-weight-semibold); }
+.metric-correct .metric-icon { color: var(--color-success); font-weight: bold; font-size: 1.3rem; }
+.metric-incorrect .metric-icon { color: var(--color-error); font-weight: bold; font-size: 1.3rem; }
+.metric-unanswered .metric-icon { color: var(--color-text-muted); font-weight: bold; font-size: 1.3rem; }
+.metric-total .metric-icon { color: var(--color-gold-bright); font-size: 1.3rem; }
+
+.results-context-card { background-color: var(--color-surface); border: 1px solid var(--color-border); border-radius: var(--radius-xl); padding: 1.5rem 1.75rem; display: flex; flex-direction: column; gap: 1rem; box-shadow: var(--shadow-sm); }
+.context-card-title { font-size: var(--font-size-xs); font-weight: var(--font-weight-bold); color: var(--color-text-muted); text-transform: uppercase; letter-spacing: 0.08em; }
+.context-fields-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem 1.5rem; }
+.context-field { display: flex; flex-direction: column; gap: 0.2rem; }
+.context-lbl { font-size: 0.7rem; color: var(--color-text-muted); font-weight: var(--font-weight-medium); }
+.context-val { font-size: var(--font-size-sm); font-weight: var(--font-weight-bold); color: var(--color-text-primary); }
+
+.results-actions-card { display: flex; align-items: center; justify-content: center; gap: 1rem; flex-wrap: wrap; margin-top: 0.5rem; }
+.btn-review-primary { padding: 0.85rem 2rem; font-size: var(--font-size-md); font-weight: var(--font-weight-bold); }

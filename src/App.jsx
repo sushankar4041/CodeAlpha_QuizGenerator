@@ -44,6 +44,10 @@ function App() {
   const [preferences, setPreferences] = useState(getStoredPreferences);
   const [learningActivity, setLearningActivity] = useState(getLearningActivityDates);
 
+  // Phase 15 Temporary Selection & Quiz Pool State
+  const [selectedFlashcardIds, setSelectedFlashcardIds] = useState([]);
+  const [selectedQuizCardIds, setSelectedQuizCardIds] = useState(null);
+
   // Global Toast Notification State
   const [toasts, setToasts] = useState([]);
 
@@ -131,7 +135,27 @@ function App() {
 
   const handleDeleteCard = (cardId) => {
     const updatedCollection = flashcards.filter((card) => card.id !== cardId);
+    setSelectedFlashcardIds((prev) => prev.filter((id) => id !== cardId));
     updateAndSaveCards(updatedCollection);
+  };
+
+  const handleBatchDeleteCards = (targetIds = []) => {
+    if (!Array.isArray(targetIds) || targetIds.length === 0) return;
+    const idSet = new Set(targetIds);
+    const updatedCollection = flashcards.filter((card) => !idSet.has(card.id));
+    setSelectedFlashcardIds([]);
+    updateAndSaveCards(updatedCollection);
+    addToast(`${targetIds.length} flashcard${targetIds.length === 1 ? '' : 's'} deleted successfully.`, 'info');
+  };
+
+  const handleStartQuizFromSelected = (cardIds = []) => {
+    if (!Array.isArray(cardIds) || cardIds.length === 0) {
+      addToast('Select at least one flashcard to start a quiz.', 'warning');
+      return;
+    }
+    setSelectedQuizCardIds(cardIds);
+    setActiveView('mock-quiz');
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
   const handleStudyCard = (cardId) => {
@@ -255,6 +279,10 @@ function App() {
           {activeView === 'flashcards' && (
             <FlashcardList
               flashcards={flashcards}
+              selectedFlashcardIds={selectedFlashcardIds}
+              onSelectCardsChange={setSelectedFlashcardIds}
+              onBatchDeleteCards={handleBatchDeleteCards}
+              onQuizSelectedCards={handleStartQuizFromSelected}
               onAddCard={handleAddCard}
               onBulkImportCards={handleBulkAddCards}
               onEditCard={handleEditCard}
@@ -267,6 +295,8 @@ function App() {
           {activeView === 'mock-quiz' && (
             <MockQuiz
               flashcards={flashcards}
+              selectedQuizCardIds={selectedQuizCardIds}
+              onClearSelectedQuizPool={() => setSelectedQuizCardIds(null)}
               preferences={preferences}
               onSaveQuizResult={handleSaveQuizResult}
               onNavigateToFlashcards={() => handleNavigate('flashcards')}
