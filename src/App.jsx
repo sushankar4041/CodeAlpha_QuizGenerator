@@ -104,6 +104,12 @@ function App() {
     updateAndSaveCards(updatedCollection);
   };
 
+  const handleBulkAddCards = (newCards) => {
+    if (!Array.isArray(newCards) || newCards.length === 0) return;
+    const updatedCollection = [...newCards, ...flashcards];
+    updateAndSaveCards(updatedCollection);
+  };
+
   const handleEditCard = (cardData) => {
     const now = new Date().toISOString();
     const updatedCollection = flashcards.map((card) => {
@@ -230,6 +236,7 @@ function App() {
             <FlashcardList
               flashcards={flashcards}
               onAddCard={handleAddCard}
+              onBulkImportCards={handleBulkAddCards}
               onEditCard={handleEditCard}
               onDeleteCard={handleDeleteCard}
               onStudyCard={handleStudyCard}

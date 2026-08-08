@@ -3,14 +3,16 @@ import Flashcard from './Flashcard';
 import CategoryFilter from './CategoryFilter';
 import EmptyState from './EmptyState';
 import FlashcardForm from './FlashcardForm';
+import BulkImportModal from './BulkImportModal';
 
 /**
- * Flashcard List Container Component - Phase 6C
- * Manages search, category filtering, study deck navigation, and CRUD modals with toast notifications.
+ * Flashcard List Container Component - Phase 6C & Phase 11 Quizelle
+ * Manages search, category filtering, study deck navigation, CRUD modals, and Bulk Import.
  */
 export default function FlashcardList({
   flashcards,
   onAddCard,
+  onBulkImportCards,
   onEditCard,
   onDeleteCard,
   onStudyCard,
@@ -24,6 +26,7 @@ export default function FlashcardList({
   // Form modal state
   const [isFormOpen, setIsFormOpen] = useState(false);
   const [editingCard, setEditingCard] = useState(null);
+  const [isBulkImportOpen, setIsBulkImportOpen] = useState(false);
 
   // Extract unique categories for form dropdown
   const uniqueCategories = useMemo(() => {
@@ -163,6 +166,14 @@ export default function FlashcardList({
 
           <button
             type="button"
+            className="btn btn-secondary"
+            onClick={() => setIsBulkImportOpen(true)}
+            title="Bulk Import Flashcards"
+          >
+            <span>📥 Bulk Import</span>
+          </button>
+          <button
+            type="button"
             className="btn btn-primary"
             onClick={handleOpenCreateModal}
           >
@@ -267,6 +278,22 @@ export default function FlashcardList({
         }}
         onSave={handleFormSave}
         initialData={editingCard}
+        existingCategories={uniqueCategories}
+      />
+
+      {/* Bulk Import Modal */}
+      <BulkImportModal
+        isOpen={isBulkImportOpen}
+        onClose={() => setIsBulkImportOpen(false)}
+        onImportCards={(newCards) => {
+          if (onBulkImportCards) {
+            onBulkImportCards(newCards);
+          }
+          if (onShowToast) {
+            onShowToast(`Successfully imported ${newCards.length} flashcard${newCards.length === 1 ? '' : 's'}!`, 'success');
+          }
+        }}
+        existingCards={flashcards}
         existingCategories={uniqueCategories}
       />
     </div>
