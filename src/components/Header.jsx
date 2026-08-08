@@ -1,6 +1,7 @@
 /**
- * Top Header Component
- * Contains section metadata, theme toggle, mobile menu toggle, and user-neutral profile pill
+ * Top Header Component - Phase 6E
+ * Contains section metadata, theme toggle, mobile menu toggle, and user-neutral profile pill.
+ * Fully keyboard accessible with ARIA labels.
  */
 export default function Header({
   activeView,
@@ -54,6 +55,13 @@ export default function Header({
   const displayName = profile.displayName || 'Learner';
   const avatarChar = displayName.charAt(0).toUpperCase();
 
+  const handleProfileKeyDown = (e) => {
+    if (e.key === 'Enter' || e.key === ' ') {
+      e.preventDefault();
+      onNavigateView('settings');
+    }
+  };
+
   return (
     <header className="app-header">
       <div className="header-left">
@@ -81,22 +89,22 @@ export default function Header({
           type="button"
           className="theme-toggle-btn"
           onClick={onToggleTheme}
-          aria-label={`Switch theme mode (Current: ${themeMode})`}
+          aria-label={`Switch theme mode (Current mode: ${themeMode})`}
           title={`Theme mode: ${themeMode}`}
         >
           {themeMode === 'light' ? (
             <>
-              <span className="theme-icon">☀️</span>
+              <span className="theme-icon" aria-hidden="true">☀️</span>
               <span className="theme-label">Light</span>
             </>
           ) : themeMode === 'dark' ? (
             <>
-              <span className="theme-icon">🌙</span>
+              <span className="theme-icon" aria-hidden="true">🌙</span>
               <span className="theme-label">Dark</span>
             </>
           ) : (
             <>
-              <span className="theme-icon">🖥️</span>
+              <span className="theme-icon" aria-hidden="true">🖥️</span>
               <span className="theme-label">System</span>
             </>
           )}
@@ -109,9 +117,10 @@ export default function Header({
           title="Click to manage profile settings"
           role="button"
           tabIndex={0}
-          onKeyDown={(e) => e.key === 'Enter' && onNavigateView('settings')}
+          onKeyDown={handleProfileKeyDown}
+          aria-label={`Learner profile for ${displayName}. Click to manage settings.`}
         >
-          <div className="user-avatar">
+          <div className="user-avatar" aria-hidden="true">
             {avatarChar}
           </div>
           <div className="user-info">

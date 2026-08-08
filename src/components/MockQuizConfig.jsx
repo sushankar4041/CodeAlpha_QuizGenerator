@@ -3,9 +3,9 @@ import { getCategoryIcon } from '../utils/quizUtils';
 import { getStoredPreferences } from '../services/storage';
 
 /**
- * Mock Quiz Configuration Component
- * Allows user to select Category, Difficulty, and Question Count before generating quiz
- * Pre-populates default preferences from storage
+ * Mock Quiz Configuration Component - Phase 6E
+ * Allows user to select Category, Difficulty, and Question Count before generating quiz.
+ * Pre-populates default preferences from storage and uses ARIA labels for accessibility.
  */
 export default function MockQuizConfig({ flashcards = [], onStartQuiz, onNavigateToFlashcards }) {
   const initialPrefs = useMemo(() => getStoredPreferences(), []);
@@ -55,7 +55,7 @@ export default function MockQuizConfig({ flashcards = [], onStartQuiz, onNavigat
         </div>
         <div className="concept-action-box">
           <div className="concept-status-info">
-            <span className="status-icon">📚</span>
+            <span className="status-icon" aria-hidden="true">📚</span>
             <div>
               <h4>No Flashcards Found</h4>
               <p>Add technical flashcards to your collection to unlock practice quizzes.</p>
@@ -87,7 +87,7 @@ export default function MockQuizConfig({ flashcards = [], onStartQuiz, onNavigat
         {/* Category Selection */}
         <div className="config-section">
           <label className="config-label">1. Select Category / Topic</label>
-          <div className="config-chips-grid">
+          <div className="config-chips-grid" role="group" aria-label="Category Selection">
             {categoriesList.map((catName) => {
               const isSelected = selectedCategory === catName;
               return (
@@ -96,8 +96,9 @@ export default function MockQuizConfig({ flashcards = [], onStartQuiz, onNavigat
                   type="button"
                   className={`config-chip ${isSelected ? 'selected' : ''}`}
                   onClick={() => setSelectedCategory(catName)}
+                  aria-pressed={isSelected}
                 >
-                  <span className="chip-emoji">
+                  <span className="chip-emoji" aria-hidden="true">
                     {catName === 'All Categories' ? '📚' : getCategoryIcon(catName)}
                   </span>
                   <span>{catName}</span>
@@ -110,7 +111,7 @@ export default function MockQuizConfig({ flashcards = [], onStartQuiz, onNavigat
         {/* Difficulty Selection */}
         <div className="config-section">
           <label className="config-label">2. Select Difficulty Level</label>
-          <div className="config-chips-grid">
+          <div className="config-chips-grid" role="group" aria-label="Difficulty Selection">
             {['All Difficulties', 'Easy', 'Medium', 'Hard'].map((lvl) => {
               const isSelected = selectedDifficulty === lvl;
               return (
@@ -119,6 +120,7 @@ export default function MockQuizConfig({ flashcards = [], onStartQuiz, onNavigat
                   type="button"
                   className={`config-chip ${isSelected ? 'selected' : ''}`}
                   onClick={() => setSelectedDifficulty(lvl)}
+                  aria-pressed={isSelected}
                 >
                   <span>{lvl}</span>
                 </button>
@@ -130,7 +132,7 @@ export default function MockQuizConfig({ flashcards = [], onStartQuiz, onNavigat
         {/* Question Count Selection */}
         <div className="config-section">
           <label className="config-label">3. Number of Questions</label>
-          <div className="config-chips-grid">
+          <div className="config-chips-grid" role="group" aria-label="Question Count Selection">
             {[5, 10, 15].map((cnt) => {
               const isSelected = requestedCount === cnt;
               return (
@@ -139,6 +141,7 @@ export default function MockQuizConfig({ flashcards = [], onStartQuiz, onNavigat
                   type="button"
                   className={`config-chip ${isSelected ? 'selected' : ''}`}
                   onClick={() => setRequestedCount(cnt)}
+                  aria-pressed={isSelected}
                 >
                   <span>{cnt} Questions</span>
                 </button>
@@ -150,7 +153,7 @@ export default function MockQuizConfig({ flashcards = [], onStartQuiz, onNavigat
         {/* Live Availability Counter & Warnings */}
         <div className="config-status-bar">
           <div className="status-availability-info">
-            <span className="availability-icon">🎯</span>
+            <span className="availability-icon" aria-hidden="true">🎯</span>
             <div>
               <strong>{matchingCardsCount} questions available</strong> with current settings.
               {matchingCardsCount < requestedCount && matchingCardsCount > 0 && (
@@ -160,7 +163,7 @@ export default function MockQuizConfig({ flashcards = [], onStartQuiz, onNavigat
           </div>
 
           {matchingCardsCount === 0 ? (
-            <div className="zero-warning-box">
+            <div className="zero-warning-box" role="alert">
               ⚠️ No flashcards match your selected category and difficulty filter. Please adjust your configuration choices above.
             </div>
           ) : (

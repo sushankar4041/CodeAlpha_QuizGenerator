@@ -1,9 +1,10 @@
-import { useState } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { validateFlashcardForm } from '../utils/validation';
 
 /**
- * FlashcardForm Component
- * Modal form for creating new flashcards or editing existing flashcards
+ * FlashcardForm Component - Phase 6E
+ * Modal form for creating new flashcards or editing existing flashcards.
+ * Enhanced with keyboard Escape close support, auto-focus, and full accessibility labels.
  */
 export default function FlashcardForm({
   isOpen,
@@ -13,6 +14,7 @@ export default function FlashcardForm({
   existingCategories = []
 }) {
   const isEditing = Boolean(initialData);
+  const questionInputRef = useRef(null);
 
   const [question, setQuestion] = useState(() => initialData?.question || '');
   const [answer, setAnswer] = useState(() => initialData?.answer || '');
@@ -25,6 +27,27 @@ export default function FlashcardForm({
   const [customCategory, setCustomCategory] = useState(() => (isExistingCat ? '' : initialCat));
   const [isCustomCategory, setIsCustomCategory] = useState(() => !isExistingCat);
   const [errors, setErrors] = useState({});
+
+  // Escape key handler to close modal
+  useEffect(() => {
+    if (!isOpen) return;
+
+    const handleKeyDown = (e) => {
+      if (e.key === 'Escape') {
+        onClose();
+      }
+    };
+
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, [isOpen, onClose]);
+
+  // Auto-focus question input when modal opens
+  useEffect(() => {
+    if (isOpen && questionInputRef.current) {
+      questionInputRef.current.focus();
+    }
+  }, [isOpen]);
 
   if (!isOpen) return null;
 
@@ -67,7 +90,7 @@ export default function FlashcardForm({
   };
 
   return (
-    <div className="modal-backdrop" onClick={onClose} aria-hidden="true">
+    <div className="modal-backdrop" onClick={onClose}>
       <div
         className="modal-container animate-fade-in"
         onClick={(e) => e.stopPropagation()}
@@ -83,7 +106,7 @@ export default function FlashcardForm({
             type="button"
             className="modal-close-btn"
             onClick={onClose}
-            aria-label="Close modal"
+            aria-label="Close dialog"
           >
             ✕
           </button>
@@ -96,12 +119,14 @@ export default function FlashcardForm({
               Question <span className="required-star">*</span>
             </label>
             <textarea
+              ref={questionInputRef}
               id="card-question"
               rows="3"
               className={`form-input ${errors.question ? 'input-error' : ''}`}
               placeholder="e.g. What is Closure in JavaScript?"
               value={question}
               onChange={(e) => setQuestion(e.target.value)}
+              required
             />
             {errors.question && <span className="error-text">{errors.question}</span>}
           </div>
@@ -118,6 +143,7 @@ export default function FlashcardForm({
               placeholder="e.g. A closure gives inner functions access to an outer function's scope..."
               value={answer}
               onChange={(e) => setAnswer(e.target.value)}
+              required
             />
             {errors.answer && <span className="error-text">{errors.answer}</span>}
           </div>
@@ -155,6 +181,7 @@ export default function FlashcardForm({
                   placeholder="e.g. Node.js"
                   value={customCategory}
                   onChange={(e) => setCustomCategory(e.target.value)}
+                  required
                 />
                 {errors.category && <span className="error-text">{errors.category}</span>}
               </div>

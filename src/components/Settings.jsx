@@ -1,9 +1,9 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 /**
- * Settings & Learner Profile View Component - Phase 6C
+ * Settings & Learner Profile View Component - Phase 6E
  * Allows user to edit display name, select theme mode (Light/Dark/System), customize quiz preferences,
- * and manage data reset options with accessible confirmation dialogs and toast feedback.
+ * and manage data reset options with accessible confirmation dialogs, focus management, and keyboard handling.
  */
 export default function Settings({
   profile = {},
@@ -23,6 +23,21 @@ export default function Settings({
   // Modal State for Data Management
   const [showClearHistoryModal, setShowClearHistoryModal] = useState(false);
   const [showResetCardsModal, setShowResetCardsModal] = useState(false);
+
+  // Escape key handler for confirmation modals
+  useEffect(() => {
+    if (!showClearHistoryModal && !showResetCardsModal) return;
+
+    const handleKeyDown = (e) => {
+      if (e.key === 'Escape') {
+        setShowClearHistoryModal(false);
+        setShowResetCardsModal(false);
+      }
+    };
+
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, [showClearHistoryModal, showResetCardsModal]);
 
   const handleProfileSubmit = (e) => {
     e.preventDefault();
@@ -83,7 +98,7 @@ export default function Settings({
 
       <div className="settings-grid">
         {/* SECTION 1: LEARNER PROFILE */}
-        <section className="settings-card">
+        <section className="settings-card" aria-label="Learner Profile Section">
           <div className="settings-card-header">
             <h3 className="settings-card-title">1. Learner Profile</h3>
             <span className="settings-card-desc">Personalize how your name appears across the workspace and live quizzes.</span>
@@ -91,7 +106,7 @@ export default function Settings({
 
           <form onSubmit={handleProfileSubmit} className="settings-form">
             <div className="profile-edit-flex">
-              <div className="user-avatar-large" title="Learner Avatar">
+              <div className="user-avatar-large" title="Learner Avatar" aria-hidden="true">
                 {avatarChar}
               </div>
 
@@ -108,13 +123,13 @@ export default function Settings({
                   maxLength={30}
                   required
                 />
-                {nameError && <p className="error-text">{nameError}</p>}
+                {nameError && <p className="error-text" role="alert">{nameError}</p>}
                 <p className="form-help-text">Visible on the header, welcome banner, and live quiz lobbies.</p>
               </div>
             </div>
 
             <div className="settings-action-row">
-              {isSavedNotice && <span className="save-success-badge">✓ Profile Saved!</span>}
+              {isSavedNotice && <span className="save-success-badge" role="status">✓ Profile Saved!</span>}
               <button type="submit" className="btn btn-primary">
                 Save Profile Name
               </button>
@@ -123,19 +138,20 @@ export default function Settings({
         </section>
 
         {/* SECTION 2: APPEARANCE (THEME MODE) */}
-        <section className="settings-card">
+        <section className="settings-card" aria-label="Appearance and Theme Section">
           <div className="settings-card-header">
             <h3 className="settings-card-title">2. Appearance & Theme</h3>
             <span className="settings-card-desc">Select your preferred color theme or match your system OS settings.</span>
           </div>
 
-          <div className="theme-options-grid">
+          <div className="theme-options-grid" role="radiogroup" aria-label="Theme Mode Selection">
             <button
               type="button"
               className={`theme-option-card ${themeMode === 'light' ? 'selected' : ''}`}
               onClick={() => handleThemeChange('light')}
+              aria-pressed={themeMode === 'light'}
             >
-              <span className="theme-option-icon">☀️</span>
+              <span className="theme-option-icon" aria-hidden="true">☀️</span>
               <span className="theme-option-label">Light Mode</span>
               <span className="theme-option-desc">Bright surfaces & high contrast</span>
             </button>
@@ -144,8 +160,9 @@ export default function Settings({
               type="button"
               className={`theme-option-card ${themeMode === 'dark' ? 'selected' : ''}`}
               onClick={() => handleThemeChange('dark')}
+              aria-pressed={themeMode === 'dark'}
             >
-              <span className="theme-option-icon">🌙</span>
+              <span className="theme-option-icon" aria-hidden="true">🌙</span>
               <span className="theme-option-label">Dark Mode</span>
               <span className="theme-option-desc">Sleek dark surfaces</span>
             </button>
@@ -154,8 +171,9 @@ export default function Settings({
               type="button"
               className={`theme-option-card ${themeMode === 'system' ? 'selected' : ''}`}
               onClick={() => handleThemeChange('system')}
+              aria-pressed={themeMode === 'system'}
             >
-              <span className="theme-option-icon">🖥️</span>
+              <span className="theme-option-icon" aria-hidden="true">🖥️</span>
               <span className="theme-option-label">System Auto</span>
               <span className="theme-option-desc">Match device OS theme setting</span>
             </button>
@@ -163,7 +181,7 @@ export default function Settings({
         </section>
 
         {/* SECTION 3: QUIZ DEFAULTS */}
-        <section className="settings-card">
+        <section className="settings-card" aria-label="Quiz Preferences Section">
           <div className="settings-card-header">
             <h3 className="settings-card-title">3. Quiz Preferences</h3>
             <span className="settings-card-desc">Set default configuration values for Mock Quiz and Live Quiz sessions.</span>
@@ -174,16 +192,20 @@ export default function Settings({
             <div className="preference-item">
               <label className="pref-label">Default Question Count</label>
               <div className="config-chips-grid">
-                {[5, 10, 15].map((cnt) => (
-                  <button
-                    key={cnt}
-                    type="button"
-                    className={`config-chip ${preferences.preferredQuestionCount === cnt ? 'selected' : ''}`}
-                    onClick={() => handlePreferenceChange('preferredQuestionCount', cnt)}
-                  >
-                    <span>{cnt} Questions</span>
-                  </button>
-                ))}
+                {[5, 10, 15].map((cnt) => {
+                  const isSelected = preferences.preferredQuestionCount === cnt;
+                  return (
+                    <button
+                      key={cnt}
+                      type="button"
+                      className={`config-chip ${isSelected ? 'selected' : ''}`}
+                      onClick={() => handlePreferenceChange('preferredQuestionCount', cnt)}
+                      aria-pressed={isSelected}
+                    >
+                      <span>{cnt} Questions</span>
+                    </button>
+                  );
+                })}
               </div>
             </div>
 
@@ -191,16 +213,20 @@ export default function Settings({
             <div className="preference-item">
               <label className="pref-label">Default Difficulty Level</label>
               <div className="config-chips-grid">
-                {['All Difficulties', 'Easy', 'Medium', 'Hard'].map((lvl) => (
-                  <button
-                    key={lvl}
-                    type="button"
-                    className={`config-chip ${preferences.preferredDifficulty === lvl ? 'selected' : ''}`}
-                    onClick={() => handlePreferenceChange('preferredDifficulty', lvl)}
-                  >
-                    <span>{lvl}</span>
-                  </button>
-                ))}
+                {['All Difficulties', 'Easy', 'Medium', 'Hard'].map((lvl) => {
+                  const isSelected = preferences.preferredDifficulty === lvl;
+                  return (
+                    <button
+                      key={lvl}
+                      type="button"
+                      className={`config-chip ${isSelected ? 'selected' : ''}`}
+                      onClick={() => handlePreferenceChange('preferredDifficulty', lvl)}
+                      aria-pressed={isSelected}
+                    >
+                      <span>{lvl}</span>
+                    </button>
+                  );
+                })}
               </div>
             </div>
 
@@ -208,23 +234,27 @@ export default function Settings({
             <div className="preference-item">
               <label className="pref-label">Default Live Question Time Limit</label>
               <div className="config-chips-grid">
-                {[10, 15, 30].map((secs) => (
-                  <button
-                    key={secs}
-                    type="button"
-                    className={`config-chip ${preferences.preferredTimeLimit === secs ? 'selected' : ''}`}
-                    onClick={() => handlePreferenceChange('preferredTimeLimit', secs)}
-                  >
-                    <span>{secs} Seconds</span>
-                  </button>
-                ))}
+                {[10, 15, 30].map((secs) => {
+                  const isSelected = preferences.preferredTimeLimit === secs;
+                  return (
+                    <button
+                      key={secs}
+                      type="button"
+                      className={`config-chip ${isSelected ? 'selected' : ''}`}
+                      onClick={() => handlePreferenceChange('preferredTimeLimit', secs)}
+                      aria-pressed={isSelected}
+                    >
+                      <span>{secs} Seconds</span>
+                    </button>
+                  );
+                })}
               </div>
             </div>
           </div>
         </section>
 
         {/* SECTION 4: DATA MANAGEMENT & RESET */}
-        <section className="settings-card danger-card">
+        <section className="settings-card danger-card" aria-label="Learning Data Management Section">
           <div className="settings-card-header">
             <h3 className="settings-card-title">4. Learning Data Management</h3>
             <span className="settings-card-desc">Manage local storage data, clear history, or reset flashcards.</span>
@@ -269,6 +299,7 @@ export default function Settings({
             className="modal-container warning-modal animate-fade-in"
             onClick={(e) => e.stopPropagation()}
             role="dialog"
+            aria-modal="true"
             aria-labelledby="clear-modal-title"
           >
             <div className="modal-header">
@@ -277,6 +308,7 @@ export default function Settings({
                 type="button"
                 className="modal-close-btn"
                 onClick={() => setShowClearHistoryModal(false)}
+                aria-label="Close dialog"
               >
                 ✕
               </button>
@@ -319,6 +351,7 @@ export default function Settings({
             className="modal-container warning-modal animate-fade-in"
             onClick={(e) => e.stopPropagation()}
             role="dialog"
+            aria-modal="true"
             aria-labelledby="reset-modal-title"
           >
             <div className="modal-header">
@@ -327,6 +360,7 @@ export default function Settings({
                 type="button"
                 className="modal-close-btn"
                 onClick={() => setShowResetCardsModal(false)}
+                aria-label="Close dialog"
               >
                 ✕
               </button>

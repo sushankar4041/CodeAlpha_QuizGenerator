@@ -714,3 +714,16 @@ p, h1, h2, h3, h4, h5, h6, span, label, td, th {
 @media (max-width: 640px) {
   .toast-container { top: 1rem; right: 1rem; left: 1rem; width: auto; max-width: none; }
 }
+
+/* Global Accessibility Focus-Visible Ring System - Phase 6E */
+button:focus-visible,
+a:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible,
+[role="button"]:focus-visible,
+[tabindex="0"]:focus-visible {
+  outline: 2px solid var(--color-primary) !important;
+  outline-offset: 2px !important;
+  box-shadow: 0 0 0 4px var(--color-primary-light) !important;
+}

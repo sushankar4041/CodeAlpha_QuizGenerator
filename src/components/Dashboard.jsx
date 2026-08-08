@@ -2,8 +2,9 @@ import { getCategoryIcon } from '../utils/quizUtils';
 import { calculateOverviewStats } from '../utils/statisticsUtils';
 
 /**
- * Dashboard View Component - Phase 6A
- * Learner portal showing real persisted stats and personalized learner greeting
+ * Dashboard View Component - Phase 6E
+ * Learner portal showing real persisted stats and personalized learner greeting.
+ * Enhanced with full keyboard interaction and ARIA accessibility labels.
  */
 export default function Dashboard({
   onNavigateView,
@@ -27,10 +28,17 @@ export default function Dashboard({
     icon: getCategoryIcon(catName)
   }));
 
+  const handleCardKeyDown = (e, viewTarget) => {
+    if (e.key === 'Enter' || e.key === ' ') {
+      e.preventDefault();
+      onNavigateView(viewTarget);
+    }
+  };
+
   return (
     <div className="dashboard-container">
       {/* 1. Personalized Welcome Banner */}
-      <section className="welcome-banner">
+      <section className="welcome-banner" aria-label="Welcome Overview">
         <div className="welcome-content">
           <div className="welcome-pill">⚡ Learning Workspace</div>
           <h1 className="welcome-title">
@@ -60,7 +68,7 @@ export default function Dashboard({
             </button>
           </div>
         </div>
-        <div className="welcome-illustration">
+        <div className="welcome-illustration" aria-hidden="true">
           <div className="card-stack-decoration">
             <div className="deco-card card-3">DBMS 🗄️</div>
             <div className="deco-card card-2">React ⚛️</div>
@@ -70,16 +78,20 @@ export default function Dashboard({
       </section>
 
       {/* 2. Four Primary Experience Cards */}
-      <section className="dashboard-section">
+      <section className="dashboard-section" aria-label="Core Learning Experiences">
         <h3 className="section-title">Core Learning Experiences</h3>
         <div className="three-cards-grid">
           {/* Flashcards (Create / Study) */}
           <div
             className="feature-card learning-card"
             onClick={() => onNavigateView('flashcards')}
+            role="button"
+            tabIndex={0}
+            onKeyDown={(e) => handleCardKeyDown(e, 'flashcards')}
+            aria-label="Open Flashcards section to create and study decks"
           >
             <div className="feature-card-header">
-              <div className="feature-icon-box purple">🎴</div>
+              <div className="feature-icon-box purple" aria-hidden="true">🎴</div>
               <span className="badge badge-purple">Active Mode</span>
             </div>
             <div className="feature-card-meta">
@@ -98,9 +110,13 @@ export default function Dashboard({
           <div
             className="feature-card assessment-card"
             onClick={() => onNavigateView('mock-quiz')}
+            role="button"
+            tabIndex={0}
+            onKeyDown={(e) => handleCardKeyDown(e, 'mock-quiz')}
+            aria-label="Open Mock Quiz section for self-assessment practice"
           >
             <div className="feature-card-header">
-              <div className="feature-icon-box blue">📝</div>
+              <div className="feature-icon-box blue" aria-hidden="true">📝</div>
               <span className="badge badge-purple">Active Mode</span>
             </div>
             <div className="feature-card-meta">
@@ -119,9 +135,13 @@ export default function Dashboard({
           <div
             className="feature-card competition-card"
             onClick={() => onNavigateView('live-quiz')}
+            role="button"
+            tabIndex={0}
+            onKeyDown={(e) => handleCardKeyDown(e, 'live-quiz')}
+            aria-label="Open Live Quiz section to host or join multiplayer rooms"
           >
             <div className="feature-card-header">
-              <div className="feature-icon-box amber">⚡</div>
+              <div className="feature-icon-box amber" aria-hidden="true">⚡</div>
               <span className="badge badge-purple">Active Mode</span>
             </div>
             <div className="feature-card-meta">
@@ -139,9 +159,9 @@ export default function Dashboard({
       </section>
 
       {/* 3. Real Persisted Overview Stats */}
-      <section className="dashboard-stats-grid">
+      <section className="dashboard-stats-grid" aria-label="Persisted Learning Statistics">
         <div className="stat-card">
-          <div className="stat-icon-wrapper purple">📚</div>
+          <div className="stat-icon-wrapper purple" aria-hidden="true">📚</div>
           <div className="stat-details">
             <span className="stat-value">{overview.totalCards}</span>
             <span className="stat-label">Total Flashcards</span>
@@ -149,7 +169,7 @@ export default function Dashboard({
         </div>
 
         <div className="stat-card">
-          <div className="stat-icon-wrapper blue">🎯</div>
+          <div className="stat-icon-wrapper blue" aria-hidden="true">🎯</div>
           <div className="stat-details">
             <span className="stat-value">{overview.quizzesCompleted}</span>
             <span className="stat-label">Quizzes Completed</span>
@@ -157,7 +177,7 @@ export default function Dashboard({
         </div>
 
         <div className="stat-card">
-          <div className="stat-icon-wrapper green">📖</div>
+          <div className="stat-icon-wrapper green" aria-hidden="true">📖</div>
           <div className="stat-details">
             <span className="stat-value">{overview.totalStudied}</span>
             <span className="stat-label">Cards Studied</span>
@@ -165,7 +185,7 @@ export default function Dashboard({
         </div>
 
         <div className="stat-card">
-          <div className="stat-icon-wrapper amber">🏆</div>
+          <div className="stat-icon-wrapper amber" aria-hidden="true">🏆</div>
           <div className="stat-details">
             <span className="stat-value">{overview.averageScore}%</span>
             <span className="stat-label">Overall Accuracy</span>
@@ -174,7 +194,7 @@ export default function Dashboard({
       </section>
 
       {/* 4. Categories Overview Section */}
-      <section className="dashboard-section">
+      <section className="dashboard-section" aria-label="Category Breakdown Overview">
         <div className="section-header-flex">
           <h3 className="section-title">Categories Breakdown</h3>
           <button
@@ -188,13 +208,21 @@ export default function Dashboard({
 
         <div className="categories-grid">
           {categoriesList.map((cat) => (
-            <div key={cat.name} className="category-card" onClick={() => onNavigateView('flashcards')}>
-              <div className="category-icon">{cat.icon}</div>
+            <div
+              key={cat.name}
+              className="category-card"
+              onClick={() => onNavigateView('flashcards')}
+              role="button"
+              tabIndex={0}
+              onKeyDown={(e) => handleCardKeyDown(e, 'flashcards')}
+              aria-label={`Category ${cat.name} with ${cat.count} flashcards. Click to view.`}
+            >
+              <div className="category-icon" aria-hidden="true">{cat.icon}</div>
               <div className="category-info">
                 <h4 className="category-name">{cat.name}</h4>
                 <span className="category-count">{cat.count} {cat.count === 1 ? 'Flashcard' : 'Flashcards'}</span>
               </div>
-              <span className="category-arrow">→</span>
+              <span className="category-arrow" aria-hidden="true">→</span>
             </div>
           ))}
         </div>
