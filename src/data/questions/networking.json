@@ -2,7 +2,12 @@
   {
     "id": "qz-net-001",
     "question": "Which layer of the OSI model is responsible for end-to-end reliability and flow control (e.g. TCP)?",
-    "options": ["Transport Layer (Layer 4)", "Network Layer (Layer 3)", "Data Link Layer (Layer 2)", "Application Layer (Layer 7)"],
+    "options": [
+      "Transport Layer (Layer 4)",
+      "Network Layer (Layer 3)",
+      "Data Link Layer (Layer 2)",
+      "Application Layer (Layer 7)"
+    ],
     "answer": "Transport Layer (Layer 4)",
     "category": "Networking",
     "difficulty": "Easy",
@@ -11,7 +16,12 @@
   {
     "id": "qz-net-002",
     "question": "What is the default TCP port used for secure HTTPS connections?",
-    "options": ["443", "80", "22", "8080"],
+    "options": [
+      "443",
+      "80",
+      "22",
+      "8080"
+    ],
     "answer": "443",
     "category": "Networking",
     "difficulty": "Easy",
@@ -20,7 +30,12 @@
   {
     "id": "qz-net-003",
     "question": "What protocol translates human-readable domain names (e.g. example.com) into IP addresses?",
-    "options": ["DNS (Domain Name System)", "DHCP", "ARP", "ICMP"],
+    "options": [
+      "DNS (Domain Name System)",
+      "DHCP",
+      "ARP",
+      "ICMP"
+    ],
     "answer": "DNS (Domain Name System)",
     "category": "Networking",
     "difficulty": "Easy",
@@ -28,8 +43,13 @@
   },
   {
     "id": "qz-net-004",
-    "question": "What protocol resolves IP addresses to physical MAC hardware addresses on a local local area network?",
-    "options": ["ARP (Address Resolution Protocol)", "RARP", "DNS", "BGP"],
+    "question": "What protocol resolves IP addresses to physical MAC hardware addresses on a local area network?",
+    "options": [
+      "ARP (Address Resolution Protocol)",
+      "RARP",
+      "DNS",
+      "BGP"
+    ],
     "answer": "ARP (Address Resolution Protocol)",
     "category": "Networking",
     "difficulty": "Medium",
@@ -52,7 +72,12 @@
   {
     "id": "qz-net-006",
     "question": "What is the subnet mask for a default Class C IPv4 address block (/24)?",
-    "options": ["255.255.255.0", "255.255.0.0", "255.0.0.0", "255.255.255.128"],
+    "options": [
+      "255.255.255.0",
+      "255.255.0.0",
+      "255.0.0.0",
+      "255.255.255.128"
+    ],
     "answer": "255.255.255.0",
     "category": "Networking",
     "difficulty": "Medium",
@@ -75,7 +100,12 @@
   {
     "id": "qz-net-008",
     "question": "Which HTTP status code signifies that a requested resource was not found on the server?",
-    "options": ["404 Not Found", "500 Internal Server Error", "403 Forbidden", "301 Moved Permanently"],
+    "options": [
+      "404 Not Found",
+      "500 Internal Server Error",
+      "403 Forbidden",
+      "301 Moved Permanently"
+    ],
     "answer": "404 Not Found",
     "category": "Networking",
     "difficulty": "Easy",
@@ -98,10 +128,785 @@
   {
     "id": "qz-net-010",
     "question": "Which protocol operates at the Internet/Network layer to report network diagnostic errors (e.g. ping command)?",
-    "options": ["ICMP (Internet Control Message Protocol)", "IGMP", "SNMP", "SMTP"],
+    "options": [
+      "ICMP (Internet Control Message Protocol)",
+      "IGMP",
+      "SNMP",
+      "SMTP"
+    ],
     "answer": "ICMP (Internet Control Message Protocol)",
     "category": "Networking",
     "difficulty": "Medium",
     "explanation": "ICMP is used by network devices to send error messages and operational information (echo request/reply for ping)."
+  },
+  {
+    "id": "qz-net-011",
+    "question": "Which layer of the OSI model is responsible for routing packets across multiple networks using logical IP addresses?",
+    "options": [
+      "Network Layer (Layer 3)",
+      "Data Link Layer (Layer 2)",
+      "Transport Layer (Layer 4)",
+      "Physical Layer (Layer 1)"
+    ],
+    "answer": "Network Layer (Layer 3)",
+    "category": "Networking",
+    "difficulty": "Easy",
+    "explanation": "Layer 3 (Network Layer) handles packet forwarding and IP routing between different network subnets."
+  },
+  {
+    "id": "qz-net-012",
+    "question": "What is the function of DHCP (Dynamic Host Configuration Protocol)?",
+    "options": [
+      "Automatically assigns IP addresses, subnet masks, and default gateways to devices on a network.",
+      "Translates domain names to IP addresses.",
+      "Encrypts web traffic over TLS.",
+      "Monitors router CPU usage."
+    ],
+    "answer": "Automatically assigns IP addresses, subnet masks, and default gateways to devices on a network.",
+    "category": "Networking",
+    "difficulty": "Easy",
+    "explanation": "DHCP automates network IP configuration via a DORA (Discover, Offer, Request, Acknowledge) exchange."
+  },
+  {
+    "id": "qz-net-013",
+    "question": "What is the maximum payload size (MTU) for a standard Ethernet frame?",
+    "options": [
+      "1500 bytes",
+      "512 bytes",
+      "4096 bytes",
+      "9000 bytes"
+    ],
+    "answer": "1500 bytes",
+    "category": "Networking",
+    "difficulty": "Medium",
+    "explanation": "Standard Ethernet frames have a Maximum Transmission Unit (MTU) of 1500 bytes for IP payload data."
+  },
+  {
+    "id": "qz-net-014",
+    "question": "What is a Jumbo Frame in Ethernet networking?",
+    "options": [
+      "An Ethernet frame with a payload greater than the standard 1500 bytes (typically 9000 bytes).",
+      "A frame used strictly for Wi-Fi 6.",
+      "A frame with 1024-bit encryption.",
+      "A frame sent across satellite links."
+    ],
+    "answer": "An Ethernet frame with a payload greater than the standard 1500 bytes (typically 9000 bytes).",
+    "category": "Networking",
+    "difficulty": "Medium",
+    "explanation": "Jumbo frames reduce CPU overhead by transmitting more data per Ethernet frame in local SAN or data center networks."
+  },
+  {
+    "id": "qz-net-015",
+    "question": "Which protocol is used by email clients to retrieve messages from a mail server while keeping messages synchronized across multiple devices?",
+    "options": [
+      "IMAP (Internet Message Access Protocol)",
+      "POP3",
+      "SMTP",
+      "FTP"
+    ],
+    "answer": "IMAP (Internet Message Access Protocol)",
+    "category": "Networking",
+    "difficulty": "Easy",
+    "explanation": "IMAP (port 993) syncs email folders and messages bi-directionally between mail server and clients."
+  },
+  {
+    "id": "qz-net-016",
+    "question": "Which protocol is used strictly for sending emails from client to server or between mail servers?",
+    "options": [
+      "SMTP (Simple Mail Transfer Protocol)",
+      "IMAP",
+      "POP3",
+      "SNMP"
+    ],
+    "answer": "SMTP (Simple Mail Transfer Protocol)",
+    "category": "Networking",
+    "difficulty": "Easy",
+    "explanation": "SMTP (port 25 / 587) handles mail submission and relay across the Internet."
+  },
+  {
+    "id": "qz-net-017",
+    "question": "What is the loopback IPv4 address for local host testing?",
+    "options": [
+      "127.0.0.1",
+      "192.168.1.1",
+      "10.0.0.1",
+      "255.255.255.255"
+    ],
+    "answer": "127.0.0.1",
+    "category": "Networking",
+    "difficulty": "Easy",
+    "explanation": "127.0.0.1 is the standard IPv4 loopback address pointing directly to the local computer's network interface."
+  },
+  {
+    "id": "qz-net-018",
+    "question": "What is the loopback address in IPv6?",
+    "options": [
+      "::1",
+      "fe80::1",
+      "127.0.0.1",
+      "ff02::1"
+    ],
+    "answer": "::1",
+    "category": "Networking",
+    "difficulty": "Easy",
+    "explanation": "In IPv6, ::1 represents the localhost loopback address."
+  },
+  {
+    "id": "qz-net-019",
+    "question": "How many bits are in an IPv4 address?",
+    "options": [
+      "32 bits",
+      "64 bits",
+      "128 bits",
+      "16 bits"
+    ],
+    "answer": "32 bits",
+    "category": "Networking",
+    "difficulty": "Easy",
+    "explanation": "An IPv4 address consists of 32 bits formatted as 4 dotted-decimal octets (e.g. 192.168.1.1)."
+  },
+  {
+    "id": "qz-net-020",
+    "question": "How many bits are in an IPv6 address?",
+    "options": [
+      "128 bits",
+      "32 bits",
+      "64 bits",
+      "256 bits"
+    ],
+    "answer": "128 bits",
+    "category": "Networking",
+    "difficulty": "Easy",
+    "explanation": "IPv6 uses 128-bit addresses expressed as 8 hexadecimal blocks separated by colons."
+  },
+  {
+    "id": "qz-net-021",
+    "question": "Which of the following IP address ranges is reserved for Private IPv4 networks (RFC 1918)?",
+    "options": [
+      "10.0.0.0 to 10.255.255.255",
+      "8.8.8.0 to 8.8.8.255",
+      "1.1.1.0 to 1.1.1.255",
+      "100.0.0.0 to 100.255.255.255"
+    ],
+    "answer": "10.0.0.0 to 10.255.255.255",
+    "category": "Networking",
+    "difficulty": "Medium",
+    "explanation": "RFC 1918 private ranges include 10.0.0.0/8, 172.16.0.0/12, and 192.168.0.0/16 for non-routable internal networks."
+  },
+  {
+    "id": "qz-net-022",
+    "question": "What is CIDR (Classless Inter-Domain Routing)?",
+    "options": [
+      "A method for allocating IP addresses and routing IP packets using variable-length subnet masking (VLSM).",
+      "A protocol for dynamic DNS routing.",
+      "A fiber optic cable specification.",
+      "A wireless encryption standard."
+    ],
+    "answer": "A method for allocating IP addresses and routing IP packets using variable-length subnet masking (VLSM).",
+    "category": "Networking",
+    "difficulty": "Medium",
+    "explanation": "CIDR notation (e.g. /24) replaced rigid A/B/C classful networking to slow IPv4 address exhaustion."
+  },
+  {
+    "id": "qz-net-023",
+    "question": "What is the broadcast IPv4 address for a local subnet with mask 255.255.255.0 and network 192.168.1.0?",
+    "options": [
+      "192.168.1.255",
+      "192.168.1.0",
+      "192.168.1.1",
+      "255.255.255.255"
+    ],
+    "answer": "192.168.1.255",
+    "category": "Networking",
+    "difficulty": "Easy",
+    "explanation": "The broadcast address has all host bits set to 1, which for 192.168.1.0/24 is 192.168.1.255."
+  },
+  {
+    "id": "qz-net-024",
+    "question": "What is the purpose of BGP (Border Gateway Protocol)?",
+    "options": [
+      "The standardized exterior gateway routing protocol designed to exchange routing information between Autonomous Systems (AS) on the Internet.",
+      "A local network file sharing protocol.",
+      "A protocol for secure shell logins.",
+      "A wireless mesh network routing algorithm."
+    ],
+    "answer": "The standardized exterior gateway routing protocol designed to exchange routing information between Autonomous Systems (AS) on the Internet.",
+    "category": "Networking",
+    "difficulty": "Hard",
+    "explanation": "BGP is the core routing protocol that binds the global Internet together by routing traffic across Autonomous Systems."
+  },
+  {
+    "id": "qz-net-025",
+    "question": "What is OSPF (Open Shortest Path First)?",
+    "options": [
+      "An Interior Gateway Protocol (IGP) using link-state routing algorithms (Dijkstra) within a single autonomous system.",
+      "An exterior routing protocol.",
+      "A VPN tunneling protocol.",
+      "A DNS server daemon."
+    ],
+    "answer": "An Interior Gateway Protocol (IGP) using link-state routing algorithms (Dijkstra) within a single autonomous system.",
+    "category": "Networking",
+    "difficulty": "Hard",
+    "explanation": "OSPF is an open-standard link-state protocol that quickly converges network topology within an enterprise domain."
+  },
+  {
+    "id": "qz-net-026",
+    "question": "Which layer of the OSI model handles data framing, MAC addressing, and physical media error detection?",
+    "options": [
+      "Data Link Layer (Layer 2)",
+      "Network Layer (Layer 3)",
+      "Physical Layer (Layer 1)",
+      "Session Layer (Layer 5)"
+    ],
+    "answer": "Data Link Layer (Layer 2)",
+    "category": "Networking",
+    "difficulty": "Easy",
+    "explanation": "Layer 2 (Data Link) formats network bits into Ethernet frames, managing MAC address delivery and CSMA/CD or switches."
+  },
+  {
+    "id": "qz-net-027",
+    "question": "What is a Switch in computer networking?",
+    "options": [
+      "A Layer 2 device that forwards Ethernet frames to specific destination ports using a MAC address table.",
+      "A Layer 1 hub that broadcasts packets to all ports.",
+      "A Layer 3 router that connects subnets.",
+      "A modem that translates analog signals."
+    ],
+    "answer": "A Layer 2 device that forwards Ethernet frames to specific destination ports using a MAC address table.",
+    "category": "Networking",
+    "difficulty": "Easy",
+    "explanation": "Switches inspect destination MAC addresses in frame headers to forward frames exclusively to target device ports."
+  },
+  {
+    "id": "qz-net-028",
+    "question": "What is a Router?",
+    "options": [
+      "A Layer 3 device that routes packets between different logical IP networks based on routing tables.",
+      "A Layer 2 switch.",
+      "A physical cable coupler.",
+      "A device that converts digital to analog."
+    ],
+    "answer": "A Layer 3 device that routes packets between different logical IP networks based on routing tables.",
+    "category": "Networking",
+    "difficulty": "Easy",
+    "explanation": "Routers connect different network segments, determining optimal packet paths across IP subnets."
+  },
+  {
+    "id": "qz-net-029",
+    "question": "What is a Hub in networking?",
+    "options": [
+      "A legacy Layer 1 device that repeats and broadcasts incoming signals out to all connected ports.",
+      "A smart Layer 2 switch.",
+      "A firewall gateway.",
+      "A domain name server."
+    ],
+    "answer": "A legacy Layer 1 device that repeats and broadcasts incoming signals out to all connected ports.",
+    "category": "Networking",
+    "difficulty": "Easy",
+    "explanation": "Hubs operate at the Physical layer (Layer 1), broadcasting every incoming bit to all ports, creating single collision domains."
+  },
+  {
+    "id": "qz-net-030",
+    "question": "What is a Collision Domain?",
+    "options": [
+      "A network segment where simultaneous data transmissions by two devices cause frames to collide and corrupt.",
+      "A domain name collision in DNS.",
+      "A firewall rule conflict.",
+      "A duplicate IP address conflict."
+    ],
+    "answer": "A network segment where simultaneous data transmissions by two devices cause frames to collide and corrupt.",
+    "category": "Networking",
+    "difficulty": "Medium",
+    "explanation": "Switches isolate each port into an independent collision domain, eliminating half-duplex Ethernet collisions."
+  },
+  {
+    "id": "qz-net-031",
+    "question": "What is CSMA/CD (Carrier Sense Multiple Access with Collision Detection)?",
+    "options": [
+      "A media access control method used in legacy half-duplex Ethernet to handle packet collisions.",
+      "A Wi-Fi security protocol.",
+      "A fiber optic routing protocol.",
+      "A cellular 5G protocol."
+    ],
+    "answer": "A media access control method used in legacy half-duplex Ethernet to handle packet collisions.",
+    "category": "Networking",
+    "difficulty": "Medium",
+    "explanation": "CSMA/CD listens before transmitting; if a collision is detected, devices send jam signals and wait random backoff intervals."
+  },
+  {
+    "id": "qz-net-032",
+    "question": "What is CSMA/CA (Collision Avoidance)?",
+    "options": [
+      "A protocol used in wireless Wi-Fi (802.11) networks to avoid collisions prior to transmission.",
+      "An Ethernet cable testing method.",
+      "A router firewall protocol.",
+      "A VPN encryption standard."
+    ],
+    "answer": "A protocol used in wireless Wi-Fi (802.11) networks to avoid collisions prior to transmission.",
+    "category": "Networking",
+    "difficulty": "Medium",
+    "explanation": "Wireless networks use CSMA/CA with Request to Send (RTS) / Clear to Send (CTS) frames because collision detection is unfeasible over radio waves."
+  },
+  {
+    "id": "qz-net-033",
+    "question": "Which HTTP request method is idempotent and used to update or replace a target resource entirely?",
+    "options": [
+      "PUT",
+      "POST",
+      "PATCH",
+      "DELETE"
+    ],
+    "answer": "PUT",
+    "category": "Networking",
+    "difficulty": "Medium",
+    "explanation": "PUT is idempotent: sending identical PUT requests multiple times yields the exact same server resource state."
+  },
+  {
+    "id": "qz-net-034",
+    "question": "What is the difference between HTTP GET and POST methods?",
+    "options": [
+      "GET requests data from a specified resource (data in URL), while POST submits data to be processed (data in body).",
+      "POST cannot transmit string parameters.",
+      "GET modifies database records safely.",
+      "There is no functional difference."
+    ],
+    "answer": "GET requests data from a specified resource (data in URL), while POST submits data to be processed (data in body).",
+    "category": "Networking",
+    "difficulty": "Easy",
+    "explanation": "GET is safe and idempotent, passing parameters in URL query strings; POST sends payloads in the request body."
+  },
+  {
+    "id": "qz-net-035",
+    "question": "Which HTTP status code range indicates a successful client request?",
+    "options": [
+      "200-299",
+      "300-399",
+      "400-499",
+      "500-599"
+    ],
+    "answer": "200-299",
+    "category": "Networking",
+    "difficulty": "Easy",
+    "explanation": "2xx codes (e.g. 200 OK, 201 Created, 204 No Content) signal successful request processing."
+  },
+  {
+    "id": "qz-net-036",
+    "question": "Which HTTP status code indicates a temporary or permanent Redirection?",
+    "options": [
+      "300-399",
+      "200-299",
+      "400-499",
+      "100-199"
+    ],
+    "answer": "300-399",
+    "category": "Networking",
+    "difficulty": "Easy",
+    "explanation": "3xx codes (e.g. 301 Moved Permanently, 302 Found) instruct the client to perform redirection to another URI."
+  },
+  {
+    "id": "qz-net-037",
+    "question": "Which HTTP status code range indicates Client Errors?",
+    "options": [
+      "400-499",
+      "500-599",
+      "200-299",
+      "300-399"
+    ],
+    "answer": "400-499",
+    "category": "Networking",
+    "difficulty": "Easy",
+    "explanation": "4xx codes (e.g. 400 Bad Request, 401 Unauthorized, 403 Forbidden, 404 Not Found) indicate client-side errors."
+  },
+  {
+    "id": "qz-net-038",
+    "question": "Which HTTP status code range indicates Server Errors?",
+    "options": [
+      "500-599",
+      "400-499",
+      "300-399",
+      "200-299"
+    ],
+    "answer": "500-599",
+    "category": "Networking",
+    "difficulty": "Easy",
+    "explanation": "5xx codes (e.g. 500 Internal Server Error, 502 Bad Gateway, 503 Service Unavailable) signal server failure."
+  },
+  {
+    "id": "qz-net-039",
+    "question": "What is the purpose of HTTP/2 protocol compared to HTTP/1.1?",
+    "options": [
+      "Supports multiplexing multiple requests over a single TCP connection, header compression (HPACK), and server push.",
+      "Replaces TCP with UDP.",
+      "Eliminates TLS encryption.",
+      "Uses XML instead of headers."
+    ],
+    "answer": "Supports multiplexing multiple requests over a single TCP connection, header compression (HPACK), and server push.",
+    "category": "Networking",
+    "difficulty": "Medium",
+    "explanation": "HTTP/2 overcomes head-of-line blocking in HTTP/1.1 by multiplexing binary request frames over a single shared TCP socket."
+  },
+  {
+    "id": "qz-net-040",
+    "question": "What protocol underlies HTTP/3?",
+    "options": [
+      "QUIC (built on UDP)",
+      "TCP",
+      "SCTP",
+      "ICMP"
+    ],
+    "answer": "QUIC (built on UDP)",
+    "category": "Networking",
+    "difficulty": "Hard",
+    "explanation": "HTTP/3 replaces TCP with QUIC over UDP, providing faster connection establishment and eliminating TCP head-of-line blocking."
+  },
+  {
+    "id": "qz-net-041",
+    "question": "What is TLS (Transport Layer Security)?",
+    "options": [
+      "A cryptographic protocol that provides end-to-end encryption, authentication, and data integrity over computer networks.",
+      "A routing protocol for switches.",
+      "A database index framework.",
+      "A file system allocation table."
+    ],
+    "answer": "A cryptographic protocol that provides end-to-end encryption, authentication, and data integrity over computer networks.",
+    "category": "Networking",
+    "difficulty": "Easy",
+    "explanation": "TLS (successor to SSL) secures HTTP, SMTP, and WebSocket connections via public-key handshakes and symmetric encryption."
+  },
+  {
+    "id": "qz-net-042",
+    "question": "What is a TLS Handshake?",
+    "options": [
+      "The process by which client and server negotiate cipher suites, authenticate certificates, and establish session keys.",
+      "A physical cable test.",
+      "A DNS lookup routine.",
+      "A router boot sequence."
+    ],
+    "answer": "The process by which client and server negotiate cipher suites, authenticate certificates, and establish session keys.",
+    "category": "Networking",
+    "difficulty": "Medium",
+    "explanation": "The TLS handshake verifies server identity using X.509 digital certificates and negotiates a shared symmetric session key."
+  },
+  {
+    "id": "qz-net-043",
+    "question": "What is a VPN (Virtual Private Network)?",
+    "options": [
+      "Extends a private network across a public network by creating an encrypted tunnel for data transmission.",
+      "A high-speed router hardware chip.",
+      "A browser private tab mode.",
+      "A dynamic DNS service."
+    ],
+    "answer": "Extends a private network across a public network by creating an encrypted tunnel for data transmission.",
+    "category": "Networking",
+    "difficulty": "Easy",
+    "explanation": "VPNs encapsulate and encrypt network traffic (IPsec, OpenVPN, WireGuard), securing remote access across public internet paths."
+  },
+  {
+    "id": "qz-net-044",
+    "question": "What is a Firewall in computer security?",
+    "options": [
+      "A network security device that monitors and filters incoming and outgoing network traffic based on security rules.",
+      "A thermal CPU sink.",
+      "An antivirus scanner for files.",
+      "A power surge protector."
+    ],
+    "answer": "A network security device that monitors and filters incoming and outgoing network traffic based on security rules.",
+    "category": "Networking",
+    "difficulty": "Easy",
+    "explanation": "Firewalls act as barriers between trusted internal networks and untrusted external networks."
+  },
+  {
+    "id": "qz-net-045",
+    "question": "What is the difference between a Stateful and Stateless Firewall?",
+    "options": [
+      "Stateful firewalls track active connection states (e.g. TCP sessions); Stateless firewalls filter packets individually based on headers.",
+      "Stateless firewalls are more secure.",
+      "Stateful firewalls operate only at Layer 1.",
+      "There is no difference."
+    ],
+    "answer": "Stateful firewalls track active connection states (e.g. TCP sessions); Stateless firewalls filter packets individually based on headers.",
+    "category": "Networking",
+    "difficulty": "Medium",
+    "explanation": "Stateful firewalls inspect connection context (SYN, ESTABLISHED), automatically permitting return traffic for valid established sessions."
+  },
+  {
+    "id": "qz-net-046",
+    "question": "What is a Proxy Server?",
+    "options": [
+      "An intermediate server acting as a gateway between a client requesting a resource and the server providing it.",
+      "A physical network cable splitter.",
+      "A DNS root name server.",
+      "A database storage disk."
+    ],
+    "answer": "An intermediate server acting as a gateway between a client requesting a resource and the server providing it.",
+    "category": "Networking",
+    "difficulty": "Easy",
+    "explanation": "Proxy servers forward client requests, providing anonymity, caching, or access control filtering."
+  },
+  {
+    "id": "qz-net-047",
+    "question": "What is a Reverse Proxy?",
+    "options": [
+      "A proxy server positioned in front of web servers that routes client requests, load balances, and terminates TLS.",
+      "A proxy used strictly inside client browsers.",
+      "A DNS server for loopback IPs.",
+      "A physical switch port."
+    ],
+    "answer": "A proxy server positioned in front of web servers that routes client requests, load balances, and terminates TLS.",
+    "category": "Networking",
+    "difficulty": "Medium",
+    "explanation": "Reverse proxies (NGINX, HAProxy) protect backend servers, distribute load, compress responses, and handle SSL/TLS termination."
+  },
+  {
+    "id": "qz-net-048",
+    "question": "What is a Load Balancer?",
+    "options": [
+      "A device/software that distributes incoming network traffic efficiently across multiple backend servers.",
+      "A hardware device that balances power voltage.",
+      "A tool that compresses database logs.",
+      "A Wi-Fi signal repeater."
+    ],
+    "answer": "A device/software that distributes incoming network traffic efficiently across multiple backend servers.",
+    "category": "Networking",
+    "difficulty": "Easy",
+    "explanation": "Load balancers prevent single server overload, boosting application availability and horizontal scalability."
+  },
+  {
+    "id": "qz-net-049",
+    "question": "What is Round Robin Load Balancing?",
+    "options": [
+      "Rotates incoming client requests sequentially across a list of backend servers.",
+      "Routes requests to the server with lowest CPU temp.",
+      "Sends all traffic to a single master server.",
+      "Hashes client IP addresses."
+    ],
+    "answer": "Rotates incoming client requests sequentially across a list of backend servers.",
+    "category": "Networking",
+    "difficulty": "Easy",
+    "explanation": "Round Robin load balancing forwards each consecutive request to the next server in a circular list."
+  },
+  {
+    "id": "qz-net-050",
+    "question": "What is a DDoS (Distributed Denial of Service) attack?",
+    "options": [
+      "A malicious attempt to disrupt normal traffic of a targeted server by overwhelming it with a flood of distributed traffic.",
+      "Injecting SQL commands into forms.",
+      "Eavesdropping on Wi-Fi packets.",
+      "Modifying HTML source code."
+    ],
+    "answer": "A malicious attempt to disrupt normal traffic of a targeted server by overwhelming it with a flood of distributed traffic.",
+    "category": "Networking",
+    "difficulty": "Easy",
+    "explanation": "DDoS attacks use botnets (compromised devices) to flood network bandwidth or application endpoints."
+  },
+  {
+    "id": "qz-net-051",
+    "question": "What is a SYN Flood attack?",
+    "options": [
+      "A form of DoS attack where an attacker sends a succession of TCP SYN requests to overwhelm server connection queues.",
+      "Flooding network cables with water.",
+      "Sending 1,000 emails per second.",
+      "Modifying DNS records."
+    ],
+    "answer": "A form of DoS attack where an attacker sends a succession of TCP SYN requests to overwhelm server connection queues.",
+    "category": "Networking",
+    "difficulty": "Medium",
+    "explanation": "SYN floods exploit the TCP 3-way handshake by leaving half-open connections open until server connection tables exhaust memory."
+  },
+  {
+    "id": "qz-net-052",
+    "question": "What is DNS Spoofing (DNS Cache Poisoning)?",
+    "options": [
+      "Corrupting a DNS resolver's cache with false IP addresses to divert traffic to a malicious website.",
+      "Deleting domain registration records.",
+      "Sending spam emails via DNS.",
+      "Cracking Wi-Fi passwords."
+    ],
+    "answer": "Corrupting a DNS resolver's cache with false IP addresses to divert traffic to a malicious website.",
+    "category": "Networking",
+    "difficulty": "Medium",
+    "explanation": "DNS poisoning tricks resolvers into caching fake IP mappings, redirecting users to phishing sites."
+  },
+  {
+    "id": "qz-net-053",
+    "question": "What is VLAN (Virtual Local Area Network)?",
+    "options": [
+      "A custom logical subnetwork that groups collections of devices from different physical switches into an isolated broadcast domain.",
+      "A virtual VPN tunnel over the Internet.",
+      "A fiber optic cable layout.",
+      "A cloud storage bucket."
+    ],
+    "answer": "A custom logical subnetwork that groups collections of devices from different physical switches into an isolated broadcast domain.",
+    "category": "Networking",
+    "difficulty": "Medium",
+    "explanation": "VLANs (IEEE 802.1Q) segment physical switch networks logically to improve security and limit broadcast traffic."
+  },
+  {
+    "id": "qz-net-054",
+    "question": "What is IEEE 802.1Q standard?",
+    "options": [
+      "The networking standard that supports Virtual LANs (VLANs) on an Ethernet network via VLAN tagging.",
+      "The standard for Wi-Fi 6.",
+      "The standard for Bluetooth connectivity.",
+      "The standard for USB 3.0."
+    ],
+    "answer": "The networking standard that supports Virtual LANs (VLANs) on an Ethernet network via VLAN tagging.",
+    "category": "Networking",
+    "difficulty": "Hard",
+    "explanation": "802.1Q inserts a 4-byte VLAN tag into Ethernet frame headers to identify VLAN membership across trunk links."
+  },
+  {
+    "id": "qz-net-055",
+    "question": "What is a Trunk Port in VLAN switching?",
+    "options": [
+      "A switch port configured to carry traffic for multiple VLANs across a single physical link.",
+      "A port connected to an end-user PC.",
+      "A port used exclusively for power over ethernet.",
+      "A port connected to a printer."
+    ],
+    "answer": "A switch port configured to carry traffic for multiple VLANs across a single physical link.",
+    "category": "Networking",
+    "difficulty": "Medium",
+    "explanation": "Trunk ports pass 802.1Q tagged frames between switches, allowing VLANs to span across multiple physical switches."
+  },
+  {
+    "id": "qz-net-056",
+    "question": "What is SNMP (Simple Network Management Protocol)?",
+    "options": [
+      "An Application layer protocol used for monitoring and managing network devices (routers, switches, servers).",
+      "A protocol for sending security keys.",
+      "A Web socket streaming framework.",
+      "A file download protocol."
+    ],
+    "answer": "An Application layer protocol used for monitoring and managing network devices (routers, switches, servers).",
+    "category": "Networking",
+    "difficulty": "Easy",
+    "explanation": "SNMP collects device metrics (bandwidth usage, CPU load, uptime) from network agent MIBs."
+  },
+  {
+    "id": "qz-net-057",
+    "question": "What is SSH (Secure Shell)?",
+    "options": [
+      "A cryptographic network protocol for operating network services securely over an unsecured network (port 22).",
+      "A protocol for rendering web pages.",
+      "A database query syntax.",
+      "A file compression tool."
+    ],
+    "answer": "A cryptographic network protocol for operating network services securely over an unsecured network (port 22).",
+    "category": "Networking",
+    "difficulty": "Easy",
+    "explanation": "SSH replaces unencrypted Telnet, providing shell login, remote command execution, and SFTP file transfer over TLS/AES."
+  },
+  {
+    "id": "qz-net-058",
+    "question": "What is FTP vs SFTP?",
+    "options": [
+      "FTP sends credentials and data in plain text (port 21); SFTP encrypts session data over SSH (port 22).",
+      "SFTP runs over UDP; FTP runs over TCP.",
+      "FTP is more secure than SFTP.",
+      "They use identical protocols."
+    ],
+    "answer": "FTP sends credentials and data in plain text (port 21); SFTP encrypts session data over SSH (port 22).",
+    "category": "Networking",
+    "difficulty": "Easy",
+    "explanation": "SFTP leverages SSH public-key or password encryption to secure file transfers."
+  },
+  {
+    "id": "qz-net-059",
+    "question": "What is the function of ICMP Echo Request and Echo Reply?",
+    "options": [
+      "Used by the 'ping' utility to test network reachability and measure round-trip time to a remote host.",
+      "Used for downloading web pages.",
+      "Used to query DNS MX records.",
+      "Used to assign IP addresses."
+    ],
+    "answer": "Used by the 'ping' utility to test network reachability and measure round-trip time to a remote host.",
+    "category": "Networking",
+    "difficulty": "Easy",
+    "explanation": "Ping sends ICMP Type 8 (Echo Request) and measures time until ICMP Type 0 (Echo Reply) is returned."
+  },
+  {
+    "id": "qz-net-060",
+    "question": "What is TTL (Time to Live) in an IP packet header?",
+    "options": [
+      "An 8-bit field that limits packet lifespan by decrementing at each router hop to prevent infinite routing loops.",
+      "The expiration timestamp of a Web cookie.",
+      "The time required to establish a TCP session.",
+      "The duration a Wi-Fi password stays valid."
+    ],
+    "answer": "An 8-bit field that limits packet lifespan by decrementing at each router hop to prevent infinite routing loops.",
+    "category": "Networking",
+    "difficulty": "Medium",
+    "explanation": "Each router decrements the IP TTL field by 1; if TTL reaches 0, the packet is dropped and an ICMP Time Exceeded is returned."
+  },
+  {
+    "id": "qz-net-061",
+    "question": "What does traceroute / tracert utility do?",
+    "options": [
+      "Traces the hop-by-hop path packets take to a destination host by incrementing IP TTL values.",
+      "Tests CPU speed of remote server.",
+      "Cracks Wi-Fi passwords.",
+      "Scans for open SQL ports."
+    ],
+    "answer": "Traces the hop-by-hop path packets take to a destination host by incrementing IP TTL values.",
+    "category": "Networking",
+    "difficulty": "Medium",
+    "explanation": "Traceroute sends packets with incremental TTLs (1, 2, 3...), collecting ICMP Time Exceeded responses from intermediate routers."
+  },
+  {
+    "id": "qz-net-062",
+    "question": "What is a Port Number in TCP/UDP networking?",
+    "options": [
+      "A 16-bit integer (0-65535) used to direct network traffic to a specific process or service on a host.",
+      "The physical number printed on an Ethernet jack.",
+      "A router serial number.",
+      "A subnet mask bit count."
+    ],
+    "answer": "A 16-bit integer (0-65535) used to direct network traffic to a specific process or service on a host.",
+    "category": "Networking",
+    "difficulty": "Easy",
+    "explanation": "Port numbers multiplex network sockets so a computer can run multiple network services simultaneously."
+  },
+  {
+    "id": "qz-net-063",
+    "question": "What are Well-Known Ports?",
+    "options": [
+      "Port numbers from 0 to 1023 reserved for privileged system services (e.g. HTTP 80, SSH 22, DNS 53).",
+      "Ports from 49152 to 65535.",
+      "Ports used for dynamic ephemeral connections.",
+      "Ports assigned by local ISPs."
+    ],
+    "answer": "Port numbers from 0 to 1023 reserved for privileged system services (e.g. HTTP 80, SSH 22, DNS 53).",
+    "category": "Networking",
+    "difficulty": "Easy",
+    "explanation": "The IANA reserves ports 0–1023 for standard well-known internet protocols."
+  },
+  {
+    "id": "qz-net-064",
+    "question": "What is WebSocket protocol?",
+    "options": [
+      "A full-duplex, persistent communication protocol over a single TCP connection established via an HTTP upgrade request.",
+      "A half-duplex HTTP polling method.",
+      "A DNS querying service.",
+      "A database connection pool."
+    ],
+    "answer": "A full-duplex, persistent communication protocol over a single TCP connection established via an HTTP upgrade request.",
+    "category": "Networking",
+    "difficulty": "Medium",
+    "explanation": "WebSocket enables real-time, low-latency bi-directional messaging between browser and server without HTTP overhead."
+  },
+  {
+    "id": "qz-net-065",
+    "question": "What is Server-Sent Events (SSE)?",
+    "options": [
+      "A unidirectional web standard allowing a server to push real-time updates to a client over HTTP.",
+      "A bi-directional UDP socket protocol.",
+      "A database trigger event.",
+      "A file upload standard."
+    ],
+    "answer": "A unidirectional web standard allowing a server to push real-time updates to a client over HTTP.",
+    "category": "Networking",
+    "difficulty": "Medium",
+    "explanation": "SSE provides lightweight, automatic text event streaming from server to client over standard HTTP connections."
   }
 ]

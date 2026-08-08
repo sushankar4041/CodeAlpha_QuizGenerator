@@ -2,7 +2,12 @@
   {
     "id": "qz-dbms-001",
     "question": "Which SQL clause is used to filter records after an aggregate function (e.g. GROUP BY) has been applied?",
-    "options": ["HAVING", "WHERE", "ORDER BY", "FILTER"],
+    "options": [
+      "HAVING",
+      "WHERE",
+      "ORDER BY",
+      "FILTER"
+    ],
     "answer": "HAVING",
     "category": "DBMS",
     "difficulty": "Easy",
@@ -25,7 +30,12 @@
   {
     "id": "qz-dbms-003",
     "question": "Which Normal Form eliminates transitive dependencies in a database relation?",
-    "options": ["Third Normal Form (3NF)", "First Normal Form (1NF)", "Second Normal Form (2NF)", "Boyce-Codd Normal Form (BCNF)"],
+    "options": [
+      "Third Normal Form (3NF)",
+      "First Normal Form (1NF)",
+      "Second Normal Form (2NF)",
+      "Boyce-Codd Normal Form (BCNF)"
+    ],
     "answer": "Third Normal Form (3NF)",
     "category": "DBMS",
     "difficulty": "Medium",
@@ -33,12 +43,17 @@
   },
   {
     "id": "qz-dbms-004",
-    "question": "Which of the following keys uniquely identifies a tuple in a database relation and can contain a minimal set of attributes?",
-    "options": ["Candidate Key", "Foreign Key", "Super Key", "Secondary Key"],
+    "question": "Which key uniquely identifies a tuple in a database relation and contains a minimal set of attributes?",
+    "options": [
+      "Candidate Key",
+      "Foreign Key",
+      "Super Key",
+      "Secondary Key"
+    ],
     "answer": "Candidate Key",
     "category": "DBMS",
     "difficulty": "Medium",
-    "explanation": "A Candidate Key is a minimal Super Key, meaning no proper subset of the attributes can uniquely identify tuples."
+    "explanation": "A Candidate Key is a minimal Super Key, meaning no proper subset of attributes can uniquely identify tuples."
   },
   {
     "id": "qz-dbms-005",
@@ -57,7 +72,12 @@
   {
     "id": "qz-dbms-006",
     "question": "Which SQL JOIN type returns all records when there is a match in either left or right table records?",
-    "options": ["FULL OUTER JOIN", "INNER JOIN", "LEFT JOIN", "CROSS JOIN"],
+    "options": [
+      "FULL OUTER JOIN",
+      "INNER JOIN",
+      "LEFT JOIN",
+      "CROSS JOIN"
+    ],
     "answer": "FULL OUTER JOIN",
     "category": "DBMS",
     "difficulty": "Medium",
@@ -66,7 +86,12 @@
   {
     "id": "qz-dbms-007",
     "question": "What is the primary data structure used for database indexing in B-Tree index implementations?",
-    "options": ["Balanced B+ Tree", "Hash Table", "Binary Search Tree", "Linked List"],
+    "options": [
+      "Balanced B+ Tree",
+      "Hash Table",
+      "Binary Search Tree",
+      "Linked List"
+    ],
     "answer": "Balanced B+ Tree",
     "category": "DBMS",
     "difficulty": "Hard",
@@ -89,7 +114,12 @@
   {
     "id": "qz-dbms-009",
     "question": "Which command is used to permanently undo changes made in the current transaction block before a COMMIT?",
-    "options": ["ROLLBACK", "DROP", "TRUNCATE", "REVOKE"],
+    "options": [
+      "ROLLBACK",
+      "DROP",
+      "TRUNCATE",
+      "REVOKE"
+    ],
     "answer": "ROLLBACK",
     "category": "DBMS",
     "difficulty": "Easy",
@@ -108,5 +138,775 @@
     "category": "DBMS",
     "difficulty": "Hard",
     "explanation": "TRUNCATE resets identity columns and deallocates data pages quickly without logging individual row deletions, whereas DELETE logs row by row."
+  },
+  {
+    "id": "qz-dbms-011",
+    "question": "Which SQL constraint ensures that all values in a column are distinct?",
+    "options": [
+      "UNIQUE",
+      "NOT NULL",
+      "CHECK",
+      "DEFAULT"
+    ],
+    "answer": "UNIQUE",
+    "category": "DBMS",
+    "difficulty": "Easy",
+    "explanation": "The UNIQUE constraint ensures that all values in a column or set of columns are unique across table rows."
+  },
+  {
+    "id": "qz-dbms-012",
+    "question": "Which command removes a table schema and all its rows permanently from the database?",
+    "options": [
+      "DROP TABLE",
+      "DELETE TABLE",
+      "TRUNCATE TABLE",
+      "REMOVE TABLE"
+    ],
+    "answer": "DROP TABLE",
+    "category": "DBMS",
+    "difficulty": "Easy",
+    "explanation": "DROP TABLE deletes the table definition, data, indexes, constraints, and triggers from the database metadata catalog."
+  },
+  {
+    "id": "qz-dbms-013",
+    "question": "What is a View in SQL?",
+    "options": [
+      "A virtual table based on the result-set of an SQL statement.",
+      "A physical copy of table data stored in RAM.",
+      "An index created on primary keys.",
+      "A stored procedure for user login."
+    ],
+    "answer": "A virtual table based on the result-set of an SQL statement.",
+    "category": "DBMS",
+    "difficulty": "Easy",
+    "explanation": "A View is a stored SQL query that acts as a virtual table dynamically populated when queried."
+  },
+  {
+    "id": "qz-dbms-014",
+    "question": "What does 1NF (First Normal Form) require?",
+    "options": [
+      "All attributes must contain atomic (indivisible) values and rows must be unique.",
+      "Elimination of partial dependencies.",
+      "Elimination of transitive dependencies.",
+      "Multivalued dependencies resolved."
+    ],
+    "answer": "All attributes must contain atomic (indivisible) values and rows must be unique.",
+    "category": "DBMS",
+    "difficulty": "Easy",
+    "explanation": "1NF mandates that each column contains single atomic values and no repeating groups exist."
+  },
+  {
+    "id": "qz-dbms-015",
+    "question": "What is Second Normal Form (2NF)?",
+    "options": [
+      "Table is in 1NF and no non-prime attribute is dependent on a proper subset of any candidate key (no partial dependency).",
+      "Table contains no null values.",
+      "Table has a composite foreign key.",
+      "Table has no duplicate rows."
+    ],
+    "answer": "Table is in 1NF and no non-prime attribute is dependent on a proper subset of any candidate key (no partial dependency).",
+    "category": "DBMS",
+    "difficulty": "Medium",
+    "explanation": "2NF requires 1NF compliance and mandates that all non-key attributes depend on the full candidate key."
+  },
+  {
+    "id": "qz-dbms-016",
+    "question": "What is Boyce-Codd Normal Form (BCNF)?",
+    "options": [
+      "A stricter version of 3NF where for every functional dependency X -> Y, X must be a super key.",
+      "A normal form for handling array data.",
+      "First normal form with auto-increment IDs.",
+      "A database indexing strategy."
+    ],
+    "answer": "A stricter version of 3NF where for every functional dependency X -> Y, X must be a super key.",
+    "category": "DBMS",
+    "difficulty": "Hard",
+    "explanation": "BCNF handles cases where 3NF allows anomalies due to overlapping candidate keys; every determinant X must be a super key."
+  },
+  {
+    "id": "qz-dbms-017",
+    "question": "What is a Stored Procedure in SQL?",
+    "options": [
+      "A prepared SQL code segment that can be saved and reused repeatedly in database routines.",
+      "A hardware component inside disk controllers.",
+      "A temporary index generated in RAM.",
+      "A system log file for transactions."
+    ],
+    "answer": "A prepared SQL code segment that can be saved and reused repeatedly in database routines.",
+    "category": "DBMS",
+    "difficulty": "Medium",
+    "explanation": "Stored procedures execute precompiled SQL statements on the database server, reducing network traffic and enhancing security."
+  },
+  {
+    "id": "qz-dbms-018",
+    "question": "What is a Database Trigger?",
+    "options": [
+      "A procedural code snippet executed automatically in response to specified database events (e.g. INSERT, UPDATE).",
+      "A command that restarts the database service.",
+      "A query optimization index hint.",
+      "A manual backup script."
+    ],
+    "answer": "A procedural code snippet executed automatically in response to specified database events (e.g. INSERT, UPDATE).",
+    "category": "DBMS",
+    "difficulty": "Medium",
+    "explanation": "Triggers fire automatically when DML operations modify table data to enforce audit logs or complex business rules."
+  },
+  {
+    "id": "qz-dbms-019",
+    "question": "Which Isolation level prevents dirty reads, non-repeatable reads, and phantom reads completely?",
+    "options": [
+      "SERIALIZABLE",
+      "READ COMMITTED",
+      "READ UNCOMMITTED",
+      "REPEATABLE READ"
+    ],
+    "answer": "SERIALIZABLE",
+    "category": "DBMS",
+    "difficulty": "Hard",
+    "explanation": "SERIALIZABLE is the highest isolation level, executing transactions as if they ran sequentially to eliminate all read anomalies."
+  },
+  {
+    "id": "qz-dbms-020",
+    "question": "What is a 'Dirty Read' in database transactions?",
+    "options": [
+      "Reading uncommitted data written by a concurrent in-progress transaction.",
+      "Reading corrupted disk data blocks.",
+      "Reading data without proper user authentication.",
+      "Reading old cached data after a reboot."
+    ],
+    "answer": "Reading uncommitted data written by a concurrent in-progress transaction.",
+    "category": "DBMS",
+    "difficulty": "Medium",
+    "explanation": "A dirty read occurs when transaction T1 modifies a row and transaction T2 reads it before T1 commits or rolls back."
+  },
+  {
+    "id": "qz-dbms-021",
+    "question": "What is a Phantom Read?",
+    "options": [
+      "When a transaction re-runs a query returning a set of rows matching a condition and finds new rows added by a committed transaction.",
+      "When a column value changes during a transaction.",
+      "When a table is dropped during execution.",
+      "When disk sectors fail."
+    ],
+    "answer": "When a transaction re-runs a query returning a set of rows matching a condition and finds new rows added by a committed transaction.",
+    "category": "DBMS",
+    "difficulty": "Hard",
+    "explanation": "Phantom reads occur when concurrent INSERT operations alter the result set returned by a predicate query within an active transaction."
+  },
+  {
+    "id": "qz-dbms-022",
+    "question": "Which SQL statement is used to modify existing data records in a table?",
+    "options": [
+      "UPDATE",
+      "MODIFY",
+      "ALTER",
+      "CHANGE"
+    ],
+    "answer": "UPDATE",
+    "category": "DBMS",
+    "difficulty": "Easy",
+    "explanation": "The UPDATE statement modifies values in existing rows matching specified WHERE conditions."
+  },
+  {
+    "id": "qz-dbms-023",
+    "question": "Which SQL command is used to add new columns to an existing table structure?",
+    "options": [
+      "ALTER TABLE",
+      "UPDATE TABLE",
+      "ADD COLUMN",
+      "MODIFY TABLE"
+    ],
+    "answer": "ALTER TABLE",
+    "category": "DBMS",
+    "difficulty": "Easy",
+    "explanation": "ALTER TABLE allows adding, dropping, or modifying columns and constraints in existing table schemas."
+  },
+  {
+    "id": "qz-dbms-024",
+    "question": "What is the function of the GROUP BY clause?",
+    "options": [
+      "Groups rows sharing the same values in specified columns into summary rows.",
+      "Sorts query output in ascending order.",
+      "Filters individual rows before joining.",
+      "Indexes specified columns."
+    ],
+    "answer": "Groups rows sharing the same values in specified columns into summary rows.",
+    "category": "DBMS",
+    "difficulty": "Easy",
+    "explanation": "GROUP BY aggregates rows with matching values into summary rows, typically used alongside aggregate functions (COUNT, SUM, AVG)."
+  },
+  {
+    "id": "qz-dbms-025",
+    "question": "What does aggregate function COUNT(*) return?",
+    "options": [
+      "The total number of rows matching the query, including NULL values.",
+      "The count of non-null distinct items only.",
+      "The memory size of table data.",
+      "The number of index entries."
+    ],
+    "answer": "The total number of rows matching the query, including NULL values.",
+    "category": "DBMS",
+    "difficulty": "Easy",
+    "explanation": "COUNT(*) evaluates total row count in a table or group, counting NULL rows as valid records."
+  },
+  {
+    "id": "qz-dbms-026",
+    "question": "What is an Inner Join in SQL?",
+    "options": [
+      "Returns rows when there is a match in both joined tables.",
+      "Returns all rows from left table regardless of match.",
+      "Returns Cartesian product of all rows.",
+      "Returns non-matching rows only."
+    ],
+    "answer": "Returns rows when there is a match in both joined tables.",
+    "category": "DBMS",
+    "difficulty": "Easy",
+    "explanation": "INNER JOIN selects records that have matching values in both tables based on the join predicate."
+  },
+  {
+    "id": "qz-dbms-027",
+    "question": "What is a Left Join (LEFT OUTER JOIN)?",
+    "options": [
+      "Returns all rows from left table, and matched rows from right table (with NULLs for non-matches).",
+      "Returns only matched rows from right table.",
+      "Returns rows present only in left table.",
+      "Deletes non-matching rows."
+    ],
+    "answer": "Returns all rows from left table, and matched rows from right table (with NULLs for non-matches).",
+    "category": "DBMS",
+    "difficulty": "Easy",
+    "explanation": "LEFT JOIN retrieves all records from the left table regardless of whether a matching record exists in the right table."
+  },
+  {
+    "id": "qz-dbms-028",
+    "question": "What is a Cross Join in SQL?",
+    "options": [
+      "Returns the Cartesian product of rows from both tables.",
+      "Returns matching primary keys.",
+      "Joins tables on foreign keys automatically.",
+      "Combines column names."
+    ],
+    "answer": "Returns the Cartesian product of rows from both tables.",
+    "category": "DBMS",
+    "difficulty": "Medium",
+    "explanation": "CROSS JOIN pairs every row of the first table with every row of the second table (N × M total rows)."
+  },
+  {
+    "id": "qz-dbms-029",
+    "question": "What is a Self Join?",
+    "options": [
+      "A regular join where a table is joined with itself.",
+      "A join performed without a WHERE clause.",
+      "A join between two databases.",
+      "A join operating inside RAM."
+    ],
+    "answer": "A regular join where a table is joined with itself.",
+    "category": "DBMS",
+    "difficulty": "Medium",
+    "explanation": "A Self Join joins a table to itself using table aliases to query hierarchical relationships within the same dataset (e.g. employee-manager)."
+  },
+  {
+    "id": "qz-dbms-030",
+    "question": "What is Referential Integrity in relational databases?",
+    "options": [
+      "A rule ensuring foreign key values must match a valid primary key value in the referenced parent table or be null.",
+      "A rule preventing duplicate rows.",
+      "A rule forcing all columns to have NOT NULL constraints.",
+      "An encryption standard for stored data."
+    ],
+    "answer": "A rule ensuring foreign key values must match a valid primary key value in the referenced parent table or be null.",
+    "category": "DBMS",
+    "difficulty": "Medium",
+    "explanation": "Referential integrity maintains consistent relationships between tables, stopping orphan records from existing."
+  },
+  {
+    "id": "qz-dbms-031",
+    "question": "Which log file is used in WAL (Write-Ahead Logging) for database crash recovery?",
+    "options": [
+      "Transaction Redo/Undo Log",
+      "Query Cache Log",
+      "Access Permission Log",
+      "Dump Error Log"
+    ],
+    "answer": "Transaction Redo/Undo Log",
+    "category": "DBMS",
+    "difficulty": "Hard",
+    "explanation": "Write-Ahead Logging records all modifications to log files on disk before changing data pages, ensuring crash recovery durability."
+  },
+  {
+    "id": "qz-dbms-032",
+    "question": "What is the difference between Clustered Index and Non-Clustered Index?",
+    "options": [
+      "Clustered index determines the physical order of data on disk (one per table), while Non-Clustered maintains separate index structure.",
+      "Non-Clustered index sorts physical disk pages.",
+      "Clustered index allows duplicate keys only.",
+      "There is no physical difference."
+    ],
+    "answer": "Clustered index determines the physical order of data on disk (one per table), while Non-Clustered maintains separate index structure.",
+    "category": "DBMS",
+    "difficulty": "Hard",
+    "explanation": "A table can have only one Clustered index because data rows themselves are stored in sorted order of the clustered key."
+  },
+  {
+    "id": "qz-dbms-033",
+    "question": "What is Database Sharding?",
+    "options": [
+      "A horizontal partitioning technique that splits a large database across multiple independent server nodes.",
+      "Vertical table normalization into smaller sub-tables.",
+      "Creating read-only memory caches.",
+      "Re-building B-Tree indexes nightly."
+    ],
+    "answer": "A horizontal partitioning technique that splits a large database across multiple independent server nodes.",
+    "category": "DBMS",
+    "difficulty": "Hard",
+    "explanation": "Sharding partitions data rows across multiple database servers to scale write throughput and storage capacity."
+  },
+  {
+    "id": "qz-dbms-034",
+    "question": "What is Database Replication?",
+    "options": [
+      "Copying data from a master database to one or more replica databases for high availability and read scaling.",
+      "Normalizing tables to 3NF.",
+      "Backing up databases to tape drives.",
+      "Compressing tables on disk."
+    ],
+    "answer": "Copying data from a master database to one or more replica databases for high availability and read scaling.",
+    "category": "DBMS",
+    "difficulty": "Medium",
+    "explanation": "Replication synchronizes database nodes so read queries can be offloaded to secondary nodes."
+  },
+  {
+    "id": "qz-dbms-035",
+    "question": "What is a NoSQL database?",
+    "options": [
+      "A non-relational database designed for unstructured or semi-structured data models (e.g. document, key-value, graph).",
+      "A database that does not support queries.",
+      "A system that runs without SQL drivers.",
+      "A database with no security features."
+    ],
+    "answer": "A non-relational database designed for unstructured or semi-structured data models (e.g. document, key-value, graph).",
+    "category": "DBMS",
+    "difficulty": "Easy",
+    "explanation": "NoSQL databases trade traditional ACID strict schemas for flexible data models (JSON documents, key-value, columnar) and horizontal scaling."
+  },
+  {
+    "id": "qz-dbms-036",
+    "question": "Which data model does MongoDB use?",
+    "options": [
+      "Document-oriented (JSON / BSON documents)",
+      "Relational tables",
+      "Triple-store RDF",
+      "Columnar Cassandra tables"
+    ],
+    "answer": "Document-oriented (JSON / BSON documents)",
+    "category": "DBMS",
+    "difficulty": "Easy",
+    "explanation": "MongoDB stores data records as flexible, schema-less BSON (Binary JSON) documents."
+  },
+  {
+    "id": "qz-dbms-037",
+    "question": "What is CAP Theorem in distributed databases?",
+    "options": [
+      "States that a distributed system can supply at most 2 of 3 guarantees: Consistency, Availability, Partition Tolerance.",
+      "Calculates maximum CPU clock speed for queries.",
+      "Measures network latency in sharded clusters.",
+      "Enforces ACID compliance in distributed transactions."
+    ],
+    "answer": "States that a distributed system can supply at most 2 of 3 guarantees: Consistency, Availability, Partition Tolerance.",
+    "category": "DBMS",
+    "difficulty": "Hard",
+    "explanation": "CAP theorem (Brewer) proves a distributed data store can simultaneously provide at most two out of Consistency, Availability, and Partition Tolerance."
+  },
+  {
+    "id": "qz-dbms-038",
+    "question": "What is the purpose of EXPLAIN query statement in SQL?",
+    "options": [
+      "Displays the execution plan chosen by the query optimizer for executing a statement.",
+      "Executes query 100 times to test speed.",
+      "Translates SQL syntax into Python code.",
+      "Creates an index automatically."
+    ],
+    "answer": "Displays the execution plan chosen by the query optimizer for executing a statement.",
+    "category": "DBMS",
+    "difficulty": "Medium",
+    "explanation": "EXPLAIN shows how tables will be scanned, which indexes are used, and estimated execution costs."
+  },
+  {
+    "id": "qz-dbms-039",
+    "question": "What is a Correlated Subquery?",
+    "options": [
+      "A subquery that evaluates once for every row processed by the outer query because it depends on outer table attributes.",
+      "A query joined with a view.",
+      "A subquery that runs asynchronously.",
+      "A query with multiple UNION clauses."
+    ],
+    "answer": "A subquery that evaluates once for every row processed by the outer query because it depends on outer table attributes.",
+    "category": "DBMS",
+    "difficulty": "Hard",
+    "explanation": "Correlated subqueries reference columns from outer queries, causing re-execution for each row of the outer table."
+  },
+  {
+    "id": "qz-dbms-040",
+    "question": "Which SQL command is used to grant privileges to database users?",
+    "options": [
+      "GRANT",
+      "ALLOW",
+      "PERMIT",
+      "AUTHORIZE"
+    ],
+    "answer": "GRANT",
+    "category": "DBMS",
+    "difficulty": "Easy",
+    "explanation": "The GRANT DCL command assigns specific permissions (SELECT, INSERT, UPDATE) to users or roles."
+  },
+  {
+    "id": "qz-dbms-041",
+    "question": "Which SQL command revokes previously granted permissions from a database user?",
+    "options": [
+      "REVOKE",
+      "REMOVE",
+      "DENY",
+      "CANCEL"
+    ],
+    "answer": "REVOKE",
+    "category": "DBMS",
+    "difficulty": "Easy",
+    "explanation": "The REVOKE command removes granted privileges from specified user accounts or roles."
+  },
+  {
+    "id": "qz-dbms-042",
+    "question": "What is an Aggregate Function in SQL?",
+    "options": [
+      "A function that performs a calculation on a set of values and returns a single summary value (e.g. SUM, AVG).",
+      "A function that splits strings into arrays.",
+      "A function that formats date timestamps.",
+      "A function that generates primary keys."
+    ],
+    "answer": "A function that performs a calculation on a set of values and returns a single summary value (e.g. SUM, AVG).",
+    "category": "DBMS",
+    "difficulty": "Easy",
+    "explanation": "Aggregate functions summarize multiple input rows into a single scalar result."
+  },
+  {
+    "id": "qz-dbms-043",
+    "question": "What is the result of applying aggregate function AVG() on a column containing NULL values?",
+    "options": [
+      "AVG ignores NULL values when calculating the mathematical mean.",
+      "AVG returns NULL if any row is NULL.",
+      "AVG converts NULLs to zero.",
+      "AVG throws a runtime error."
+    ],
+    "answer": "AVG ignores NULL values when calculating the mathematical mean.",
+    "category": "DBMS",
+    "difficulty": "Medium",
+    "explanation": "SQL aggregate functions (except COUNT(*)) silently ignore NULL values during computation."
+  },
+  {
+    "id": "qz-dbms-044",
+    "question": "What is the primary purpose of a Database Index?",
+    "options": [
+      "To speed up data retrieval operations on a database table at the cost of additional writes and storage.",
+      "To encrypt confidential text columns.",
+      "To enforce foreign key relationships.",
+      "To format query output into JSON."
+    ],
+    "answer": "To speed up data retrieval operations on a database table at the cost of additional writes and storage.",
+    "category": "DBMS",
+    "difficulty": "Easy",
+    "explanation": "Indexes provide fast lookup paths (like a book index) avoiding full table scans."
+  },
+  {
+    "id": "qz-dbms-045",
+    "question": "What is Two-Phase Locking (2PL) protocol?",
+    "options": [
+      "A concurrency control method ensuring serializability by dividing lock requests into a growing phase (acquiring locks) and shrinking phase (releasing locks).",
+      "A security login protocol using two-factor authentication.",
+      "A disk backup protocol operating in 2 stages.",
+      "A query optimization method."
+    ],
+    "answer": "A concurrency control method ensuring serializability by dividing lock requests into a growing phase (acquiring locks) and shrinking phase (releasing locks).",
+    "category": "DBMS",
+    "difficulty": "Hard",
+    "explanation": "2PL guarantees conflict serializability by requiring transactions not to acquire new locks once releasing any lock begins."
+  },
+  {
+    "id": "qz-dbms-046",
+    "question": "What is a Shared Lock (S Lock) in database concurrency control?",
+    "options": [
+      "A lock that permits multiple concurrent transactions to read a resource, but prevents write operations.",
+      "A lock allowing full read-write access to everyone.",
+      "A lock applied exclusively during backups.",
+      "A lock that halts database services."
+    ],
+    "answer": "A lock that permits multiple concurrent transactions to read a resource, but prevents write operations.",
+    "category": "DBMS",
+    "difficulty": "Medium",
+    "explanation": "Shared locks enable concurrent readers while blocking exclusive write locks on the same data block."
+  },
+  {
+    "id": "qz-dbms-047",
+    "question": "What is an Exclusive Lock (X Lock)?",
+    "options": [
+      "A lock that grants exclusive read and write access to a single transaction, preventing all other transactions from reading or writing.",
+      "A lock shared among all connected users.",
+      "A lock applied to views only.",
+      "A lock that auto-expires in 1 second."
+    ],
+    "answer": "A lock that grants exclusive read and write access to a single transaction, preventing all other transactions from reading or writing.",
+    "category": "DBMS",
+    "difficulty": "Medium",
+    "explanation": "Exclusive locks ensure data modifications (INSERT, UPDATE, DELETE) occur without concurrent interference."
+  },
+  {
+    "id": "qz-dbms-048",
+    "question": "What is Lossless-Join Decomposition in database normalization?",
+    "options": [
+      "A decomposition of relation R into R1 and R2 such that joining R1 and R2 recovers exact original relation R without spurious tuples.",
+      "A join that deletes duplicate columns.",
+      "A query that combines tables without primary keys.",
+      "A database export format."
+    ],
+    "answer": "A decomposition of relation R into R1 and R2 such that joining R1 and R2 recovers exact original relation R without spurious tuples.",
+    "category": "DBMS",
+    "difficulty": "Hard",
+    "explanation": "Lossless-join guarantees that decomposing a relation into smaller normal form schemas preserves all original information."
+  },
+  {
+    "id": "qz-dbms-049",
+    "question": "Which SQL string matching wildcard matches any sequence of zero or more characters in a LIKE clause?",
+    "options": [
+      "%",
+      "_",
+      "*",
+      "?"
+    ],
+    "answer": "%",
+    "category": "DBMS",
+    "difficulty": "Easy",
+    "explanation": "In SQL LIKE operator pattern matching, % represents zero or more characters, while _ represents a single character."
+  },
+  {
+    "id": "qz-dbms-050",
+    "question": "Which SQL wildcard matches exactly one single character in a LIKE clause?",
+    "options": [
+      "_",
+      "%",
+      "?",
+      "#"
+    ],
+    "answer": "_",
+    "category": "DBMS",
+    "difficulty": "Easy",
+    "explanation": "The underscore wildcard _ matches exactly one single character in SQL string searches."
+  },
+  {
+    "id": "qz-dbms-051",
+    "question": "What does UNION operator do in SQL queries?",
+    "options": [
+      "Combines the result sets of two SELECT queries into a single set, removing duplicate rows.",
+      "Combines columns of two tables horizontally.",
+      "Joins tables on primary keys.",
+      "Sorts data by primary key."
+    ],
+    "answer": "Combines the result sets of two SELECT queries into a single set, removing duplicate rows.",
+    "category": "DBMS",
+    "difficulty": "Easy",
+    "explanation": "UNION combines results vertically from multiple queries and eliminates duplicate rows (unlike UNION ALL which keeps duplicates)."
+  },
+  {
+    "id": "qz-dbms-052",
+    "question": "What is the difference between UNION and UNION ALL?",
+    "options": [
+      "UNION removes duplicate rows from combined query results, whereas UNION ALL retains all duplicates.",
+      "UNION ALL is slower because it sorts data.",
+      "UNION operates on columns, UNION ALL on rows.",
+      "There is no difference."
+    ],
+    "answer": "UNION removes duplicate rows from combined query results, whereas UNION ALL retains all duplicates.",
+    "category": "DBMS",
+    "difficulty": "Easy",
+    "explanation": "UNION performs a distinct check to drop duplicate rows, while UNION ALL simply appends result sets without deduplication."
+  },
+  {
+    "id": "qz-dbms-053",
+    "question": "Which SQL set operator returns only rows present in both SELECT query result sets?",
+    "options": [
+      "INTERSECT",
+      "UNION",
+      "EXCEPT",
+      "MINUS"
+    ],
+    "answer": "INTERSECT",
+    "category": "DBMS",
+    "difficulty": "Medium",
+    "explanation": "INTERSECT evaluates set intersection, returning only distinct rows common to both queries."
+  },
+  {
+    "id": "qz-dbms-054",
+    "question": "Which SQL set operator returns rows from the first query that are not present in the second query?",
+    "options": [
+      "EXCEPT (or MINUS)",
+      "INTERSECT",
+      "UNION ALL",
+      "CROSS JOIN"
+    ],
+    "answer": "EXCEPT (or MINUS)",
+    "category": "DBMS",
+    "difficulty": "Medium",
+    "explanation": "EXCEPT (MINUS in Oracle) performs set difference, returning distinct rows from the left query omitted in the right query."
+  },
+  {
+    "id": "qz-dbms-055",
+    "question": "What is a Foreign Key Action ON DELETE CASCADE?",
+    "options": [
+      "Automatically deletes child rows when the referenced parent row is deleted.",
+      "Prevents parent row deletion if child rows exist.",
+      "Sets foreign key value to NULL on deletion.",
+      "Throws a constraint violation error."
+    ],
+    "answer": "Automatically deletes child rows when the referenced parent row is deleted.",
+    "category": "DBMS",
+    "difficulty": "Easy",
+    "explanation": "ON DELETE CASCADE propagates parent deletions down to referencing child records automatically."
+  },
+  {
+    "id": "qz-dbms-056",
+    "question": "What is a Foreign Key Action ON DELETE SET NULL?",
+    "options": [
+      "Sets child table foreign key column to NULL when the referenced parent row is deleted.",
+      "Deletes parent row.",
+      "Prevents parent deletion.",
+      "Sets value to zero."
+    ],
+    "answer": "Sets child table foreign key column to NULL when the referenced parent row is deleted.",
+    "category": "DBMS",
+    "difficulty": "Easy",
+    "explanation": "ON DELETE SET NULL sets child foreign key fields to NULL when the associated parent record is removed."
+  },
+  {
+    "id": "qz-dbms-057",
+    "question": "What is an Inline View (Derived Table) in SQL?",
+    "options": [
+      "A subquery in the FROM clause that functions as a temporary table for the main query.",
+      "A view stored permanently on disk.",
+      "An indexed view.",
+      "A materialized view cache."
+    ],
+    "answer": "A subquery in the FROM clause that functions as a temporary table for the main query.",
+    "category": "DBMS",
+    "difficulty": "Medium",
+    "explanation": "Derived tables are subqueries placed inside FROM clauses assigned a mandatory table alias."
+  },
+  {
+    "id": "qz-dbms-058",
+    "question": "What is a Materialized View?",
+    "options": [
+      "A view whose query result is physically stored on disk and refreshed periodically for fast execution.",
+      "A view that exists only in RAM.",
+      "A view created automatically by indexes.",
+      "A standard virtual view."
+    ],
+    "answer": "A view whose query result is physically stored on disk and refreshed periodically for fast execution.",
+    "category": "DBMS",
+    "difficulty": "Hard",
+    "explanation": "Unlike standard virtual views, Materialized Views persist pre-computed query results on disk for instant query execution."
+  },
+  {
+    "id": "qz-dbms-059",
+    "question": "What is the purpose of COALESCE function in SQL?",
+    "options": [
+      "Returns the first non-null expression among its arguments.",
+      "Combines strings into one text.",
+      "Calculates mathematical average.",
+      "Converts dates to strings."
+    ],
+    "answer": "Returns the first non-null expression among its arguments.",
+    "category": "DBMS",
+    "difficulty": "Medium",
+    "explanation": "COALESCE(val1, val2, ...) evaluates arguments in order and returns the first non-null value."
+  },
+  {
+    "id": "qz-dbms-060",
+    "question": "What is NULLIF(val1, val2) in SQL?",
+    "options": [
+      "Returns NULL if val1 equals val2; otherwise returns val1.",
+      "Returns true if val1 is null.",
+      "Returns val2 if val1 is null.",
+      "Deletes null values."
+    ],
+    "answer": "Returns NULL if val1 equals val2; otherwise returns val1.",
+    "category": "DBMS",
+    "difficulty": "Medium",
+    "explanation": "NULLIF compares two arguments and returns NULL if they are equal, often used to prevent divide-by-zero errors."
+  },
+  {
+    "id": "qz-dbms-061",
+    "question": "What does CASE statement do in SQL?",
+    "options": [
+      "Provides conditional IF-THEN-ELSE logic inside SQL queries.",
+      "Loops over records in a table.",
+      "Executes dynamic DDL scripts.",
+      "Enforces unique key constraints."
+    ],
+    "answer": "Provides conditional IF-THEN-ELSE logic inside SQL queries.",
+    "category": "DBMS",
+    "difficulty": "Easy",
+    "explanation": "CASE statements allow inline conditional logic returning specific values depending on evaluated conditions."
+  },
+  {
+    "id": "qz-dbms-062",
+    "question": "Which function calculates running totals or ranking partitions in modern SQL?",
+    "options": [
+      "Window Functions (e.g. ROW_NUMBER(), SUM() OVER())",
+      "Aggregate Functions without OVER()",
+      "Scalar Functions",
+      "Table-Valued Functions"
+    ],
+    "answer": "Window Functions (e.g. ROW_NUMBER(), SUM() OVER())",
+    "category": "DBMS",
+    "difficulty": "Hard",
+    "explanation": "Window functions compute values across a set of table rows related to the current row without collapsing rows into a single output."
+  },
+  {
+    "id": "qz-dbms-063",
+    "question": "What is the function of ROW_NUMBER() window function?",
+    "options": [
+      "Assigns a sequential unique integer to each row within a partition starting at 1.",
+      "Counts total rows in table.",
+      "Calculates row memory size.",
+      "Returns row primary key."
+    ],
+    "answer": "Assigns a sequential unique integer to each row within a partition starting at 1.",
+    "category": "DBMS",
+    "difficulty": "Medium",
+    "explanation": "ROW_NUMBER() assigns consecutive 1-based ordinal numbers to sorted rows within a partition."
+  },
+  {
+    "id": "qz-dbms-064",
+    "question": "What is the main advantage of Connection Pooling in database client applications?",
+    "options": [
+      "Reuses a pool of open database connections, avoiding frequent connection establishment overhead.",
+      "Encrypts database passwords.",
+      "Translates SQL queries to REST APIs.",
+      "Automates schema migration."
+    ],
+    "answer": "Reuses a pool of open database connections, avoiding frequent connection establishment overhead.",
+    "category": "DBMS",
+    "difficulty": "Medium",
+    "explanation": "Connection pools maintain active connections ready for reuse, dramatically cutting connection handshake latency."
+  },
+  {
+    "id": "qz-dbms-065",
+    "question": "What is SQL Injection (SQLi)?",
+    "options": [
+      "A security vulnerability where malicious SQL code is injected into input fields to manipulate backend query execution.",
+      "A method to speed up SQL queries.",
+      "A database migration tool.",
+      "An automated indexing algorithm."
+    ],
+    "answer": "A security vulnerability where malicious SQL code is injected into input fields to manipulate backend query execution.",
+    "category": "DBMS",
+    "difficulty": "Easy",
+    "explanation": "SQL Injection occurs when un-sanitized user input is concatenated into dynamic SQL queries, preventable using Parameterized Queries."
   }
 ]

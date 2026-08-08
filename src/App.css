@@ -1,5 +1,5 @@
 /* ==========================================================================
-   QuizForge — "Golden Premium Learning" Application Shell & Component Layout Styles
+   Quizelle — "Golden Premium Learning" Application Shell & Component Layout Styles
    Phase 7 - Golden, Warm, Prestigious Academic SaaS System
    ========================================================================== */
 
@@ -32,7 +32,7 @@
 }
 
 /* ==========================================================================
-   1. SIDEBAR & QUIZFORGE BRAND STYLES
+   1. SIDEBAR & QUIZELLE BRAND STYLES
    ========================================================================== */
 .sidebar-backdrop {
   position: fixed;
@@ -64,7 +64,7 @@
   border-bottom: 1px solid var(--color-border);
 }
 
-/* QuizForge Q Dial Brand Logo */
+/* Quizelle Q Dial Brand Logo */
 .brand-logo.q-dial-logo {
   width: 42px;
   height: 42px;

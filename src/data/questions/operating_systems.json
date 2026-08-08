@@ -100,7 +100,12 @@
   {
     "id": "qz-os-008",
     "question": "Which algorithm is used by operating systems for deadlock avoidance?",
-    "options": ["Banker's Algorithm", "LRU Page Replacement", "Elevator Disk Scheduling", "Round Robin"],
+    "options": [
+      "Banker's Algorithm",
+      "LRU Page Replacement",
+      "Elevator Disk Scheduling",
+      "Round Robin"
+    ],
     "answer": "Banker's Algorithm",
     "category": "Operating Systems",
     "difficulty": "Hard",
@@ -123,10 +128,785 @@
   {
     "id": "qz-os-010",
     "question": "Which system call in Unix-like operating systems creates a new child process by duplicating the calling process?",
-    "options": ["fork()", "exec()", "pthread_create()", "wait()"],
+    "options": [
+      "fork()",
+      "exec()",
+      "pthread_create()",
+      "wait()"
+    ],
     "answer": "fork()",
     "category": "Operating Systems",
     "difficulty": "Easy",
     "explanation": "fork() spawns an exact duplicate child process, returning 0 to the child and the child's PID to the parent process."
+  },
+  {
+    "id": "qz-os-011",
+    "question": "What does the exec() family of system calls do in Unix?",
+    "options": [
+      "Replaces the current process image with a new process image specified by an executable file.",
+      "Terminates the current process.",
+      "Creates a new background thread.",
+      "Allocates heap memory."
+    ],
+    "answer": "Replaces the current process image with a new process image specified by an executable file.",
+    "category": "Operating Systems",
+    "difficulty": "Medium",
+    "explanation": "exec() loads a new program into the address space of the calling process, overwriting code and data segments."
+  },
+  {
+    "id": "qz-os-012",
+    "question": "What is Context Switching in OS process management?",
+    "options": [
+      "Storing the state of a CPU process/thread so that it can be restored and resume execution later.",
+      "Switching between keyboard input modes.",
+      "Moving files from SSD to HDD.",
+      "Converting virtual addresses to physical addresses."
+    ],
+    "answer": "Storing the state of a CPU process/thread so that it can be restored and resume execution later.",
+    "category": "Operating Systems",
+    "difficulty": "Easy",
+    "explanation": "Context switching saves PCB state (registers, stack pointer, program counter) of the running process and loads the new process state."
+  },
+  {
+    "id": "qz-os-013",
+    "question": "What is the primary drawback of frequent context switching?",
+    "options": [
+      "CPU overhead spent saving/restoring registers without doing useful application work.",
+      "Memory leaks in virtual memory.",
+      "Hard drive corruption.",
+      "Thermal throttling."
+    ],
+    "answer": "CPU overhead spent saving/restoring registers without doing useful application work.",
+    "category": "Operating Systems",
+    "difficulty": "Medium",
+    "explanation": "Context switches consume CPU cycles in register saving, cache invalidation, and TLB flushes."
+  },
+  {
+    "id": "qz-os-014",
+    "question": "What is a Zombie Process in Unix/Linux?",
+    "options": [
+      "A process that has completed execution but still has an entry in the process table to report exit status to its parent.",
+      "A virus process running in background.",
+      "A process that consumes 100% CPU.",
+      "A thread stuck in a deadlock."
+    ],
+    "answer": "A process that has completed execution but still has an entry in the process table to report exit status to its parent.",
+    "category": "Operating Systems",
+    "difficulty": "Medium",
+    "explanation": "A zombie process remains in the process table until its parent reads its exit status using wait()."
+  },
+  {
+    "id": "qz-os-015",
+    "question": "What is an Orphan Process in Unix?",
+    "options": [
+      "A running process whose parent process has terminated or exited.",
+      "A process created without a PID.",
+      "A process with no assigned memory.",
+      "A thread that has been killed."
+    ],
+    "answer": "A running process whose parent process has terminated or exited.",
+    "category": "Operating Systems",
+    "difficulty": "Easy",
+    "explanation": "When a parent process exits, its orphan child processes are automatically adopted by init (PID 1) or systemd."
+  },
+  {
+    "id": "qz-os-016",
+    "question": "What is Kernel Mode vs User Mode in CPU execution?",
+    "options": [
+      "Kernel mode has unrestricted access to hardware and memory; User mode has restricted privilege to prevent crashes.",
+      "Kernel mode runs web browsers; User mode runs drivers.",
+      "User mode has lower latency than Kernel mode.",
+      "Both modes have equal access to CPU instructions."
+    ],
+    "answer": "Kernel mode has unrestricted access to hardware and memory; User mode has restricted privilege to prevent crashes.",
+    "category": "Operating Systems",
+    "difficulty": "Easy",
+    "explanation": "Dual-mode operation uses CPU ring levels (Ring 0 for Kernel, Ring 3 for User) to isolate system hardware from application crashes."
+  },
+  {
+    "id": "qz-os-017",
+    "question": "What is a System Call?",
+    "options": [
+      "A programmatic request by a user-space application for a service provided by the operating system kernel.",
+      "A telephone call over VoIP.",
+      "An API request to a remote cloud server.",
+      "A hardware signal sent by keyboard."
+    ],
+    "answer": "A programmatic request by a user-space application for a service provided by the operating system kernel.",
+    "category": "Operating Systems",
+    "difficulty": "Easy",
+    "explanation": "System calls (sysenter / syscall) trap control into kernel mode to perform I/O, process creation, and memory management."
+  },
+  {
+    "id": "qz-os-018",
+    "question": "What is the TLB (Translation Lookaside Buffer)?",
+    "options": [
+      "A hardware CPU memory cache used to speed up virtual-to-physical address translation.",
+      "A storage buffer for hard drive pages.",
+      "A cache for web pages in browser.",
+      "A network packet queue."
+    ],
+    "answer": "A hardware CPU memory cache used to speed up virtual-to-physical address translation.",
+    "category": "Operating Systems",
+    "difficulty": "Hard",
+    "explanation": "The TLB caches recent page table translations (VPN to PFN) so the MMU can translate addresses in constant CPU clock time."
+  },
+  {
+    "id": "qz-os-019",
+    "question": "What is Paging in memory management?",
+    "options": [
+      "A scheme where physical memory is divided into fixed-size blocks (frames) and logical memory into same-sized pages.",
+      "Storing data on magnetic tapes.",
+      "Allocating dynamic heap memory.",
+      "Formatting hard drive partitions."
+    ],
+    "answer": "A scheme where physical memory is divided into fixed-size blocks (frames) and logical memory into same-sized pages.",
+    "category": "Operating Systems",
+    "difficulty": "Easy",
+    "explanation": "Paging eliminates external fragmentation by assigning physical RAM frames to fixed-size virtual pages."
+  },
+  {
+    "id": "qz-os-020",
+    "question": "What is Segmentation in memory management?",
+    "options": [
+      "A memory management scheme that divides logical memory into variable-length segments (code, data, stack).",
+      "Dividing disk drives into C: and D: partitions.",
+      "Compressing memory blocks.",
+      "Splitting network packets into frames."
+    ],
+    "answer": "A memory management scheme that divides logical memory into variable-length segments (code, data, stack).",
+    "category": "Operating Systems",
+    "difficulty": "Medium",
+    "explanation": "Segmentation reflects the programmer's view of memory, partitioning programs into variable-sized logical segments."
+  },
+  {
+    "id": "qz-os-021",
+    "question": "What is Internal Fragmentation?",
+    "options": [
+      "Unused memory space within an allocated fixed-size page or block.",
+      "Free memory scattered outside allocated blocks.",
+      "Fragmented files on hard disk.",
+      "Unused space in CPU registers."
+    ],
+    "answer": "Unused memory space within an allocated fixed-size page or block.",
+    "category": "Operating Systems",
+    "difficulty": "Medium",
+    "explanation": "Internal fragmentation occurs when allocated memory blocks (e.g. 4KB page) are slightly larger than the requested payload size."
+  },
+  {
+    "id": "qz-os-022",
+    "question": "What is External Fragmentation?",
+    "options": [
+      "Free memory space exists to satisfy a request, but it is split into small non-contiguous blocks.",
+      "Unused memory inside an allocated page.",
+      "Corrupted disk sectors.",
+      "Fragmented network packets."
+    ],
+    "answer": "Free memory space exists to satisfy a request, but it is split into small non-contiguous blocks.",
+    "category": "Operating Systems",
+    "difficulty": "Medium",
+    "explanation": "External fragmentation happens when dynamic variable-sized allocation leaves tiny gaps between allocated regions."
+  },
+  {
+    "id": "qz-os-023",
+    "question": "Which page replacement algorithm replaces the page that will not be used for the longest period of time in the future?",
+    "options": [
+      "Optimal Page Replacement (OPT / Belady's)",
+      "First-In, First-Out (FIFO)",
+      "Least Recently Used (LRU)",
+      "Least Frequently Used (LFU)"
+    ],
+    "answer": "Optimal Page Replacement (OPT / Belady's)",
+    "category": "Operating Systems",
+    "difficulty": "Hard",
+    "explanation": "Belady's Optimal Algorithm yields the lowest theoretical page fault rate, serving as a benchmark for practical algorithms like LRU."
+  },
+  {
+    "id": "qz-os-024",
+    "question": "What is Belady's Anomaly?",
+    "options": [
+      "The phenomenon where increasing the number of physical page frames results in MORE page faults under FIFO page replacement.",
+      "A bug causing CPU overheating.",
+      "A deadlock condition in semaphores.",
+      "A memory leak in kernel drivers."
+    ],
+    "answer": "The phenomenon where increasing the number of physical page frames results in MORE page faults under FIFO page replacement.",
+    "category": "Operating Systems",
+    "difficulty": "Hard",
+    "explanation": "Belady's Anomaly proves that under FIFO page replacement, adding more RAM frames can counterintuitively increase page fault count."
+  },
+  {
+    "id": "qz-os-025",
+    "question": "What is Belady's Anomaly immune algorithm?",
+    "options": [
+      "LRU and Stack-based page replacement algorithms",
+      "FIFO algorithm",
+      "Second-Chance algorithm",
+      "Simple Round Robin"
+    ],
+    "answer": "LRU and Stack-based page replacement algorithms",
+    "category": "Operating Systems",
+    "difficulty": "Hard",
+    "explanation": "Stack algorithms (like LRU and OPT) are mathematically immune to Belady's Anomaly because the set of pages in n frames is a subset of n+1 frames."
+  },
+  {
+    "id": "qz-os-026",
+    "question": "What is Round Robin (RR) CPU scheduling?",
+    "options": [
+      "A preemptive scheduling algorithm where each process gets assigned a fixed time slice (time quantum) in cyclic order.",
+      "A non-preemptive algorithm sorting by priority.",
+      "A scheduling method for graphics cards.",
+      "A disk scheduling algorithm."
+    ],
+    "answer": "A preemptive scheduling algorithm where each process gets assigned a fixed time slice (time quantum) in cyclic order.",
+    "category": "Operating Systems",
+    "difficulty": "Easy",
+    "explanation": "Round Robin allocates equal time quanta to ready queue processes, preventing process starvation."
+  },
+  {
+    "id": "qz-os-027",
+    "question": "What happens in Round Robin scheduling if the time quantum is chosen to be extremely large?",
+    "options": [
+      "It degenerates into First-Come, First-Served (FCFS) scheduling.",
+      "It causes high context switch overhead.",
+      "It causes thrashing.",
+      "It deadlock the CPU."
+    ],
+    "answer": "It degenerates into First-Come, First-Served (FCFS) scheduling.",
+    "category": "Operating Systems",
+    "difficulty": "Medium",
+    "explanation": "If the time quantum exceeds the longest process burst time, processes execute to completion without preemption, mimicking FCFS."
+  },
+  {
+    "id": "qz-os-028",
+    "question": "What happens in Round Robin if the time quantum is chosen to be extremely small?",
+    "options": [
+      "High context switch overhead degrades CPU throughput dramatically.",
+      "The system becomes non-preemptive.",
+      "Page fault rates drop to zero.",
+      "Memory usage decreases."
+    ],
+    "answer": "High context switch overhead degrades CPU throughput dramatically.",
+    "category": "Operating Systems",
+    "difficulty": "Medium",
+    "explanation": "Too small a quantum spends excessive CPU time swapping process contexts instead of doing productive calculation work."
+  },
+  {
+    "id": "qz-os-029",
+    "question": "What is Starvation in CPU scheduling?",
+    "options": [
+      "A situation where a low-priority process waits indefinitely because high-priority processes keep executing.",
+      "A process running out of RAM.",
+      "A hardware power outage.",
+      "A hard drive failure."
+    ],
+    "answer": "A situation where a low-priority process waits indefinitely because high-priority processes keep executing.",
+    "category": "Operating Systems",
+    "difficulty": "Easy",
+    "explanation": "Starvation occurs when scheduling algorithms (like strict priority) continuously bypass low-priority tasks."
+  },
+  {
+    "id": "qz-os-030",
+    "question": "How is Starvation prevented in Operating Systems?",
+    "options": [
+      "Aging (gradually increasing the priority of processes that wait in the queue for a long time).",
+      "Killing high priority processes.",
+      "Decreasing RAM allocation.",
+      "Restarting the OS."
+    ],
+    "answer": "Aging (gradually increasing the priority of processes that wait in the queue for a long time).",
+    "category": "Operating Systems",
+    "difficulty": "Easy",
+    "explanation": "Aging gradually raises the priority of waiting tasks over time, guaranteeing eventual CPU execution."
+  },
+  {
+    "id": "qz-os-031",
+    "question": "What is a Critical Section in concurrent programming?",
+    "options": [
+      "A segment of code that accesses shared resources (like shared memory or files) that must not be concurrently accessed by more than one thread.",
+      "A section of code that throws fatal errors.",
+      "A kernel boot sequence block.",
+      "An encrypted sector on disk."
+    ],
+    "answer": "A segment of code that accesses shared resources (like shared memory or files) that must not be concurrently accessed by more than one thread.",
+    "category": "Operating Systems",
+    "difficulty": "Easy",
+    "explanation": "Critical section execution requires mutual exclusion to prevent race conditions and data corruption."
+  },
+  {
+    "id": "qz-os-032",
+    "question": "What is Busy Waiting (Spinlocking)?",
+    "options": [
+      "A technique where a thread repeatedly checks a lock condition in a loop while consuming CPU cycles.",
+      "A thread waiting in a sleeping state.",
+      "A hard drive queuing requests.",
+      "A process waiting for network connection."
+    ],
+    "answer": "A technique where a thread repeatedly checks a lock condition in a loop while consuming CPU cycles.",
+    "category": "Operating Systems",
+    "difficulty": "Medium",
+    "explanation": "Spinlocks waste CPU cycles in loops checking lock availability, suitable only for very short lock hold durations."
+  },
+  {
+    "id": "qz-os-033",
+    "question": "What is a Mutex vs a Counting Semaphore?",
+    "options": [
+      "A Mutex is a binary ownership lock (unlocked only by owner thread), while a Semaphore allows up to N threads access.",
+      "A Semaphore can only be binary.",
+      "Mutex allows infinite access.",
+      "There is no difference."
+    ],
+    "answer": "A Mutex is a binary ownership lock (unlocked only by owner thread), while a Semaphore allows up to N threads access.",
+    "category": "Operating Systems",
+    "difficulty": "Medium",
+    "explanation": "Mutexes feature ownership (only locking thread can unlock); semaphores are signaling counters accessible by any thread."
+  },
+  {
+    "id": "qz-os-034",
+    "question": "What is Peterson's Algorithm?",
+    "options": [
+      "A classic concurrent programming algorithm for mutual exclusion between two processes using shared flags and a turn variable.",
+      "A disk scheduling algorithm.",
+      "A page replacement algorithm.",
+      "A deadlock detection algorithm."
+    ],
+    "answer": "A classic concurrent programming algorithm for mutual exclusion between two processes using shared flags and a turn variable.",
+    "category": "Operating Systems",
+    "difficulty": "Hard",
+    "explanation": "Peterson's solution solves the two-process critical section problem satisfying mutual exclusion, progress, and bounded waiting."
+  },
+  {
+    "id": "qz-os-035",
+    "question": "What is Test-and-Set instruction in CPU hardware?",
+    "options": [
+      "An atomic hardware instruction that sets a memory location and returns its old value in a single uninterruptible clock cycle.",
+      "A software test suite command.",
+      "A network ping packet.",
+      "A disk benchmark utility."
+    ],
+    "answer": "An atomic hardware instruction that sets a memory location and returns its old value in a single uninterruptible clock cycle.",
+    "category": "Operating Systems",
+    "difficulty": "Hard",
+    "explanation": "Atomic hardware primitives (Test-and-Set, Compare-and-Swap) provide foundation locks for multi-core synchronization."
+  },
+  {
+    "id": "qz-os-036",
+    "question": "What is a Spooling (Simultaneous Peripheral Operations On-Line)?",
+    "options": [
+      "Buffering data in disk storage so a slow peripheral device (like a printer) can process jobs asynchronously.",
+      "A technique for speeding up CPU caches.",
+      "A network routing protocol.",
+      "A RAM compression method."
+    ],
+    "answer": "Buffering data in disk storage so a slow peripheral device (like a printer) can process jobs asynchronously.",
+    "category": "Operating Systems",
+    "difficulty": "Medium",
+    "explanation": "Spooling queues I/O jobs on disk, allowing fast CPUs to hand off jobs without waiting for physical devices."
+  },
+  {
+    "id": "qz-os-037",
+    "question": "What is SCAN (Elevator) Disk Scheduling Algorithm?",
+    "options": [
+      "The disk arm starts at one end of the disk and moves toward the other end, servicing requests along the way, then reverses.",
+      "The disk arm jumps randomly.",
+      "Servicing closest request first only.",
+      "Servicing first arrived request first."
+    ],
+    "answer": "The disk arm starts at one end of the disk and moves toward the other end, servicing requests along the way, then reverses.",
+    "category": "Operating Systems",
+    "difficulty": "Medium",
+    "explanation": "SCAN mimics an elevator, sweeping back and forth across track cylinders to equalize seek times."
+  },
+  {
+    "id": "qz-os-038",
+    "question": "What is C-SCAN (Circular SCAN) Disk Scheduling?",
+    "options": [
+      "Sweeps in one direction servicing requests, then immediately jumps back to the beginning without servicing on return.",
+      "Sweeps in both directions randomly.",
+      "Services shortest seek time first.",
+      "Uses SSD flash memory."
+    ],
+    "answer": "Sweeps in one direction servicing requests, then immediately jumps back to the beginning without servicing on return.",
+    "category": "Operating Systems",
+    "difficulty": "Hard",
+    "explanation": "C-SCAN provides uniform wait times by servicing requests in only one direction and resetting the head to cylinder 0."
+  },
+  {
+    "id": "qz-os-039",
+    "question": "What is RAID 0?",
+    "options": [
+      "Striping data across multiple disks without parity or redundancy, boosting performance but offering zero fault tolerance.",
+      "Disk mirroring.",
+      "Disk striping with distributed parity.",
+      "Dedicated hot-spare disk backup."
+    ],
+    "answer": "Striping data across multiple disks without parity or redundancy, boosting performance but offering zero fault tolerance.",
+    "category": "Operating Systems",
+    "difficulty": "Easy",
+    "explanation": "RAID 0 splits data across drives for speed; if any drive fails, all array data is lost."
+  },
+  {
+    "id": "qz-os-040",
+    "question": "What is RAID 1?",
+    "options": [
+      "Disk Mirroring: duplicating identical data across two or more disks for high fault tolerance.",
+      "Disk Striping without backup.",
+      "Block-level parity striping.",
+      "Optical backup array."
+    ],
+    "answer": "Disk Mirroring: duplicating identical data across two or more disks for high fault tolerance.",
+    "category": "Operating Systems",
+    "difficulty": "Easy",
+    "explanation": "RAID 1 mirrors every block onto two separate drives, surviving single-drive failures."
+  },
+  {
+    "id": "qz-os-041",
+    "question": "What is RAID 5?",
+    "options": [
+      "Block-level striping with distributed parity across at least 3 disks, surviving a single disk failure.",
+      "Mirroring across 4 drives.",
+      "Dual-parity striping.",
+      "Un-striped standalone disks."
+    ],
+    "answer": "Block-level striping with distributed parity across at least 3 disks, surviving a single disk failure.",
+    "category": "Operating Systems",
+    "difficulty": "Medium",
+    "explanation": "RAID 5 distributes parity information across all member drives, combining high performance and capacity with single-drive fault tolerance."
+  },
+  {
+    "id": "qz-os-042",
+    "question": "What is a File Allocation Table (FAT)?",
+    "options": [
+      "A file system structure that uses a table array to track linked clusters of files stored on disk.",
+      "A table of database primary keys.",
+      "A list of active CPU processes.",
+      "A network firewall table."
+    ],
+    "answer": "A file system structure that uses a table array to track linked clusters of files stored on disk.",
+    "category": "Operating Systems",
+    "difficulty": "Easy",
+    "explanation": "FAT (FAT16, FAT32) uses an explicit linked list table on disk to map cluster chains for each file."
+  },
+  {
+    "id": "qz-os-043",
+    "question": "What is an Inode in Unix file systems?",
+    "options": [
+      "A data structure that stores metadata about a file (size, permissions, owner, block pointers), excluding filename.",
+      "The filename string itself.",
+      "A partition table sector.",
+      "A CPU register."
+    ],
+    "answer": "A data structure that stores metadata about a file (size, permissions, owner, block pointers), excluding filename.",
+    "category": "Operating Systems",
+    "difficulty": "Medium",
+    "explanation": "Inodes hold all file metadata and block pointers; directory entries map filename strings to inode numbers."
+  },
+  {
+    "id": "qz-os-044",
+    "question": "What is a Hard Link vs Soft Link (Symlink) in Linux?",
+    "options": [
+      "A Hard link points directly to the file's inode; a Soft link points to the file path string.",
+      "Soft links cannot cross filesystems; Hard links can.",
+      "Hard links break if original file is renamed.",
+      "There is no difference."
+    ],
+    "answer": "A Hard link points directly to the file's inode; a Soft link points to the file path string.",
+    "category": "Operating Systems",
+    "difficulty": "Medium",
+    "explanation": "Hard links are additional directory references to an existing inode number; Symbolic links store target path strings."
+  },
+  {
+    "id": "qz-os-045",
+    "question": "What is the function of the init process (PID 1) in Linux?",
+    "options": [
+      "The first user-space process spawned by the kernel, acting as parent of all orphan processes and initializing system services.",
+      "Compiling kernel C modules.",
+      "Managing GPU drivers.",
+      "Formatting hard drives."
+    ],
+    "answer": "The first user-space process spawned by the kernel, acting as parent of all orphan processes and initializing system services.",
+    "category": "Operating Systems",
+    "difficulty": "Easy",
+    "explanation": "Init (or systemd) is the parent of all processes in Unix, responsible for starting daemons and reaping zombie children."
+  },
+  {
+    "id": "qz-os-046",
+    "question": "What is a Daemon process?",
+    "options": [
+      "A background process that runs independently of interactive user control (e.g. httpd, sshd).",
+      "A malicious virus script.",
+      "A process causing CPU thrashing.",
+      "A short-lived shell script."
+    ],
+    "answer": "A background process that runs independently of interactive user control (e.g. httpd, sshd).",
+    "category": "Operating Systems",
+    "difficulty": "Easy",
+    "explanation": "Daemons run in the background without controlling terminals, handling system services and network requests."
+  },
+  {
+    "id": "qz-os-047",
+    "question": "What does the kill -9 signal (SIGKILL) do in Unix?",
+    "options": [
+      "Forces immediate termination of a process without allowing it to clean up or ignore the signal.",
+      "Sends a gentle graceful stop request.",
+      "Suspends process execution temporarily.",
+      "Restarts process."
+    ],
+    "answer": "Forces immediate termination of a process without allowing it to clean up or ignore the signal.",
+    "category": "Operating Systems",
+    "difficulty": "Easy",
+    "explanation": "SIGKILL (signal 9) cannot be caught, blocked, or ignored by a process; the kernel immediately terminates the target PID."
+  },
+  {
+    "id": "qz-os-048",
+    "question": "What is SIGTERM (signal 15)?",
+    "options": [
+      "A termination signal sent to a process asking it to terminate gracefully, allowing cleanup operations.",
+      "An un-catchable instant kill signal.",
+      "A signal sent on memory low error.",
+      "A user login signal."
+    ],
+    "answer": "A termination signal sent to a process asking it to terminate gracefully, allowing cleanup operations.",
+    "category": "Operating Systems",
+    "difficulty": "Easy",
+    "explanation": "SIGTERM requests process termination, giving the process a chance to release resources, save state, and close open sockets."
+  },
+  {
+    "id": "qz-os-049",
+    "question": "What is Inter-Process Communication (IPC)?",
+    "options": [
+      "Mechanisms provided by the OS allowing processes to exchange data and synchronize actions (e.g. Pipes, Shared Memory, Sockets).",
+      "Communication between CPU and RAM.",
+      "Communication between monitor and GPU.",
+      "Writing files to USB drives."
+    ],
+    "answer": "Mechanisms provided by the OS allowing processes to exchange data and synchronize actions (e.g. Pipes, Shared Memory, Sockets).",
+    "category": "Operating Systems",
+    "difficulty": "Easy",
+    "explanation": "IPC techniques (Pipes, Message Queues, Shared Memory, Sockets) enable separate process address spaces to share information."
+  },
+  {
+    "id": "qz-os-050",
+    "question": "Which IPC mechanism provides the fastest data exchange between processes on the same system?",
+    "options": [
+      "Shared Memory",
+      "Named Pipes (FIFO)",
+      "Unix Domain Sockets",
+      "Message Queues"
+    ],
+    "answer": "Shared Memory",
+    "category": "Operating Systems",
+    "difficulty": "Medium",
+    "explanation": "Shared Memory maps the same physical RAM region into multiple process address spaces, avoiding kernel copy overhead."
+  },
+  {
+    "id": "qz-os-051",
+    "question": "What is an Anonymous Pipe in Unix?",
+    "options": [
+      "A unidirectional IPC channel for communication between related parent-child processes created via pipe().",
+      "A network socket over TCP.",
+      "A file saved in /tmp.",
+      "A shared database table."
+    ],
+    "answer": "A unidirectional IPC channel for communication between related parent-child processes created via pipe().",
+    "category": "Operating Systems",
+    "difficulty": "Easy",
+    "explanation": "Pipes (cmd1 | cmd2) connect stdout of one process to stdin of another via kernel buffer memory."
+  },
+  {
+    "id": "qz-os-052",
+    "question": "What is a Named Pipe (FIFO) in Unix?",
+    "options": [
+      "A persistent pipe stored in the file system allowing unrelated processes to communicate.",
+      "A temporary memory buffer in RAM.",
+      "A socket bound to IP 127.0.0.1.",
+      "A kernel device driver."
+    ],
+    "answer": "A persistent pipe stored in the file system allowing unrelated processes to communicate.",
+    "category": "Operating Systems",
+    "difficulty": "Medium",
+    "explanation": "FIFOs exist as special files on disk (mkfifo) enabling IPC between unrelated processes."
+  },
+  {
+    "id": "qz-os-053",
+    "question": "What is a CPU-bound process vs an I/O-bound process?",
+    "options": [
+      "CPU-bound spends most time doing computations; I/O-bound spends most time waiting for I/O requests (disk/network).",
+      "CPU-bound runs on graphics cards; I/O-bound runs on SSD.",
+      "I/O-bound requires more RAM than CPU-bound.",
+      "There is no difference."
+    ],
+    "answer": "CPU-bound spends most time doing computations; I/O-bound spends most time waiting for I/O requests (disk/network).",
+    "category": "Operating Systems",
+    "difficulty": "Easy",
+    "explanation": "CPU-bound tasks generate long CPU bursts; I/O-bound tasks generate frequent short CPU bursts interspersed with I/O waits."
+  },
+  {
+    "id": "qz-os-054",
+    "question": "What is Shortest Remaining Time First (SRTF) scheduling?",
+    "options": [
+      "The preemptive version of Shortest Job First (SJF) scheduling.",
+      "A non-preemptive priority queue.",
+      "A round robin variant.",
+      "A disk scheduling algorithm."
+    ],
+    "answer": "The preemptive version of Shortest Job First (SJF) scheduling.",
+    "category": "Operating Systems",
+    "difficulty": "Medium",
+    "explanation": "SRTF preempts the currently running process if a newly arrived process has a shorter remaining burst time."
+  },
+  {
+    "id": "qz-os-055",
+    "question": "What is a Multilevel Queue Scheduling?",
+    "options": [
+      "Partitions the ready queue into several separate queues based on process characteristics (e.g. foreground interactive vs background batch).",
+      "A single queue with multi-core locks.",
+      "A queue operating across multiple CPUs.",
+      "A priority queue with 2 elements."
+    ],
+    "answer": "Partitions the ready queue into several separate queues based on process characteristics (e.g. foreground interactive vs background batch).",
+    "category": "Operating Systems",
+    "difficulty": "Medium",
+    "explanation": "Multilevel Queue assigns processes permanently to specific sub-queues, each with its own scheduling algorithm."
+  },
+  {
+    "id": "qz-os-056",
+    "question": "What is Multilevel Feedback Queue (MLFQ) scheduling?",
+    "options": [
+      "Allows processes to move between queues based on their CPU burst history, favoring interactive I/O-bound tasks.",
+      "A static priority queue with zero preemption.",
+      "A memory page replacement policy.",
+      "A disk arm optimization."
+    ],
+    "answer": "Allows processes to move between queues based on their CPU burst history, favoring interactive I/O-bound tasks.",
+    "category": "Operating Systems",
+    "difficulty": "Hard",
+    "explanation": "MLFQ dynamically adjusts process priority: CPU-intensive tasks drop to lower queues, while interactive tasks remain in high-priority queues."
+  },
+  {
+    "id": "qz-os-057",
+    "question": "What is a Memory Management Unit (MMU)?",
+    "options": [
+      "A hardware component that translates virtual memory addresses to physical RAM addresses.",
+      "A software routine in the OS kernel.",
+      "A RAM chip module.",
+      "A disk controller board."
+    ],
+    "answer": "A hardware component that translates virtual memory addresses to physical RAM addresses.",
+    "category": "Operating Systems",
+    "difficulty": "Easy",
+    "explanation": "The MMU performs hardware address translation (using Page Tables and TLB) on every memory access."
+  },
+  {
+    "id": "qz-os-058",
+    "question": "What is a Page Table?",
+    "options": [
+      "A data structure used by the virtual memory system to store mapping between virtual addresses and physical RAM addresses.",
+      "A table of database rows.",
+      "A file allocation log.",
+      "A list of CPU instructions."
+    ],
+    "answer": "A data structure used by the virtual memory system to store mapping between virtual addresses and physical RAM addresses.",
+    "category": "Operating Systems",
+    "difficulty": "Easy",
+    "explanation": "Page tables maintain Page Table Entries (PTEs) holding physical frame numbers and status bits (present, dirty, read/write)."
+  },
+  {
+    "id": "qz-os-059",
+    "question": "What is a Dirty Bit in a Page Table Entry?",
+    "options": [
+      "A bit indicating whether the page has been modified in RAM since being read from disk.",
+      "A bit marking corrupted memory.",
+      "A bit marking unauthorized access.",
+      "A bit indicating empty RAM."
+    ],
+    "answer": "A bit indicating whether the page has been modified in RAM since being read from disk.",
+    "category": "Operating Systems",
+    "difficulty": "Medium",
+    "explanation": "If a dirty page is evicted, the OS must write it back to disk; if clean, the page frame can be freed immediately."
+  },
+  {
+    "id": "qz-os-060",
+    "question": "What is a Present/Absent Bit in a Page Table Entry?",
+    "options": [
+      "Indicates whether the virtual page is currently in physical RAM (1) or stored on disk swap space (0).",
+      "Indicates if page is read-only.",
+      "Indicates if user has admin access.",
+      "Indicates page size."
+    ],
+    "answer": "Indicates whether the virtual page is currently in physical RAM (1) or stored on disk swap space (0).",
+    "category": "Operating Systems",
+    "difficulty": "Easy",
+    "explanation": "A 0 in the present bit triggers a Page Fault hardware exception when the CPU accesses that virtual address."
+  },
+  {
+    "id": "qz-os-061",
+    "question": "What is Copy-on-Write (CoW) in OS memory management?",
+    "options": [
+      "A optimization technique where parent and child share the same physical pages until one process writes to a page.",
+      "Writing files to two disks simultaneously.",
+      "A backup file copy protocol.",
+      "A RAID 1 storage feature."
+    ],
+    "answer": "A optimization technique where parent and child share the same physical pages until one process writes to a page.",
+    "category": "Operating Systems",
+    "difficulty": "Hard",
+    "explanation": "CoW speeds up fork() by delaying page duplication until either process attempts to modify a page."
+  },
+  {
+    "id": "qz-os-062",
+    "question": "What is Swapping in memory management?",
+    "options": [
+      "Moving an entire process out of physical RAM to disk swap space and bringing it back later.",
+      "Swapping CPU registers.",
+      "Swapping two array variables.",
+      "Swapping master and slave DB nodes."
+    ],
+    "answer": "Moving an entire process out of physical RAM to disk swap space and bringing it back later.",
+    "category": "Operating Systems",
+    "difficulty": "Easy",
+    "explanation": "Swapping moves inactive processes to disk swap partitions to reclaim RAM for active tasks."
+  },
+  {
+    "id": "qz-os-063",
+    "question": "What is a Hardware Interrupt vs Software Interrupt (Trap)?",
+    "options": [
+      "Hardware interrupts are generated by physical peripherals (e.g. keyboard); Traps are generated by CPU instructions (e.g. system call, divide-by-zero).",
+      "Traps run faster than hardware interrupts.",
+      "Hardware interrupts run in user mode.",
+      "There is no difference."
+    ],
+    "answer": "Hardware interrupts are generated by physical peripherals (e.g. keyboard); Traps are generated by CPU instructions (e.g. system call, divide-by-zero).",
+    "category": "Operating Systems",
+    "difficulty": "Medium",
+    "explanation": "Hardware interrupts arrive asynchronously via IRQ lines; traps occur synchronously as a direct result of instruction execution."
+  },
+  {
+    "id": "qz-os-064",
+    "question": "What is an Interrupt Vector Table (IVT)?",
+    "options": [
+      "An array of memory addresses that point to Interrupt Service Routines (ISRs) for specific interrupt numbers.",
+      "A vector graphic file.",
+      "A table of active processes.",
+      "A database index."
+    ],
+    "answer": "An array of memory addresses that point to Interrupt Service Routines (ISRs) for specific interrupt numbers.",
+    "category": "Operating Systems",
+    "difficulty": "Medium",
+    "explanation": "When an interrupt occurs, the CPU looks up the corresponding ISR address in the IVT and jumps to that handler code."
+  },
+  {
+    "id": "qz-os-065",
+    "question": "What is a Kernel Panic in Unix/Linux (or BSOD in Windows)?",
+    "options": [
+      "A safety action taken by the operating system upon detecting an unrecoverable internal error.",
+      "A user login error.",
+      "A network connection loss.",
+      "A temporary high CPU usage warning."
+    ],
+    "answer": "A safety action taken by the operating system upon detecting an unrecoverable internal error.",
+    "category": "Operating Systems",
+    "difficulty": "Easy",
+    "explanation": "Kernel panic halts execution to prevent data corruption when the kernel encounters a critical fatal exception."
   }
 ]

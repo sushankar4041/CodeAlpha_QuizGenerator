@@ -16,7 +16,12 @@
   {
     "id": "qz-react-002",
     "question": "Which Hook should be used to execute side effects in a functional React component?",
-    "options": ["useEffect", "useCallback", "useReducer", "useRef"],
+    "options": [
+      "useEffect",
+      "useCallback",
+      "useReducer",
+      "useRef"
+    ],
     "answer": "useEffect",
     "category": "React",
     "difficulty": "Easy",
@@ -67,7 +72,12 @@
   {
     "id": "qz-react-006",
     "question": "Which Hook returns a mutable ref object whose '.current' property is persisted across renders without causing re-renders?",
-    "options": ["useRef", "useState", "useMemo", "useContext"],
+    "options": [
+      "useRef",
+      "useState",
+      "useMemo",
+      "useContext"
+    ],
     "answer": "useRef",
     "category": "React",
     "difficulty": "Medium",
@@ -104,14 +114,19 @@
   {
     "id": "qz-react-009",
     "question": "Which hook is used to subscribe to React Context values in functional components?",
-    "options": ["useContext", "useProvider", "useConsumer", "useStore"],
+    "options": [
+      "useContext",
+      "useProvider",
+      "useConsumer",
+      "useStore"
+    ],
     "answer": "useContext",
     "category": "React",
     "difficulty": "Easy",
     "explanation": "useContext accepts a context object created by React.createContext and returns the current context value."
   },
   {
-    "id": "qz-react-0010",
+    "id": "qz-react-010",
     "question": "What is the purpose of React.memo()?",
     "options": [
       "A higher-order component that skips re-rendering a component if its props have not changed.",
@@ -123,5 +138,775 @@
     "category": "React",
     "difficulty": "Hard",
     "explanation": "React.memo memoizes component render output; if props are shallowly equal, React reuses the last rendered output."
+  },
+  {
+    "id": "qz-react-011",
+    "question": "What does useCallback Hook do in React?",
+    "options": [
+      "Returns a memoized version of a callback function that only changes if dependencies change.",
+      "Executes a callback function asynchronously after DOM paint.",
+      "Binds event listeners directly to window object.",
+      "Memoizes state variables inside reducer."
+    ],
+    "answer": "Returns a memoized version of a callback function that only changes if dependencies change.",
+    "category": "React",
+    "difficulty": "Medium",
+    "explanation": "useCallback memoizes callback function instances to prevent unnecessary re-renders of optimized child components relying on reference equality."
+  },
+  {
+    "id": "qz-react-012",
+    "question": "What is the purpose of the dependency array in useEffect?",
+    "options": [
+      "Controls when the effect hook should re-run by comparing current and previous dependency values.",
+      "Specifies CSS classes applied to component.",
+      "Defines API routes for component data.",
+      "Sets max render time timeout."
+    ],
+    "answer": "Controls when the effect hook should re-run by comparing current and previous dependency values.",
+    "category": "React",
+    "difficulty": "Easy",
+    "explanation": "If any value in the dependency array changes between renders, React executes the effect function again."
+  },
+  {
+    "id": "qz-react-013",
+    "question": "What happens if you pass an empty array [] as the dependency array to useEffect?",
+    "options": [
+      "The effect runs only once after the initial component mount.",
+      "The effect runs on every component re-render.",
+      "The effect is disabled and never runs.",
+      "React throws a runtime Error."
+    ],
+    "answer": "The effect runs only once after the initial component mount.",
+    "category": "React",
+    "difficulty": "Easy",
+    "explanation": "An empty dependency array [] tells React that the effect does not depend on any props or state, so it runs only on mount and unmount."
+  },
+  {
+    "id": "qz-react-014",
+    "question": "How do you clean up side effects in useEffect (e.g. event listeners or subscriptions)?",
+    "options": [
+      "Return a cleanup function from the useEffect callback.",
+      "Call useEffect.cleanup() manually.",
+      "Set the dependency array to null.",
+      "Use try...finally block inside effect."
+    ],
+    "answer": "Return a cleanup function from the useEffect callback.",
+    "category": "React",
+    "difficulty": "Medium",
+    "explanation": "The function returned by useEffect runs prior to component unmounting and before re-running the effect on dependency updates."
+  },
+  {
+    "id": "qz-react-015",
+    "question": "What is the difference between controlled and uncontrolled components in React forms?",
+    "options": [
+      "Controlled components have their value managed by React state, while uncontrolled components manage state via the DOM.",
+      "Controlled components use refs, uncontrolled use useState.",
+      "Uncontrolled components are faster and recommended for all inputs.",
+      "Controlled components run on server, uncontrolled run on client."
+    ],
+    "answer": "Controlled components have their value managed by React state, while uncontrolled components manage state via the DOM.",
+    "category": "React",
+    "difficulty": "Medium",
+    "explanation": "In a controlled component, form data is handled by a React component state. In uncontrolled components, form data is handled by the DOM itself (via refs)."
+  },
+  {
+    "id": "qz-react-016",
+    "question": "Which hook is preferred over useState when managing complex state logic involving multiple sub-values?",
+    "options": [
+      "useReducer",
+      "useCallback",
+      "useLayoutEffect",
+      "useImperativeHandle"
+    ],
+    "answer": "useReducer",
+    "category": "React",
+    "difficulty": "Medium",
+    "explanation": "useReducer is usually preferable to useState when state logic involves multiple sub-values or when the next state depends on the previous one."
+  },
+  {
+    "id": "qz-react-017",
+    "question": "What is the purpose of React.Fragment (<></>)?",
+    "options": [
+      "Groups a list of children without adding extra nodes to the DOM.",
+      "Creates a shadow DOM encapsulation boundary.",
+      "Applies flexbox layout to child elements.",
+      "Lazy loads child components asynchronously."
+    ],
+    "answer": "Groups a list of children without adding extra nodes to the DOM.",
+    "category": "React",
+    "difficulty": "Easy",
+    "explanation": "React Fragments let you group elements together without wrapping them in an extra HTML container div."
+  },
+  {
+    "id": "qz-react-018",
+    "question": "What is the function of useLayoutEffect in React?",
+    "options": [
+      "Fires synchronously after all DOM mutations but before the browser paints the screen.",
+      "Fires asynchronously after browser paint.",
+      "Replaces useState in class components.",
+      "Handles server-side rendering routes."
+    ],
+    "answer": "Fires synchronously after all DOM mutations but before the browser paints the screen.",
+    "category": "React",
+    "difficulty": "Hard",
+    "explanation": "useLayoutEffect runs synchronously immediately after React performs DOM updates, useful for measuring DOM layouts before screen repaints."
+  },
+  {
+    "id": "qz-react-019",
+    "question": "What is StrictMode in React?",
+    "options": [
+      "A development tool that highlights potential problems in an application by invoking double-renders and checks.",
+      "Enforces TypeScript strict type checking at build time.",
+      "Prevents console warnings in production.",
+      "Restricts HTTP requests to HTTPS only."
+    ],
+    "answer": "A development tool that highlights potential problems in an application by invoking double-renders and checks.",
+    "category": "React",
+    "difficulty": "Easy",
+    "explanation": "React StrictMode checks for unsafe lifecycles, unexpected side effects (by double-invoking effects in dev), and deprecated API usage."
+  },
+  {
+    "id": "qz-react-020",
+    "question": "What is the main benefit of React Server Components (RSC)?",
+    "options": [
+      "Executes component rendering on the server, reducing client bundle size and latency.",
+      "Replaces client-side HTML parsing completely.",
+      "Enables offline storage in browser IndexedDB.",
+      "Disables React Virtual DOM diffing."
+    ],
+    "answer": "Executes component rendering on the server, reducing client bundle size and latency.",
+    "category": "React",
+    "difficulty": "Hard",
+    "explanation": "Server Components run exclusively on the server, allowing fetching data close to source and sending pre-rendered HTML/JSON chunks without shipping client JS."
+  },
+  {
+    "id": "qz-react-021",
+    "question": "What does React.lazy() do?",
+    "options": [
+      "Enables dynamic import of components to support code-splitting.",
+      "Lazy loads images when scrolled into viewport.",
+      "Delays component rendering by specified milliseconds.",
+      "Prevents state updates during API calls."
+    ],
+    "answer": "Enables dynamic import of components to support code-splitting.",
+    "category": "React",
+    "difficulty": "Medium",
+    "explanation": "React.lazy() lets you render a dynamic import as a regular component, enabling bundle code-splitting."
+  },
+  {
+    "id": "qz-react-022",
+    "question": "Which component MUST wrap a component loaded via React.lazy() to display fallback UI while loading?",
+    "options": [
+      "Suspense",
+      "ErrorBoundary",
+      "Provider",
+      "StrictMode"
+    ],
+    "answer": "Suspense",
+    "category": "React",
+    "difficulty": "Easy",
+    "explanation": "React.Suspense wraps lazy components to specify fallback content (such as a loading spinner) while child modules are downloading."
+  },
+  {
+    "id": "qz-react-023",
+    "question": "What is an Error Boundary in React?",
+    "options": [
+      "A class component that catches JavaScript errors anywhere in its child component tree and displays fallback UI.",
+      "A hook that catches network API errors.",
+      "A try/catch block inside useEffect.",
+      "A middleware for Redux store errors."
+    ],
+    "answer": "A class component that catches JavaScript errors anywhere in its child component tree and displays fallback UI.",
+    "category": "React",
+    "difficulty": "Medium",
+    "explanation": "Error boundaries are React class components that implement componentDidCatch or getDerivedStateFromError to prevent whole app crashes."
+  },
+  {
+    "id": "qz-react-024",
+    "question": "What is lifting state up in React?",
+    "options": [
+      "Moving shared state to the closest common ancestor component so multiple sibling components can consume it.",
+      "Storing state in browser localStorage.",
+      "Passing state down via prop drilling.",
+      "Using Redux for all application state."
+    ],
+    "answer": "Moving shared state to the closest common ancestor component so multiple sibling components can consume it.",
+    "category": "React",
+    "difficulty": "Easy",
+    "explanation": "Lifting state up involves moving state up to a parent component so that multiple child components can share and synchronize data."
+  },
+  {
+    "id": "qz-react-025",
+    "question": "Which method in React 18 initiates concurrent batching and marks a state update as non-urgent?",
+    "options": [
+      "startTransition",
+      "useDeferredValue",
+      "useTransition",
+      "useBatch"
+    ],
+    "answer": "startTransition",
+    "category": "React",
+    "difficulty": "Hard",
+    "explanation": "startTransition lets you mark updates as transitions (non-urgent), allowing urgent updates like typing in inputs to stay responsive."
+  },
+  {
+    "id": "qz-react-026",
+    "question": "What is the hook version of startTransition in React 18?",
+    "options": [
+      "useTransition",
+      "useDeferredValue",
+      "useId",
+      "useSyncExternalStore"
+    ],
+    "answer": "useTransition",
+    "category": "React",
+    "difficulty": "Hard",
+    "explanation": "useTransition returns [isPending, startTransition], indicating whether a transition update is currently pending."
+  },
+  {
+    "id": "qz-react-027",
+    "question": "What does useDeferredValue Hook do in React 18?",
+    "options": [
+      "Returns a deferred copy of a value that 'lags behind' rapid updates, keeping UI responsive.",
+      "Delays network API calls by 500ms.",
+      "Defers component mounting until user clicks.",
+      "Caches values in sessionStorage."
+    ],
+    "answer": "Returns a deferred copy of a value that 'lags behind' rapid updates, keeping UI responsive.",
+    "category": "React",
+    "difficulty": "Hard",
+    "explanation": "useDeferredValue accepts a value and returns a deferred copy that defers re-rendering heavy subtrees until main inputs finish."
+  },
+  {
+    "id": "qz-react-028",
+    "question": "Which Hook generates unique IDs that are stable across server and client renders in React 18?",
+    "options": [
+      "useId",
+      "useKey",
+      "useUUID",
+      "useHash"
+    ],
+    "answer": "useId",
+    "category": "React",
+    "difficulty": "Medium",
+    "explanation": "useId is a hook for generating unique IDs that are consistent between client and server rendering, preventing hydration mismatches."
+  },
+  {
+    "id": "qz-react-029",
+    "question": "What is hydration in SSR (Server-Side Rendering) with React?",
+    "options": [
+      "The process where client-side React attaches event listeners to static HTML rendered by the server.",
+      "Downloading CSS files into the browser.",
+      "Converting JSON responses into JSX elements.",
+      "Executing garbage collection after rendering."
+    ],
+    "answer": "The process where client-side React attaches event listeners to static HTML rendered by the server.",
+    "category": "React",
+    "difficulty": "Hard",
+    "explanation": "Hydration transforms static HTML generated on the server into an interactive Single Page App by attaching event handlers in the DOM."
+  },
+  {
+    "id": "qz-react-030",
+    "question": "What happens if a component's key changes during a re-render?",
+    "options": [
+      "React unmounts the existing component instance and creates a fresh instance from scratch.",
+      "React updates props in place without unmounting.",
+      "React throws a hydration warning error.",
+      "React caches the previous instance state."
+    ],
+    "answer": "React unmounts the existing component instance and creates a fresh instance from scratch.",
+    "category": "React",
+    "difficulty": "Medium",
+    "explanation": "Changing a component's key signals to React that the component identity has changed, forcing a full unmount and re-mount with fresh state."
+  },
+  {
+    "id": "qz-react-031",
+    "question": "Why should you avoid using array index as keys for dynamic lists in React?",
+    "options": [
+      "Reordering or deleting items causes state bugs and unnecessary component re-renders.",
+      "Indexes cause runtime syntax errors in JSX.",
+      "Indexes double the Virtual DOM memory usage.",
+      "React forbids number keys."
+    ],
+    "answer": "Reordering or deleting items causes state bugs and unnecessary component re-renders.",
+    "category": "React",
+    "difficulty": "Medium",
+    "explanation": "Index keys break item identity when list order changes, leading to stale component state and incorrect DOM recycling."
+  },
+  {
+    "id": "qz-react-032",
+    "question": "What is the custom hook naming convention in React?",
+    "options": [
+      "Custom hook names must start with 'use' (e.g. useFetch).",
+      "Custom hook names must start with 'get'.",
+      "Custom hook names must end with 'Hook'.",
+      "Custom hook names must be capitalized."
+    ],
+    "answer": "Custom hook names must start with 'use' (e.g. useFetch).",
+    "category": "React",
+    "difficulty": "Easy",
+    "explanation": "React linters enforce that custom hooks start with 'use' so Rules of Hooks can be automatically validated."
+  },
+  {
+    "id": "qz-react-033",
+    "question": "Which rule is part of the 'Rules of Hooks' in React?",
+    "options": [
+      "Only call Hooks at the top level of function components or custom hooks.",
+      "Call hooks inside loops or conditional if blocks.",
+      "Call hooks inside plain JavaScript helper functions.",
+      "Hooks must be called inside class render methods."
+    ],
+    "answer": "Only call Hooks at the top level of function components or custom hooks.",
+    "category": "React",
+    "difficulty": "Easy",
+    "explanation": "Hooks must be called at the top level to guarantee that Hooks are executed in the exact same order on every render."
+  },
+  {
+    "id": "qz-react-034",
+    "question": "What does useImperativeHandle Hook do?",
+    "options": [
+      "Customizes the instance value exposed to parent components when using ref.",
+      "Handles imperative DOM mutations in useEffect.",
+      "Overrides state updates in class components.",
+      "Intercepts REST API requests."
+    ],
+    "answer": "Customizes the instance value exposed to parent components when using ref.",
+    "category": "React",
+    "difficulty": "Hard",
+    "explanation": "useImperativeHandle modifies the ref object exposed by forwardRef to parent components."
+  },
+  {
+    "id": "qz-react-035",
+    "question": "Which React function allows parent components to pass a ref to a child component?",
+    "options": [
+      "React.forwardRef()",
+      "React.useRef()",
+      "React.bindRef()",
+      "React.passRef()"
+    ],
+    "answer": "React.forwardRef()",
+    "category": "React",
+    "difficulty": "Medium",
+    "explanation": "React.forwardRef creates a React component that forwards the ref attribute it receives to another component down the tree."
+  },
+  {
+    "id": "qz-react-036",
+    "question": "What is SyntheticEvent in React?",
+    "options": [
+      "A cross-browser wrapper around the browser's native DOM event.",
+      "A custom event generated by Redux actions.",
+      "A fake event simulated during unit testing.",
+      "A server-sent SSE event."
+    ],
+    "answer": "A cross-browser wrapper around the browser's native DOM event.",
+    "category": "React",
+    "difficulty": "Easy",
+    "explanation": "SyntheticEvent wraps native browser events to provide identical event property behavior across all browser environments."
+  },
+  {
+    "id": "qz-react-037",
+    "question": "How do you pass a parameter to an event handler in JSX?",
+    "options": [
+      "onClick={() => handleClick(param)}",
+      "onClick={handleClick(param)}",
+      "onClick=handleClick(param)",
+      "onClick={param => handleClick}"
+    ],
+    "answer": "onClick={() => handleClick(param)}",
+    "category": "React",
+    "difficulty": "Easy",
+    "explanation": "Wrapping the function call inside an arrow function prevents invoking handleClick immediately during render."
+  },
+  {
+    "id": "qz-react-038",
+    "question": "What is the role of Context.Provider component?",
+    "options": [
+      "Provides the context value to all child components descendant in its component tree.",
+      "Consumes the context value in class components.",
+      "Stores context data in browser cookies.",
+      "Validates prop types of context data."
+    ],
+    "answer": "Provides the context value to all child components descendant in its component tree.",
+    "category": "React",
+    "difficulty": "Easy",
+    "explanation": "Context.Provider accepts a 'value' prop to be passed to consuming components that are descendants of this Provider."
+  },
+  {
+    "id": "qz-react-039",
+    "question": "What happens when the 'value' prop passed to a Context.Provider changes?",
+    "options": [
+      "All descendant components that consume the context will re-render.",
+      "Only the immediate child of Provider re-renders.",
+      "Component tree unmounts completely.",
+      "Nothing happens until page reloads."
+    ],
+    "answer": "All descendant components that consume the context will re-render.",
+    "category": "React",
+    "difficulty": "Medium",
+    "explanation": "Every component consuming context will re-render whenever the context Provider receives a new value."
+  },
+  {
+    "id": "qz-react-040",
+    "question": "Which hook in React 18 is designed to subscribe to external store sources (e.g. Redux / Zustand) synchronously?",
+    "options": [
+      "useSyncExternalStore",
+      "useStoreSync",
+      "useExternalState",
+      "useGlobalStore"
+    ],
+    "answer": "useSyncExternalStore",
+    "category": "React",
+    "difficulty": "Hard",
+    "explanation": "useSyncExternalStore is recommended for reading and subscribing from external store sources while remaining concurrent-mode safe."
+  },
+  {
+    "id": "qz-react-041",
+    "question": "What is Portals in React (ReactDOM.createPortal)?",
+    "options": [
+      "Provides a way to render children into a DOM node that exists outside the DOM hierarchy of the parent component.",
+      "A network tunnel for WebSocket connections.",
+      "A method to import external CSS frameworks.",
+      "A routing portal for SPA transitions."
+    ],
+    "answer": "Provides a way to render children into a DOM node that exists outside the DOM hierarchy of the parent component.",
+    "category": "React",
+    "difficulty": "Medium",
+    "explanation": "Portals let you insert a child component into a different location in the DOM (such as modal overlays or tooltips) while maintaining React event propagation."
+  },
+  {
+    "id": "qz-react-042",
+    "question": "What is the default behavior of React state updates when calling setState/setCount multiple times in a event handler?",
+    "options": [
+      "React batches multiple state updates into a single re-render for performance.",
+      "React triggers an immediate re-render per state call.",
+      "React cancels all but the last state call.",
+      "React throws a concurrency warning."
+    ],
+    "answer": "React batches multiple state updates into a single re-render for performance.",
+    "category": "React",
+    "difficulty": "Easy",
+    "explanation": "React batches state updates occurring inside event handlers, microtasks, and timeouts to minimize DOM re-renders."
+  },
+  {
+    "id": "qz-react-043",
+    "question": "What is functional state update syntax in useState?",
+    "options": [
+      "setCount(prevCount => prevCount + 1)",
+      "setCount(count + 1)",
+      "setCount(++count)",
+      "setCount.update(+1)"
+    ],
+    "answer": "setCount(prevCount => prevCount + 1)",
+    "category": "React",
+    "difficulty": "Easy",
+    "explanation": "Passing a callback function to the state setter ensures you are working with the guaranteed latest pending state value."
+  },
+  {
+    "id": "qz-react-044",
+    "question": "What is Reconciliation in React?",
+    "options": [
+      "The algorithm React uses to diff one tree of Virtual DOM elements with another to determine DOM updates.",
+      "The process of authenticating API requests.",
+      "The routine that cleans up unused CSS classes.",
+      "The method that compiles JSX into HTML."
+    ],
+    "answer": "The algorithm React uses to diff one tree of Virtual DOM elements with another to determine DOM updates.",
+    "category": "React",
+    "difficulty": "Hard",
+    "explanation": "Reconciliation is React's heuristic O(n) diffing algorithm that compares Virtual DOM trees and computes minimal real DOM changes."
+  },
+  {
+    "id": "qz-react-045",
+    "question": "What is Fiber in React architecture?",
+    "options": [
+      "React's core reconciliation engine introduced in React 16 to support incremental rendering and pause/resume work.",
+      "A lightweight styling library.",
+      "A virtual data grid component.",
+      "A state management middleware."
+    ],
+    "answer": "React's core reconciliation engine introduced in React 16 to support incremental rendering and pause/resume work.",
+    "category": "React",
+    "difficulty": "Hard",
+    "explanation": "React Fiber is a complete rewrite of React's core algorithm, breaking work into units of work (fibers) that can be prioritized or paused."
+  },
+  {
+    "id": "qz-react-046",
+    "question": "How do you define default prop values for functional components in modern React?",
+    "options": [
+      "Using ES6 default parameter syntax in function parameters.",
+      "Using Component.defaultProps static property.",
+      "Using useState initial values.",
+      "Using CSS default variables."
+    ],
+    "answer": "Using ES6 default parameter syntax in function parameters.",
+    "category": "React",
+    "difficulty": "Easy",
+    "explanation": "Modern React favors ES6 destructuring default values directly in function parameter definitions: ({ title = 'Default' }) => ..."
+  },
+  {
+    "id": "qz-react-047",
+    "question": "What is the difference between useMemo and useCallback?",
+    "options": [
+      "useMemo caches the result of a function, while useCallback caches the function instance itself.",
+      "useMemo is for state, useCallback is for refs.",
+      "useCallback runs synchronously, useMemo runs asynchronously.",
+      "They are aliases for the exact same hook."
+    ],
+    "answer": "useMemo caches the result of a function, while useCallback caches the function instance itself.",
+    "category": "React",
+    "difficulty": "Medium",
+    "explanation": "useMemo(() => fn(), deps) returns the memoized return value; useCallback(fn, deps) returns the memoized function reference."
+  },
+  {
+    "id": "qz-react-048",
+    "question": "What causes a component to re-render in React?",
+    "options": [
+      "Changes to its props or state, or re-render of its parent component.",
+      "Any DOM window resize event.",
+      "Calling console.log() inside render.",
+      "Updating local non-state variables."
+    ],
+    "answer": "Changes to its props or state, or re-render of its parent component.",
+    "category": "React",
+    "difficulty": "Easy",
+    "explanation": "React components re-render whenever their state updates, new props are passed, or their parent component re-renders."
+  },
+  {
+    "id": "qz-react-049",
+    "question": "Which Hook allows executing code when a component unmounts?",
+    "options": [
+      "useEffect with a return cleanup function",
+      "useUnmount",
+      "useComponentWillUnmount",
+      "useExit"
+    ],
+    "answer": "useEffect with a return cleanup function",
+    "category": "React",
+    "difficulty": "Easy",
+    "explanation": "Returning a function from useEffect executes that cleanup callback when the component is unmounted from the DOM."
+  },
+  {
+    "id": "qz-react-050",
+    "question": "What is the role of 'children' prop in React?",
+    "options": [
+      "Represents content passed between the opening and closing tags of a JSX component.",
+      "Contains child process references in Node.js.",
+      "Stores list of child components in state.",
+      "Generates unique child DOM IDs."
+    ],
+    "answer": "Represents content passed between the opening and closing tags of a JSX component.",
+    "category": "React",
+    "difficulty": "Easy",
+    "explanation": "The props.children property allows components to compose arbitrary JSX content passed inside component tags: <Card>{children}</Card>."
+  },
+  {
+    "id": "qz-react-051",
+    "question": "What is High Order Component (HOC) in React?",
+    "options": [
+      "A pattern where a function takes a component and returns a new enhanced component.",
+      "A component rendered at root of DOM.",
+      "A hook that manages higher state.",
+      "A component with higher z-index styling."
+    ],
+    "answer": "A pattern where a function takes a component and returns a new enhanced component.",
+    "category": "React",
+    "difficulty": "Medium",
+    "explanation": "A Higher-Order Component is a pure function with zero side-effects that takes a component argument and returns an augmented component."
+  },
+  {
+    "id": "qz-react-052",
+    "question": "Which method is used to render a React 18 application into a root DOM element?",
+    "options": [
+      "createRoot(container).render(<App />)",
+      "ReactDOM.render(<App />, container)",
+      "React.mount(<App />)",
+      "ReactDOM.init(<App />)"
+    ],
+    "answer": "createRoot(container).render(<App />)",
+    "category": "React",
+    "difficulty": "Easy",
+    "explanation": "React 18 introduced createRoot from 'react-dom/client' to initialize concurrent mode rendering."
+  },
+  {
+    "id": "qz-react-053",
+    "question": "What is the purpose of React.PureComponent in class components?",
+    "options": [
+      "Implements shouldComponentUpdate with a shallow prop and state comparison.",
+      "Disables state mutation completely.",
+      "Prevents child rendering permanently.",
+      "Provides automatic Redux binding."
+    ],
+    "answer": "Implements shouldComponentUpdate with a shallow prop and state comparison.",
+    "category": "React",
+    "difficulty": "Medium",
+    "explanation": "PureComponent performs a shallow comparison on props and state to skip unnecessary re-renders in class components."
+  },
+  {
+    "id": "qz-react-054",
+    "question": "What does shouldComponentUpdate lifecycle method return in class components?",
+    "options": [
+      "A boolean indicating whether React should continue with re-rendering.",
+      "The next state object.",
+      "A DOM node reference.",
+      "An error object if invalid."
+    ],
+    "answer": "A boolean indicating whether React should continue with re-rendering.",
+    "category": "React",
+    "difficulty": "Medium",
+    "explanation": "shouldComponentUpdate(nextProps, nextState) returns true or false to permit or skip the re-rendering phase."
+  },
+  {
+    "id": "qz-react-055",
+    "question": "What is the difference between Element and Component in React?",
+    "options": [
+      "An Element is a plain object describing a DOM node, while a Component is a function/class that returns elements.",
+      "Component is HTML, Element is JS.",
+      "Element has state, Component does not.",
+      "There is no difference."
+    ],
+    "answer": "An Element is a plain object describing a DOM node, while a Component is a function/class that returns elements.",
+    "category": "React",
+    "difficulty": "Medium",
+    "explanation": "A React Element is a lightweight immutable JS object (JSX node); a Component is a template function that produces elements."
+  },
+  {
+    "id": "qz-react-056",
+    "question": "How do you trigger a manual force re-render in a functional component if required?",
+    "options": [
+      "By using a reducer/state counter setter (e.g. useReducer(x => x + 1, 0))",
+      "By calling forceUpdate()",
+      "By clearing browser cache",
+      "By mutating props"
+    ],
+    "answer": "By using a reducer/state counter setter (e.g. useReducer(x => x + 1, 0))",
+    "category": "React",
+    "difficulty": "Hard",
+    "explanation": "Functional components do not have forceUpdate(); dispatching an incrementing state counter forces a re-render."
+  },
+  {
+    "id": "qz-react-057",
+    "question": "What is the main purpose of Redux / Context API in large React applications?",
+    "options": [
+      "To manage global application state accessible across arbitrary component trees.",
+      "To speed up CSS compilation.",
+      "To manage database server connections.",
+      "To replace REST APIs entirely."
+    ],
+    "answer": "To manage global application state accessible across arbitrary component trees.",
+    "category": "React",
+    "difficulty": "Easy",
+    "explanation": "Global state managers avoid deep prop-drilling by storing state in a central store available to any component."
+  },
+  {
+    "id": "qz-react-058",
+    "question": "What is an action in Redux?",
+    "options": [
+      "A plain JavaScript object containing a mandatory 'type' field describing an event.",
+      "A function that mutates state directly.",
+      "A component callback listener.",
+      "A database query command."
+    ],
+    "answer": "A plain JavaScript object containing a mandatory 'type' field describing an event.",
+    "category": "React",
+    "difficulty": "Easy",
+    "explanation": "Actions are plain JS objects representing intentions to change state, dispatched to the store reducer."
+  },
+  {
+    "id": "qz-react-059",
+    "question": "What is a Reducer in Redux?",
+    "options": [
+      "A pure function that takes previous state and an action, and returns the new updated state.",
+      "A function that deletes old state from disk.",
+      "A component that compresses images.",
+      "An async middleware for API calls."
+    ],
+    "answer": "A pure function that takes previous state and an action, and returns the new updated state.",
+    "category": "React",
+    "difficulty": "Medium",
+    "explanation": "Reducers are pure functions (state, action) => newState that calculate state updates without mutating original state inputs."
+  },
+  {
+    "id": "qz-react-060",
+    "question": "Why must state in React and Redux be treated as immutable?",
+    "options": [
+      "Immutable updates allow predictable state tracking, performance optimization (shallow equality checks), and undo/redo debugging.",
+      "Mutable objects break JavaScript syntax.",
+      "React state is saved on disk.",
+      "Browsers freeze mutable objects automatically."
+    ],
+    "answer": "Immutable updates allow predictable state tracking, performance optimization (shallow equality checks), and undo/redo debugging.",
+    "category": "React",
+    "difficulty": "Medium",
+    "explanation": "Immutable state changes enable fast reference comparisons (prev !== next) so React can skip re-rendering unchanged subtrees."
+  },
+  {
+    "id": "qz-react-061",
+    "question": "What does shallow comparison in React check?",
+    "options": [
+      "Compares top-level properties/references for equality without recursively traversing nested objects.",
+      "Compares deep JSON stringified structures.",
+      "Checks if two elements have the same CSS classes.",
+      "Compares DOM node memory addresses."
+    ],
+    "answer": "Compares top-level properties/references for equality without recursively traversing nested objects.",
+    "category": "React",
+    "difficulty": "Medium",
+    "explanation": "Shallow comparison evaluates primitive equality (a === b) and reference equality for objects without inspecting inner properties."
+  },
+  {
+    "id": "qz-react-062",
+    "question": "Which hook can be used to insert custom CSS rules dynamically in CSS-in-JS libraries during render?",
+    "options": [
+      "useInsertionEffect",
+      "useLayoutEffect",
+      "useEffect",
+      "useStyleEffect"
+    ],
+    "answer": "useInsertionEffect",
+    "category": "React",
+    "difficulty": "Hard",
+    "explanation": "useInsertionEffect fires before DOM mutations and is intended for CSS-in-JS libraries to inject style tags dynamically."
+  },
+  {
+    "id": "qz-react-063",
+    "question": "What is the role of forwardRef in component libraries?",
+    "options": [
+      "Passes a ref through a wrapper component to a child DOM node.",
+      "Converts class components to functional components.",
+      "Reflects state to URL query parameters.",
+      "Forwards event listeners to window."
+    ],
+    "answer": "Passes a ref through a wrapper component to a child DOM node.",
+    "category": "React",
+    "difficulty": "Medium",
+    "explanation": "forwardRef allows reusable UI components (e.g. custom inputs) to expose inner HTML DOM elements to parent refs."
+  },
+  {
+    "id": "qz-react-064",
+    "question": "What happens when you call useState setter with the exact same value as current state (according to Object.is)?",
+    "options": [
+      "React bails out of re-rendering the component and its children.",
+      "React throws a warning error.",
+      "React re-renders component twice.",
+      "React clears local component state."
+    ],
+    "answer": "React bails out of re-rendering the component and its children.",
+    "category": "React",
+    "difficulty": "Medium",
+    "explanation": "If you update a state hook to the same value as current state, React uses Object.is comparison and bails out of rendering."
+  },
+  {
+    "id": "qz-react-065",
+    "question": "What is the main function of React DevTools browser extension?",
+    "options": [
+      "Inspecting the React component hierarchy, props, state, and profiling render performance.",
+      "Debugging network API headers.",
+      "Editing backend database records.",
+      "Compiling JSX code in real-time."
+    ],
+    "answer": "Inspecting the React component hierarchy, props, state, and profiling render performance.",
+    "category": "React",
+    "difficulty": "Easy",
+    "explanation": "React DevTools allows developers to inspect component trees, examine hook state, and profile render durations."
   }
 ]

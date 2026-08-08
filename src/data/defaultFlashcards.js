@@ -1,6 +1,6 @@
 /**
  * Default Flashcards Dataset
- * Initial sample collection for Quiz Generator
+ * Initial sample collection for Quizelle
  * Categories: JavaScript, React, Data Structures, DBMS
  */
 

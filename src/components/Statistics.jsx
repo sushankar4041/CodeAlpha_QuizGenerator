@@ -8,7 +8,7 @@ import {
 import { getDifficultyBadgeClass } from '../utils/quizUtils';
 
 /**
- * Statistics & Learning Analytics Dashboard Component - Phase 7B QuizForge
+ * Statistics & Learning Analytics Dashboard Component - Phase 7B Quizelle
  * Editorial analytics dashboard featuring overall accuracy, category mastery horizontal bars,
  * difficulty distribution, and recent quiz history logs.
  */

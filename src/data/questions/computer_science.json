@@ -2,11 +2,16 @@
   {
     "id": "qz-cs-001",
     "question": "Which component of the CPU performs arithmetic and logical operations?",
-    "options": ["Arithmetic Logic Unit (ALU)", "Control Unit (CU)", "Register File", "Cache Memory"],
+    "options": [
+      "Arithmetic Logic Unit (ALU)",
+      "Control Unit (CU)",
+      "Register File",
+      "Cache Memory"
+    ],
     "answer": "Arithmetic Logic Unit (ALU)",
     "category": "Computer Science",
     "difficulty": "Easy",
-    "explanation": "The ALU is a digital circuit within the CPU that carries out integer arithmetic (add, subtract) and bitwise logic operations (AND, OR, NOT)."
+    "explanation": "The ALU is a digital circuit within the CPU that carries out integer arithmetic (add, subtract) and bitwise logic operations."
   },
   {
     "id": "qz-cs-002",
@@ -25,11 +30,16 @@
   {
     "id": "qz-cs-003",
     "question": "Which compiler phase checks whether the token stream adheres to the grammatical rules of the programming language?",
-    "options": ["Syntax Analysis (Parsing)", "Lexical Analysis (Scanning)", "Semantic Analysis", "Code Generation"],
+    "options": [
+      "Syntax Analysis (Parsing)",
+      "Lexical Analysis (Scanning)",
+      "Semantic Analysis",
+      "Code Generation"
+    ],
     "answer": "Syntax Analysis (Parsing)",
     "category": "Computer Science",
     "difficulty": "Medium",
-    "explanation": "Syntax analysis (or parsing) takes tokens produced by the lexical analyzer and constructs a Parse Tree or Abstract Syntax Tree (AST)."
+    "explanation": "Syntax analysis (parsing) constructs an Abstract Syntax Tree (AST) from tokens produced by the lexical analyzer."
   },
   {
     "id": "qz-cs-004",
@@ -43,12 +53,17 @@
     "answer": "Translates assembly language code into machine code (binary object code).",
     "category": "Computer Science",
     "difficulty": "Easy",
-    "explanation": "An assembler converts low-level assembly mnemonics (e.g. MOV, ADD) into direct binary machine code instructions."
+    "explanation": "An assembler converts low-level assembly mnemonics (MOV, ADD) into binary machine code instructions."
   },
   {
     "id": "qz-cs-005",
     "question": "In Object-Oriented Programming, what concept allows a subclass to provide a specific implementation of a method already defined in its superclass?",
-    "options": ["Method Overriding", "Method Overloading", "Encapsulation", "Abstraction"],
+    "options": [
+      "Method Overriding",
+      "Method Overloading",
+      "Encapsulation",
+      "Abstraction"
+    ],
     "answer": "Method Overriding",
     "category": "Computer Science",
     "difficulty": "Easy",
@@ -57,7 +72,12 @@
   {
     "id": "qz-cs-006",
     "question": "What is the decimal equivalent of the binary number 10110?",
-    "options": ["22", "18", "26", "20"],
+    "options": [
+      "22",
+      "18",
+      "26",
+      "20"
+    ],
     "answer": "22",
     "category": "Computer Science",
     "difficulty": "Easy",
@@ -66,7 +86,12 @@
   {
     "id": "qz-cs-007",
     "question": "Which design pattern restricts the instantiation of a class to a single global instance?",
-    "options": ["Singleton Pattern", "Factory Pattern", "Observer Pattern", "Strategy Pattern"],
+    "options": [
+      "Singleton Pattern",
+      "Factory Pattern",
+      "Observer Pattern",
+      "Strategy Pattern"
+    ],
     "answer": "Singleton Pattern",
     "category": "Computer Science",
     "difficulty": "Medium",
@@ -113,5 +138,775 @@
     "category": "Computer Science",
     "difficulty": "Hard",
     "explanation": "The Open/Closed Principle advocates designing software modules so new behavior can be added via sub-typing or interfaces without modifying existing source code."
+  },
+  {
+    "id": "qz-cs-011",
+    "question": "What does the Single Responsibility Principle (SRP) state?",
+    "options": [
+      "A module or class should have one, and only one, reason to change.",
+      "A class must inherit from a single parent class.",
+      "A function should accept only one parameter.",
+      "All methods must be private."
+    ],
+    "answer": "A module or class should have one, and only one, reason to change.",
+    "category": "Computer Science",
+    "difficulty": "Easy",
+    "explanation": "SRP dictates that a class should encapsulate a single tightly-focused responsibility."
+  },
+  {
+    "id": "qz-cs-012",
+    "question": "What is Liskov Substitution Principle (LSP)?",
+    "options": [
+      "Subtypes must be substitutable for their base types without altering program correctness.",
+      "All classes must implement an interface.",
+      "Derived classes should hide base class methods.",
+      "Functions must be pure without side-effects."
+    ],
+    "answer": "Subtypes must be substitutable for their base types without altering program correctness.",
+    "category": "Computer Science",
+    "difficulty": "Hard",
+    "explanation": "LSP guarantees that objects of a superclass should be replaceable with objects of a subclass without breaking application behavior."
+  },
+  {
+    "id": "qz-cs-013",
+    "question": "What is Interface Segregation Principle (ISP)?",
+    "options": [
+      "Clients should not be forced to depend on interfaces they do not use.",
+      "All interfaces must be public.",
+      "A class can implement only one interface.",
+      "Interfaces should contain at least 10 methods."
+    ],
+    "answer": "Clients should not be forced to depend on interfaces they do not use.",
+    "category": "Computer Science",
+    "difficulty": "Medium",
+    "explanation": "ISP advocates creating small, specific interfaces rather than large, monolithic ones."
+  },
+  {
+    "id": "qz-cs-014",
+    "question": "What is Dependency Inversion Principle (DIP)?",
+    "options": [
+      "High-level modules should not depend on low-level modules; both should depend on abstractions.",
+      "Low-level modules should import high-level packages.",
+      "Dependencies must be hardcoded in constructors.",
+      "Classes should avoid using interfaces."
+    ],
+    "answer": "High-level modules should not depend on low-level modules; both should depend on abstractions.",
+    "category": "Computer Science",
+    "difficulty": "Hard",
+    "explanation": "DIP decouples software modules by introducing abstract interfaces between high-level policy code and low-level detail implementations."
+  },
+  {
+    "id": "qz-cs-015",
+    "question": "What is Method Overloading?",
+    "options": [
+      "Defining multiple methods in the same class with the same name but different parameter signatures.",
+      "Redefining a parent class method in a child class.",
+      "Calling a method recursively.",
+      "Overloading CPU registers."
+    ],
+    "answer": "Defining multiple methods in the same class with the same name but different parameter signatures.",
+    "category": "Computer Science",
+    "difficulty": "Easy",
+    "explanation": "Overloading allows a class to have multiple methods sharing the same name differentiated by parameter count or types."
+  },
+  {
+    "id": "qz-cs-016",
+    "question": "What is Polymorphism in OOP?",
+    "options": [
+      "The ability of different classes to respond to the same message or method call in their own unique way.",
+      "Storing multiple data types in a single array.",
+      "Compiling code for multiple operating systems.",
+      "Restricting access to class variables."
+    ],
+    "answer": "The ability of different classes to respond to the same message or method call in their own unique way.",
+    "category": "Computer Science",
+    "difficulty": "Easy",
+    "explanation": "Polymorphism enables treating objects of different derived classes uniformly through a common base interface."
+  },
+  {
+    "id": "qz-cs-017",
+    "question": "What is Encapsulation in OOP?",
+    "options": [
+      "Bundling data and methods that operate on that data within a single unit and restricting direct access to internal details.",
+      "Exposing all class fields publicly.",
+      "Inheriting from multiple parent classes.",
+      "Converting objects to JSON strings."
+    ],
+    "answer": "Bundling data and methods that operate on that data within a single unit and restricting direct access to internal details.",
+    "category": "Computer Science",
+    "difficulty": "Easy",
+    "explanation": "Encapsulation hides internal object state behind private fields and public getter/setter methods."
+  },
+  {
+    "id": "qz-cs-018",
+    "question": "What is Abstraction in OOP?",
+    "options": [
+      "Hiding complex background implementation details and exposing only essential interfaces to the user.",
+      "Copying objects by value.",
+      "Declaring static variables.",
+      "Creating global functions."
+    ],
+    "answer": "Hiding complex background implementation details and exposing only essential interfaces to the user.",
+    "category": "Computer Science",
+    "difficulty": "Easy",
+    "explanation": "Abstraction focuses on what an object does rather than how it accomplishes it internally."
+  },
+  {
+    "id": "qz-cs-019",
+    "question": "What is the primary function of a Cache Memory in computer organization?",
+    "options": [
+      "Provides ultra-fast temporary storage close to CPU cores to reduce main memory (RAM) access latency.",
+      "Stores OS system logs permanently.",
+      "Manages disk partition tables.",
+      "Processes graphics rendering pipelines."
+    ],
+    "answer": "Provides ultra-fast temporary storage close to CPU cores to reduce main memory (RAM) access latency.",
+    "category": "Computer Science",
+    "difficulty": "Easy",
+    "explanation": "CPU caches (L1, L2, L3) store copies of frequently accessed RAM memory locations to speed up instruction execution."
+  },
+  {
+    "id": "qz-cs-020",
+    "question": "What is Cache Hit Ratio?",
+    "options": [
+      "The percentage of total memory accesses that are satisfied directly from cache memory.",
+      "The temperature of CPU during heavy workloads.",
+      "The number of cache line evictions per second.",
+      "The size of L1 cache divided by RAM."
+    ],
+    "answer": "The percentage of total memory accesses that are satisfied directly from cache memory.",
+    "category": "Computer Science",
+    "difficulty": "Medium",
+    "explanation": "Cache hit ratio measures cache efficiency: Hits / (Hits + Misses)."
+  },
+  {
+    "id": "qz-cs-021",
+    "question": "What is Pipelining in CPU architecture?",
+    "options": [
+      "An instruction execution technique that overlaps multiple instruction stages (Fetch, Decode, Execute) in parallel.",
+      "Connecting multiple computers via optical fiber.",
+      "Streaming video over HTTP.",
+      "Writing logs directly to disk."
+    ],
+    "answer": "An instruction execution technique that overlaps multiple instruction stages (Fetch, Decode, Execute) in parallel.",
+    "category": "Computer Science",
+    "difficulty": "Medium",
+    "explanation": "Pipelining increases CPU instruction throughput by executing different stages of consecutive instructions simultaneously."
+  },
+  {
+    "id": "qz-cs-022",
+    "question": "What is a Pipeline Hazard?",
+    "options": [
+      "A situation that prevents the next instruction in the instruction stream from executing in its designated clock cycle.",
+      "A thermal overload shutdown.",
+      "A power outage on the motherboard.",
+      "A syntax error in assembly code."
+    ],
+    "answer": "A situation that prevents the next instruction in the instruction stream from executing in its designated clock cycle.",
+    "category": "Computer Science",
+    "difficulty": "Hard",
+    "explanation": "Pipeline hazards (Structural, Data, Control) cause stalls or flushes in CPU instruction pipelines."
+  },
+  {
+    "id": "qz-cs-023",
+    "question": "What is a Branch Predictor in modern microprocessors?",
+    "options": [
+      "A hardware component that guesses the outcome of a conditional branch before it is calculated to keep the pipeline full.",
+      "An algorithm that routes network packets.",
+      "A memory allocation tool.",
+      "A device driver for storage drives."
+    ],
+    "answer": "A hardware component that guesses the outcome of a conditional branch before it is calculated to keep the pipeline full.",
+    "category": "Computer Science",
+    "difficulty": "Hard",
+    "explanation": "Branch prediction speculatively executes instructions down a predicted branch path to avoid pipeline stalls."
+  },
+  {
+    "id": "qz-cs-024",
+    "question": "What is the difference between RISC and CISC CPU architectures?",
+    "options": [
+      "RISC uses a simple, small instruction set executed in one clock cycle, while CISC uses complex multi-cycle instructions.",
+      "CISC is faster than RISC in all mobile devices.",
+      "RISC stands for Random Instruction Set Computer.",
+      "There is no difference."
+    ],
+    "answer": "RISC uses a simple, small instruction set executed in one clock cycle, while CISC uses complex multi-cycle instructions.",
+    "category": "Computer Science",
+    "difficulty": "Medium",
+    "explanation": "RISC (Reduced Instruction Set Computer) focuses on simple, uniform instructions (e.g. ARM), whereas CISC (e.g. x86) supports complex microcode instructions."
+  },
+  {
+    "id": "qz-cs-025",
+    "question": "What is Little-Endian byte ordering?",
+    "options": [
+      "The least significant byte (LSB) is stored at the lowest memory address.",
+      "The most significant byte (MSB) is stored at the lowest memory address.",
+      "Bytes are stored in random order.",
+      "Bytes are encrypted using bit shifts."
+    ],
+    "answer": "The least significant byte (LSB) is stored at the lowest memory address.",
+    "category": "Computer Science",
+    "difficulty": "Medium",
+    "explanation": "In Little-Endian systems (like x86), 0x12345678 stores byte 0x78 at the starting memory address."
+  },
+  {
+    "id": "qz-cs-026",
+    "question": "What is Big-Endian byte ordering?",
+    "options": [
+      "The most significant byte (MSB) is stored at the lowest memory address.",
+      "The least significant byte is stored first.",
+      "Bytes are swapped every 2 bits.",
+      "Bytes are stored in reverse alphabetical order."
+    ],
+    "answer": "The most significant byte (MSB) is stored at the lowest memory address.",
+    "category": "Computer Science",
+    "difficulty": "Medium",
+    "explanation": "In Big-Endian systems (and network byte order), 0x12345678 stores byte 0x12 at the lowest memory address."
+  },
+  {
+    "id": "qz-cs-027",
+    "question": "What is two's complement representation used for?",
+    "options": [
+      "Representing signed integers in binary and simplifying binary subtraction arithmetic.",
+      "Compressing floating point numbers.",
+      "Encrypting passwords on disk.",
+      "Encoding UTF-8 text."
+    ],
+    "answer": "Representing signed integers in binary and simplifying binary subtraction arithmetic.",
+    "category": "Computer Science",
+    "difficulty": "Easy",
+    "explanation": "Two's complement allows digital circuits to perform subtraction using standard binary addition logic."
+  },
+  {
+    "id": "qz-cs-028",
+    "question": "How do you form the two's complement of a binary number?",
+    "options": [
+      "Invert all bits (0 -> 1, 1 -> 0) and add 1 to the result.",
+      "Invert only the sign bit.",
+      "Multiply the number by -1.",
+      "Shift all bits to the left by 1."
+    ],
+    "answer": "Invert all bits (0 -> 1, 1 -> 0) and add 1 to the result.",
+    "category": "Computer Science",
+    "difficulty": "Easy",
+    "explanation": "Taking one's complement (inverting bits) and adding 1 produces the two's complement representation."
+  },
+  {
+    "id": "qz-cs-029",
+    "question": "What is IEEE 754 standard?",
+    "options": [
+      "The technical standard for floating-point computation in computer systems.",
+      "A wireless Wi-Fi protocol.",
+      "An Ethernet cable standard.",
+      "A database query syntax standard."
+    ],
+    "answer": "The technical standard for floating-point computation in computer systems.",
+    "category": "Computer Science",
+    "difficulty": "Medium",
+    "explanation": "IEEE 754 defines format representations for single-precision (32-bit) and double-precision (64-bit) floating-point numbers."
+  },
+  {
+    "id": "qz-cs-030",
+    "question": "What is an Abstract Syntax Tree (AST)?",
+    "options": [
+      "A finite, labeled, directed tree representation of the structural syntax of source code created by a parser.",
+      "A binary search tree for strings.",
+      "A directory layout of system files.",
+      "A flowchart of network routes."
+    ],
+    "answer": "A finite, labeled, directed tree representation of the structural syntax of source code created by a parser.",
+    "category": "Computer Science",
+    "difficulty": "Medium",
+    "explanation": "Compilers use ASTs to analyze, optimize, and transform code before code generation."
+  },
+  {
+    "id": "qz-cs-031",
+    "question": "What is Lexical Analysis (Scanning) in compilers?",
+    "options": [
+      "The process of converting a stream of characters into a sequence of meaningful tokens.",
+      "Generating machine bytecode.",
+      "Executing optimization loops.",
+      "Linking external libraries."
+    ],
+    "answer": "The process of converting a stream of characters into a sequence of meaningful tokens.",
+    "category": "Computer Science",
+    "difficulty": "Easy",
+    "explanation": "The lexer/lexer-scanner converts raw source text into lexemes/tokens (keywords, identifiers, operators)."
+  },
+  {
+    "id": "qz-cs-032",
+    "question": "What is Semantic Analysis in compilers?",
+    "options": [
+      "Checks the parse tree for type consistency, scope rules, and semantic correctness.",
+      "Formats code indentation.",
+      "Minifies JavaScript bundles.",
+      "Executes the compiled program."
+    ],
+    "answer": "Checks the parse tree for type consistency, scope rules, and semantic correctness.",
+    "category": "Computer Science",
+    "difficulty": "Medium",
+    "explanation": "Semantic analysis ensures expressions make sense (e.g. type checking, verifying variables are declared before use)."
+  },
+  {
+    "id": "qz-cs-033",
+    "question": "What is Just-In-Time (JIT) Compilation?",
+    "options": [
+      "Compiling bytecode into native machine code dynamically at runtime prior to execution.",
+      "Compiling code on a remote build server.",
+      "Compiling CSS files at build time.",
+      "Executing code in an interpreter without compilation."
+    ],
+    "answer": "Compiling bytecode into native machine code dynamically at runtime prior to execution.",
+    "category": "Computer Science",
+    "difficulty": "Medium",
+    "explanation": "JIT engines (like V8 in Node/Chrome or JVM) combine interpreter speed with native machine code performance."
+  },
+  {
+    "id": "qz-cs-034",
+    "question": "What is Garbage Collection in programming languages?",
+    "options": [
+      "An automatic memory management process that reclaims memory occupied by objects no longer referenced by the application.",
+      "Deleting temp files from hard drive.",
+      "Clearing browser search history.",
+      "Stopping runaway infinite loops."
+    ],
+    "answer": "An automatic memory management process that reclaims memory occupied by objects no longer referenced by the application.",
+    "category": "Computer Science",
+    "difficulty": "Easy",
+    "explanation": "Garbage collectors track unreferenced heap objects and automatically deallocate their memory to prevent leaks."
+  },
+  {
+    "id": "qz-cs-035",
+    "question": "What is the Mark-and-Sweep garbage collection algorithm?",
+    "options": [
+      "Traverses all reachability roots marking reachable objects, then sweeps un-marked objects to free memory.",
+      "Deletes oldest objects first.",
+      "Clears memory every 10 seconds.",
+      "Moves all objects to disk."
+    ],
+    "answer": "Traverses all reachability roots marking reachable objects, then sweeps un-marked objects to free memory.",
+    "category": "Computer Science",
+    "difficulty": "Medium",
+    "explanation": "Mark-and-Sweep identifies reachable objects from root references (stack, globals) and reclaims memory from unreached nodes."
+  },
+  {
+    "id": "qz-cs-036",
+    "question": "What is a Memory Leak?",
+    "options": [
+      "When a program fails to release discarded memory back to the operating system, causing degraded performance.",
+      "A physical crack on a RAM stick.",
+      "When a CPU cache misses data.",
+      "When data is sent over unencrypted Wi-Fi."
+    ],
+    "answer": "When a program fails to release discarded memory back to the operating system, causing degraded performance.",
+    "category": "Computer Science",
+    "difficulty": "Easy",
+    "explanation": "Memory leaks occur when references to unused objects persist, preventing garbage collection from freeing heap space."
+  },
+  {
+    "id": "qz-cs-037",
+    "question": "What is a Buffer Overflow vulnerability?",
+    "options": [
+      "When a program writes data beyond the allocated boundary of a fixed-length memory buffer, corrupting adjacent memory.",
+      "When a network link receives too many packets.",
+      "When CPU cache exceeds temperature limits.",
+      "When hard drive disk fills up."
+    ],
+    "answer": "When a program writes data beyond the allocated boundary of a fixed-length memory buffer, corrupting adjacent memory.",
+    "category": "Computer Science",
+    "difficulty": "Medium",
+    "explanation": "Buffer overflows can overwrite stack return addresses, allowing attackers to execute malicious code (shellcode)."
+  },
+  {
+    "id": "qz-cs-038",
+    "question": "What is a Race Condition in software systems?",
+    "options": [
+      "An undesirable situation where output depends on the sequence or timing of uncontrollable concurrent events.",
+      "A competition between CPU cores.",
+      "When a network query times out.",
+      "When two compilation builds run simultaneously."
+    ],
+    "answer": "An undesirable situation where output depends on the sequence or timing of uncontrollable concurrent events.",
+    "category": "Computer Science",
+    "difficulty": "Medium",
+    "explanation": "Race conditions occur when shared state is accessed concurrently by multiple threads without synchronization."
+  },
+  {
+    "id": "qz-cs-039",
+    "question": "What is Mutex (Mutual Exclusion Lock)?",
+    "options": [
+      "A synchronization primitive that ensures only one thread can access a protected shared resource at a time.",
+      "A multi-threaded queue.",
+      "A database index type.",
+      "A network firewall rule."
+    ],
+    "answer": "A synchronization primitive that ensures only one thread can access a protected shared resource at a time.",
+    "category": "Computer Science",
+    "difficulty": "Easy",
+    "explanation": "A mutex acts as a locking mechanism; a thread acquires the mutex before entering a critical section and releases it when finished."
+  },
+  {
+    "id": "qz-cs-040",
+    "question": "What is the Factory Method Design Pattern?",
+    "options": [
+      "Defines an interface for creating an object, but lets subclasses decide which class to instantiate.",
+      "Creates a single global instance of a class.",
+      "Connects two incompatible interfaces together.",
+      "Monitors subject state changes."
+    ],
+    "answer": "Defines an interface for creating an object, but lets subclasses decide which class to instantiate.",
+    "category": "Computer Science",
+    "difficulty": "Medium",
+    "explanation": "Factory Method delegates object creation logic to specialized subclass methods."
+  },
+  {
+    "id": "qz-cs-041",
+    "question": "What is the Observer Design Pattern?",
+    "options": [
+      "Defines a one-to-many dependency where when one object changes state, all its dependents are notified automatically.",
+      "Caches heavy object creations.",
+      "Hides internal object implementation.",
+      "Encapsulates algorithm variations."
+    ],
+    "answer": "Defines a one-to-many dependency where when one object changes state, all its dependents are notified automatically.",
+    "category": "Computer Science",
+    "difficulty": "Medium",
+    "explanation": "Observer pattern powers event handling systems and reactive UI libraries (like RxJS and DOM listeners)."
+  },
+  {
+    "id": "qz-cs-042",
+    "question": "What is the Adapter Design Pattern?",
+    "options": [
+      "Converts the interface of a class into another interface that clients expect, letting incompatible classes work together.",
+      "Duplicates objects in memory.",
+      "Restricts class instantiation.",
+      "Filters network packets."
+    ],
+    "answer": "Converts the interface of a class into another interface that clients expect, letting incompatible classes work together.",
+    "category": "Computer Science",
+    "difficulty": "Medium",
+    "explanation": "Adapter acts as a wrapper between two incompatible interfaces (like a wall plug adapter)."
+  },
+  {
+    "id": "qz-cs-043",
+    "question": "What is the Strategy Design Pattern?",
+    "options": [
+      "Defines a family of algorithms, encapsulates each one, and makes them interchangeable at runtime.",
+      "Ensures a class has only one instance.",
+      "Provides a surrogate object for access control.",
+      "Parses mathematical expressions."
+    ],
+    "answer": "Defines a family of algorithms, encapsulates each one, and makes them interchangeable at runtime.",
+    "category": "Computer Science",
+    "difficulty": "Hard",
+    "explanation": "Strategy pattern allows selecting algorithm implementations dynamically without altering client code."
+  },
+  {
+    "id": "qz-cs-044",
+    "question": "What is the Decorator Design Pattern?",
+    "options": [
+      "Attaches additional responsibilities to an object dynamically without modifying its structure.",
+      "Renders UI components with CSS.",
+      "Creates singleton database connections.",
+      "Implements binary search trees."
+    ],
+    "answer": "Attaches additional responsibilities to an object dynamically without modifying its structure.",
+    "category": "Computer Science",
+    "difficulty": "Hard",
+    "explanation": "Decorator wraps an object to extend its functionality dynamically at runtime as an alternative to subclassing."
+  },
+  {
+    "id": "qz-cs-045",
+    "question": "What is the Halting Problem in computer science?",
+    "options": [
+      "The problem of determining whether an arbitrary computer program will finish running or continue to run forever.",
+      "The problem of fixing CPU overheating.",
+      "The time required to boot an operating system.",
+      "The calculation of maximum network bandwidth."
+    ],
+    "answer": "The problem of determining whether an arbitrary computer program will finish running or continue to run forever.",
+    "category": "Computer Science",
+    "difficulty": "Hard",
+    "explanation": "Alan Turing proved in 1936 that a general algorithm to solve the Halting Problem for all possible program-input pairs cannot exist."
+  },
+  {
+    "id": "qz-cs-046",
+    "question": "What is Big O notation used for?",
+    "options": [
+      "Classifying algorithms according to how their run time or space requirements grow as the input size grows.",
+      "Measuring clock speed in gigahertz.",
+      "Calculating file download time.",
+      "Counting the number of lines of code."
+    ],
+    "answer": "Classifying algorithms according to how their run time or space requirements grow as the input size grows.",
+    "category": "Computer Science",
+    "difficulty": "Easy",
+    "explanation": "Big O describes upper bounds on asymptotic worst-case execution time or space complexity."
+  },
+  {
+    "id": "qz-cs-047",
+    "question": "What is Amortized Analysis in algorithm analysis?",
+    "options": [
+      "A technique for analyzing the average time per operation over a worst-case sequence of operations.",
+      "Calculating CPU power consumption.",
+      "Measuring network ping latency.",
+      "Profiling memory allocations."
+    ],
+    "answer": "A technique for analyzing the average time per operation over a worst-case sequence of operations.",
+    "category": "Computer Science",
+    "difficulty": "Hard",
+    "explanation": "Amortized analysis guarantees average performance of individual operations in a sequence, even if a single operation is expensive."
+  },
+  {
+    "id": "qz-cs-048",
+    "question": "What is a Hash Function?",
+    "options": [
+      "A function that maps data of arbitrary size to fixed-size values (hash values or codes).",
+      "A function that generates random prime numbers.",
+      "A function that sorts strings alphabetically.",
+      "A function that compresses ZIP files."
+    ],
+    "answer": "A function that maps data of arbitrary size to fixed-size values (hash values or codes).",
+    "category": "Computer Science",
+    "difficulty": "Easy",
+    "explanation": "Hash functions convert variable-length inputs into deterministic fixed-length integer hashes."
+  },
+  {
+    "id": "qz-cs-049",
+    "question": "What property must a Cryptographic Hash Function possess?",
+    "options": [
+      "It must be computationally infeasible to invert (one-way) and resistant to hash collisions.",
+      "It must be easily reversible with a password.",
+      "It must return a string shorter than 5 characters.",
+      "It must run only on GPU hardware."
+    ],
+    "answer": "It must be computationally infeasible to invert (one-way) and resistant to hash collisions.",
+    "category": "Computer Science",
+    "difficulty": "Hard",
+    "explanation": "Cryptographic hashes (e.g. SHA-256) are deterministic, one-way, and highly collision-resistant."
+  },
+  {
+    "id": "qz-cs-050",
+    "question": "What is Symmetric Encryption?",
+    "options": [
+      "An encryption system that uses the exact same secret key for both encryption and decryption.",
+      "An encryption system using public and private key pairs.",
+      "An un-decryption hash algorithm.",
+      "A method to compress text files."
+    ],
+    "answer": "An encryption system that uses the exact same secret key for both encryption and decryption.",
+    "category": "Computer Science",
+    "difficulty": "Easy",
+    "explanation": "Symmetric algorithms (e.g. AES) require both sender and receiver to possess the same shared secret key."
+  },
+  {
+    "id": "qz-cs-051",
+    "question": "What is Asymmetric Encryption (Public-Key Cryptography)?",
+    "options": [
+      "An encryption system that uses a pair of keys: a public key for encryption and a private key for decryption.",
+      "An encryption system that uses one key.",
+      "A method to hash passwords.",
+      "A network firewall rule."
+    ],
+    "answer": "An encryption system that uses a pair of keys: a public key for encryption and a private key for decryption.",
+    "category": "Computer Science",
+    "difficulty": "Medium",
+    "explanation": "Asymmetric algorithms (e.g. RSA, ECC) allow public distribution of the encryption key while keeping the decryption key secret."
+  },
+  {
+    "id": "qz-cs-052",
+    "question": "What is a Digital Signature?",
+    "options": [
+      "A mathematical scheme for verifying the authenticity and integrity of a digital message or document.",
+      "A handwritten signature scanned into PDF.",
+      "An image watermarking technique.",
+      "A cookie stored in the browser."
+    ],
+    "answer": "A mathematical scheme for verifying the authenticity and integrity of a digital message or document.",
+    "category": "Computer Science",
+    "difficulty": "Medium",
+    "explanation": "Digital signatures combine asymmetric cryptography and hashing to provide authentication, non-repudiation, and integrity."
+  },
+  {
+    "id": "qz-cs-053",
+    "question": "What is a Man-in-the-Middle (MitM) attack?",
+    "options": [
+      "An attack where an attacker secretly intercepts and relays messages between two parties who believe they are communicating directly.",
+      "An attack that floods a server with traffic.",
+      "A physical theft of computer hardware.",
+      "A database injection attack."
+    ],
+    "answer": "An attack where an attacker secretly intercepts and relays messages between two parties who believe they are communicating directly.",
+    "category": "Computer Science",
+    "difficulty": "Medium",
+    "explanation": "MitM attacks eavesdrop or alter network traffic, prevented using HTTPS and TLS certificate validation."
+  },
+  {
+    "id": "qz-cs-054",
+    "question": "What is a Cross-Site Scripting (XSS) attack?",
+    "options": [
+      "An injection attack where malicious scripts are injected into trusted websites to execute in victims' browsers.",
+      "A denial-of-service attack against DNS servers.",
+      "An attack that corrupts server RAM.",
+      "A SQL query bypass attack."
+    ],
+    "answer": "An injection attack where malicious scripts are injected into trusted websites to execute in victims' browsers.",
+    "category": "Computer Science",
+    "difficulty": "Medium",
+    "explanation": "XSS vulnerabilities allow attackers to execute scripts in victim browsers, stealing cookies or session tokens."
+  },
+  {
+    "id": "qz-cs-055",
+    "question": "What is Cross-Site Request Forgery (CSRF)?",
+    "options": [
+      "An attack that forces an authenticated user's browser to send forged HTTP requests to a vulnerable web application.",
+      "A brute-force password cracking method.",
+      "Injecting scripts into HTML comments.",
+      "A port scanning technique."
+    ],
+    "answer": "An attack that forces an authenticated user's browser to send forged HTTP requests to a vulnerable web application.",
+    "category": "Computer Science",
+    "difficulty": "Medium",
+    "explanation": "CSRF tricks a logged-in user's browser into executing unwanted actions on a trusted site using stored cookies."
+  },
+  {
+    "id": "qz-cs-056",
+    "question": "How do CSRF tokens prevent CSRF attacks?",
+    "options": [
+      "By requiring a secret, unpredictable token generated by the server to be submitted with state-changing requests.",
+      "By encrypting all database records.",
+      "By blocking all POST requests.",
+      "By disabling cookies in the browser."
+    ],
+    "answer": "By requiring a secret, unpredictable token generated by the server to be submitted with state-changing requests.",
+    "category": "Computer Science",
+    "difficulty": "Medium",
+    "explanation": "CSRF tokens validate that the request originated from the authentic application UI rather than a third-party site."
+  },
+  {
+    "id": "qz-cs-057",
+    "question": "What is Content Security Policy (CSP)?",
+    "options": [
+      "An HTTP header layer that allows site operators to restrict resources (JavaScript, CSS, Images) the browser is allowed to load.",
+      "A database access control rule.",
+      "A firewall rule on the router.",
+      "A file permission setting in Unix."
+    ],
+    "answer": "An HTTP header layer that allows site operators to restrict resources (JavaScript, CSS, Images) the browser is allowed to load.",
+    "category": "Computer Science",
+    "difficulty": "Hard",
+    "explanation": "CSP helps detect and mitigate XSS and data injection attacks by restricting resource load origins."
+  },
+  {
+    "id": "qz-cs-058",
+    "question": "What is CORS (Cross-Origin Resource Sharing)?",
+    "options": [
+      "A browser mechanism using HTTP headers to permit or restrict resources requested from another domain outside the domain of the current page.",
+      "A server backup protocol.",
+      "A database index format.",
+      "A CSS framework for responsive design."
+    ],
+    "answer": "A browser mechanism using HTTP headers to permit or restrict resources requested from another domain outside the domain of the current page.",
+    "category": "Computer Science",
+    "difficulty": "Medium",
+    "explanation": "CORS controls cross-origin HTTP requests, enforcing the browser's Same-Origin Policy unless explicit CORS headers are returned."
+  },
+  {
+    "id": "qz-cs-059",
+    "question": "What is the Same-Origin Policy in web browser security?",
+    "options": [
+      "A security model that restricts how a document or script loaded from one origin can interact with resources from another origin.",
+      "A rule requiring all servers to run the same OS.",
+      "A requirement that all images be JPEG format.",
+      "A network routing protocol."
+    ],
+    "answer": "A security model that restricts how a document or script loaded from one origin can interact with resources from another origin.",
+    "category": "Computer Science",
+    "difficulty": "Easy",
+    "explanation": "Origins match if protocol, domain, and port are identical; Same-Origin Policy isolates isolated domain data."
+  },
+  {
+    "id": "qz-cs-060",
+    "question": "What constitutes an 'Origin' in web security?",
+    "options": [
+      "Protocol (Scheme), Hostname (Domain), and Port number.",
+      "IP address and MAC address.",
+      "Username and Password.",
+      "Database name and Table name."
+    ],
+    "answer": "Protocol (Scheme), Hostname (Domain), and Port number.",
+    "category": "Computer Science",
+    "difficulty": "Easy",
+    "explanation": "Two URLs have the same origin if and only if their scheme, host, and port are identical."
+  },
+  {
+    "id": "qz-cs-061",
+    "question": "What is a Hash Collision?",
+    "options": [
+      "When two different inputs produce the exact same hash output value.",
+      "When a CPU cache crashes.",
+      "When two database tables share a key.",
+      "When a network cable disconnects."
+    ],
+    "answer": "When two different inputs produce the exact same hash output value.",
+    "category": "Computer Science",
+    "difficulty": "Easy",
+    "explanation": "Hash collisions happen because input domain space is infinite while hash output range is finite."
+  },
+  {
+    "id": "qz-cs-062",
+    "question": "What is the Pigeonhole Principle?",
+    "options": [
+      "If n items are put into m containers with n > m, at least one container must contain more than one item.",
+      "A sorting algorithm bound.",
+      "A cache replacement policy.",
+      "A law of thermodynamics."
+    ],
+    "answer": "If n items are put into m containers with n > m, at least one container must contain more than one item.",
+    "category": "Computer Science",
+    "difficulty": "Easy",
+    "explanation": "The Pigeonhole Principle is a fundamental counting principle used to prove hash collisions and compression bounds."
+  },
+  {
+    "id": "qz-cs-063",
+    "question": "What is NP-Completeness in complexity theory?",
+    "options": [
+      "The class of decision problems in NP that are at least as hard as any other problem in NP.",
+      "Problems solvable in linear time.",
+      "Problems with no solution.",
+      "Problems requiring infinite RAM."
+    ],
+    "answer": "The class of decision problems in NP that are at least as hard as any other problem in NP.",
+    "category": "Computer Science",
+    "difficulty": "Hard",
+    "explanation": "If any NP-Complete problem can be solved in polynomial time (P), then all problems in NP can be solved in polynomial time (P = NP)."
+  },
+  {
+    "id": "qz-cs-064",
+    "question": "What is a Deterministic Finite Automaton (DFA)?",
+    "options": [
+      "A finite-state machine that accepts or rejects strings of symbols and produces a unique computation path for each input string.",
+      "A non-deterministic state machine.",
+      "A quantum computer processor.",
+      "A compiler syntax parser for CSS."
+    ],
+    "answer": "A finite-state machine that accepts or rejects strings of symbols and produces a unique computation path for each input string.",
+    "category": "Computer Science",
+    "difficulty": "Medium",
+    "explanation": "DFAs have exactly one state transition for each symbol from a given state, recognizing regular languages."
+  },
+  {
+    "id": "qz-cs-065",
+    "question": "What is Context-Free Grammar (CFG)?",
+    "options": [
+      "A formal grammar in which every production rule is of the form A -> α, used to define programming language syntax.",
+      "A grammar with zero rules.",
+      "A natural language parsing dictionary.",
+      "A regex search string."
+    ],
+    "answer": "A formal grammar in which every production rule is of the form A -> α, used to define programming language syntax.",
+    "category": "Computer Science",
+    "difficulty": "Hard",
+    "explanation": "CFGs specify context-free languages parsed by pushdown automata, used extensively in compiler parser generators (Yacc, ANTLR)."
   }
 ]

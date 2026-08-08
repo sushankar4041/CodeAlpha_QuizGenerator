@@ -1,5 +1,5 @@
 /**
- * Mock Quiz Results Component - Phase 7B QuizForge
+ * Mock Quiz Results Component - Phase 7B Quizelle
  * Premium academic completion screen with large score percentage, supporting metrics breakdown,
  * and primary actions (Review Answers, Retake Quiz, New Quiz Setup).
  */

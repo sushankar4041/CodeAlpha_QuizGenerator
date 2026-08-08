@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import { getDifficultyBadgeClass, getCategoryIcon } from '../utils/quizUtils';
 
 /**
- * Flashcard Component - Phase 7 QuizForge Golden Premium
+ * Flashcard Component - Phase 7 Quizelle Golden Premium
  * Features tactile 3D Y-axis card flip interaction, study tracking,
  * and post-reveal review feedback actions ("NEEDS REVIEW" & "GOT IT").
  */
@@ -77,7 +77,7 @@ export default function Flashcard({ card, onEdit, onDelete, onStudy }) {
               <span className="side-label answer-label">ANSWER</span>
               <p className="card-answer">{card.answer}</p>
 
-              {/* QuizForge Post-Reveal Review Actions */}
+              {/* Quizelle Post-Reveal Review Actions */}
               <div className="review-feedback-actions">
                 <button
                   type="button"

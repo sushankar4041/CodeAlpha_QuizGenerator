@@ -2,7 +2,7 @@ import { getCategoryIcon } from '../utils/quizUtils';
 import { calculateOverviewStats } from '../utils/statisticsUtils';
 
 /**
- * Dashboard View Component - Phase 7 QuizForge
+ * Dashboard View Component - Phase 7 Quizelle
  * Learning Command Center showing real persisted stats, personalized greeting,
  * "Continue Learning" hero block with "Resume Session" Brushed Amber CTA,
  * Quick Actions, and Category Breakdown.

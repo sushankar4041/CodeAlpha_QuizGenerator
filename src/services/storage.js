@@ -1,6 +1,6 @@
 /**
  * Storage Service
- * Handles persistence for Quiz Generator flashcards, quiz history, learner profile, preferences, and theme
+ * Handles persistence for Quizelle flashcards, quiz history, learner profile, preferences, and theme
  */
 
 import { defaultFlashcards } from '../data/defaultFlashcards';

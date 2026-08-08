@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 
 /**
- * Settings & Learner Profile View Component - Phase 7B QuizForge
+ * Settings & Learner Profile View Component - Phase 7B Quizelle
  * Premium system panel allowing user to edit display name, select theme mode (Light/Dark/System),
  * customize quiz preferences, and manage data reset options with accessible confirmation dialogs.
  */

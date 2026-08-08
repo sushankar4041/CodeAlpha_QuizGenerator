@@ -1,8 +1,8 @@
 import { useState } from 'react';
 
 /**
- * Live Quiz Lobby Component - Phase 7 QuizForge
- * Displays 6-digit room code with QuizForge Q vinyl-inspired dial icon,
+ * Live Quiz Lobby Component - Phase 7 Quizelle
+ * Displays 6-digit room code with Quizelle Q vinyl-inspired dial icon,
  * connected player grid, host controls, and start button.
  */
 export default function LiveQuizLobby({ roomData, localPlayerId, onStartQuiz, onLeaveRoom, onShowToast }) {
@@ -27,7 +27,7 @@ export default function LiveQuizLobby({ roomData, localPlayerId, onStartQuiz, on
   return (
     <div className="live-lobby-container animate-fade-in">
       <div className="lobby-header-card">
-        {/* Subtle QuizForge Q Dial Brand Treatment */}
+        {/* Subtle Quizelle Q Dial Brand Treatment */}
         <div className="q-vinyl-dial-wrapper" aria-hidden="true">
           <div className="q-vinyl-dial">
             <span className="q-dial-letter">Q</span>

@@ -1,7 +1,7 @@
 import { useEffect } from 'react';
 
 /**
- * Sidebar Navigation Component - Phase 7 QuizForge
+ * Sidebar Navigation Component - Phase 7 Quizelle
  * Golden Premium Learning rail with semantic navigation groups:
  * LEARN (Flashcards), PRACTICE (Mock Quiz), COMPETE (Live Quiz), INSIGHTS (Statistics), SYSTEM (Settings).
  */
@@ -132,13 +132,13 @@ export default function Sidebar({ activeView, onViewChange, isOpen, onCloseMobil
       )}
 
       <aside className={`sidebar ${isOpen ? 'sidebar-open' : ''}`}>
-        {/* QuizForge Golden Brand Header */}
+        {/* Quizelle Golden Brand Header */}
         <div className="sidebar-brand">
           <div className="brand-logo q-dial-logo">
             <span className="logo-q" aria-hidden="true">Q</span>
           </div>
           <div className="brand-text">
-            <h1 className="brand-name">QuizForge</h1>
+            <h1 className="brand-name">Quizelle</h1>
             <p className="brand-tagline">Learn. Practice. Compete. Improve.</p>
           </div>
           {onCloseMobile && (

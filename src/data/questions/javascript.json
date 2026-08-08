@@ -2,7 +2,12 @@
   {
     "id": "qz-js-001",
     "question": "What is the output of typeof NaN in JavaScript?",
-    "options": ["number", "NaN", "undefined", "object"],
+    "options": [
+      "number",
+      "NaN",
+      "undefined",
+      "object"
+    ],
     "answer": "number",
     "category": "JavaScript",
     "difficulty": "Easy",
@@ -11,7 +16,12 @@
   {
     "id": "qz-js-002",
     "question": "Which method removes the last element from an array and returns that element?",
-    "options": ["pop()", "push()", "shift()", "slice()"],
+    "options": [
+      "pop()",
+      "push()",
+      "shift()",
+      "slice()"
+    ],
     "answer": "pop()",
     "category": "JavaScript",
     "difficulty": "Easy",
@@ -20,7 +30,12 @@
   {
     "id": "qz-js-003",
     "question": "Which of the following is NOT a primitive data type in JavaScript?",
-    "options": ["Array", "String", "Number", "Boolean"],
+    "options": [
+      "Array",
+      "String",
+      "Number",
+      "Boolean"
+    ],
     "answer": "Array",
     "category": "JavaScript",
     "difficulty": "Easy",
@@ -43,7 +58,12 @@
   {
     "id": "qz-js-005",
     "question": "What keyword is used to declare a block-scoped variable that cannot be reassigned?",
-    "options": ["const", "let", "var", "static"],
+    "options": [
+      "const",
+      "let",
+      "var",
+      "static"
+    ],
     "answer": "const",
     "category": "JavaScript",
     "difficulty": "Easy",
@@ -52,7 +72,12 @@
   {
     "id": "qz-js-006",
     "question": "What is the default value of a variable declared with 'let' that has not been initialized?",
-    "options": ["undefined", "null", "0", "false"],
+    "options": [
+      "undefined",
+      "null",
+      "0",
+      "false"
+    ],
     "answer": "undefined",
     "category": "JavaScript",
     "difficulty": "Easy",
@@ -61,7 +86,12 @@
   {
     "id": "qz-js-007",
     "question": "What will 'console.log(1 + \"2\" + 3)' output?",
-    "options": ["123", "6", "15", "NaN"],
+    "options": [
+      "123",
+      "6",
+      "15",
+      "NaN"
+    ],
     "answer": "123",
     "category": "JavaScript",
     "difficulty": "Medium",
@@ -84,7 +114,12 @@
   {
     "id": "qz-js-009",
     "question": "Which method creates a new array populated with the results of calling a provided function on every element in the calling array?",
-    "options": ["map()", "forEach()", "filter()", "reduce()"],
+    "options": [
+      "map()",
+      "forEach()",
+      "filter()",
+      "reduce()"
+    ],
     "answer": "map()",
     "category": "JavaScript",
     "difficulty": "Medium",
@@ -121,7 +156,12 @@
   {
     "id": "qz-js-012",
     "question": "Which built-in object in JavaScript is used to handle key-value pairs where keys can be of any type, including functions and objects?",
-    "options": ["Map", "Object", "Set", "WeakSet"],
+    "options": [
+      "Map",
+      "Object",
+      "Set",
+      "WeakSet"
+    ],
     "answer": "Map",
     "category": "JavaScript",
     "difficulty": "Medium",
@@ -144,7 +184,12 @@
   {
     "id": "qz-js-014",
     "question": "Which operator is used for optional chaining in modern JavaScript?",
-    "options": ["?.", "??", "||", "::"],
+    "options": [
+      "?.",
+      "??",
+      "||",
+      "::"
+    ],
     "answer": "?.",
     "category": "JavaScript",
     "difficulty": "Easy",
@@ -153,10 +198,715 @@
   {
     "id": "qz-js-015",
     "question": "What value is returned by Array.prototype.findIndex() when no element passes the test?",
-    "options": ["-1", "null", "undefined", "false"],
+    "options": [
+      "-1",
+      "null",
+      "undefined",
+      "false"
+    ],
     "answer": "-1",
     "category": "JavaScript",
     "difficulty": "Easy",
     "explanation": "findIndex() returns -1 if no array element satisfies the testing callback function."
+  },
+  {
+    "id": "qz-js-016",
+    "question": "Which keyword is used to handle errors in JavaScript asynchronous async/await blocks?",
+    "options": [
+      "try...catch",
+      "if...else",
+      "throw...catch",
+      "error...handle"
+    ],
+    "answer": "try...catch",
+    "category": "JavaScript",
+    "difficulty": "Easy",
+    "explanation": "Standard try...catch blocks wrap await expressions to handle rejected Promises synchronously in error handling logic."
+  },
+  {
+    "id": "qz-js-017",
+    "question": "What does the nullish coalescing operator (??) evaluate?",
+    "options": [
+      "Returns the right-hand operand when left-hand is null or undefined.",
+      "Returns the right-hand operand when left-hand is falsy.",
+      "Returns true if both operands are null.",
+      "Compares two objects for shallow structural equality."
+    ],
+    "answer": "Returns the right-hand operand when left-hand is null or undefined.",
+    "category": "JavaScript",
+    "difficulty": "Medium",
+    "explanation": "Unlike logical OR (||) which checks for falsy values, ?? checks strictly for nullish values (null or undefined)."
+  },
+  {
+    "id": "qz-js-018",
+    "question": "What will Array.from({ length: 3 }, (_, i) => i) return?",
+    "options": [
+      "[0, 1, 2]",
+      "[1, 2, 3]",
+      "[undefined, undefined, undefined]",
+      "An empty array []"
+    ],
+    "answer": "[0, 1, 2]",
+    "category": "JavaScript",
+    "difficulty": "Medium",
+    "explanation": "Array.from with an array-like object and mapping function generates an array populated with indices [0, 1, 2]."
+  },
+  {
+    "id": "qz-js-019",
+    "question": "Which of the following is true about JavaScript Symbol data type?",
+    "options": [
+      "Every Symbol value created using Symbol() is unique and immutable.",
+      "Symbols can be converted directly into numbers.",
+      "Symbols are stored in the global window namespace by default.",
+      "Symbols cannot be used as object property keys."
+    ],
+    "answer": "Every Symbol value created using Symbol() is unique and immutable.",
+    "category": "JavaScript",
+    "difficulty": "Hard",
+    "explanation": "Symbols are unique primitive values guaranteed never to collide with existing object property keys."
+  },
+  {
+    "id": "qz-js-020",
+    "question": "What is the output of Object.is(-0, +0)?",
+    "options": [
+      "false",
+      "true",
+      "TypeError",
+      "undefined"
+    ],
+    "answer": "false",
+    "category": "JavaScript",
+    "difficulty": "Hard",
+    "explanation": "Object.is determines whether two values are identical, correctly identifying that -0 and +0 are distinct (unlike === which treats -0 === +0 as true)."
+  },
+  {
+    "id": "qz-js-021",
+    "question": "Which method returns a boolean indicating whether an array includes a certain value among its entries?",
+    "options": [
+      "includes()",
+      "contains()",
+      "has()",
+      "search()"
+    ],
+    "answer": "includes()",
+    "category": "JavaScript",
+    "difficulty": "Easy",
+    "explanation": "Array.prototype.includes() determines whether an array includes a specified element, returning true or false."
+  },
+  {
+    "id": "qz-js-022",
+    "question": "Which function converts a JSON string into a JavaScript object?",
+    "options": [
+      "JSON.parse()",
+      "JSON.stringify()",
+      "JSON.toObject()",
+      "JSON.decode()"
+    ],
+    "answer": "JSON.parse()",
+    "category": "JavaScript",
+    "difficulty": "Easy",
+    "explanation": "JSON.parse() parses a valid JSON string and constructs the corresponding JavaScript value or object."
+  },
+  {
+    "id": "qz-js-023",
+    "question": "Which method converts a JavaScript object or value to a JSON string?",
+    "options": [
+      "JSON.stringify()",
+      "JSON.parse()",
+      "JSON.encode()",
+      "JSON.toString()"
+    ],
+    "answer": "JSON.stringify()",
+    "category": "JavaScript",
+    "difficulty": "Easy",
+    "explanation": "JSON.stringify() converts a JavaScript object or value to a JSON string."
+  },
+  {
+    "id": "qz-js-024",
+    "question": "What does the 'this' keyword refer to inside a standard arrow function?",
+    "options": [
+      "The 'this' value of its lexically enclosing execution context.",
+      "The window or global object always.",
+      "The DOM element triggering the event.",
+      "An immutable empty object."
+    ],
+    "answer": "The 'this' value of its lexically enclosing execution context.",
+    "category": "JavaScript",
+    "difficulty": "Medium",
+    "explanation": "Arrow functions do not bind their own 'this'; they capture the 'this' value of the enclosing lexical scope at creation time."
+  },
+  {
+    "id": "qz-js-025",
+    "question": "What is the purpose of the 'use strict' directive in JavaScript?",
+    "options": [
+      "Enforces stricter parsing and runtime error handling in JavaScript code.",
+      "Enables experimental CSS variables in DOM.",
+      "Imports external ES modules asynchronously.",
+      "Disables garbage collection for performance."
+    ],
+    "answer": "Enforces stricter parsing and runtime error handling in JavaScript code.",
+    "category": "JavaScript",
+    "difficulty": "Easy",
+    "explanation": "Strict mode eliminates silent errors, prevents accidental global variables, and disables deprecated syntax."
+  },
+  {
+    "id": "qz-js-026",
+    "question": "Which method calls a function with a given 'this' value and arguments provided individually as a comma-separated list?",
+    "options": [
+      "call()",
+      "apply()",
+      "bind()",
+      "execute()"
+    ],
+    "answer": "call()",
+    "category": "JavaScript",
+    "difficulty": "Medium",
+    "explanation": "Function.prototype.call() invokes the function with an explicit 'this' context and individual positional arguments."
+  },
+  {
+    "id": "qz-js-027",
+    "question": "Which method calls a function with a given 'this' value, with arguments provided as an array?",
+    "options": [
+      "apply()",
+      "call()",
+      "bind()",
+      "concat()"
+    ],
+    "answer": "apply()",
+    "category": "JavaScript",
+    "difficulty": "Medium",
+    "explanation": "Function.prototype.apply() takes function arguments as an array or array-like object."
+  },
+  {
+    "id": "qz-js-028",
+    "question": "Which method creates a new function that, when called, has its 'this' keyword set to a provided value?",
+    "options": [
+      "bind()",
+      "call()",
+      "apply()",
+      "proxy()"
+    ],
+    "answer": "bind()",
+    "category": "JavaScript",
+    "difficulty": "Medium",
+    "explanation": "Function.prototype.bind() returns a new bound function with locked 'this' context and optional pre-applied initial arguments."
+  },
+  {
+    "id": "qz-js-029",
+    "question": "What is the result of typeof null in JavaScript?",
+    "options": [
+      "object",
+      "null",
+      "undefined",
+      "boolean"
+    ],
+    "answer": "object",
+    "category": "JavaScript",
+    "difficulty": "Easy",
+    "explanation": "typeof null returning 'object' is a legacy JS bug retained for backward compatibility since the first JS implementation in 1995."
+  },
+  {
+    "id": "qz-js-030",
+    "question": "What happens when you declare a variable with 'var' inside a function block?",
+    "options": [
+      "It is function-scoped and hoisted to the top of the function.",
+      "It is block-scoped to the nearest curly braces.",
+      "It is attached to the global scope always.",
+      "It throws a SyntaxError if declared twice."
+    ],
+    "answer": "It is function-scoped and hoisted to the top of the function.",
+    "category": "JavaScript",
+    "difficulty": "Easy",
+    "explanation": "var variables are function-scoped rather than block-scoped and undergo hoisting with undefined initialization."
+  },
+  {
+    "id": "qz-js-031",
+    "question": "Which method flattens nested array structures up to a specified depth?",
+    "options": [
+      "flat()",
+      "flatMap()",
+      "reduce()",
+      "concat()"
+    ],
+    "answer": "flat()",
+    "category": "JavaScript",
+    "difficulty": "Medium",
+    "explanation": "Array.prototype.flat() creates a new array with all sub-array elements concatenated into it recursively up to specified depth."
+  },
+  {
+    "id": "qz-js-032",
+    "question": "What is the return type of Object.keys(obj)?",
+    "options": [
+      "An array of string property names",
+      "An array of property values",
+      "A Set of property keys",
+      "An object iterator"
+    ],
+    "answer": "An array of string property names",
+    "category": "JavaScript",
+    "difficulty": "Easy",
+    "explanation": "Object.keys() returns an array of a given object's own enumerable string-keyed property names."
+  },
+  {
+    "id": "qz-js-033",
+    "question": "Which static method returns an array of a given object's own enumerable string-keyed property [key, value] pairs?",
+    "options": [
+      "Object.entries()",
+      "Object.values()",
+      "Object.keys()",
+      "Object.assign()"
+    ],
+    "answer": "Object.entries()",
+    "category": "JavaScript",
+    "difficulty": "Easy",
+    "explanation": "Object.entries() returns an array of key-value pairs suitable for iteration or Map creation."
+  },
+  {
+    "id": "qz-js-034",
+    "question": "What does Object.freeze(obj) do?",
+    "options": [
+      "Prevents adding, removing, or modifying existing properties on the object.",
+      "Prevents only adding new properties, but allows editing existing ones.",
+      "Renders object properties readable only on server side.",
+      "Converts object properties into getters and setters."
+    ],
+    "answer": "Prevents adding, removing, or modifying existing properties on the object.",
+    "category": "JavaScript",
+    "difficulty": "Medium",
+    "explanation": "Object.freeze() makes an object highest-level immutable: properties cannot be added, deleted, or reassigned."
+  },
+  {
+    "id": "qz-js-035",
+    "question": "What is the primary difference between Object.freeze() and Object.seal()?",
+    "options": [
+      "Object.seal() allows modifying existing writable properties, but prevents adding/deleting properties.",
+      "Object.freeze() allows adding new properties.",
+      "Object.seal() creates a deep copy.",
+      "There is no difference."
+    ],
+    "answer": "Object.seal() allows modifying existing writable properties, but prevents adding/deleting properties.",
+    "category": "JavaScript",
+    "difficulty": "Hard",
+    "explanation": "Object.seal() prevents additions/deletions but allows mutating existing writable values; Object.freeze() prevents mutating values as well."
+  },
+  {
+    "id": "qz-js-036",
+    "question": "Which data structure ensures that elements contained inside it are strictly unique?",
+    "options": [
+      "Set",
+      "Map",
+      "Array",
+      "WeakMap"
+    ],
+    "answer": "Set",
+    "category": "JavaScript",
+    "difficulty": "Easy",
+    "explanation": "Set objects store collections of unique values of any type."
+  },
+  {
+    "id": "qz-js-037",
+    "question": "What is a key property of WeakMap in JavaScript?",
+    "options": [
+      "Keys must be objects, and entries are garbage-collected if no other references to the key exist.",
+      "Keys can be primitive numbers only.",
+      "Entries can be iterated with forEach().",
+      "WeakMap supports .size property."
+    ],
+    "answer": "Keys must be objects, and entries are garbage-collected if no other references to the key exist.",
+    "category": "JavaScript",
+    "difficulty": "Hard",
+    "explanation": "WeakMap keys must be non-primitive objects and hold weak references, enabling memory cleanup when keys are unreferenced elsewhere."
+  },
+  {
+    "id": "qz-js-038",
+    "question": "What is the result of Boolean('') in JavaScript?",
+    "options": [
+      "false",
+      "true",
+      "null",
+      "undefined"
+    ],
+    "answer": "false",
+    "category": "JavaScript",
+    "difficulty": "Easy",
+    "explanation": "An empty string '' is a falsy value in JavaScript, so Boolean('') converts to false."
+  },
+  {
+    "id": "qz-js-039",
+    "question": "Which of the following is NOT a falsy value in JavaScript?",
+    "options": [
+      "'0'",
+      "0",
+      "false",
+      "null"
+    ],
+    "answer": "'0'",
+    "category": "JavaScript",
+    "difficulty": "Easy",
+    "explanation": "The string '0' is non-empty, so it is truthy in JavaScript coercion."
+  },
+  {
+    "id": "qz-js-040",
+    "question": "What method is called automatically when an object is converted to a primitive string representation?",
+    "options": [
+      "toString()",
+      "valueOf()",
+      "toJSON()",
+      "toPrimitive()"
+    ],
+    "answer": "toString()",
+    "category": "JavaScript",
+    "difficulty": "Easy",
+    "explanation": "Object.prototype.toString() returns a string representation of the object when requested by coercion or String(obj)."
+  },
+  {
+    "id": "qz-js-041",
+    "question": "What is event bubbling in the browser DOM?",
+    "options": [
+      "Events trigger on the target element first, then propagate upward through parent ancestor elements.",
+      "Events trigger on the window first, then propagate downward to the target.",
+      "Events execute asynchronously in web workers.",
+      "Events loop infinitely until prevented."
+    ],
+    "answer": "Events trigger on the target element first, then propagate upward through parent ancestor elements.",
+    "category": "JavaScript",
+    "difficulty": "Medium",
+    "explanation": "Event bubbling propagates an event from the innermost target element up through its parent hierarchy to the document root."
+  },
+  {
+    "id": "qz-js-042",
+    "question": "How do you stop event propagation in a DOM event listener?",
+    "options": [
+      "event.stopPropagation()",
+      "event.preventDefault()",
+      "event.cancel()",
+      "event.stop()"
+    ],
+    "answer": "event.stopPropagation()",
+    "category": "JavaScript",
+    "difficulty": "Easy",
+    "explanation": "stopPropagation() prevents further propagation of the current event in the capturing and bubbling phases."
+  },
+  {
+    "id": "qz-js-043",
+    "question": "What is the purpose of event.preventDefault()?",
+    "options": [
+      "Cancels the default browser action associated with the event (e.g. form submission redirect).",
+      "Stops the event from bubbling up the DOM tree.",
+      "Deletes the target element from the DOM.",
+      "Clears local storage data."
+    ],
+    "answer": "Cancels the default browser action associated with the event (e.g. form submission redirect).",
+    "category": "JavaScript",
+    "difficulty": "Easy",
+    "explanation": "preventDefault() tells the user agent that if the event goes unhandled, its default action should not be taken."
+  },
+  {
+    "id": "qz-js-044",
+    "question": "What will Promise.race() return?",
+    "options": [
+      "A promise that settles as soon as any of the input promises settles (resolves or rejects).",
+      "A promise that waits for all input promises to settle.",
+      "A promise that returns only the fastest resolved value, ignoring rejections.",
+      "An array of settled results."
+    ],
+    "answer": "A promise that settles as soon as any of the input promises settles (resolves or rejects).",
+    "category": "JavaScript",
+    "difficulty": "Medium",
+    "explanation": "Promise.race() takes an iterable of promises and settles with the result or reason of the first promise that settles."
+  },
+  {
+    "id": "qz-js-045",
+    "question": "Which method returns a promise that resolves after all given promises have settled (either resolved or rejected)?",
+    "options": [
+      "Promise.allSettled()",
+      "Promise.all()",
+      "Promise.race()",
+      "Promise.any()"
+    ],
+    "answer": "Promise.allSettled()",
+    "category": "JavaScript",
+    "difficulty": "Medium",
+    "explanation": "Promise.allSettled() waits for all promises to finish and returns an array of objects describing the outcome of each."
+  },
+  {
+    "id": "qz-js-046",
+    "question": "What is Generator function in JavaScript?",
+    "options": [
+      "A function that can be paused and resumed using the 'yield' keyword.",
+      "A function that automatically generates random numbers.",
+      "A utility to compile ES6 to ES5.",
+      "A design pattern for constructing class singletons."
+    ],
+    "answer": "A function that can be paused and resumed using the 'yield' keyword.",
+    "category": "JavaScript",
+    "difficulty": "Hard",
+    "explanation": "Generator functions (function*) yield control back to the caller and maintain local context between iterations."
+  },
+  {
+    "id": "qz-js-047",
+    "question": "Which method executes a reducer function on each element of the array, resulting in a single output value?",
+    "options": [
+      "reduce()",
+      "map()",
+      "filter()",
+      "every()"
+    ],
+    "answer": "reduce()",
+    "category": "JavaScript",
+    "difficulty": "Medium",
+    "explanation": "Array.prototype.reduce() runs a callback on each element, passing the accumulated result from index to index."
+  },
+  {
+    "id": "qz-js-048",
+    "question": "What does Array.prototype.every() return?",
+    "options": [
+      "true if every element in the array satisfies the testing function, false otherwise.",
+      "The first element matching the condition.",
+      "A filtered array of elements.",
+      "The count of matching elements."
+    ],
+    "answer": "true if every element in the array satisfies the testing function, false otherwise.",
+    "category": "JavaScript",
+    "difficulty": "Easy",
+    "explanation": "every() tests whether all elements in the array pass the test implemented by the provided function."
+  },
+  {
+    "id": "qz-js-049",
+    "question": "What does Array.prototype.some() return?",
+    "options": [
+      "true if at least one element in the array satisfies the testing function.",
+      "The array of all matching items.",
+      "A boolean true only if all items match.",
+      "The index of the first match."
+    ],
+    "answer": "true if at least one element in the array satisfies the testing function.",
+    "category": "JavaScript",
+    "difficulty": "Easy",
+    "explanation": "some() tests whether at least one element in the array passes the test implemented by the provided function."
+  },
+  {
+    "id": "qz-js-050",
+    "question": "Which mechanism allows JavaScript to execute non-blocking I/O despite being single-threaded?",
+    "options": [
+      "Event Loop and asynchronous Web APIs/libuv thread pool",
+      "Multi-threaded CPU hardware context switching",
+      "Synchronous blocking IPC channels",
+      "Automatic bytecode compilation"
+    ],
+    "answer": "Event Loop and asynchronous Web APIs/libuv thread pool",
+    "category": "JavaScript",
+    "difficulty": "Hard",
+    "explanation": "JavaScript offloads asynchronous I/O (network, timer, disk) to browser/Node runtimes and processes callbacks sequentially via the Event Loop."
+  },
+  {
+    "id": "qz-js-051",
+    "question": "What is the difference between innerHTML and textContent?",
+    "options": [
+      "textContent sets text without parsing HTML tags, while innerHTML parses HTML markup.",
+      "innerHTML is faster and safer against XSS attacks than textContent.",
+      "textContent parses CSS styles, while innerHTML parses HTML.",
+      "They are identical in performance and security."
+    ],
+    "answer": "textContent sets text without parsing HTML tags, while innerHTML parses HTML markup.",
+    "category": "JavaScript",
+    "difficulty": "Medium",
+    "explanation": "textContent treats input as literal raw text preventing script injection (XSS), whereas innerHTML parses and renders HTML tags."
+  },
+  {
+    "id": "qz-js-052",
+    "question": "What is the output of '0.1 + 0.2 === 0.3' in JavaScript?",
+    "options": [
+      "false",
+      "true",
+      "SyntaxError",
+      "undefined"
+    ],
+    "answer": "false",
+    "category": "JavaScript",
+    "difficulty": "Medium",
+    "explanation": "Due to IEEE 754 double-precision floating-point arithmetic, 0.1 + 0.2 equals 0.30000000000000004, which is not strictly equal to 0.3."
+  },
+  {
+    "id": "qz-js-053",
+    "question": "Which operator is used to unpack elements of an array or properties of an object?",
+    "options": [
+      "Spread operator (...)",
+      "Rest operator (...)",
+      "Destructuring operator (:)",
+      "Slice operator (//)"
+    ],
+    "answer": "Spread operator (...)",
+    "category": "JavaScript",
+    "difficulty": "Easy",
+    "explanation": "The spread syntax (...) expands an array or object in places where zero or more arguments or elements are expected."
+  },
+  {
+    "id": "qz-js-054",
+    "question": "What does the rest parameter syntax (...args) allow a function to do?",
+    "options": [
+      "Represent an indefinite number of arguments as an array.",
+      "Spread an array into positional arguments.",
+      "Copy object properties by reference.",
+      "Create a global variable array."
+    ],
+    "answer": "Represent an indefinite number of arguments as an array.",
+    "category": "JavaScript",
+    "difficulty": "Easy",
+    "explanation": "Rest parameters collect all remaining arguments passed to a function into a true JavaScript array."
+  },
+  {
+    "id": "qz-js-055",
+    "question": "What is a Proxy object in JavaScript?",
+    "options": [
+      "An object that wraps another object and intercepts operations like reading, writing, and property lookup.",
+      "A network gateway helper for AJAX requests.",
+      "A fallback object used when a key is undefined.",
+      "A memory cache mechanism for DOM nodes."
+    ],
+    "answer": "An object that wraps another object and intercepts operations like reading, writing, and property lookup.",
+    "category": "JavaScript",
+    "difficulty": "Hard",
+    "explanation": "Proxy enables creating custom behaviors for fundamental object operations (e.g. get, set, apply, construct) via traps."
+  },
+  {
+    "id": "qz-js-056",
+    "question": "What is the purpose of Reflect API in JavaScript?",
+    "options": [
+      "Provides static methods for interceptable JavaScript operations matching Proxy traps.",
+      "Renders 3D graphics in Canvas element.",
+      "Inspects CSS reflection properties.",
+      "Compiles TypeScript code at runtime."
+    ],
+    "answer": "Provides static methods for interceptable JavaScript operations matching Proxy traps.",
+    "category": "JavaScript",
+    "difficulty": "Hard",
+    "explanation": "Reflect provides static methods with cleaner error handling for internal JavaScript operations matching Proxy handler traps."
+  },
+  {
+    "id": "qz-js-057",
+    "question": "What is the default binding of 'this' when a standalone function is invoked in non-strict mode?",
+    "options": [
+      "The global object (window in browser, global in Node)",
+      "undefined",
+      "null",
+      "The function object itself"
+    ],
+    "answer": "The global object (window in browser, global in Node)",
+    "category": "JavaScript",
+    "difficulty": "Easy",
+    "explanation": "In non-strict mode, un-bound function calls default 'this' to the global object; in strict mode 'this' is undefined."
+  },
+  {
+    "id": "qz-js-058",
+    "question": "What will String.prototype.trim() do?",
+    "options": [
+      "Removes whitespace from both ends of a string.",
+      "Removes all spaces inside a string.",
+      "Truncates a string to 10 characters.",
+      "Converts string to lowercase."
+    ],
+    "answer": "Removes whitespace from both ends of a string.",
+    "category": "JavaScript",
+    "difficulty": "Easy",
+    "explanation": "trim() removes whitespace (spaces, tabs, newlines) from both the beginning and end of a string."
+  },
+  {
+    "id": "qz-js-059",
+    "question": "Which method returns a substring between specified start and end indices?",
+    "options": [
+      "substring()",
+      "slice()",
+      "substr()",
+      "concat()"
+    ],
+    "answer": "substring()",
+    "category": "JavaScript",
+    "difficulty": "Easy",
+    "explanation": "substring() extracts characters from start index up to but not including end index."
+  },
+  {
+    "id": "qz-js-060",
+    "question": "What is a Currying function in functional JavaScript?",
+    "options": [
+      "A technique of transforming a function with multiple arguments into a sequence of functions that each take a single argument.",
+      "A method to cache HTTP API requests.",
+      "A syntax trick for array sorting.",
+      "A function that executes inside a Web Worker."
+    ],
+    "answer": "A technique of transforming a function with multiple arguments into a sequence of functions that each take a single argument.",
+    "category": "JavaScript",
+    "difficulty": "Hard",
+    "explanation": "Currying translates f(a, b, c) into f(a)(b)(c), allowing partial application of function arguments."
+  },
+  {
+    "id": "qz-js-061",
+    "question": "What does Array.prototype.splice() do?",
+    "options": [
+      "Changes the contents of an array by removing or replacing existing elements and/or adding new elements in place.",
+      "Returns a shallow copy of a portion of an array without modifying original.",
+      "Joins all array elements into a string.",
+      "Reverses array elements in non-mutating manner."
+    ],
+    "answer": "Changes the contents of an array by removing or replacing existing elements and/or adding new elements in place.",
+    "category": "JavaScript",
+    "difficulty": "Medium",
+    "explanation": "splice() mutates the array by deleting, inserting, or replacing elements at a specified start index."
+  },
+  {
+    "id": "qz-js-062",
+    "question": "What does Array.prototype.slice() do?",
+    "options": [
+      "Returns a shallow copy of a portion of an array into a new array object selected from start to end (end not included).",
+      "Mutates original array by deleting items.",
+      "Flattens nested arrays.",
+      "Sorts array elements numerically."
+    ],
+    "answer": "Returns a shallow copy of a portion of an array into a new array object selected from start to end (end not included).",
+    "category": "JavaScript",
+    "difficulty": "Easy",
+    "explanation": "slice() extracts a section of an array and returns a new array without modifying the original array."
+  },
+  {
+    "id": "qz-js-063",
+    "question": "Which function executes a specified callback once after a given delay in milliseconds?",
+    "options": [
+      "setTimeout()",
+      "setInterval()",
+      "requestAnimationFrame()",
+      "setImmediate()"
+    ],
+    "answer": "setTimeout()",
+    "category": "JavaScript",
+    "difficulty": "Easy",
+    "explanation": "setTimeout() schedules a single execution of a callback after specified milliseconds timer expires."
+  },
+  {
+    "id": "qz-js-064",
+    "question": "Which function repeatedly calls a callback with a fixed time delay between each call?",
+    "options": [
+      "setInterval()",
+      "setTimeout()",
+      "requestIdleCallback()",
+      "queueMicrotask()"
+    ],
+    "answer": "setInterval()",
+    "category": "JavaScript",
+    "difficulty": "Easy",
+    "explanation": "setInterval() repeatedly invokes a function with fixed time delay until cancelled with clearInterval()."
+  },
+  {
+    "id": "qz-js-065",
+    "question": "What is a Microtask in the JavaScript event loop queue?",
+    "options": [
+      "A high-priority task executed immediately after the current script and before any Macrotask (e.g. Promises, queueMicrotask).",
+      "A Web Worker background thread.",
+      "A hardware interrupt task.",
+      "A long-running CPU calculation task."
+    ],
+    "answer": "A high-priority task executed immediately after the current script and before any Macrotask (e.g. Promises, queueMicrotask).",
+    "category": "JavaScript",
+    "difficulty": "Hard",
+    "explanation": "Microtasks (Promises, process.nextTick) are processed completely after the current execution context empties, prior to rendering or Macrotasks (setTimeout)."
   }
 ]

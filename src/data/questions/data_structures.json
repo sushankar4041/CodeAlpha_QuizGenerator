@@ -2,16 +2,26 @@
   {
     "id": "qz-ds-001",
     "question": "What is the worst-case time complexity of Quick Sort?",
-    "options": ["O(n²)", "O(n log n)", "O(n)", "O(log n)"],
+    "options": [
+      "O(n²)",
+      "O(n log n)",
+      "O(n)",
+      "O(log n)"
+    ],
     "answer": "O(n²)",
     "category": "Data Structures",
     "difficulty": "Easy",
-    "explanation": "Quick Sort has a worst-case time complexity of O(n²) when the pivot selection consistently chooses the smallest or largest element (e.g. sorted arrays without random pivots)."
+    "explanation": "Quick Sort has a worst-case time complexity of O(n²) when pivot selection is poor (e.g. sorted array without random pivot)."
   },
   {
     "id": "qz-ds-002",
     "question": "Which data structure operates on a Last-In, First-Out (LIFO) principle?",
-    "options": ["Stack", "Queue", "Array", "Linked List"],
+    "options": [
+      "Stack",
+      "Queue",
+      "Array",
+      "Linked List"
+    ],
     "answer": "Stack",
     "category": "Data Structures",
     "difficulty": "Easy",
@@ -20,7 +30,12 @@
   {
     "id": "qz-ds-003",
     "question": "What is the average time complexity for searching an element in a balanced Binary Search Tree (BST)?",
-    "options": ["O(log n)", "O(n)", "O(1)", "O(n log n)"],
+    "options": [
+      "O(log n)",
+      "O(n)",
+      "O(1)",
+      "O(n log n)"
+    ],
     "answer": "O(log n)",
     "category": "Data Structures",
     "difficulty": "Easy",
@@ -29,7 +44,12 @@
   {
     "id": "qz-ds-004",
     "question": "Which traversal of a Binary Search Tree produces elements in sorted non-decreasing order?",
-    "options": ["In-order Traversal", "Pre-order Traversal", "Post-order Traversal", "Level-order Traversal"],
+    "options": [
+      "In-order Traversal",
+      "Pre-order Traversal",
+      "Post-order Traversal",
+      "Level-order Traversal"
+    ],
     "answer": "In-order Traversal",
     "category": "Data Structures",
     "difficulty": "Medium",
@@ -38,7 +58,12 @@
   {
     "id": "qz-ds-005",
     "question": "What is the average time complexity of insertion and lookup in a Hash Table with a good hash function?",
-    "options": ["O(1)", "O(n)", "O(log n)", "O(n²)"],
+    "options": [
+      "O(1)",
+      "O(n)",
+      "O(log n)",
+      "O(n²)"
+    ],
     "answer": "O(1)",
     "category": "Data Structures",
     "difficulty": "Medium",
@@ -56,12 +81,17 @@
     "answer": "Traversing elements in both forward and backward directions.",
     "category": "Data Structures",
     "difficulty": "Medium",
-    "explanation": "Nodes in a Doubly Linked List maintain pointers to both next and previous nodes, enabling bidirectional navigation and O(1) tail deletion if pointers exist."
+    "explanation": "Nodes in a Doubly Linked List maintain pointers to both next and previous nodes, enabling bidirectional navigation and O(1) tail deletion."
   },
   {
     "id": "qz-ds-007",
     "question": "Which graph algorithm finds the shortest path from a single source vertex to all other vertices in a weighted graph with non-negative edge weights?",
-    "options": ["Dijkstra's Algorithm", "Kruskal's Algorithm", "Prim's Algorithm", "Depth-First Search (DFS)"],
+    "options": [
+      "Dijkstra's Algorithm",
+      "Kruskal's Algorithm",
+      "Prim's Algorithm",
+      "Depth-First Search (DFS)"
+    ],
     "answer": "Dijkstra's Algorithm",
     "category": "Data Structures",
     "difficulty": "Hard",
@@ -84,7 +114,12 @@
   {
     "id": "qz-ds-009",
     "question": "Which asymptotic notation describes an absolute tight bound on an algorithm's running time?",
-    "options": ["Theta Notation (Θ)", "Big O Notation (O)", "Big Omega Notation (Ω)", "Little o Notation (o)"],
+    "options": [
+      "Theta Notation (Θ)",
+      "Big O Notation (O)",
+      "Big Omega Notation (Ω)",
+      "Little o Notation (o)"
+    ],
     "answer": "Theta Notation (Θ)",
     "category": "Data Structures",
     "difficulty": "Hard",
@@ -93,10 +128,785 @@
   {
     "id": "qz-ds-010",
     "question": "What data structure is typically used to implement Breadth-First Search (BFS) on a graph?",
-    "options": ["Queue", "Stack", "Priority Queue", "Binary Search Tree"],
+    "options": [
+      "Queue",
+      "Stack",
+      "Priority Queue",
+      "Binary Search Tree"
+    ],
     "answer": "Queue",
     "category": "Data Structures",
     "difficulty": "Easy",
     "explanation": "BFS uses a First-In, First-Out (FIFO) queue to visit all neighbor vertices at the current depth before moving deeper."
+  },
+  {
+    "id": "qz-ds-011",
+    "question": "What data structure is used to implement Depth-First Search (DFS) or call stack recursion?",
+    "options": [
+      "Stack",
+      "Queue",
+      "Deque",
+      "Heap"
+    ],
+    "answer": "Stack",
+    "category": "Data Structures",
+    "difficulty": "Easy",
+    "explanation": "DFS uses a Last-In, First-Out (LIFO) stack (explicitly or via system call stack recursion) to traverse graph branches as deep as possible."
+  },
+  {
+    "id": "qz-ds-012",
+    "question": "What is the worst-case time complexity of Merge Sort?",
+    "options": [
+      "O(n log n)",
+      "O(n²)",
+      "O(n)",
+      "O(log n)"
+    ],
+    "answer": "O(n log n)",
+    "category": "Data Structures",
+    "difficulty": "Easy",
+    "explanation": "Merge Sort guarantees O(n log n) performance in all cases (worst, average, best) by dividing array into halves and merging sorted halves."
+  },
+  {
+    "id": "qz-ds-013",
+    "question": "What is space complexity of Merge Sort for auxiliary array storage?",
+    "options": [
+      "O(n)",
+      "O(1)",
+      "O(log n)",
+      "O(n²)"
+    ],
+    "answer": "O(n)",
+    "category": "Data Structures",
+    "difficulty": "Medium",
+    "explanation": "Standard Merge Sort requires O(n) auxiliary space to store temporary merged arrays during division."
+  },
+  {
+    "id": "qz-ds-014",
+    "question": "What is the space complexity of Heap Sort?",
+    "options": [
+      "O(1)",
+      "O(n)",
+      "O(log n)",
+      "O(n log n)"
+    ],
+    "answer": "O(1)",
+    "category": "Data Structures",
+    "difficulty": "Medium",
+    "explanation": "Heap Sort is an in-place sorting algorithm with O(1) auxiliary space complexity."
+  },
+  {
+    "id": "qz-ds-015",
+    "question": "Which sorting algorithm is stable and has O(n) best-case time complexity on an already sorted array?",
+    "options": [
+      "Insertion Sort",
+      "Quick Sort",
+      "Selection Sort",
+      "Heap Sort"
+    ],
+    "answer": "Insertion Sort",
+    "category": "Data Structures",
+    "difficulty": "Easy",
+    "explanation": "Insertion Sort runs in O(n) time on nearly sorted or fully sorted arrays because inner loops terminate after one comparison."
+  },
+  {
+    "id": "qz-ds-016",
+    "question": "What is the worst-case time complexity of Selection Sort?",
+    "options": [
+      "O(n²)",
+      "O(n log n)",
+      "O(n)",
+      "O(1)"
+    ],
+    "answer": "O(n²)",
+    "category": "Data Structures",
+    "difficulty": "Easy",
+    "explanation": "Selection Sort scans remaining unsorted items for the minimum in every iteration, always executing n(n-1)/2 comparisons O(n²)."
+  },
+  {
+    "id": "qz-ds-017",
+    "question": "What is collision in a Hash Table?",
+    "options": [
+      "When two distinct keys hash to the exact same index in the hash array.",
+      "When array bounds are exceeded.",
+      "When hash function returns a negative number.",
+      "When RAM memory overflows."
+    ],
+    "answer": "When two distinct keys hash to the exact same index in the hash array.",
+    "category": "Data Structures",
+    "difficulty": "Easy",
+    "explanation": "Hash collisions occur when hash(key1) == hash(key2), resolved via chaining (linked lists) or open addressing (probing)."
+  },
+  {
+    "id": "qz-ds-018",
+    "question": "Which hash collision resolution technique uses linked lists attached to each bucket?",
+    "options": [
+      "Separate Chaining",
+      "Linear Probing",
+      "Quadratic Probing",
+      "Double Hashing"
+    ],
+    "answer": "Separate Chaining",
+    "category": "Data Structures",
+    "difficulty": "Easy",
+    "explanation": "Separate Chaining stores colliding key-value pairs in a linked list (or BST) hanging from each hash table bucket index."
+  },
+  {
+    "id": "qz-ds-019",
+    "question": "What is Linear Probing in Hash Tables?",
+    "options": [
+      "An open addressing technique that checks sequential adjacent slots (i+1, i+2) when a collision occurs.",
+      "Creating linked lists at every bucket.",
+      "Doubling hash table array size automatically.",
+      "Re-hashing keys using a second hash function."
+    ],
+    "answer": "An open addressing technique that checks sequential adjacent slots (i+1, i+2) when a collision occurs.",
+    "category": "Data Structures",
+    "difficulty": "Medium",
+    "explanation": "Linear probing searches consecutive table slots until an empty slot is located, though prone to primary clustering."
+  },
+  {
+    "id": "qz-ds-020",
+    "question": "What is an AVL Tree?",
+    "options": [
+      "A self-balancing Binary Search Tree where heights of two child subtrees of any node differ by at most 1.",
+      "A complete binary tree used for heaps.",
+      "A multi-way B-tree.",
+      "A graph without cycles."
+    ],
+    "answer": "A self-balancing Binary Search Tree where heights of two child subtrees of any node differ by at most 1.",
+    "category": "Data Structures",
+    "difficulty": "Medium",
+    "explanation": "AVL trees maintain strict balance factor (-1, 0, +1) using tree rotations, guaranteeing O(log n) worst-case search, insert, and delete."
+  },
+  {
+    "id": "qz-ds-021",
+    "question": "What is a Red-Black Tree?",
+    "options": [
+      "A self-balancing Binary Search Tree with node color attributes (Red/Black) ensuring longest path is at most twice shortest path.",
+      "A tree with red root nodes only.",
+      "A tree used in priority queues exclusively.",
+      "A B-tree variant with 3 children per node."
+    ],
+    "answer": "A self-balancing Binary Search Tree with node color attributes (Red/Black) ensuring longest path is at most twice shortest path.",
+    "category": "Data Structures",
+    "difficulty": "Hard",
+    "explanation": "Red-Black trees use node colors and rotation rules to balance trees faster than AVL trees during frequent insertions/deletions."
+  },
+  {
+    "id": "qz-ds-022",
+    "question": "What is the worst-case lookup time in an unbalanced Binary Search Tree?",
+    "options": [
+      "O(n)",
+      "O(log n)",
+      "O(1)",
+      "O(n²)"
+    ],
+    "answer": "O(n)",
+    "category": "Data Structures",
+    "difficulty": "Medium",
+    "explanation": "If items are inserted in sorted order, an unbalanced BST degenerates into a single linked list with O(n) search time."
+  },
+  {
+    "id": "qz-ds-023",
+    "question": "What is a Trie (Prefix Tree)?",
+    "options": [
+      "A tree data structure used for efficient string matching and prefix retrieval, where nodes represent characters.",
+      "A tree used for integer sorting.",
+      "A binary heap implementation.",
+      "A balanced AVL tree variant."
+    ],
+    "answer": "A tree data structure used for efficient string matching and prefix retrieval, where nodes represent characters.",
+    "category": "Data Structures",
+    "difficulty": "Medium",
+    "explanation": "Tries store strings character by character along path branches, supporting O(L) prefix lookup where L is string length."
+  },
+  {
+    "id": "qz-ds-024",
+    "question": "What is the time complexity to insert or delete an item in a Min-Heap of size n?",
+    "options": [
+      "O(log n)",
+      "O(1)",
+      "O(n)",
+      "O(n log n)"
+    ],
+    "answer": "O(log n)",
+    "category": "Data Structures",
+    "difficulty": "Easy",
+    "explanation": "Adding or removing the root from a Min-Heap requires heapifying up or down along tree height O(log n)."
+  },
+  {
+    "id": "qz-ds-025",
+    "question": "What is the time complexity to find the minimum element in a Min-Heap?",
+    "options": [
+      "O(1)",
+      "O(log n)",
+      "O(n)",
+      "O(n log n)"
+    ],
+    "answer": "O(1)",
+    "category": "Data Structures",
+    "difficulty": "Easy",
+    "explanation": "In a Min-Heap, the minimum element is always stored at the root index [0], giving instant O(1) access."
+  },
+  {
+    "id": "qz-ds-026",
+    "question": "Which algorithm is used to find the Minimum Spanning Tree (MST) of a connected weighted graph using a greedy edge selection strategy?",
+    "options": [
+      "Kruskal's Algorithm",
+      "Dijkstra's Algorithm",
+      "Bellman-Ford Algorithm",
+      "Floyd-Warshall Algorithm"
+    ],
+    "answer": "Kruskal's Algorithm",
+    "category": "Data Structures",
+    "difficulty": "Hard",
+    "explanation": "Kruskal's algorithm sorts all graph edges by weight and uses a Disjoint-Set (Union-Find) structure to add non-cycling light edges."
+  },
+  {
+    "id": "qz-ds-027",
+    "question": "Which algorithm finds the Minimum Spanning Tree by growing a single tree vertex by vertex?",
+    "options": [
+      "Prim's Algorithm",
+      "Kruskal's Algorithm",
+      "Floyd-Warshall Algorithm",
+      "Breadth-First Search"
+    ],
+    "answer": "Prim's Algorithm",
+    "category": "Data Structures",
+    "difficulty": "Hard",
+    "explanation": "Prim's algorithm starts at an arbitrary seed vertex and greedily expands the tree by picking the smallest edge connecting tree to non-tree vertices."
+  },
+  {
+    "id": "qz-ds-028",
+    "question": "What is the Disjoint-Set Data Structure (Union-Find)?",
+    "options": [
+      "A data structure that tracks a set of elements partitioned into non-overlapping subsets, supporting Union and Find operations.",
+      "A hash table with double hashing.",
+      "A binary tree with 2 roots.",
+      "A queue with priority levels."
+    ],
+    "answer": "A data structure that tracks a set of elements partitioned into non-overlapping subsets, supporting Union and Find operations.",
+    "category": "Data Structures",
+    "difficulty": "Hard",
+    "explanation": "Union-Find maintains dynamic disjoint sets with path compression and rank optimization, executing operations in near-constant O(α(n)) time."
+  },
+  {
+    "id": "qz-ds-029",
+    "question": "What is Topological Sort on a graph?",
+    "options": [
+      "A linear ordering of vertices in a Directed Acyclic Graph (DAG) such that for every directed edge u -> v, u comes before v.",
+      "Sorting vertices by degree count.",
+      "A shortest path algorithm.",
+      "Converting an undirected graph to a tree."
+    ],
+    "answer": "A linear ordering of vertices in a Directed Acyclic Graph (DAG) such that for every directed edge u -> v, u comes before v.",
+    "category": "Data Structures",
+    "difficulty": "Hard",
+    "explanation": "Topological sorting orders tasks with prerequisite dependencies; it is possible only on Directed Acyclic Graphs (DAGs)."
+  },
+  {
+    "id": "qz-ds-030",
+    "question": "What algorithm detects negative weight cycles and finds single-source shortest paths in weighted graphs?",
+    "options": [
+      "Bellman-Ford Algorithm",
+      "Dijkstra's Algorithm",
+      "Prim's Algorithm",
+      "Kruskal's Algorithm"
+    ],
+    "answer": "Bellman-Ford Algorithm",
+    "category": "Data Structures",
+    "difficulty": "Hard",
+    "explanation": "Bellman-Ford relaxes all edges |V|-1 times and can process negative edge weights and detect negative cycles."
+  },
+  {
+    "id": "qz-ds-031",
+    "question": "What is Floyd-Warshall Algorithm used for?",
+    "options": [
+      "Finding all-pairs shortest paths in a weighted graph in O(V³) time.",
+      "Finding single-source shortest path.",
+      "Finding graph connected components.",
+      "Sorting strings in alphabetical order."
+    ],
+    "answer": "Finding all-pairs shortest paths in a weighted graph in O(V³) time.",
+    "category": "Data Structures",
+    "difficulty": "Hard",
+    "explanation": "Floyd-Warshall is a dynamic programming algorithm computing shortest paths between every pair of vertices in O(V³) time."
+  },
+  {
+    "id": "qz-ds-032",
+    "question": "What is a Deque (Double-Ended Queue)?",
+    "options": [
+      "A sequence data structure supporting insertion and deletion at both front and back ends in O(1) time.",
+      "A queue that accepts only two elements.",
+      "A stack with priority levels.",
+      "A hash map with dual keys."
+    ],
+    "answer": "A sequence data structure supporting insertion and deletion at both front and back ends in O(1) time.",
+    "category": "Data Structures",
+    "difficulty": "Easy",
+    "explanation": "Deques allow pushing and popping elements efficiently from both head and tail ends."
+  },
+  {
+    "id": "qz-ds-033",
+    "question": "What is a Circular Queue?",
+    "options": [
+      "A linear queue whose last position is connected back to the first position to reuse deallocated memory slots.",
+      "A queue that reverses items continuously.",
+      "A queue built with circular linked lists only.",
+      "A priority queue with circular weights."
+    ],
+    "answer": "A linear queue whose last position is connected back to the first position to reuse deallocated memory slots.",
+    "category": "Data Structures",
+    "difficulty": "Medium",
+    "explanation": "Circular queues solve array memory waste in standard queues by wrapping front and rear pointers using modulo arithmetic (rear + 1) % size."
+  },
+  {
+    "id": "qz-ds-034",
+    "question": "What is the time complexity of accessing an element by index in a contiguous dynamic Array?",
+    "options": [
+      "O(1)",
+      "O(n)",
+      "O(log n)",
+      "O(n²)"
+    ],
+    "answer": "O(1)",
+    "category": "Data Structures",
+    "difficulty": "Easy",
+    "explanation": "Arrays store elements in contiguous memory blocks, calculating target memory addresses instantly: base_address + index * element_size."
+  },
+  {
+    "id": "qz-ds-035",
+    "question": "What is the time complexity of accessing an element by index in a Singly Linked List?",
+    "options": [
+      "O(n)",
+      "O(1)",
+      "O(log n)",
+      "O(n²)"
+    ],
+    "answer": "O(n)",
+    "category": "Data Structures",
+    "difficulty": "Easy",
+    "explanation": "Linked lists do not support direct memory indexing; accessing the n-th node requires traversing from head node step by step O(n)."
+  },
+  {
+    "id": "qz-ds-036",
+    "question": "What is dynamic array amortized insertion time complexity (e.g. pushing to ArrayList or JS Array)?",
+    "options": [
+      "O(1) amortized",
+      "O(n) strictly",
+      "O(log n)",
+      "O(n²)"
+    ],
+    "answer": "O(1) amortized",
+    "category": "Data Structures",
+    "difficulty": "Medium",
+    "explanation": "Dynamic arrays double capacity when full; individual resizes cost O(n), but spread across n pushes yields O(1) amortized time per insert."
+  },
+  {
+    "id": "qz-ds-037",
+    "question": "What is a Bloom Filter?",
+    "options": [
+      "A space-efficient probabilistic data structure used to test whether an element is definitely NOT in a set or POSSIBLY in a set.",
+      "A deterministic binary search tree.",
+      "A sorting algorithm for strings.",
+      "A cryptographic key storage mechanism."
+    ],
+    "answer": "A space-efficient probabilistic data structure used to test whether an element is definitely NOT in a set or POSSIBLY in a set.",
+    "category": "Data Structures",
+    "difficulty": "Hard",
+    "explanation": "Bloom filters use bit arrays and multiple hash functions: they can yield false positives, but never false negatives."
+  },
+  {
+    "id": "qz-ds-038",
+    "question": "What is the worst-case space complexity of Depth-First Search (DFS) on a tree of height h?",
+    "options": [
+      "O(h)",
+      "O(n²)",
+      "O(1)",
+      "O(2ⁿ)"
+    ],
+    "answer": "O(h)",
+    "category": "Data Structures",
+    "difficulty": "Medium",
+    "explanation": "DFS call stack memory is proportional to the maximum height of the tree O(h)."
+  },
+  {
+    "id": "qz-ds-039",
+    "question": "What is the worst-case space complexity of Breadth-First Search (BFS) on a tree of width w?",
+    "options": [
+      "O(w)",
+      "O(1)",
+      "O(log w)",
+      "O(w²)"
+    ],
+    "answer": "O(w)",
+    "category": "Data Structures",
+    "difficulty": "Medium",
+    "explanation": "BFS queue stores all nodes at the current level, requiring memory proportional to the maximum tree width O(w)."
+  },
+  {
+    "id": "qz-ds-040",
+    "question": "Which data structure is best suited for implementing a LRU (Least Recently Used) Cache?",
+    "options": [
+      "Hash Map combined with a Doubly Linked List",
+      "Single Array",
+      "Binary Search Tree",
+      "Stack"
+    ],
+    "answer": "Hash Map combined with a Doubly Linked List",
+    "category": "Data Structures",
+    "difficulty": "Hard",
+    "explanation": "A Hash Map provides O(1) key lookup, while a Doubly Linked List maintains O(1) node movement to head (most recent) and removal from tail (least recent)."
+  },
+  {
+    "id": "qz-ds-041",
+    "question": "What is Kadane's Algorithm used for?",
+    "options": [
+      "Finding the maximum subarray sum in a 1D array in O(n) time.",
+      "Sorting integers in linear time.",
+      "Finding shortest path in graphs.",
+      "String pattern matching."
+    ],
+    "answer": "Finding the maximum subarray sum in a 1D array in O(n) time.",
+    "category": "Data Structures",
+    "difficulty": "Medium",
+    "explanation": "Kadane's algorithm scans an array keeping track of local maximum sub-sums, solving the contiguous subarray sum problem in O(n)."
+  },
+  {
+    "id": "qz-ds-042",
+    "question": "What is the time complexity of Binary Search on a sorted array of size n?",
+    "options": [
+      "O(log n)",
+      "O(n)",
+      "O(1)",
+      "O(n log n)"
+    ],
+    "answer": "O(log n)",
+    "category": "Data Structures",
+    "difficulty": "Easy",
+    "explanation": "Binary search compares the middle element and halves the remaining search range at each step O(log n)."
+  },
+  {
+    "id": "qz-ds-043",
+    "question": "Can Binary Search be directly performed in O(log n) time on a Singly Linked List?",
+    "options": [
+      "No, because linked lists lack random O(1) index access to middle nodes.",
+      "Yes, linked lists support O(log n) binary search.",
+      "Yes, if the list is sorted.",
+      "Only if nodes have color tags."
+    ],
+    "answer": "No, because linked lists lack random O(1) index access to middle nodes.",
+    "category": "Data Structures",
+    "difficulty": "Medium",
+    "explanation": "Finding the middle node of a linked list takes O(n) time, destroying the logarithmic advantage of binary search."
+  },
+  {
+    "id": "qz-ds-044",
+    "question": "What is a Skip List?",
+    "options": [
+      "A probabilistic data structure that uses layered linked lists with forward express pointers to achieve O(log n) search and insert.",
+      "A list that skips odd elements.",
+      "A simple array with step counters.",
+      "A stack with two pointers."
+    ],
+    "answer": "A probabilistic data structure that uses layered linked lists with forward express pointers to achieve O(log n) search and insert.",
+    "category": "Data Structures",
+    "difficulty": "Hard",
+    "explanation": "Skip lists build hierarchy levels of pointers over sorted linked lists, offering average O(log n) operations without tree balancing overhead."
+  },
+  {
+    "id": "qz-ds-045",
+    "question": "What is Radix Sort?",
+    "options": [
+      "A non-comparative sorting algorithm that sorts data with integer keys by grouping keys by individual digits.",
+      "A comparative divide-and-conquer sort.",
+      "A graph traversal algorithm.",
+      "A string searching heuristic."
+    ],
+    "answer": "A non-comparative sorting algorithm that sorts data with integer keys by grouping keys by individual digits.",
+    "category": "Data Structures",
+    "difficulty": "Medium",
+    "explanation": "Radix sort processes integer digits position by position (LSD or MSD) using a stable sub-sort (like Counting Sort)."
+  },
+  {
+    "id": "qz-ds-046",
+    "question": "What is the time complexity of Counting Sort for n items with keys in range 0 to k?",
+    "options": [
+      "O(n + k)",
+      "O(n log n)",
+      "O(n²)",
+      "O(k log n)"
+    ],
+    "answer": "O(n + k)",
+    "category": "Data Structures",
+    "difficulty": "Medium",
+    "explanation": "Counting sort counts frequencies of key values, running in linear O(n + k) time when range k is not significantly larger than n."
+  },
+  {
+    "id": "qz-ds-047",
+    "question": "What is an Adjacency Matrix representation of a graph with V vertices?",
+    "options": [
+      "A 2D V x V matrix where cell [i][j] indicates an edge between vertex i and vertex j.",
+      "A array of V linked lists.",
+      "A hash map of strings.",
+      "A single list of edges."
+    ],
+    "answer": "A 2D V x V matrix where cell [i][j] indicates an edge between vertex i and vertex j.",
+    "category": "Data Structures",
+    "difficulty": "Easy",
+    "explanation": "Adjacency Matrix uses V x V space, offering fast O(1) edge lookup but taking O(V²) space even for sparse graphs."
+  },
+  {
+    "id": "qz-ds-048",
+    "question": "What is an Adjacency List representation of a graph?",
+    "options": [
+      "An array of V lists where list i contains all vertices adjacent to vertex i.",
+      "A 2D boolean grid.",
+      "A single stack of vertices.",
+      "A hash map of edge weights only."
+    ],
+    "answer": "An array of V lists where list i contains all vertices adjacent to vertex i.",
+    "category": "Data Structures",
+    "difficulty": "Easy",
+    "explanation": "Adjacency List uses O(V + E) space, making it ideal for sparse graphs."
+  },
+  {
+    "id": "qz-ds-049",
+    "question": "Which graph representation is more space-efficient for a sparse graph with few edges?",
+    "options": [
+      "Adjacency List",
+      "Adjacency Matrix",
+      "Incidence Matrix",
+      "All require identical space"
+    ],
+    "answer": "Adjacency List",
+    "category": "Data Structures",
+    "difficulty": "Easy",
+    "explanation": "Adjacency List takes O(V + E) space, whereas Adjacency Matrix takes O(V²) regardless of edge count."
+  },
+  {
+    "id": "qz-ds-050",
+    "question": "What is a Strongly Connected Component (SCC) in a directed graph?",
+    "options": [
+      "A maximal subgraph where every vertex is reachable from every other vertex in the subgraph.",
+      "A graph with no cycles.",
+      "A tree with a single root.",
+      "A graph where all edges have positive weights."
+    ],
+    "answer": "A maximal subgraph where every vertex is reachable from every other vertex in the subgraph.",
+    "category": "Data Structures",
+    "difficulty": "Hard",
+    "explanation": "In directed graphs, an SCC is a set of vertices where directed paths exist in both directions between any pair of nodes (found via Tarjan's or Kosaraju's algorithm)."
+  },
+  {
+    "id": "qz-ds-051",
+    "question": "Which algorithm uses two DFS passes and graph transposition to find all Strongly Connected Components in O(V + E) time?",
+    "options": [
+      "Kosaraju's Algorithm",
+      "Dijkstra's Algorithm",
+      "Prim's Algorithm",
+      "Kruskal's Algorithm"
+    ],
+    "answer": "Kosaraju's Algorithm",
+    "category": "Data Structures",
+    "difficulty": "Hard",
+    "explanation": "Kosaraju's algorithm computes post-order DFS on the original graph, transposes graph edges, and runs DFS on the reverse order."
+  },
+  {
+    "id": "qz-ds-052",
+    "question": "What is Tarjan's Algorithm used for?",
+    "options": [
+      "Finding Strongly Connected Components in a directed graph using a single DFS pass.",
+      "Finding shortest paths in DAGs.",
+      "Sorting arrays in O(n) time.",
+      "Constructing Huffman coding trees."
+    ],
+    "answer": "Finding Strongly Connected Components in a directed graph using a single DFS pass.",
+    "category": "Data Structures",
+    "difficulty": "Hard",
+    "explanation": "Tarjan's algorithm uses a DFS call stack with discovery times and low-link values to find all SCCs in a single pass."
+  },
+  {
+    "id": "qz-ds-053",
+    "question": "What is a B-Tree?",
+    "options": [
+      "A self-balancing search tree optimized for systems that read and write large blocks of disk memory.",
+      "A binary tree with 2 children maximum.",
+      "A tree with red and black nodes.",
+      "A hash table array."
+    ],
+    "answer": "A self-balancing search tree optimized for systems that read and write large blocks of disk memory.",
+    "category": "Data Structures",
+    "difficulty": "Hard",
+    "explanation": "B-Trees keep child node branch counts high (multi-way) so tree height is shallow, minimizing expensive disk I/O operations."
+  },
+  {
+    "id": "qz-ds-054",
+    "question": "What is the difference between B-Tree and B+ Tree?",
+    "options": [
+      "In a B+ Tree, data pointers are stored exclusively in leaf nodes and leaf nodes are linked sequentially.",
+      "B-Tree leaf nodes are not connected.",
+      "B+ Tree nodes have only 2 children.",
+      "There is no difference."
+    ],
+    "answer": "In a B+ Tree, data pointers are stored exclusively in leaf nodes and leaf nodes are linked sequentially.",
+    "category": "Data Structures",
+    "difficulty": "Hard",
+    "explanation": "B+ Trees store actual data records only in leaf nodes and link leaves in a list, speeding up range queries and sequential scans."
+  },
+  {
+    "id": "qz-ds-055",
+    "question": "What is a Segment Tree?",
+    "options": [
+      "A tree data structure used for storing intervals or segments, allowing querying range sum/min/max in O(log n) time.",
+      "A binary search tree for strings.",
+      "A heap structure for dynamic arrays.",
+      "A graph spanning tree."
+    ],
+    "answer": "A tree data structure used for storing intervals or segments, allowing querying range sum/min/max in O(log n) time.",
+    "category": "Data Structures",
+    "difficulty": "Hard",
+    "explanation": "Segment Trees partition array ranges into binary tree nodes, supporting range queries and point updates in O(log n)."
+  },
+  {
+    "id": "qz-ds-056",
+    "question": "What is a Fenwick Tree (Binary Indexed Tree / BIT)?",
+    "options": [
+      "A data structure that efficiently updates elements and calculates prefix sums in a numerical array in O(log n) time.",
+      "A tree used for full-text search.",
+      "A self-balancing BST.",
+      "A trie variant for strings."
+    ],
+    "answer": "A data structure that efficiently updates elements and calculates prefix sums in a numerical array in O(log n) time.",
+    "category": "Data Structures",
+    "difficulty": "Hard",
+    "explanation": "Binary Indexed Trees represent cumulative frequency tables using bitwise operations (i & -i) with minimal space overhead."
+  },
+  {
+    "id": "qz-ds-057",
+    "question": "What is the Knuth-Morris-Pratt (KMP) Algorithm?",
+    "options": [
+      "A string-searching algorithm that searches for occurrences of a pattern within a main text in O(n + m) time using a prefix table.",
+      "A graph shortest path algorithm.",
+      "A sorting algorithm for strings.",
+      "A compression algorithm."
+    ],
+    "answer": "A string-searching algorithm that searches for occurrences of a pattern within a main text in O(n + m) time using a prefix table.",
+    "category": "Data Structures",
+    "difficulty": "Hard",
+    "explanation": "KMP avoids re-matching characters by pre-computing a Longest Prefix Suffix (LPS) array for the search pattern."
+  },
+  {
+    "id": "qz-ds-058",
+    "question": "What is Rabin-Karp Algorithm for string matching?",
+    "options": [
+      "A string-searching algorithm that uses rolling hash functions to find pattern matches in O(n + m) average time.",
+      "A greedy graph algorithm.",
+      "A sorting algorithm.",
+      "A binary tree traversal algorithm."
+    ],
+    "answer": "A string-searching algorithm that uses rolling hash functions to find pattern matches in O(n + m) average time.",
+    "category": "Data Structures",
+    "difficulty": "Hard",
+    "explanation": "Rabin-Karp computes a rolling hash for pattern substrings, comparing hash values before confirming character equality."
+  },
+  {
+    "id": "qz-ds-059",
+    "question": "What is Huffman Coding?",
+    "options": [
+      "A lossless data compression algorithm that assigns variable-length prefix codes to characters based on frequencies.",
+      "An encryption algorithm for network packets.",
+      "A hashing algorithm for database indexes.",
+      "A graph traversal method."
+    ],
+    "answer": "A lossless data compression algorithm that assigns variable-length prefix codes to characters based on frequencies.",
+    "category": "Data Structures",
+    "difficulty": "Medium",
+    "explanation": "Huffman coding builds a binary min-heap tree to assign shorter bit codes to frequently occurring characters."
+  },
+  {
+    "id": "qz-ds-060",
+    "question": "What is an Infix expression?",
+    "options": [
+      "Operators are written between operands (e.g. A + B).",
+      "Operators are written before operands (+ A B).",
+      "Operators are written after operands (A B +).",
+      "Operators are written inside parentheses only."
+    ],
+    "answer": "Operators are written between operands (e.g. A + B).",
+    "category": "Data Structures",
+    "difficulty": "Easy",
+    "explanation": "Infix notation is the standard mathematical notation where operators are placed in between operands."
+  },
+  {
+    "id": "qz-ds-061",
+    "question": "What is a Postfix (Reverse Polish) expression?",
+    "options": [
+      "Operators are written after operands (e.g. A B +).",
+      "Operators are written before operands (+ A B).",
+      "Operators are written between operands (A + B).",
+      "Operators are omitted."
+    ],
+    "answer": "Operators are written after operands (e.g. A B +).",
+    "category": "Data Structures",
+    "difficulty": "Easy",
+    "explanation": "Postfix notation places operators after their operands, eliminating the need for parentheses or operator precedence rules."
+  },
+  {
+    "id": "qz-ds-062",
+    "question": "Which data structure is ideal for evaluating Postfix expressions?",
+    "options": [
+      "Stack",
+      "Queue",
+      "Binary Tree",
+      "Hash Map"
+    ],
+    "answer": "Stack",
+    "category": "Data Structures",
+    "difficulty": "Easy",
+    "explanation": "Postfix evaluation uses a stack: operands are pushed onto the stack, and operators pop two operands, evaluate, and push the result."
+  },
+  {
+    "id": "qz-ds-063",
+    "question": "What is the Shunting-Yard Algorithm?",
+    "options": [
+      "An algorithm invented by Edsger Dijkstra to parse infix expressions into postfix (RPN) or abstract syntax trees.",
+      "A sorting algorithm.",
+      "A memory allocation routine.",
+      "A graph shortest path algorithm."
+    ],
+    "answer": "An algorithm invented by Edsger Dijkstra to parse infix expressions into postfix (RPN) or abstract syntax trees.",
+    "category": "Data Structures",
+    "difficulty": "Medium",
+    "explanation": "Dijkstra's Shunting-Yard algorithm uses an operator stack to convert human-readable infix arithmetic into postfix notation."
+  },
+  {
+    "id": "qz-ds-064",
+    "question": "What is the space complexity of an N-ary Tree where each node has up to N children?",
+    "options": [
+      "O(V + E)",
+      "O(1)",
+      "O(N²)",
+      "O(N * V)"
+    ],
+    "answer": "O(V + E)",
+    "category": "Data Structures",
+    "difficulty": "Medium",
+    "explanation": "Tree structures use node pointers proportional to total vertices and edges O(V + E)."
+  },
+  {
+    "id": "qz-ds-065",
+    "question": "What is a Monotonic Stack?",
+    "options": [
+      "A stack whose elements are strictly increasing or strictly decreasing.",
+      "A stack with constant size.",
+      "A stack that permits access from bottom.",
+      "A stack stored in GPU memory."
+    ],
+    "answer": "A stack whose elements are strictly increasing or strictly decreasing.",
+    "category": "Data Structures",
+    "difficulty": "Medium",
+    "explanation": "Monotonic stacks preserve monotonic order (increasing/decreasing) to solve next-greater-element or histogram problems in O(n) time."
   }
 ]

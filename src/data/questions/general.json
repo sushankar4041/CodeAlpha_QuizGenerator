@@ -2,7 +2,12 @@
   {
     "id": "qz-gen-001",
     "question": "Which planet in our solar system is known as the Red Planet?",
-    "options": ["Mars", "Venus", "Jupiter", "Saturn"],
+    "options": [
+      "Mars",
+      "Venus",
+      "Jupiter",
+      "Saturn"
+    ],
     "answer": "Mars",
     "category": "General Knowledge",
     "difficulty": "Easy",
@@ -11,7 +16,12 @@
   {
     "id": "qz-gen-002",
     "question": "Who is considered the father of computer science and artificial intelligence?",
-    "options": ["Alan Turing", "Charles Babbage", "Ada Lovelace", "John von Neumann"],
+    "options": [
+      "Alan Turing",
+      "Charles Babbage",
+      "Ada Lovelace",
+      "John von Neumann"
+    ],
     "answer": "Alan Turing",
     "category": "General Knowledge",
     "difficulty": "Easy",
@@ -20,7 +30,12 @@
   {
     "id": "qz-gen-003",
     "question": "What is the chemical symbol for Gold on the periodic table?",
-    "options": ["Au", "Ag", "Fe", "Pb"],
+    "options": [
+      "Au",
+      "Ag",
+      "Fe",
+      "Pb"
+    ],
     "answer": "Au",
     "category": "General Knowledge",
     "difficulty": "Easy",
@@ -29,7 +44,12 @@
   {
     "id": "qz-gen-004",
     "question": "Which element has the atomic number 1?",
-    "options": ["Hydrogen", "Helium", "Lithium", "Carbon"],
+    "options": [
+      "Hydrogen",
+      "Helium",
+      "Lithium",
+      "Carbon"
+    ],
     "answer": "Hydrogen",
     "category": "General Knowledge",
     "difficulty": "Easy",
@@ -38,7 +58,12 @@
   {
     "id": "qz-gen-005",
     "question": "Which scientist formulated the laws of motion and universal gravitation?",
-    "options": ["Sir Isaac Newton", "Albert Einstein", "Galileo Galilei", "Nikola Tesla"],
+    "options": [
+      "Sir Isaac Newton",
+      "Albert Einstein",
+      "Galileo Galilei",
+      "Nikola Tesla"
+    ],
     "answer": "Sir Isaac Newton",
     "category": "General Knowledge",
     "difficulty": "Easy",
@@ -47,7 +72,12 @@
   {
     "id": "qz-gen-006",
     "question": "What is the speed of light in a vacuum approximately?",
-    "options": ["3 × 10⁸ meters per second", "3 × 10⁵ meters per second", "1.5 × 10⁸ meters per second", "3 × 10⁶ meters per second"],
+    "options": [
+      "3 × 10⁸ meters per second",
+      "3 × 10⁵ meters per second",
+      "1.5 × 10⁸ meters per second",
+      "3 × 10⁶ meters per second"
+    ],
     "answer": "3 × 10⁸ meters per second",
     "category": "General Knowledge",
     "difficulty": "Medium",
@@ -56,7 +86,12 @@
   {
     "id": "qz-gen-007",
     "question": "Which organ in the human body consumes approximately 20% of the body's total oxygen and energy?",
-    "options": ["Brain", "Heart", "Liver", "Lungs"],
+    "options": [
+      "Brain",
+      "Heart",
+      "Liver",
+      "Lungs"
+    ],
     "answer": "Brain",
     "category": "General Knowledge",
     "difficulty": "Medium",
@@ -79,7 +114,12 @@
   {
     "id": "qz-gen-009",
     "question": "Which programming language was developed by James Gosling at Sun Microsystems in 1995?",
-    "options": ["Java", "Python", "C++", "C#"],
+    "options": [
+      "Java",
+      "Python",
+      "C++",
+      "C#"
+    ],
     "answer": "Java",
     "category": "General Knowledge",
     "difficulty": "Easy",
@@ -88,10 +128,785 @@
   {
     "id": "qz-gen-010",
     "question": "What mathematical constant represents the ratio of a circle's circumference to its diameter?",
-    "options": ["Pi (π)", "Euler's Number (e)", "Golden Ratio (φ)", "Tau (τ)"],
+    "options": [
+      "Pi (π)",
+      "Euler's Number (e)",
+      "Golden Ratio (φ)",
+      "Tau (τ)"
+    ],
     "answer": "Pi (π)",
     "category": "General Knowledge",
     "difficulty": "Easy",
     "explanation": "Pi (π) is an irrational number approximately equal to 3.14159..."
+  },
+  {
+    "id": "qz-gen-011",
+    "question": "Who wrote the play 'Hamlet'?",
+    "options": [
+      "William Shakespeare",
+      "Christopher Marlowe",
+      "John Milton",
+      "Charles Dickens"
+    ],
+    "answer": "William Shakespeare",
+    "category": "General Knowledge",
+    "difficulty": "Easy",
+    "explanation": "Hamlet was written by William Shakespeare between 1599 and 1601."
+  },
+  {
+    "id": "qz-gen-012",
+    "question": "What is the hardest naturally occurring mineral on Earth?",
+    "options": [
+      "Diamond",
+      "Quartz",
+      "Corundum",
+      "Topaz"
+    ],
+    "answer": "Diamond",
+    "category": "General Knowledge",
+    "difficulty": "Easy",
+    "explanation": "Diamond rates 10 on the Mohs scale of mineral hardness due to strong carbon covalent crystal bonds."
+  },
+  {
+    "id": "qz-gen-013",
+    "question": "Which gas makes up approximately 78% of Earth's atmosphere?",
+    "options": [
+      "Nitrogen",
+      "Oxygen",
+      "Carbon Dioxide",
+      "Argon"
+    ],
+    "answer": "Nitrogen",
+    "category": "General Knowledge",
+    "difficulty": "Easy",
+    "explanation": "Nitrogen (N₂) comprises ~78% of Earth's atmosphere, followed by Oxygen (~21%)."
+  },
+  {
+    "id": "qz-gen-014",
+    "question": "What is the largest ocean on Earth?",
+    "options": [
+      "Pacific Ocean",
+      "Atlantic Ocean",
+      "Indian Ocean",
+      "Arctic Ocean"
+    ],
+    "answer": "Pacific Ocean",
+    "category": "General Knowledge",
+    "difficulty": "Easy",
+    "explanation": "The Pacific Ocean covers over 30% of Earth's total surface area."
+  },
+  {
+    "id": "qz-gen-015",
+    "question": "Who developed the Theory of General Relativity?",
+    "options": [
+      "Albert Einstein",
+      "Niels Bohr",
+      "Max Planck",
+      "Werner Heisenberg"
+    ],
+    "answer": "Albert Einstein",
+    "category": "General Knowledge",
+    "difficulty": "Easy",
+    "explanation": "Albert Einstein published his Theory of General Relativity in 1915, redefining gravity as spacetime curvature."
+  },
+  {
+    "id": "qz-gen-016",
+    "question": "What is the currency used in Japan?",
+    "options": [
+      "Yen",
+      "Yuan",
+      "Won",
+      "Ringgit"
+    ],
+    "answer": "Yen",
+    "category": "General Knowledge",
+    "difficulty": "Easy",
+    "explanation": "The Yen (¥) is the official currency unit of Japan."
+  },
+  {
+    "id": "qz-gen-017",
+    "question": "Which continent is the largest by land area?",
+    "options": [
+      "Asia",
+      "Africa",
+      "North America",
+      "Antarctica"
+    ],
+    "answer": "Asia",
+    "category": "General Knowledge",
+    "difficulty": "Easy",
+    "explanation": "Asia covers approximately 30% of Earth's total land area."
+  },
+  {
+    "id": "qz-gen-018",
+    "question": "What unit measures electrical resistance?",
+    "options": [
+      "Ohm (Ω)",
+      "Volt (V)",
+      "Ampere (A)",
+      "Watt (W)"
+    ],
+    "answer": "Ohm (Ω)",
+    "category": "General Knowledge",
+    "difficulty": "Easy",
+    "explanation": "Electrical resistance is measured in Ohms, named after Georg Simon Ohm."
+  },
+  {
+    "id": "qz-gen-019",
+    "question": "Which organ is responsible for pumping blood through the circulatory system?",
+    "options": [
+      "Heart",
+      "Lungs",
+      "Kidneys",
+      "Liver"
+    ],
+    "answer": "Heart",
+    "category": "General Knowledge",
+    "difficulty": "Easy",
+    "explanation": "The heart is a muscular organ pumping blood through blood vessels."
+  },
+  {
+    "id": "qz-gen-020",
+    "question": "What is the primary gas powering energy generation in the Sun?",
+    "options": [
+      "Hydrogen",
+      "Helium",
+      "Oxygen",
+      "Methane"
+    ],
+    "answer": "Hydrogen",
+    "category": "General Knowledge",
+    "difficulty": "Medium",
+    "explanation": "The Sun generates energy through nuclear fusion of Hydrogen nuclei into Helium."
+  },
+  {
+    "id": "qz-gen-021",
+    "question": "Who is credited with discovering Penicillin in 1928?",
+    "options": [
+      "Alexander Fleming",
+      "Louis Pasteur",
+      "Robert Koch",
+      "Edward Jenner"
+    ],
+    "answer": "Alexander Fleming",
+    "category": "General Knowledge",
+    "difficulty": "Easy",
+    "explanation": "Alexander Fleming discovered penicillin produced by Penicillium notatum mold."
+  },
+  {
+    "id": "qz-gen-022",
+    "question": "What is the chemical formula for table salt?",
+    "options": [
+      "NaCl",
+      "KCl",
+      "NaHCO3",
+      "CaCl2"
+    ],
+    "answer": "NaCl",
+    "category": "General Knowledge",
+    "difficulty": "Easy",
+    "explanation": "Table salt is composed of Sodium Chloride (NaCl)."
+  },
+  {
+    "id": "qz-gen-023",
+    "question": "Which planet has the most prominent ring system?",
+    "options": [
+      "Saturn",
+      "Jupiter",
+      "Uranus",
+      "Neptune"
+    ],
+    "answer": "Saturn",
+    "category": "General Knowledge",
+    "difficulty": "Easy",
+    "explanation": "Saturn features an extensive ring system composed of ice and rock particles."
+  },
+  {
+    "id": "qz-gen-024",
+    "question": "What is the SI unit of force?",
+    "options": [
+      "Newton (N)",
+      "Joule (J)",
+      "Pascal (Pa)",
+      "Watt (W)"
+    ],
+    "answer": "Newton (N)",
+    "category": "General Knowledge",
+    "difficulty": "Easy",
+    "explanation": "Force is measured in Newtons (kg·m/s²)."
+  },
+  {
+    "id": "qz-gen-025",
+    "question": "What is the SI unit of energy or work?",
+    "options": [
+      "Joule (J)",
+      "Watt (W)",
+      "Newton (N)",
+      "Volt (V)"
+    ],
+    "answer": "Joule (J)",
+    "category": "General Knowledge",
+    "difficulty": "Easy",
+    "explanation": "Joule (J) measures energy transferred or work done."
+  },
+  {
+    "id": "qz-gen-026",
+    "question": "What is the capital city of Australia?",
+    "options": [
+      "Canberra",
+      "Sydney",
+      "Melbourne",
+      "Brisbane"
+    ],
+    "answer": "Canberra",
+    "category": "General Knowledge",
+    "difficulty": "Easy",
+    "explanation": "Canberra was selected as Australia's capital in 1908 as a compromise between Sydney and Melbourne."
+  },
+  {
+    "id": "qz-gen-027",
+    "question": "Which entity is the smallest unit of life capable of independent replication?",
+    "options": [
+      "Cell",
+      "Atom",
+      "Molecule",
+      "Organ"
+    ],
+    "answer": "Cell",
+    "category": "General Knowledge",
+    "difficulty": "Easy",
+    "explanation": "The cell is the structural and functional basic unit of life."
+  },
+  {
+    "id": "qz-gen-028",
+    "question": "What is the pH value of pure distilled water at 25°C?",
+    "options": [
+      "7 (Neutral)",
+      "0 (Acidic)",
+      "14 (Basic)",
+      "5.5 (Acidic)"
+    ],
+    "answer": "7 (Neutral)",
+    "category": "General Knowledge",
+    "difficulty": "Easy",
+    "explanation": "Pure water has a neutral pH of 7 at 25°C."
+  },
+  {
+    "id": "qz-gen-029",
+    "question": "What is the main source of light and energy for life on Earth?",
+    "options": [
+      "The Sun",
+      "The Moon",
+      "Geothermal vents",
+      "Atmosphere"
+    ],
+    "answer": "The Sun",
+    "category": "General Knowledge",
+    "difficulty": "Easy",
+    "explanation": "Solar radiation from the Sun powers photosynthesis and climate systems."
+  },
+  {
+    "id": "qz-gen-030",
+    "question": "Which scientist proposed the heliocentric model of the solar system?",
+    "options": [
+      "Nicolaus Copernicus",
+      "Ptolemy",
+      "Aristotle",
+      "Johannes Kepler"
+    ],
+    "answer": "Nicolaus Copernicus",
+    "category": "General Knowledge",
+    "difficulty": "Medium",
+    "explanation": "Copernicus published De revolutionibus orbium coelestium in 1543, placing the Sun at the center of the universe."
+  },
+  {
+    "id": "qz-gen-031",
+    "question": "What does DNA stand for in genetics?",
+    "options": [
+      "Deoxyribonucleic Acid",
+      "Ribonucleic Acid",
+      "Deoxyribose Nitrogen Acid",
+      "Dual Nucleic Acid"
+    ],
+    "answer": "Deoxyribonucleic Acid",
+    "category": "General Knowledge",
+    "difficulty": "Easy",
+    "explanation": "DNA is a molecule carrying genetic instructions for development and functioning of living organisms."
+  },
+  {
+    "id": "qz-gen-032",
+    "question": "What is the structure of DNA commonly described as?",
+    "options": [
+      "Double Helix",
+      "Single Strand",
+      "Triple Coil",
+      "Flat Grid"
+    ],
+    "answer": "Double Helix",
+    "category": "General Knowledge",
+    "difficulty": "Easy",
+    "explanation": "Watson and Crick identified DNA as a double-stranded right-handed helix."
+  },
+  {
+    "id": "qz-gen-033",
+    "question": "What is the boiling point of water at standard atmospheric pressure (1 atm)?",
+    "options": [
+      "100°C (212°F)",
+      "0°C (32°F)",
+      "50°C (122°F)",
+      "150°C (302°F)"
+    ],
+    "answer": "100°C (212°F)",
+    "category": "General Knowledge",
+    "difficulty": "Easy",
+    "explanation": "Water boils at 100°C (212°F) at sea level atmospheric pressure."
+  },
+  {
+    "id": "qz-gen-034",
+    "question": "What is the freezing point of water at standard atmospheric pressure?",
+    "options": [
+      "0°C (32°F)",
+      "100°C (212°F)",
+      "-10°C (14°F)",
+      "4°C (39°F)"
+    ],
+    "answer": "0°C (32°F)",
+    "category": "General Knowledge",
+    "difficulty": "Easy",
+    "explanation": "Water freezes into ice at 0°C (32°F)."
+  },
+  {
+    "id": "qz-gen-035",
+    "question": "Which continent is the coldest, windiest, and driest on Earth?",
+    "options": [
+      "Antarctica",
+      "Arctic",
+      "Greenland",
+      "Siberia"
+    ],
+    "answer": "Antarctica",
+    "category": "General Knowledge",
+    "difficulty": "Easy",
+    "explanation": "Antarctica is a polar desert holding 90% of Earth's ice."
+  },
+  {
+    "id": "qz-gen-036",
+    "question": "Which layer of Earth's atmosphere contains the ozone layer?",
+    "options": [
+      "Stratosphere",
+      "Troposphere",
+      "Mesosphere",
+      "Thermosphere"
+    ],
+    "answer": "Stratosphere",
+    "category": "General Knowledge",
+    "difficulty": "Medium",
+    "explanation": "The ozone layer resides in the Stratosphere, absorbing solar ultraviolet (UV) radiation."
+  },
+  {
+    "id": "qz-gen-037",
+    "question": "What is the largest living organ on the human body?",
+    "options": [
+      "Skin",
+      "Liver",
+      "Large Intestine",
+      "Lungs"
+    ],
+    "answer": "Skin",
+    "category": "General Knowledge",
+    "difficulty": "Easy",
+    "explanation": "Skin (integumentary system) is the human body's largest organ by mass and surface area."
+  },
+  {
+    "id": "qz-gen-038",
+    "question": "Which gas do green plants absorb during photosynthesis?",
+    "options": [
+      "Carbon Dioxide (CO₂)",
+      "Oxygen (O₂)",
+      "Nitrogen (N₂)",
+      "Helium (He)"
+    ],
+    "answer": "Carbon Dioxide (CO₂)",
+    "category": "General Knowledge",
+    "difficulty": "Easy",
+    "explanation": "Plants absorb CO₂ and water, using sunlight to produce glucose and Oxygen."
+  },
+  {
+    "id": "qz-gen-039",
+    "question": "Which gas do plants release into the atmosphere as a byproduct of photosynthesis?",
+    "options": [
+      "Oxygen (O₂)",
+      "Carbon Dioxide (CO₂)",
+      "Methane (CH₄)",
+      "Nitrogen (N₂)"
+    ],
+    "answer": "Oxygen (O₂)",
+    "category": "General Knowledge",
+    "difficulty": "Easy",
+    "explanation": "Oxygen is released into the air when water molecules split during light-dependent photosynthetic reactions."
+  },
+  {
+    "id": "qz-gen-040",
+    "question": "What is the study of weather and atmospheric phenomena called?",
+    "options": [
+      "Meteorology",
+      "Geology",
+      "Astronomy",
+      "Ecological Botany"
+    ],
+    "answer": "Meteorology",
+    "category": "General Knowledge",
+    "difficulty": "Easy",
+    "explanation": "Meteorology is the interdisciplinary scientific study of the atmosphere and weather forecasting."
+  },
+  {
+    "id": "qz-gen-041",
+    "question": "What is the study of earthquakes called?",
+    "options": [
+      "Seismology",
+      "Vulcanology",
+      "Geomorphology",
+      "Tectonics"
+    ],
+    "answer": "Seismology",
+    "category": "General Knowledge",
+    "difficulty": "Easy",
+    "explanation": "Seismology studies seismic waves generated by earthquakes and tectonic shifts."
+  },
+  {
+    "id": "qz-gen-042",
+    "question": "Which instrument measures atmospheric pressure?",
+    "options": [
+      "Barometer",
+      "Thermometer",
+      "Hygrometer",
+      "Anemometer"
+    ],
+    "answer": "Barometer",
+    "category": "General Knowledge",
+    "difficulty": "Easy",
+    "explanation": "Barometers measure atmospheric pressure to forecast weather changes."
+  },
+  {
+    "id": "qz-gen-043",
+    "question": "Which instrument measures wind speed?",
+    "options": [
+      "Anemometer",
+      "Barometer",
+      "Altimeter",
+      "Manometer"
+    ],
+    "answer": "Anemometer",
+    "category": "General Knowledge",
+    "difficulty": "Easy",
+    "explanation": "Anemometers measure wind velocity in weather monitoring stations."
+  },
+  {
+    "id": "qz-gen-044",
+    "question": "What is absolute zero temperature in Kelvin?",
+    "options": [
+      "0 K (-273.15°C)",
+      "273.15 K (0°C)",
+      "100 K",
+      "-100 K"
+    ],
+    "answer": "0 K (-273.15°C)",
+    "category": "General Knowledge",
+    "difficulty": "Easy",
+    "explanation": "Absolute zero (0 K) is the theoretical temperature at which particle kinetic energy reaches its minimum."
+  },
+  {
+    "id": "qz-gen-045",
+    "question": "What is the Law of Conservation of Energy?",
+    "options": [
+      "Energy cannot be created or destroyed, only transformed from one form to another.",
+      "Energy increases over time.",
+      "Energy converts directly to gravity.",
+      "Energy is lost during motion."
+    ],
+    "answer": "Energy cannot be created or destroyed, only transformed from one form to another.",
+    "category": "General Knowledge",
+    "difficulty": "Easy",
+    "explanation": "The First Law of Thermodynamics states total energy in an isolated system remains constant."
+  },
+  {
+    "id": "qz-gen-046",
+    "question": "What force pulls objects toward the center of the Earth?",
+    "options": [
+      "Gravity",
+      "Magnetism",
+      "Friction",
+      "Centrifugal force"
+    ],
+    "answer": "Gravity",
+    "category": "General Knowledge",
+    "difficulty": "Easy",
+    "explanation": "Gravitational force attracts mass toward Earth's center."
+  },
+  {
+    "id": "qz-gen-047",
+    "question": "What is Newton's First Law of Motion also known as?",
+    "options": [
+      "Law of Inertia",
+      "Law of Action-Reaction",
+      "Law of Acceleration",
+      "Law of Gravitation"
+    ],
+    "answer": "Law of Inertia",
+    "category": "General Knowledge",
+    "difficulty": "Easy",
+    "explanation": "Inertia states an object remains at rest or in uniform motion unless acted upon by a net external force."
+  },
+  {
+    "id": "qz-gen-048",
+    "question": "What is Newton's Third Law of Motion?",
+    "options": [
+      "For every action, there is an equal and opposite reaction.",
+      "Force equals mass times acceleration.",
+      "Inertia keeps objects moving.",
+      "Gravity decreases with distance squared."
+    ],
+    "answer": "For every action, there is an equal and opposite reaction.",
+    "category": "General Knowledge",
+    "difficulty": "Easy",
+    "explanation": "Forces always occur in matched interaction pairs of equal magnitude and opposite direction."
+  },
+  {
+    "id": "qz-gen-049",
+    "question": "What is the mathematical equation representing mass-energy equivalence formulated by Einstein?",
+    "options": [
+      "E = mc²",
+      "F = ma",
+      "V = IR",
+      "PV = nRT"
+    ],
+    "answer": "E = mc²",
+    "category": "General Knowledge",
+    "difficulty": "Easy",
+    "explanation": "E = mc² demonstrates that mass and energy are interchangeable physical quantities."
+  },
+  {
+    "id": "qz-gen-050",
+    "question": "What is the lightest chemical element in terms of atomic weight?",
+    "options": [
+      "Hydrogen",
+      "Helium",
+      "Lithium",
+      "Beryllium"
+    ],
+    "answer": "Hydrogen",
+    "category": "General Knowledge",
+    "difficulty": "Easy",
+    "explanation": "Hydrogen has atomic weight ~1.008 u."
+  },
+  {
+    "id": "qz-gen-051",
+    "question": "Which blood type is considered the universal red blood cell donor?",
+    "options": [
+      "O negative (O-)",
+      "AB positive (AB+)",
+      "A positive (A+)",
+      "B negative (B-)"
+    ],
+    "answer": "O negative (O-)",
+    "category": "General Knowledge",
+    "difficulty": "Medium",
+    "explanation": "O negative red blood cells lack A, B, and Rh antigens, minimizing transfusion reactions."
+  },
+  {
+    "id": "qz-gen-052",
+    "question": "Which blood type is considered the universal recipient for red blood cells?",
+    "options": [
+      "AB positive (AB+)",
+      "O negative (O-)",
+      "A positive (A+)",
+      "B positive (B+)"
+    ],
+    "answer": "AB positive (AB+)",
+    "category": "General Knowledge",
+    "difficulty": "Medium",
+    "explanation": "AB positive individuals possess A, B, and Rh antigens, enabling safe receipt of any RBC type."
+  },
+  {
+    "id": "qz-gen-053",
+    "question": "Which subatomic particle carries a negative electrical charge?",
+    "options": [
+      "Electron",
+      "Proton",
+      "Neutron",
+      "Positron"
+    ],
+    "answer": "Electron",
+    "category": "General Knowledge",
+    "difficulty": "Easy",
+    "explanation": "Electrons carry a fundamental negative unit charge (-1e)."
+  },
+  {
+    "id": "qz-gen-04",
+    "question": "Which subatomic particle carries a positive electrical charge?",
+    "options": [
+      "Proton",
+      "Electron",
+      "Neutron",
+      "Photon"
+    ],
+    "answer": "Proton",
+    "category": "General Knowledge",
+    "difficulty": "Easy",
+    "explanation": "Protons reside in atomic nuclei with positive unit charge (+1e)."
+  },
+  {
+    "id": "qz-gen-055",
+    "question": "Which subatomic particle has zero electrical charge?",
+    "options": [
+      "Neutron",
+      "Proton",
+      "Electron",
+      "Muon"
+    ],
+    "answer": "Neutron",
+    "category": "General Knowledge",
+    "difficulty": "Easy",
+    "explanation": "Neutrons are neutral subatomic particles located inside atomic nuclei."
+  },
+  {
+    "id": "qz-gen-056",
+    "question": "What is the process of water movement through a plant and its evaporation from aerial parts called?",
+    "options": [
+      "Transpiration",
+      "Respiration",
+      "Photosynthesis",
+      "Osmosis"
+    ],
+    "answer": "Transpiration",
+    "category": "General Knowledge",
+    "difficulty": "Medium",
+    "explanation": "Transpiration carries water from roots through vascular tissue to stoma pores on leaves."
+  },
+  {
+    "id": "qz-gen-057",
+    "question": "What is Osmosis in cell biology?",
+    "options": [
+      "The passive movement of water molecules across a semipermeable membrane from lower solute concentration to higher solute concentration.",
+      "Active transport of glucose across cell walls.",
+      "Cell division phase.",
+      "Protein synthesis."
+    ],
+    "answer": "The passive movement of water molecules across a semipermeable membrane from lower solute concentration to higher solute concentration.",
+    "category": "General Knowledge",
+    "difficulty": "Medium",
+    "explanation": "Osmosis equalizes solute concentrations across selective semipermeable cell membranes."
+  },
+  {
+    "id": "qz-gen-058",
+    "question": "What is the primary function of Red Blood Cells (Erythrocytes)?",
+    "options": [
+      "Transport oxygen from lungs to body tissues via hemoglobin.",
+      "Fight bacterial infections.",
+      "Clot blood at wound sites.",
+      "Produce digestive enzymes."
+    ],
+    "answer": "Transport oxygen from lungs to body tissues via hemoglobin.",
+    "category": "General Knowledge",
+    "difficulty": "Easy",
+    "explanation": "RBCs contain iron-rich hemoglobin protein binding oxygen molecules."
+  },
+  {
+    "id": "qz-gen-059",
+    "question": "What is the primary function of White Blood Cells (Leukocytes)?",
+    "options": [
+      "Defend the body against infectious diseases and foreign pathogens.",
+      "Transport carbon dioxide.",
+      "Form blood clots.",
+      "Regulate body temperature."
+    ],
+    "answer": "Defend the body against infectious diseases and foreign pathogens.",
+    "category": "General Knowledge",
+    "difficulty": "Easy",
+    "explanation": "White blood cells constitute immune system defenses against bacteria, viruses, and parasites."
+  },
+  {
+    "id": "qz-gen-060",
+    "question": "What is the function of Blood Platelets (Thrombocytes)?",
+    "options": [
+      "Initiate blood clotting to stop bleeding at damaged blood vessels.",
+      "Transport nutrients.",
+      "Destroy cancerous cells.",
+      "Filter urine."
+    ],
+    "answer": "Initiate blood clotting to stop bleeding at damaged blood vessels.",
+    "category": "General Knowledge",
+    "difficulty": "Easy",
+    "explanation": "Platelets aggregate at injury sites to form plugs and trigger coagulation cascades."
+  },
+  {
+    "id": "qz-gen-061",
+    "question": "What is the process of cell division that results in two genetically identical daughter cells?",
+    "options": [
+      "Mitosis",
+      "Meiosis",
+      "Binary Fission",
+      "Budding"
+    ],
+    "answer": "Mitosis",
+    "category": "General Knowledge",
+    "difficulty": "Easy",
+    "explanation": "Mitosis produces identical diploid somatic daughter cells for growth and tissue repair."
+  },
+  {
+    "id": "qz-gen-062",
+    "question": "What is the process of cell division that produces four genetically unique gametes (sex cells) with half the chromosome count?",
+    "options": [
+      "Meiosis",
+      "Mitosis",
+      "Cytokinesis",
+      "Apoptosis"
+    ],
+    "answer": "Meiosis",
+    "category": "General Knowledge",
+    "difficulty": "Medium",
+    "explanation": "Meiosis reduces chromosome count by half (haploid) to form sperm and egg cells."
+  },
+  {
+    "id": "qz-gen-063",
+    "question": "What is the largest organ inside the human abdominal cavity?",
+    "options": [
+      "Liver",
+      "Kidney",
+      "Stomach",
+      "Pancreas"
+    ],
+    "answer": "Liver",
+    "category": "General Knowledge",
+    "difficulty": "Easy",
+    "explanation": "The liver is the largest internal organ, executing over 500 metabolic and detoxification functions."
+  },
+  {
+    "id": "qz-gen-064",
+    "question": "What is the term for animals that eat both plants and meat?",
+    "options": [
+      "Omnivores",
+      "Herbivores",
+      "Carnivores",
+      "Detritivores"
+    ],
+    "answer": "Omnivores",
+    "category": "General Knowledge",
+    "difficulty": "Easy",
+    "explanation": "Omnivores consume diverse dietary sources including vegetation and animal tissue."
+  },
+  {
+    "id": "qz-gen-065",
+    "question": "What is the primary currency used in the European Union (EU) euro area?",
+    "options": [
+      "Euro (€)",
+      "Pound Sterling (£)",
+      "Swiss Franc (CHF)",
+      "Krona (SEK)"
+    ],
+    "answer": "Euro (€)",
+    "category": "General Knowledge",
+    "difficulty": "Easy",
+    "explanation": "The Euro (€) is the official currency of 20 of the 27 EU member states."
   }
 ]

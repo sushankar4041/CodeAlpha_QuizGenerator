@@ -1,5 +1,5 @@
 /**
- * Live Quiz Results & Podium Component - Phase 7B QuizForge
+ * Live Quiz Results & Podium Component - Phase 7B Quizelle
  * Displays Gold/Silver/Bronze podium standings and final multiplayer score rankings.
  */
 export default function LiveQuizResults({ roomData, localPlayerId, onReturnHome }) {

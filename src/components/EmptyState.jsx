@@ -1,5 +1,5 @@
 /**
- * Empty State Component - Phase 7B QuizForge
+ * Empty State Component - Phase 7B Quizelle
  * Standardized empty state visualization with muted gold icon, title, description, and primary action.
  */
 export default function EmptyState({ title = "No Flashcards Found", message, onResetFilter }) {
