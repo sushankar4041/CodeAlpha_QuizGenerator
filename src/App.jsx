@@ -3,28 +3,102 @@ import Sidebar from './components/Sidebar';
 import Header from './components/Header';
 import Dashboard from './components/Dashboard';
 import FlashcardList from './components/FlashcardList';
-import MockQuizPlaceholder from './components/MockQuizPlaceholder';
+import MockQuiz from './components/MockQuiz';
+import Statistics from './components/Statistics';
 import LiveQuizPlaceholder from './components/LiveQuizPlaceholder';
-import StatisticsPlaceholder from './components/StatisticsPlaceholder';
-import { getStoredFlashcards, getStoredTheme, saveStoredTheme } from './services/storage';
+import {
+  getStoredFlashcards,
+  saveStoredFlashcards,
+  getStoredQuizHistory,
+  saveQuizResult,
+  getStoredTheme,
+  saveStoredTheme
+} from './services/storage';
 import './App.css';
 
 /**
- * Main Application Component - Phase 1.5
- * Coordinates navigation across 4 product modes (Flashcards, Mock Quiz, Live Quiz, Statistics),
- * theme state, and mobile navigation drawer.
+ * Main Application Component - Phase 4
+ * Coordinates Flashcard CRUD, Mock Quiz generator engine, Statistics & Analytics Dashboard,
+ * theme state, and section navigation.
  */
 function App() {
   const [activeView, setActiveView] = useState('dashboard');
   const [theme, setTheme] = useState(getStoredTheme);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const [flashcards] = useState(getStoredFlashcards);
+  const [flashcards, setFlashcards] = useState(getStoredFlashcards);
+  const [quizHistory, setQuizHistory] = useState(getStoredQuizHistory);
 
   // Sync theme attribute on document root
   useEffect(() => {
     document.documentElement.setAttribute('data-theme', theme);
     saveStoredTheme(theme);
   }, [theme]);
+
+  // Persist flashcards changes to localStorage
+  const updateAndSaveCards = (newCards) => {
+    setFlashcards(newCards);
+    saveStoredFlashcards(newCards);
+  };
+
+  // Flashcard CRUD Handlers
+  const handleAddCard = (cardData) => {
+    const now = new Date().toISOString();
+    const newCard = {
+      id: `fc-${Date.now()}`,
+      question: cardData.question,
+      answer: cardData.answer,
+      category: cardData.category,
+      difficulty: cardData.difficulty,
+      createdAt: now,
+      updatedAt: now,
+      studiedCount: 0
+    };
+    const updatedCollection = [newCard, ...flashcards];
+    updateAndSaveCards(updatedCollection);
+  };
+
+  const handleEditCard = (cardData) => {
+    const now = new Date().toISOString();
+    const updatedCollection = flashcards.map((card) => {
+      if (card.id === cardData.id) {
+        return {
+          ...card,
+          question: cardData.question,
+          answer: cardData.answer,
+          category: cardData.category,
+          difficulty: cardData.difficulty,
+          updatedAt: now
+        };
+      }
+      return card;
+    });
+    updateAndSaveCards(updatedCollection);
+  };
+
+  const handleDeleteCard = (cardId) => {
+    const updatedCollection = flashcards.filter((card) => card.id !== cardId);
+    updateAndSaveCards(updatedCollection);
+  };
+
+  const handleStudyCard = (cardId) => {
+    const updatedCollection = flashcards.map((card) => {
+      if (card.id === cardId) {
+        return {
+          ...card,
+          studiedCount: (card.studiedCount || 0) + 1,
+          updatedAt: new Date().toISOString()
+        };
+      }
+      return card;
+    });
+    updateAndSaveCards(updatedCollection);
+  };
+
+  // Quiz History Handler
+  const handleSaveQuizResult = (resultData) => {
+    const updatedHistory = saveQuizResult(resultData);
+    setQuizHistory(updatedHistory);
+  };
 
   const toggleTheme = () => {
     setTheme((prevTheme) => (prevTheme === 'light' ? 'dark' : 'light'));
@@ -58,16 +132,25 @@ function App() {
           {activeView === 'dashboard' && (
             <Dashboard
               onNavigateView={handleNavigate}
-              flashcardsCount={flashcards.length}
+              flashcards={flashcards}
+              quizHistory={quizHistory}
             />
           )}
 
           {activeView === 'flashcards' && (
-            <FlashcardList flashcards={flashcards} />
+            <FlashcardList
+              flashcards={flashcards}
+              onAddCard={handleAddCard}
+              onEditCard={handleEditCard}
+              onDeleteCard={handleDeleteCard}
+              onStudyCard={handleStudyCard}
+            />
           )}
 
           {activeView === 'mock-quiz' && (
-            <MockQuizPlaceholder
+            <MockQuiz
+              flashcards={flashcards}
+              onSaveQuizResult={handleSaveQuizResult}
               onNavigateToFlashcards={() => handleNavigate('flashcards')}
             />
           )}
@@ -79,9 +162,10 @@ function App() {
           )}
 
           {activeView === 'statistics' && (
-            <StatisticsPlaceholder
-              onNavigateToFlashcards={() => handleNavigate('flashcards')}
-              flashcardsCount={flashcards.length}
+            <Statistics
+              flashcards={flashcards}
+              quizHistory={quizHistory}
+              onNavigateView={handleNavigate}
             />
           )}
         </main>

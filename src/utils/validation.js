@@ -1,24 +1,33 @@
 /**
- * Validation Helpers
+ * Validation Helpers for Flashcard Form
  */
 
-export const validateFlashcardForm = ({ question, answer, category }) => {
+export const validateFlashcardForm = ({ question, answer, category, difficulty }) => {
   const errors = {};
 
-  if (!question || !question.trim()) {
+  const trimmedQuestion = (question || '').trim();
+  const trimmedAnswer = (answer || '').trim();
+  const trimmedCategory = (category || '').trim();
+  const trimmedDifficulty = (difficulty || '').trim();
+
+  if (!trimmedQuestion) {
     errors.question = 'Question is required.';
-  } else if (question.trim().length < 5) {
-    errors.question = 'Question must be at least 5 characters.';
+  } else if (trimmedQuestion.length < 3) {
+    errors.question = 'Question must be at least 3 characters.';
   }
 
-  if (!answer || !answer.trim()) {
+  if (!trimmedAnswer) {
     errors.answer = 'Answer is required.';
-  } else if (answer.trim().length < 3) {
-    errors.answer = 'Answer must be at least 3 characters.';
+  } else if (trimmedAnswer.length < 2) {
+    errors.answer = 'Answer must be at least 2 characters.';
   }
 
-  if (!category || !category.trim()) {
+  if (!trimmedCategory) {
     errors.category = 'Category is required.';
+  }
+
+  if (!trimmedDifficulty) {
+    errors.difficulty = 'Difficulty level is required.';
   }
 
   return {

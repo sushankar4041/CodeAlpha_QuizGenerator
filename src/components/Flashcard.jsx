@@ -3,13 +3,26 @@ import { getDifficultyBadgeClass, getCategoryIcon } from '../utils/quizUtils';
 
 /**
  * Flashcard Component
- * Renders an individual flashcard with question, category, difficulty, and interactive answer toggle
+ * Displays an individual flashcard with interactive answer reveal, study tracking,
+ * and inline edit/delete action triggers.
  */
-export default function Flashcard({ card }) {
+export default function Flashcard({ card, onEdit, onDelete, onStudy }) {
   const [isAnswerRevealed, setIsAnswerRevealed] = useState(false);
+  const [isDeleting, setIsDeleting] = useState(false);
 
   const toggleReveal = () => {
-    setIsAnswerRevealed((prev) => !prev);
+    setIsAnswerRevealed((prev) => {
+      const nextState = !prev;
+      if (nextState && onStudy) {
+        onStudy(card.id);
+      }
+      return nextState;
+    });
+  };
+
+  const handleConfirmDelete = () => {
+    onDelete(card.id);
+    setIsDeleting(false);
   };
 
   return (
@@ -20,9 +33,11 @@ export default function Flashcard({ card }) {
           <span className="category-emoji">{getCategoryIcon(card.category)}</span>
           <span className="category-name">{card.category}</span>
         </div>
-        <span className={`badge ${getDifficultyBadgeClass(card.difficulty)}`}>
-          {card.difficulty}
-        </span>
+        <div className="flashcard-meta-right">
+          <span className={`badge ${getDifficultyBadgeClass(card.difficulty)}`}>
+            {card.difficulty}
+          </span>
+        </div>
       </div>
 
       {/* Main Flashcard Content Body */}
@@ -40,18 +55,66 @@ export default function Flashcard({ card }) {
         )}
       </div>
 
-      {/* Footer Action Area */}
-      <div className="flashcard-footer">
-        <button
-          type="button"
-          className={`btn-toggle-answer ${isAnswerRevealed ? 'revealed' : ''}`}
-          onClick={toggleReveal}
-          aria-expanded={isAnswerRevealed}
-          aria-label={isAnswerRevealed ? 'Hide Answer' : 'Show Answer'}
-        >
-          <span>{isAnswerRevealed ? 'Hide Answer 👁️‍🗨️' : 'Show Answer 👁️'}</span>
-        </button>
-      </div>
+      {/* Delete Confirmation Overlay */}
+      {isDeleting ? (
+        <div className="delete-confirm-box animate-fade-in">
+          <span className="delete-confirm-msg">Delete this card?</span>
+          <div className="delete-confirm-actions">
+            <button
+              type="button"
+              className="btn btn-danger-sm"
+              onClick={handleConfirmDelete}
+            >
+              Yes, Delete
+            </button>
+            <button
+              type="button"
+              className="btn btn-secondary-sm"
+              onClick={() => setIsDeleting(false)}
+            >
+              Cancel
+            </button>
+          </div>
+        </div>
+      ) : (
+        /* Footer Action Area */
+        <div className="flashcard-footer">
+          <div className="card-manage-actions">
+            {onEdit && (
+              <button
+                type="button"
+                className="btn-card-action edit-action"
+                onClick={() => onEdit(card)}
+                title="Edit flashcard"
+                aria-label="Edit flashcard"
+              >
+                ✏️ Edit
+              </button>
+            )}
+            {onDelete && (
+              <button
+                type="button"
+                className="btn-card-action delete-action"
+                onClick={() => setIsDeleting(true)}
+                title="Delete flashcard"
+                aria-label="Delete flashcard"
+              >
+                🗑️ Delete
+              </button>
+            )}
+          </div>
+
+          <button
+            type="button"
+            className={`btn-toggle-answer ${isAnswerRevealed ? 'revealed' : ''}`}
+            onClick={toggleReveal}
+            aria-expanded={isAnswerRevealed}
+            aria-label={isAnswerRevealed ? 'Hide Answer' : 'Show Answer'}
+          >
+            <span>{isAnswerRevealed ? 'Hide Answer 👁️‍🗨️' : 'Show Answer 👁️'}</span>
+          </button>
+        </div>
+      )}
     </div>
   );
 }

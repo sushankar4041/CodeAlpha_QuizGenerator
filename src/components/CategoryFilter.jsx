@@ -1,26 +1,39 @@
-import { sampleCategories } from '../data/defaultFlashcards';
+import { getCategoryIcon } from '../utils/quizUtils';
 
 /**
  * Category Filter Component
- * Renders filter chips for flashcard category selection
+ * Dynamically renders category chips based on the active flashcard collection
  */
-export default function CategoryFilter({ selectedCategory, onSelectCategory }) {
+export default function CategoryFilter({ selectedCategory, onSelectCategory, flashcards = [] }) {
+  // Extract unique categories from current cards
+  const categoriesList = ['All Categories'];
+  flashcards.forEach((card) => {
+    if (card.category && !categoriesList.includes(card.category)) {
+      categoriesList.push(card.category);
+    }
+  });
+
   return (
     <div className="category-filter-bar">
-      <span className="filter-label">Filter by Category:</span>
+      <span className="filter-label">Category:</span>
       <div className="filter-chips">
-        {sampleCategories.map((cat) => {
-          const isSelected = selectedCategory === cat.name;
+        {categoriesList.map((catName) => {
+          const isSelected = selectedCategory === catName;
+          const count = catName === 'All Categories'
+            ? flashcards.length
+            : flashcards.filter(c => c.category === catName).length;
+
           return (
             <button
-              key={cat.id}
+              key={catName}
               type="button"
               className={`filter-chip ${isSelected ? 'active' : ''}`}
-              onClick={() => onSelectCategory(cat.name)}
+              onClick={() => onSelectCategory(catName)}
               aria-pressed={isSelected}
             >
-              <span className="chip-icon">{cat.icon}</span>
-              <span className="chip-name">{cat.name}</span>
+              <span className="chip-icon">{catName === 'All Categories' ? '📚' : getCategoryIcon(catName)}</span>
+              <span className="chip-name">{catName}</span>
+              <span className="chip-count">({count})</span>
             </button>
           );
         })}
