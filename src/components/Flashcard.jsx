@@ -59,6 +59,14 @@ export default function Flashcard({ card, onEdit, onDelete, onStudy }) {
           <div className="flashcard-meta-right">
             {studyStatus === 'got_it' && <span className="badge badge-easy">✓ Got It</span>}
             {studyStatus === 'needs_review' && <span className="badge badge-medium">⚠️ Review</span>}
+            {card.personalizedDifficulty && card.difficultyStats?.attempts >= 1 && (
+              <span
+                className={`badge badge-subtle ${getDifficultyBadgeClass(card.personalizedDifficulty)}`}
+                title={`Your Personalized Difficulty: ${card.personalizedDifficulty} (${card.difficultyStats.correct}/${card.difficultyStats.attempts} correct)`}
+              >
+                Your: {card.personalizedDifficulty}
+              </span>
+            )}
             <span className={`badge ${getDifficultyBadgeClass(card.difficulty)}`}>
               {card.difficulty}
             </span>

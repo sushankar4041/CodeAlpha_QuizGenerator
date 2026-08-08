@@ -11,6 +11,7 @@ import { SYSTEM_CATEGORIES, getAvailableQuestionCount } from '../services/questi
 export default function MockQuizConfig({ flashcards = [], preferences, onStartQuiz }) {
   const activePrefs = preferences || getStoredPreferences();
 
+  const [quizMode, setQuizMode] = useState('standard'); // 'standard' | 'weak_areas' | 'adaptive'
   const [questionSource, setQuestionSource] = useState('system'); // 'system' | 'flashcards'
   const [selectedCategory, setSelectedCategory] = useState('All Categories');
   const [selectedDifficulty, setSelectedDifficulty] = useState(() => activePrefs.preferredDifficulty || 'All Difficulties');
@@ -19,12 +20,12 @@ export default function MockQuizConfig({ flashcards = [], preferences, onStartQu
 
   // Dynamic category list based on source
   const categoriesList = useMemo(() => {
-    if (questionSource === 'system') {
+    if (questionSource === 'system' && quizMode === 'standard') {
       return SYSTEM_CATEGORIES;
     }
     const set = new Set(flashcards.map((c) => c.category));
     return ['All Categories', ...Array.from(set)];
-  }, [questionSource, flashcards]);
+  }, [questionSource, quizMode, flashcards]);
 
   const effectiveCategory = categoriesList.includes(selectedCategory) ? selectedCategory : 'All Categories';
 
@@ -35,6 +36,7 @@ export default function MockQuizConfig({ flashcards = [], preferences, onStartQu
       category: effectiveCategory,
       difficulty: selectedDifficulty,
       source: questionSource,
+      mode: quizMode,
       flashcards
     }).then((count) => {
       if (!isCancelled) {
@@ -45,7 +47,7 @@ export default function MockQuizConfig({ flashcards = [], preferences, onStartQu
     return () => {
       isCancelled = true;
     };
-  }, [effectiveCategory, selectedDifficulty, questionSource, flashcards]);
+  }, [effectiveCategory, selectedDifficulty, questionSource, quizMode, flashcards]);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -55,7 +57,8 @@ export default function MockQuizConfig({ flashcards = [], preferences, onStartQu
       category: effectiveCategory,
       difficulty: selectedDifficulty,
       questionCount: Math.min(requestedCount, availableCount),
-      source: questionSource
+      source: questionSource,
+      mode: quizMode
     });
   };
 
@@ -65,19 +68,69 @@ export default function MockQuizConfig({ flashcards = [], preferences, onStartQu
         <div className="concept-badge">Self-Assessment Engine</div>
         <h2 className="config-title">Configure Your Mock Quiz</h2>
         <p className="config-subtitle">
-          Customize your quiz parameters below. Practice using the Quizelle System Question Bank or your personal flashcards.
+          Customize your quiz parameters below. Practice using Standard mode, target Weak Areas, or enable Quizelle Adaptive Engine.
         </p>
       </div>
 
       <form onSubmit={handleSubmit} className="quiz-config-form">
-        {/* Source Selector (System Question Bank vs User Flashcards) */}
+        {/* 1. Quiz Mode Selection */}
         <div className="config-section">
-          <label className="config-label">1. Select Question Source</label>
+          <label className="config-label">1. Select Quiz Mode</label>
+          <div className="config-chips-grid mode-chips-grid" role="group" aria-label="Quiz Mode Selection">
+            <button
+              type="button"
+              className={`config-chip mode-chip ${quizMode === 'standard' ? 'selected' : ''}`}
+              onClick={() => setQuizMode('standard')}
+              aria-pressed={quizMode === 'standard'}
+            >
+              <span className="chip-emoji" aria-hidden="true">🎯</span>
+              <div className="mode-chip-info">
+                <strong>Standard Mode</strong>
+                <span className="mode-desc">Practice normally using your selected settings.</span>
+              </div>
+            </button>
+            <button
+              type="button"
+              className={`config-chip mode-chip ${quizMode === 'weak_areas' ? 'selected' : ''}`}
+              onClick={() => {
+                setQuizMode('weak_areas');
+                setQuestionSource('flashcards');
+              }}
+              aria-pressed={quizMode === 'weak_areas'}
+            >
+              <span className="chip-emoji" aria-hidden="true">⚠️</span>
+              <div className="mode-chip-info">
+                <strong>Weak Areas</strong>
+                <span className="mode-desc">Focus on cards you are currently struggling with.</span>
+              </div>
+            </button>
+            <button
+              type="button"
+              className={`config-chip mode-chip ${quizMode === 'adaptive' ? 'selected' : ''}`}
+              onClick={() => {
+                setQuizMode('adaptive');
+                setQuestionSource('flashcards');
+              }}
+              aria-pressed={quizMode === 'adaptive'}
+            >
+              <span className="chip-emoji" aria-hidden="true">⚡</span>
+              <div className="mode-chip-info">
+                <strong>Quizelle Adaptive</strong>
+                <span className="mode-desc">Adjusts question difficulty based on your performance.</span>
+              </div>
+            </button>
+          </div>
+        </div>
+
+        {/* 2. Source Selector */}
+        <div className="config-section">
+          <label className="config-label">2. Select Question Source</label>
           <div className="config-chips-grid" role="group" aria-label="Question Source Selection">
             <button
               type="button"
               className={`config-chip ${questionSource === 'system' ? 'selected' : ''}`}
               onClick={() => setQuestionSource('system')}
+              disabled={quizMode !== 'standard'}
               aria-pressed={questionSource === 'system'}
             >
               <span className="chip-emoji" aria-hidden="true">🌐</span>
@@ -95,9 +148,9 @@ export default function MockQuizConfig({ flashcards = [], preferences, onStartQu
           </div>
         </div>
 
-        {/* Category Selection */}
+        {/* 3. Category Selection */}
         <div className="config-section">
-          <label className="config-label">2. Select Category / Topic</label>
+          <label className="config-label">3. Select Category / Topic</label>
           <div className="config-chips-grid" role="group" aria-label="Category Selection">
             {categoriesList.map((catName) => {
               const isSelected = effectiveCategory === catName;
@@ -119,25 +172,31 @@ export default function MockQuizConfig({ flashcards = [], preferences, onStartQu
           </div>
         </div>
 
-        {/* Difficulty Selection */}
+        {/* 4. Difficulty Selection */}
         <div className="config-section">
-          <label className="config-label">3. Select Difficulty Level</label>
-          <div className="config-chips-grid" role="group" aria-label="Difficulty Selection">
-            {['All Difficulties', 'Easy', 'Medium', 'Hard'].map((lvl) => {
-              const isSelected = selectedDifficulty === lvl;
-              return (
-                <button
-                  key={lvl}
-                  type="button"
-                  className={`config-chip ${isSelected ? 'selected' : ''}`}
-                  onClick={() => setSelectedDifficulty(lvl)}
-                  aria-pressed={isSelected}
-                >
-                  <span>{lvl}</span>
-                </button>
-              );
-            })}
-          </div>
+          <label className="config-label">4. Select Difficulty Level</label>
+          {quizMode !== 'standard' ? (
+            <div className="mode-auto-notice">
+              ✨ Difficulty is dynamically selected by Quizelle Engine for {quizMode === 'weak_areas' ? 'Weak Areas' : 'Adaptive'} mode.
+            </div>
+          ) : (
+            <div className="config-chips-grid" role="group" aria-label="Difficulty Selection">
+              {['All Difficulties', 'Easy', 'Medium', 'Hard'].map((lvl) => {
+                const isSelected = selectedDifficulty === lvl;
+                return (
+                  <button
+                    key={lvl}
+                    type="button"
+                    className={`config-chip ${isSelected ? 'selected' : ''}`}
+                    onClick={() => setSelectedDifficulty(lvl)}
+                    aria-pressed={isSelected}
+                  >
+                    <span>{lvl}</span>
+                  </button>
+                );
+              })}
+            </div>
+          )}
         </div>
 
         {/* Question Count Selection */}

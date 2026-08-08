@@ -1,6 +1,7 @@
 /**
  * Quiz & Flashcard Utilities
  */
+import { selectWeakAreaCards, selectAdaptiveCards } from './adaptiveQuizUtils.js';
 
 /**
  * Fisher-Yates array shuffle implementation
@@ -198,40 +199,64 @@ export const selectSmartDistractors = (targetCard, allFlashcards = []) => {
 };
 
 /**
- * Generate a randomized Mock Quiz from available flashcards
+ * Generate a randomized Mock Quiz from available flashcards supporting modes:
+ * 'standard' | 'weak_areas' | 'adaptive'
  */
 export const generateMockQuiz = ({
   flashcards = [],
   category = 'All Categories',
   difficulty = 'All Difficulties',
-  requestedCount = 5
+  requestedCount = 5,
+  mode = 'standard'
 }) => {
   if (!Array.isArray(flashcards) || flashcards.length === 0) {
     return { success: false, reason: 'EMPTY_COLLECTION', questions: [], availableCount: 0 };
   }
 
-  // 1. Filter flashcards by category and difficulty
-  let matchingCards = flashcards;
+  let selectedCards;
+  let availableCount;
+  let modeNotice = null;
 
-  if (category && category.toLowerCase() !== 'all categories') {
-    matchingCards = matchingCards.filter(
-      (c) => c.category.toLowerCase() === category.toLowerCase()
-    );
+  if (mode === 'weak_areas') {
+    const res = selectWeakAreaCards(flashcards, { category, requestedCount });
+    selectedCards = res.cards;
+    availableCount = selectedCards.length;
+    modeNotice = res.reason;
+  } else if (mode === 'adaptive') {
+    const res = selectAdaptiveCards(flashcards, { category, requestedCount });
+    selectedCards = res.cards;
+    availableCount = selectedCards.length;
+    modeNotice = res.reason;
+  } else {
+    // 1. Standard mode: filter flashcards by category and difficulty
+    let matchingCards = flashcards;
+
+    if (category && category.toLowerCase() !== 'all categories') {
+      matchingCards = matchingCards.filter(
+        (c) => c.category.toLowerCase() === category.toLowerCase()
+      );
+    }
+
+    if (difficulty && difficulty !== 'All Difficulties') {
+      matchingCards = matchingCards.filter(
+        (c) => c.difficulty.toLowerCase() === difficulty.toLowerCase()
+      );
+    }
+
+    availableCount = matchingCards.length;
+
+    if (matchingCards.length === 0) {
+      return { success: false, reason: 'NO_MATCHING_CARDS', questions: [], availableCount: 0 };
+    }
+
+    // 2. Shuffle matching cards and take up to requestedCount
+    const shuffledCards = shuffleArray(matchingCards);
+    selectedCards = shuffledCards.slice(0, Math.min(requestedCount, matchingCards.length));
   }
 
-  if (difficulty && difficulty !== 'All Difficulties') {
-    matchingCards = matchingCards.filter(
-      (c) => c.difficulty.toLowerCase() === difficulty.toLowerCase()
-    );
-  }
-
-  if (matchingCards.length === 0) {
+  if (selectedCards.length === 0) {
     return { success: false, reason: 'NO_MATCHING_CARDS', questions: [], availableCount: 0 };
   }
-
-  // 2. Shuffle matching cards and take up to requestedCount
-  const shuffledCards = shuffleArray(matchingCards);
-  const selectedCards = shuffledCards.slice(0, Math.min(requestedCount, matchingCards.length));
 
   // 3. Convert selected cards into multiple-choice quiz questions using smart distractors
   const generatedQuestions = selectedCards.map((card, idx) => {
@@ -258,6 +283,8 @@ export const generateMockQuiz = ({
   return {
     success: true,
     questions: generatedQuestions,
-    availableCount: matchingCards.length
+    availableCount,
+    mode,
+    modeNotice
   };
 };

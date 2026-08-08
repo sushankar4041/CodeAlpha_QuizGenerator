@@ -24,6 +24,7 @@ import {
   getLearningActivityDates,
   recordLearningActivity
 } from './services/storage';
+import { recordDifficultyAttempt } from './utils/difficultyUtils';
 import './App.css';
 
 /**
@@ -151,9 +152,28 @@ function App() {
   };
 
   // Quiz History Handlers
-  const handleSaveQuizResult = (resultData) => {
+  const handleSaveQuizResult = (resultData, flashcardAttempts = []) => {
     const updatedHistory = saveQuizResult(resultData);
     setQuizHistory(updatedHistory);
+
+    if (Array.isArray(flashcardAttempts) && flashcardAttempts.length > 0) {
+      const attemptMap = new Map();
+      flashcardAttempts.forEach((item) => {
+        if (item && item.flashcardId) {
+          attemptMap.set(item.flashcardId, item.isCorrect);
+        }
+      });
+
+      const updatedCollection = flashcards.map((card) => {
+        if (attemptMap.has(card.id)) {
+          const isCorrect = attemptMap.get(card.id);
+          return recordDifficultyAttempt(card, isCorrect);
+        }
+        return card;
+      });
+
+      updateAndSaveCards(updatedCollection);
+    }
 
     const updatedDates = recordLearningActivity();
     setLearningActivity(updatedDates);

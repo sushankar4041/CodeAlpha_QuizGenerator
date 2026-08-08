@@ -29,6 +29,7 @@ export default function MockQuiz({ flashcards = [], preferences, onSaveQuizResul
         difficulty: configData.difficulty,
         requestedCount: configData.questionCount,
         source: configData.source || 'system',
+        mode: configData.mode || 'standard',
         flashcards
       });
 
@@ -44,6 +45,7 @@ export default function MockQuiz({ flashcards = [], preferences, onSaveQuizResul
       }
 
       setQuestions(generated.questions);
+      setActiveConfig({ ...configData, modeNotice: generated.modeNotice });
       setUserAnswers({});
       setResult(null);
       setStage('active');
@@ -93,13 +95,27 @@ export default function MockQuiz({ flashcards = [], preferences, onSaveQuizResul
       incorrectAnswers: incorrectCount,
       unanswered: unansweredCount,
       category: activeConfig?.category || 'All Categories',
-      difficulty: activeConfig?.difficulty || 'All Difficulties'
+      difficulty: activeConfig?.difficulty || 'All Difficulties',
+      mode: activeConfig?.mode || 'standard',
+      modeNotice: activeConfig?.modeNotice || null
     };
+
+    const flashcardAttempts = questions
+      .filter((q) => q.flashcardId)
+      .map((q) => {
+        const userAns = userAnswers[q.quizQuestionId];
+        if (!userAns) return null; // unanswered -> omit from attempts
+        return {
+          flashcardId: q.flashcardId,
+          isCorrect: userAns.trim() === q.correctAnswer.trim()
+        };
+      })
+      .filter(Boolean);
 
     setResult(resultData);
 
     if (onSaveQuizResult) {
-      onSaveQuizResult(resultData);
+      onSaveQuizResult(resultData, flashcardAttempts);
     }
 
     if (onShowToast) {

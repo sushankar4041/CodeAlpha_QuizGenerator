@@ -55,15 +55,17 @@ export async function getQuestions({
   difficulty = 'All Difficulties',
   requestedCount = 5,
   source = 'system',
+  mode = 'standard',
   flashcards = []
 }) {
-  // 1. Fallback to User Flashcards if source is explicitly set to 'flashcards'
-  if (source === 'flashcards') {
+  // 1. Fallback to User Flashcards or Adaptive Modes
+  if (source === 'flashcards' || mode !== 'standard') {
     return generateMockQuiz({
       flashcards,
       category,
       difficulty,
-      requestedCount
+      requestedCount,
+      mode
     });
   }
 
@@ -153,14 +155,15 @@ export async function getAvailableQuestionCount({
   category = 'All Categories',
   difficulty = 'All Difficulties',
   source = 'system',
+  mode = 'standard',
   flashcards = []
 }) {
-  if (source === 'flashcards') {
+  if (source === 'flashcards' || mode !== 'standard') {
     let matching = flashcards;
     if (category && category !== 'All Categories') {
       matching = matching.filter((c) => c.category.toLowerCase() === category.toLowerCase());
     }
-    if (difficulty && difficulty !== 'All Difficulties') {
+    if (mode === 'standard' && difficulty && difficulty !== 'All Difficulties') {
       matching = matching.filter((c) => c.difficulty.toLowerCase() === difficulty.toLowerCase());
     }
     return matching.length;

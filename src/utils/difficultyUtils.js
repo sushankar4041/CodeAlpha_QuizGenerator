@@ -235,3 +235,106 @@ export const estimateInitialDifficulty = ({ question = '', answer = '', category
     reason
   };
 };
+
+/**
+ * Calculates personalized difficulty ("Your Difficulty") based on actual quiz attempts.
+ * Uses a Bayesian-smoothed accuracy formula centered on initial difficulty to prevent
+ * volatile flips on early attempts.
+ * @param {Object} card - Flashcard object
+ * @returns {Object} { personalizedDifficulty, confidence, accuracy, smoothedAccuracy, attempts, correct, incorrect }
+ */
+export const calculatePersonalizedDifficulty = (card = {}) => {
+  const stats = card.difficultyStats || { attempts: 0, correct: 0, incorrect: 0 };
+  const attempts = Math.max(0, parseInt(stats.attempts, 10) || 0);
+  const correct = Math.max(0, parseInt(stats.correct, 10) || 0);
+
+  // Confidence determination (Step 6)
+  let confidence = 'insufficient';
+  if (attempts >= 3) {
+    confidence = 'established';
+  } else if (attempts >= 1) {
+    confidence = 'emerging';
+  }
+
+  if (attempts === 0) {
+    return {
+      personalizedDifficulty: null,
+      confidence: 'insufficient',
+      accuracy: 0,
+      smoothedAccuracy: 0,
+      attempts: 0,
+      correct: 0,
+      incorrect: 0
+    };
+  }
+
+  const rawAccuracy = attempts > 0 ? (correct / attempts) : 0;
+
+  // Initial difficulty prior weighting (2 pseudo-attempts to smooth early swings)
+  const baseDiffLower = (card.difficulty || 'Medium').toLowerCase();
+  let priorCorrect = 1.4;
+  const priorTotal = 2.0;
+
+  if (baseDiffLower === 'easy') priorCorrect = 1.8;
+  else if (baseDiffLower === 'hard') priorCorrect = 0.8;
+
+  const smoothedAccuracy = (correct + priorCorrect) / (attempts + priorTotal);
+
+  // Personalized difficulty bands
+  let personalizedDifficulty;
+  if (smoothedAccuracy >= 0.82) {
+    personalizedDifficulty = 'Easy';
+  } else if (smoothedAccuracy < 0.58) {
+    personalizedDifficulty = 'Hard';
+  } else {
+    personalizedDifficulty = 'Medium';
+  }
+
+  return {
+    personalizedDifficulty,
+    confidence,
+    accuracy: Math.round(rawAccuracy * 100) / 100,
+    smoothedAccuracy: Math.round(smoothedAccuracy * 100) / 100,
+    attempts,
+    correct,
+    incorrect: Math.max(0, attempts - correct)
+  };
+};
+
+/**
+ * Pure function that returns an updated card object with recorded performance attempt
+ * @param {Object} card - Original flashcard object
+ * @param {boolean} isCorrect - Whether the user answered correctly
+ * @returns {Object} New card object with updated difficultyStats, lastAttemptAt, and personalizedDifficulty
+ */
+export const recordDifficultyAttempt = (card = {}, isCorrect = false) => {
+  const currentStats = card.difficultyStats || { attempts: 0, correct: 0, incorrect: 0 };
+  const prevAttempts = Math.max(0, parseInt(currentStats.attempts, 10) || 0);
+  const prevCorrect = Math.max(0, parseInt(currentStats.correct, 10) || 0);
+  const prevIncorrect = Math.max(0, parseInt(currentStats.incorrect, 10) || 0);
+
+  const newAttempts = prevAttempts + 1;
+  const newCorrect = isCorrect ? prevCorrect + 1 : prevCorrect;
+  const newIncorrect = !isCorrect ? prevIncorrect + 1 : prevIncorrect;
+
+  const updatedStats = {
+    attempts: newAttempts,
+    correct: newCorrect,
+    incorrect: newIncorrect
+  };
+
+  const updatedCardTemp = {
+    ...card,
+    difficultyStats: updatedStats
+  };
+
+  const personalized = calculatePersonalizedDifficulty(updatedCardTemp);
+
+  return {
+    ...card,
+    difficultyStats: updatedStats,
+    lastAttemptAt: new Date().toISOString(),
+    personalizedDifficulty: personalized.personalizedDifficulty,
+    personalizedConfidence: personalized.confidence
+  };
+};

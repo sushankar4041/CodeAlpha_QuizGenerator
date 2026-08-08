@@ -3,7 +3,7 @@
  * Handles persistence for Quizelle flashcards, quiz history, learner profile, preferences, and theme
  */
 
-import { defaultFlashcards } from '../data/defaultFlashcards';
+import { defaultFlashcards } from '../data/defaultFlashcards.js';
 
 const FLASHCARDS_KEY = 'quiz_generator_flashcards';
 const QUIZ_HISTORY_KEY = 'quiz_generator_history';
@@ -17,6 +17,11 @@ const DISPLAY_NAME_KEY = 'quiz_generator_live_display_name';
  */
 const normalizeCard = (card, index) => {
   const now = new Date().toISOString();
+  const rawStats = card.difficultyStats || {};
+  const attempts = Math.max(0, parseInt(rawStats.attempts, 10) || 0);
+  const correct = Math.max(0, parseInt(rawStats.correct, 10) || 0);
+  const incorrect = Math.max(0, parseInt(rawStats.incorrect, 10) || Math.max(0, attempts - correct));
+
   return {
     id: card.id || `fc-${index + 1}`,
     question: card.question || '',
@@ -26,10 +31,19 @@ const normalizeCard = (card, index) => {
     createdAt: card.createdAt || now,
     updatedAt: card.updatedAt || now,
     studiedCount: typeof card.studiedCount === 'number' ? card.studiedCount : 0,
+    difficultyStats: {
+      attempts,
+      correct,
+      incorrect
+    },
+    lastAttemptAt: card.lastAttemptAt || null,
+    personalizedDifficulty: card.personalizedDifficulty || null,
+    personalizedConfidence: card.personalizedConfidence || (attempts > 0 ? 'emerging' : 'insufficient'),
     ...(card.difficultySource ? { difficultySource: card.difficultySource } : {}),
     ...(card.difficultyConfidence ? { difficultyConfidence: card.difficultyConfidence } : {}),
     ...(card.difficultyScore !== undefined ? { difficultyScore: card.difficultyScore } : {}),
-    ...(card.difficultyReason ? { difficultyReason: card.difficultyReason } : {})
+    ...(card.difficultyReason ? { difficultyReason: card.difficultyReason } : {}),
+    ...(Array.isArray(card.distractors) && card.distractors.length > 0 ? { distractors: card.distractors } : {})
   };
 };
 
