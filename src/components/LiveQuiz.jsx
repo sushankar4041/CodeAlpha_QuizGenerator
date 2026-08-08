@@ -39,9 +39,9 @@ export default function LiveQuiz({ flashcards = [], profile = {}, preferences, o
   // Host Setup Form state
   const [hostName, setHostName] = useState(activeName);
   const [selectedCategory, setSelectedCategory] = useState('All Categories');
-  const [selectedDifficulty, setSelectedDifficulty] = useState(activePrefs.preferredDifficulty || 'All Difficulties');
-  const [questionCount, setQuestionCount] = useState(Number(activePrefs.preferredQuestionCount) || 5);
-  const [timePerQuestion, setTimePerQuestion] = useState(Number(activePrefs.preferredTimeLimit) || 15);
+  const [selectedDifficulty, setSelectedDifficulty] = useState(() => activePrefs.preferredDifficulty || 'All Difficulties');
+  const [questionCount, setQuestionCount] = useState(() => Number(activePrefs.preferredQuestionCount) || 5);
+  const [timePerQuestion, setTimePerQuestion] = useState(() => Number(activePrefs.preferredTimeLimit) || 15);
 
   // Join Setup Form state
   const [joinCodeInput, setJoinCodeInput] = useState('');

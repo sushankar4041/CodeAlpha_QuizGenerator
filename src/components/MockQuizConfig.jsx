@@ -13,8 +13,8 @@ export default function MockQuizConfig({ flashcards = [], preferences, onStartQu
 
   const [questionSource, setQuestionSource] = useState('system'); // 'system' | 'flashcards'
   const [selectedCategory, setSelectedCategory] = useState('All Categories');
-  const [selectedDifficulty, setSelectedDifficulty] = useState(activePrefs.preferredDifficulty || 'All Difficulties');
-  const [requestedCount, setRequestedCount] = useState(Number(activePrefs.preferredQuestionCount) || 5);
+  const [selectedDifficulty, setSelectedDifficulty] = useState(() => activePrefs.preferredDifficulty || 'All Difficulties');
+  const [requestedCount, setRequestedCount] = useState(() => Number(activePrefs.preferredQuestionCount) || 5);
   const [availableCount, setAvailableCount] = useState(0);
 
   // Dynamic category list based on source

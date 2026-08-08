@@ -139,6 +139,7 @@ export async function getQuestions({
   return {
     success: true,
     questions: formattedQuestions,
+    requestedCount,
     availableCount,
     isPartial,
     warning: isPartial ? `Only ${availableCount} questions available for current settings.` : null

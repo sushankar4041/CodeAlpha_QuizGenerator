@@ -81,6 +81,13 @@ export default function MockQuizReview({ questions = [], userAnswers = {}, onBac
                   </div>
                 )}
               </div>
+
+              {q.explanation && (
+                <div className="review-explanation-box">
+                  <span className="explanation-label">💡 Explanation:</span>
+                  <p className="explanation-text">{q.explanation}</p>
+                </div>
+              )}
             </div>
           );
         })}
