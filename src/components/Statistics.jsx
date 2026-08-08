@@ -8,8 +8,9 @@ import {
 import { getDifficultyBadgeClass } from '../utils/quizUtils';
 
 /**
- * Statistics & Learning Analytics Dashboard Component
- * Displays data-driven analytics computed mathematically from stored flashcards and quiz history.
+ * Statistics & Learning Analytics Dashboard Component - Phase 7B QuizForge
+ * Editorial analytics dashboard featuring overall accuracy, category mastery horizontal bars,
+ * difficulty distribution, and recent quiz history logs.
  */
 export default function Statistics({ flashcards = [], quizHistory = [], onNavigateView }) {
   const overview = useMemo(
@@ -34,44 +35,20 @@ export default function Statistics({ flashcards = [], quizHistory = [], onNaviga
   const unansweredPct = totalQuestionsAnswered > 0 ? Math.round((overview.totalUnanswered / totalQuestionsAnswered) * 100) : 0;
 
   return (
-    <div className="statistics-container animate-fade-in">
-      {/* Header Banner */}
+    <div className="statistics-container animate-fade-in" role="region" aria-label="Learning Analytics">
+      {/* Editorial Header Banner */}
       <div className="stats-header-banner">
-        <div className="concept-badge stats">Performance & Insights</div>
-        <h2 className="stats-main-title">Learning Analytics Dashboard</h2>
+        <div className="concept-badge stats">PERFORMANCE & INSIGHTS</div>
+        <h2 className="stats-main-title">Your Learning Insights</h2>
         <p className="stats-main-subtitle">
-          Real-time performance metrics derived from your flashcard study deck and mock quiz history.
+          Real-time performance metrics derived from your flashcard study deck and quiz history.
         </p>
       </div>
 
       {/* Overview KPI Cards Grid */}
       <div className="dashboard-stats-grid">
         <div className="stat-card">
-          <div className="stat-icon-wrapper purple">📚</div>
-          <div className="stat-details">
-            <span className="stat-value">{overview.totalCards}</span>
-            <span className="stat-label">Total Flashcards</span>
-          </div>
-        </div>
-
-        <div className="stat-card">
-          <div className="stat-icon-wrapper green">📖</div>
-          <div className="stat-details">
-            <span className="stat-value">{overview.totalStudied}</span>
-            <span className="stat-label">Cards Studied</span>
-          </div>
-        </div>
-
-        <div className="stat-card">
-          <div className="stat-icon-wrapper blue">🎯</div>
-          <div className="stat-details">
-            <span className="stat-value">{overview.quizzesCompleted}</span>
-            <span className="stat-label">Quizzes Completed</span>
-          </div>
-        </div>
-
-        <div className="stat-card">
-          <div className="stat-icon-wrapper amber">🏆</div>
+          <div className="stat-icon-wrapper amber" aria-hidden="true">🏆</div>
           <div className="stat-details">
             <span className="stat-value">{overview.averageScore}%</span>
             <span className="stat-label">
@@ -79,11 +56,35 @@ export default function Statistics({ flashcards = [], quizHistory = [], onNaviga
             </span>
           </div>
         </div>
+
+        <div className="stat-card">
+          <div className="stat-icon-wrapper amber" aria-hidden="true">🎯</div>
+          <div className="stat-details">
+            <span className="stat-value">{overview.quizzesCompleted}</span>
+            <span className="stat-label">Quizzes Completed</span>
+          </div>
+        </div>
+
+        <div className="stat-card">
+          <div className="stat-icon-wrapper amber" aria-hidden="true">📖</div>
+          <div className="stat-details">
+            <span className="stat-value">{overview.totalStudied}</span>
+            <span className="stat-label">Cards Studied</span>
+          </div>
+        </div>
+
+        <div className="stat-card">
+          <div className="stat-icon-wrapper amber" aria-hidden="true">📚</div>
+          <div className="stat-details">
+            <span className="stat-value">{overview.totalCards}</span>
+            <span className="stat-label">Total Flashcards</span>
+          </div>
+        </div>
       </div>
 
       {/* Answer Distribution & Quiz Performance Section */}
       {overview.quizzesCompleted > 0 ? (
-        <section className="stats-section-card">
+        <section className="stats-section-card" aria-label="Answer Distribution">
           <div className="stats-section-header">
             <h3 className="stats-section-title">Quiz Performance & Answer Distribution</h3>
             <span className="stats-sub-badge">{totalQuestionsAnswered} total questions answered</span>
@@ -98,7 +99,7 @@ export default function Statistics({ flashcards = [], quizHistory = [], onNaviga
 
           <div className="ratio-legend-grid">
             <div className="legend-item legend-correct">
-              <span className="dot" />
+              <span className="dot" aria-hidden="true" />
               <div className="legend-info">
                 <span className="lbl">Correct Answers</span>
                 <strong className="val">{overview.totalCorrect} ({correctPct}%)</strong>
@@ -106,7 +107,7 @@ export default function Statistics({ flashcards = [], quizHistory = [], onNaviga
             </div>
 
             <div className="legend-item legend-incorrect">
-              <span className="dot" />
+              <span className="dot" aria-hidden="true" />
               <div className="legend-info">
                 <span className="lbl">Incorrect Answers</span>
                 <strong className="val">{overview.totalIncorrect} ({incorrectPct}%)</strong>
@@ -114,7 +115,7 @@ export default function Statistics({ flashcards = [], quizHistory = [], onNaviga
             </div>
 
             <div className="legend-item legend-unanswered">
-              <span className="dot" />
+              <span className="dot" aria-hidden="true" />
               <div className="legend-info">
                 <span className="lbl">Unanswered</span>
                 <strong className="val">{overview.totalUnanswered} ({unansweredPct}%)</strong>
@@ -123,25 +124,25 @@ export default function Statistics({ flashcards = [], quizHistory = [], onNaviga
           </div>
         </section>
       ) : (
-        <section className="stats-section-card empty-stats-card">
+        <section className="stats-section-card empty-stats-card" aria-label="No Quiz Data">
           <div className="empty-stats-content">
-            <span className="empty-icon-emoji">📝</span>
-            <h4>No Quizzes Completed Yet</h4>
-            <p>Take your first mock quiz to unlock accuracy trends, score breakdowns, and answer distributions.</p>
+            <span className="empty-icon-emoji" aria-hidden="true">📝</span>
+            <h4>No Quiz Data Yet</h4>
+            <p>Complete your first practice quiz to start building your learning insights and accuracy trends.</p>
             <button
               type="button"
               className="btn btn-primary"
               onClick={() => onNavigateView('mock-quiz')}
             >
-              Start a Mock Quiz 🚀
+              Take a Mock Quiz 🚀
             </button>
           </div>
         </section>
       )}
 
-      {/* Category Analytics Section */}
-      <section className="stats-section-card">
-        <h3 className="stats-section-title">Category Breakdown & Study Progress</h3>
+      {/* Category Mastery Section */}
+      <section className="stats-section-card" aria-label="Category Mastery">
+        <h3 className="stats-section-title">Category Mastery</h3>
 
         {categoriesAnalytics.length > 0 ? (
           <div className="category-analytics-grid">
@@ -149,10 +150,10 @@ export default function Statistics({ flashcards = [], quizHistory = [], onNaviga
               <div key={cat.name} className="cat-analytics-card">
                 <div className="cat-card-top">
                   <div className="cat-icon-name">
-                    <span className="cat-emoji-icon">{cat.icon}</span>
+                    <span className="cat-emoji-icon" aria-hidden="true">{cat.icon}</span>
                     <h4 className="cat-title">{cat.name}</h4>
                   </div>
-                  <span className="badge badge-purple">{cat.cardCount} {cat.cardCount === 1 ? 'Card' : 'Cards'}</span>
+                  <span className="badge badge-amber">{cat.cardCount} {cat.cardCount === 1 ? 'Card' : 'Cards'}</span>
                 </div>
 
                 <div className="cat-metrics-rows">
@@ -167,7 +168,7 @@ export default function Statistics({ flashcards = [], quizHistory = [], onNaviga
                   </div>
 
                   <div className="cat-metric-row">
-                    <span className="lbl">Category Quiz Accuracy:</span>
+                    <span className="lbl">Category Mastery Accuracy:</span>
                     <strong className="val">
                       {cat.averageQuizScore !== null ? `${cat.averageQuizScore}%` : 'N/A'}
                     </strong>
@@ -184,7 +185,7 @@ export default function Statistics({ flashcards = [], quizHistory = [], onNaviga
       </section>
 
       {/* Difficulty Distribution Section */}
-      <section className="stats-section-card">
+      <section className="stats-section-card" aria-label="Flashcard Difficulty Distribution">
         <h3 className="stats-section-title">Flashcard Difficulty Distribution</h3>
         <div className="difficulty-stats-grid">
           {['Easy', 'Medium', 'Hard'].map((lvl) => {
@@ -210,7 +211,7 @@ export default function Statistics({ flashcards = [], quizHistory = [], onNaviga
 
       {/* Recent Quiz History Table */}
       {quizHistory.length > 0 && (
-        <section className="stats-section-card">
+        <section className="stats-section-card" aria-label="Recent Quiz History">
           <div className="stats-section-header">
             <h3 className="stats-section-title">Recent Quiz History</h3>
             <span className="stats-sub-badge">Last {quizHistory.length} quizzes</span>

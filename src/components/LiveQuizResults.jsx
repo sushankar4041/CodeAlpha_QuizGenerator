@@ -1,6 +1,6 @@
 /**
- * Live Quiz Results & Podium Component - Remediation
- * Displays Gold/Silver/Bronze podium standings and final multiplayer score rankings
+ * Live Quiz Results & Podium Component - Phase 7B QuizForge
+ * Displays Gold/Silver/Bronze podium standings and final multiplayer score rankings.
  */
 export default function LiveQuizResults({ roomData, localPlayerId, onReturnHome }) {
   if (!roomData) return null;
@@ -14,7 +14,7 @@ export default function LiveQuizResults({ roomData, localPlayerId, onReturnHome 
   const thirdPlace = playersList[2];
 
   return (
-    <div className="live-results-container animate-fade-in">
+    <div className="live-results-container animate-fade-in" role="region" aria-label="Tournament Leaderboard Results">
       <div className="results-hero-card">
         <div className="concept-badge competition">Multiplayer Match Complete</div>
         <h2 className="results-title">Tournament Leaderboard</h2>

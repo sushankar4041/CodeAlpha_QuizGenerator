@@ -1,9 +1,9 @@
 import { useState, useEffect } from 'react';
 
 /**
- * Settings & Learner Profile View Component - Phase 6E
- * Allows user to edit display name, select theme mode (Light/Dark/System), customize quiz preferences,
- * and manage data reset options with accessible confirmation dialogs, focus management, and keyboard handling.
+ * Settings & Learner Profile View Component - Phase 7B QuizForge
+ * Premium system panel allowing user to edit display name, select theme mode (Light/Dark/System),
+ * customize quiz preferences, and manage data reset options with accessible confirmation dialogs.
  */
 export default function Settings({
   profile = {},
@@ -86,10 +86,10 @@ export default function Settings({
   const avatarChar = (displayNameInput.trim() || 'L').charAt(0).toUpperCase();
 
   return (
-    <div className="settings-container animate-fade-in">
+    <div className="settings-container animate-fade-in" role="region" aria-label="System Settings">
       {/* Header Banner */}
       <div className="settings-header-banner">
-        <div className="concept-badge stats">Application Preferences</div>
+        <div className="concept-badge stats">SYSTEM PREFERENCES</div>
         <h2 className="settings-main-title">Settings & Learner Profile</h2>
         <p className="settings-main-subtitle">
           Customize your display identity, theme preferences, quiz defaults, and local learning data.
@@ -97,10 +97,10 @@ export default function Settings({
       </div>
 
       <div className="settings-grid">
-        {/* SECTION 1: LEARNER PROFILE */}
-        <section className="settings-card" aria-label="Learner Profile Section">
+        {/* SECTION 1: PROFILE */}
+        <section className="settings-card" aria-label="Profile Settings Section">
           <div className="settings-card-header">
-            <h3 className="settings-card-title">1. Learner Profile</h3>
+            <h3 className="settings-card-title">PROFILE</h3>
             <span className="settings-card-desc">Personalize how your name appears across the workspace and live quizzes.</span>
           </div>
 
@@ -137,11 +137,11 @@ export default function Settings({
           </form>
         </section>
 
-        {/* SECTION 2: APPEARANCE (THEME MODE) */}
+        {/* SECTION 2: APPEARANCE */}
         <section className="settings-card" aria-label="Appearance and Theme Section">
           <div className="settings-card-header">
-            <h3 className="settings-card-title">2. Appearance & Theme</h3>
-            <span className="settings-card-desc">Select your preferred color theme or match your system OS settings.</span>
+            <h3 className="settings-card-title">APPEARANCE</h3>
+            <span className="settings-card-desc">Select your preferred color theme or match your device OS system settings.</span>
           </div>
 
           <div className="theme-options-grid" role="radiogroup" aria-label="Theme Mode Selection">
@@ -153,7 +153,7 @@ export default function Settings({
             >
               <span className="theme-option-icon" aria-hidden="true">☀️</span>
               <span className="theme-option-label">Light Mode</span>
-              <span className="theme-option-desc">Bright surfaces & high contrast</span>
+              <span className="theme-option-desc">Creamy pearl surfaces & high contrast</span>
             </button>
 
             <button
@@ -164,7 +164,7 @@ export default function Settings({
             >
               <span className="theme-option-icon" aria-hidden="true">🌙</span>
               <span className="theme-option-label">Dark Mode</span>
-              <span className="theme-option-desc">Sleek dark surfaces</span>
+              <span className="theme-option-desc">Sleek dark warm charcoal surfaces</span>
             </button>
 
             <button
@@ -180,10 +180,10 @@ export default function Settings({
           </div>
         </section>
 
-        {/* SECTION 3: QUIZ DEFAULTS */}
+        {/* SECTION 3: QUIZ PREFERENCES */}
         <section className="settings-card" aria-label="Quiz Preferences Section">
           <div className="settings-card-header">
-            <h3 className="settings-card-title">3. Quiz Preferences</h3>
+            <h3 className="settings-card-title">QUIZ PREFERENCES</h3>
             <span className="settings-card-desc">Set default configuration values for Mock Quiz and Live Quiz sessions.</span>
           </div>
 
@@ -253,11 +253,11 @@ export default function Settings({
           </div>
         </section>
 
-        {/* SECTION 4: DATA MANAGEMENT & RESET */}
+        {/* SECTION 4: DATA MANAGEMENT (DANGER ZONE) */}
         <section className="settings-card danger-card" aria-label="Learning Data Management Section">
           <div className="settings-card-header">
-            <h3 className="settings-card-title">4. Learning Data Management</h3>
-            <span className="settings-card-desc">Manage local storage data, clear history, or reset flashcards.</span>
+            <h3 className="settings-card-title">DATA MANAGEMENT (DANGER ZONE)</h3>
+            <span className="settings-card-desc">Manage local storage data, clear history logs, or reset flashcard collection.</span>
           </div>
 
           <div className="data-actions-grid">
