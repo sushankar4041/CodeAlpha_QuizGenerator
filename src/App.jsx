@@ -230,6 +230,7 @@ function App() {
           {activeView === 'mock-quiz' && (
             <MockQuiz
               flashcards={flashcards}
+              preferences={preferences}
               onSaveQuizResult={handleSaveQuizResult}
               onNavigateToFlashcards={() => handleNavigate('flashcards')}
               onShowToast={addToast}
@@ -240,6 +241,7 @@ function App() {
             <LiveQuiz
               flashcards={flashcards}
               profile={profile}
+              preferences={preferences}
               onNavigateView={handleNavigate}
               onShowToast={addToast}
             />

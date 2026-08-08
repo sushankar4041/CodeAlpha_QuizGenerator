@@ -22,7 +22,7 @@ import { getStoredLearnerProfile, getStoredPreferences } from '../services/stora
  * Pre-populates stored learner profile and preferences, updating display name dynamically.
  * Replaced browser alert calls with global toast notification system.
  */
-export default function LiveQuiz({ flashcards = [], profile = {}, onNavigateView, onShowToast }) {
+export default function LiveQuiz({ flashcards = [], profile = {}, preferences, onNavigateView, onShowToast }) {
   const [mode, setMode] = useState('select'); // 'select' | 'host_setup' | 'join_setup' | 'room_active'
   const [roomCode, setRoomCode] = useState('');
   const [roomData, setRoomData] = useState(null);
@@ -31,16 +31,16 @@ export default function LiveQuiz({ flashcards = [], profile = {}, onNavigateView
   const [authUid, setAuthUid] = useState(null);
 
   const storedProfile = useMemo(() => getStoredLearnerProfile(), []);
-  const storedPrefs = useMemo(() => getStoredPreferences(), []);
+  const activePrefs = preferences || getStoredPreferences();
 
   const activeName = profile?.displayName || storedProfile.displayName || 'Learner';
 
   // Host Setup Form state
   const [hostName, setHostName] = useState(activeName);
   const [selectedCategory, setSelectedCategory] = useState('All Categories');
-  const [selectedDifficulty, setSelectedDifficulty] = useState(storedPrefs.preferredDifficulty || 'All Difficulties');
-  const [questionCount, setQuestionCount] = useState(storedPrefs.preferredQuestionCount || 5);
-  const [timePerQuestion, setTimePerQuestion] = useState(storedPrefs.preferredTimeLimit || 15);
+  const [selectedDifficulty, setSelectedDifficulty] = useState(activePrefs.preferredDifficulty || 'All Difficulties');
+  const [questionCount, setQuestionCount] = useState(Number(activePrefs.preferredQuestionCount) || 5);
+  const [timePerQuestion, setTimePerQuestion] = useState(Number(activePrefs.preferredTimeLimit) || 15);
 
   // Join Setup Form state
   const [joinCodeInput, setJoinCodeInput] = useState('');

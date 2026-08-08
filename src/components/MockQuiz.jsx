@@ -10,7 +10,7 @@ import { generateMockQuiz } from '../utils/quizUtils';
  * Orchestrates Mock Quiz stages: Config -> Active Session -> Results -> Answer Review
  * Migrated browser alert to toast notification system.
  */
-export default function MockQuiz({ flashcards = [], onSaveQuizResult, onNavigateToFlashcards, onShowToast }) {
+export default function MockQuiz({ flashcards = [], preferences, onSaveQuizResult, onNavigateToFlashcards, onShowToast }) {
   const [stage, setStage] = useState('config'); // 'config' | 'active' | 'results' | 'review'
   const [activeConfig, setActiveConfig] = useState(null);
   const [questions, setQuestions] = useState([]);
@@ -116,6 +116,7 @@ export default function MockQuiz({ flashcards = [], onSaveQuizResult, onNavigate
       {stage === 'config' && (
         <MockQuizConfig
           flashcards={flashcards}
+          preferences={preferences}
           onStartQuiz={handleStartQuiz}
           onNavigateToFlashcards={onNavigateToFlashcards}
         />

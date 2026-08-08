@@ -3,16 +3,17 @@ import { getCategoryIcon } from '../utils/quizUtils';
 import { getStoredPreferences } from '../services/storage';
 
 /**
- * Mock Quiz Configuration Component - Phase 6E
+ * Mock Quiz Configuration Component - Phase 7B Fix
  * Allows user to select Category, Difficulty, and Question Count before generating quiz.
- * Pre-populates default preferences from storage and uses ARIA labels for accessibility.
+ * Default values are pre-populated from global preferences.
+ * Changing question count inside Mock Quiz updates local configuration without modifying global preferences.
  */
-export default function MockQuizConfig({ flashcards = [], onStartQuiz, onNavigateToFlashcards }) {
-  const initialPrefs = useMemo(() => getStoredPreferences(), []);
+export default function MockQuizConfig({ flashcards = [], preferences, onStartQuiz, onNavigateToFlashcards }) {
+  const activePrefs = preferences || getStoredPreferences();
 
   const [selectedCategory, setSelectedCategory] = useState('All Categories');
-  const [selectedDifficulty, setSelectedDifficulty] = useState(initialPrefs.preferredDifficulty || 'All Difficulties');
-  const [requestedCount, setRequestedCount] = useState(initialPrefs.preferredQuestionCount || 5);
+  const [selectedDifficulty, setSelectedDifficulty] = useState(activePrefs.preferredDifficulty || 'All Difficulties');
+  const [requestedCount, setRequestedCount] = useState(Number(activePrefs.preferredQuestionCount) || 5);
 
   // Extract unique categories from flashcards collection
   const categoriesList = useMemo(() => {
@@ -134,7 +135,7 @@ export default function MockQuizConfig({ flashcards = [], onStartQuiz, onNavigat
           <label className="config-label">3. Number of Questions</label>
           <div className="config-chips-grid" role="group" aria-label="Question Count Selection">
             {[5, 10, 15].map((cnt) => {
-              const isSelected = requestedCount === cnt;
+              const isSelected = Number(requestedCount) === cnt;
               return (
                 <button
                   key={cnt}
