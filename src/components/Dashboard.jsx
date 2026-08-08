@@ -2,8 +2,8 @@ import { getCategoryIcon } from '../utils/quizUtils';
 import { calculateOverviewStats } from '../utils/statisticsUtils';
 
 /**
- * Dashboard View Component - Phase 4
- * Learner portal showing real persisted stats computed via statisticsUtils
+ * Dashboard View Component - Phase 5
+ * Learner portal showing real persisted stats and links to all 4 core active experiences
  */
 export default function Dashboard({
   onNavigateView,
@@ -33,7 +33,7 @@ export default function Dashboard({
           <div className="welcome-pill">⚡ Learning Workspace</div>
           <h1 className="welcome-title">Ready to learn something new?</h1>
           <p className="welcome-subtitle">
-            Create flashcards, test your knowledge, or challenge others.
+            Create flashcards, test your knowledge, or challenge others in real-time.
           </p>
           <div className="welcome-actions">
             <button
@@ -50,9 +50,9 @@ export default function Dashboard({
             <button
               type="button"
               className="btn btn-secondary"
-              onClick={() => onNavigateView('mock-quiz')}
+              onClick={() => onNavigateView('live-quiz')}
             >
-              <span>Start Mock Quiz 🚀</span>
+              <span>Join Live Quiz ⚡</span>
             </button>
           </div>
         </div>
@@ -65,7 +65,7 @@ export default function Dashboard({
         </div>
       </section>
 
-      {/* 2. Three Primary Experience Cards */}
+      {/* 2. Four Primary Experience Cards */}
       <section className="dashboard-section">
         <h3 className="section-title">Core Learning Experiences</h3>
         <div className="three-cards-grid">
@@ -111,24 +111,24 @@ export default function Dashboard({
             </div>
           </div>
 
-          {/* Live Quiz */}
+          {/* Live Quiz (Real-Time Multiplayer) */}
           <div
             className="feature-card competition-card"
             onClick={() => onNavigateView('live-quiz')}
           >
             <div className="feature-card-header">
               <div className="feature-icon-box amber">⚡</div>
-              <span className="badge badge-disabled">Coming Soon</span>
+              <span className="badge badge-purple">Active Mode</span>
             </div>
             <div className="feature-card-meta">
               <span className="feature-mode-label">COMPETE</span>
               <h4 className="feature-card-title">Live Quiz</h4>
             </div>
             <p className="feature-card-desc">
-              Host a live quiz room or join with a room code to compete against classmates in real-time.
+              Host a live quiz room or enter a 6-digit room code to compete against classmates in real-time.
             </p>
             <div className="feature-card-footer">
-              <span className="feature-cta-btn secondary-cta">Preview Concept →</span>
+              <span className="feature-cta-btn primary-cta">Join Live Quiz ⚡</span>
             </div>
           </div>
         </div>

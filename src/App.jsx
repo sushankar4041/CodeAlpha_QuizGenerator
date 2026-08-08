@@ -5,7 +5,7 @@ import Dashboard from './components/Dashboard';
 import FlashcardList from './components/FlashcardList';
 import MockQuiz from './components/MockQuiz';
 import Statistics from './components/Statistics';
-import LiveQuizPlaceholder from './components/LiveQuizPlaceholder';
+import LiveQuiz from './components/LiveQuiz';
 import {
   getStoredFlashcards,
   saveStoredFlashcards,
@@ -17,9 +17,9 @@ import {
 import './App.css';
 
 /**
- * Main Application Component - Phase 4
+ * Main Application Component - Phase 5
  * Coordinates Flashcard CRUD, Mock Quiz generator engine, Statistics & Analytics Dashboard,
- * theme state, and section navigation.
+ * Real-Time Multiplayer Live Quiz, theme state, and section navigation.
  */
 function App() {
   const [activeView, setActiveView] = useState('dashboard');
@@ -156,8 +156,9 @@ function App() {
           )}
 
           {activeView === 'live-quiz' && (
-            <LiveQuizPlaceholder
-              onNavigateToFlashcards={() => handleNavigate('flashcards')}
+            <LiveQuiz
+              flashcards={flashcards}
+              onNavigateView={handleNavigate}
             />
           )}
 
