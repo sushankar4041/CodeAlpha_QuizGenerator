@@ -536,8 +536,16 @@
 .mode-desc { font-size: var(--font-size-sm); color: var(--color-text-secondary); line-height: 1.55; }
 
 /* ==========================================================================
-   7. RESPONSIVE BREAKPOINTS
+   7. RESPONSIVE BREAKPOINTS & MOBILE OPTIMIZATION (PHASE 6D)
    ========================================================================== */
+
+/* Universal text wrapping to prevent horizontal overflow */
+p, h1, h2, h3, h4, h5, h6, span, label, td, th {
+  overflow-wrap: break-word;
+  word-break: break-word;
+}
+
+/* Tablet / Medium Screens (< 1024px) */
 @media (max-width: 1024px) {
   :root { --sidebar-width: 280px; }
   .sidebar { position: fixed; transform: translateX(-100%); }
@@ -550,23 +558,81 @@
   .header-subtitle { display: none; }
 }
 
+/* Tablet & Mobile Screens (< 768px) */
+@media (max-width: 768px) {
+  .dashboard-stats-grid { grid-template-columns: repeat(2, 1fr); }
+  .categories-grid { grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); }
+  .live-modes-grid { grid-template-columns: 1fr; }
+}
+
+/* Smartphone & Small Screens (< 640px) */
 @media (max-width: 640px) {
   .app-header { padding: 0 1rem; }
   .user-role { display: none; }
+  .user-profile-pill { max-width: 140px; }
+  .user-name { max-width: 80px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
   .theme-label { display: none; }
+
   .three-cards-grid { grid-template-columns: 1fr; }
   .flashcards-grid { grid-template-columns: 1fr; }
-  .welcome-title { font-size: 1.5rem; }
-  .dashboard-stats-grid { grid-template-columns: repeat(2, 1fr); }
+  .welcome-title { font-size: clamp(1.35rem, 5vw, 1.75rem); }
+  .welcome-banner { padding: 1.5rem 1.25rem; gap: 1.25rem; }
+  .welcome-actions { flex-direction: column; width: 100%; }
+  .welcome-actions .btn { width: 100%; justify-content: center; }
+
   .form-row { flex-direction: column; gap: 1rem; }
   .flashcards-main-bar { flex-direction: column; align-items: stretch; }
-  .flashcards-action-group { justify-content: space-between; }
+  .search-bar-wrapper { min-width: 100%; }
+  .flashcards-action-group { justify-content: space-between; width: 100%; }
+  .flashcards-controls-header { padding: 1rem; }
+  .filter-chips { flex-wrap: nowrap; overflow-x: auto; padding-bottom: 0.35rem; width: 100%; -webkit-overflow-scrolling: touch; }
+  .filter-chip { flex-shrink: 0; }
+
+  .flashcard { min-height: 240px; padding: 1.25rem; }
+  .deck-nav-bar { padding: 0.75rem 1rem; }
+
+  .quiz-config-container, .quiz-session-container, .live-session-container, .live-lobby-container, .live-results-container { padding: 0; }
+  .config-header-card, .quiz-config-form, .quiz-question-card, .session-progress-card, .intermission-card, .lobby-header-card, .lobby-players-card { padding: 1.25rem; }
+  .room-code-display-box { padding: 1.25rem 1rem; width: 100%; }
+  .code-value { font-size: clamp(2rem, 8vw, 2.75rem); letter-spacing: 0.05em; }
+
+  .quiz-question-text { font-size: clamp(1.1rem, 4vw, 1.35rem); }
+  .quiz-option-btn { padding: 0.85rem 1rem; font-size: var(--font-size-sm); }
+  .intermission-actions { justify-content: stretch; }
+  .btn-next-q { width: 100%; justify-content: center; }
+
   .results-metrics-grid { grid-template-columns: 1fr; }
   .results-actions-card { flex-direction: column; }
   .btn-action { width: 100%; }
-  .podium-grid { grid-template-columns: 1fr; align-items: center; }
-  .podium-card.gold { transform: none; }
+  .podium-grid { grid-template-columns: 1fr; gap: 1rem; }
+  .podium-card.gold { order: -1; transform: none; }
+
+  .stats-header-banner, .stats-section-card { padding: 1.25rem; }
+  .category-analytics-grid, .difficulty-stats-grid { grid-template-columns: 1fr; }
+
+  .modal-container { width: calc(100% - 1.5rem); max-height: 85vh; border-radius: var(--radius-lg); }
+  .modal-header { padding: 1.25rem; }
+  .flashcard-form { padding: 1.25rem; }
+  .modal-actions { flex-direction: column-reverse; gap: 0.75rem; }
+  .modal-actions .btn { width: 100%; justify-content: center; }
 }
+
+/* Extra Small Mobile Screens (< 480px) */
+@media (max-width: 480px) {
+  .app-main-content { padding: 1rem 0.75rem; }
+  .user-name { display: none; }
+  .user-profile-pill { padding: 0.25rem; border-radius: 50%; }
+  .dashboard-stats-grid { grid-template-columns: 1fr; }
+  .stat-card { padding: 1.15rem; }
+  .stat-value { font-size: 1.5rem; }
+  .stat-icon-wrapper { width: 44px; height: 44px; font-size: 1.25rem; }
+  .categories-grid { grid-template-columns: 1fr; }
+  .ratio-legend-grid { grid-template-columns: 1fr; }
+  .players-avatars-grid { grid-template-columns: 1fr; }
+  .lobby-controls-bar { flex-direction: column; align-items: stretch; }
+  .btn-start-live { width: 100%; justify-content: center; }
+}
+
 
 /* Settings & Learner Profile View Styles - Phase 6A */
 .settings-container { display: flex; flex-direction: column; gap: 2rem; }
