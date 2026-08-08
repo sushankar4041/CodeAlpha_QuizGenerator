@@ -17,11 +17,11 @@ import { getCategoryIcon } from '../utils/quizUtils';
 import { getStoredLearnerProfile, getStoredPreferences } from '../services/storage';
 
 /**
- * Live Quiz Master Coordinator Component - Phase 6A
+ * Live Quiz Master Coordinator Component - Phase 6B
  * Manages Host Setup, Join Room form, Real-Time Lobby, Active Session, and Podium Results.
- * Pre-populates stored learner profile and preferences.
+ * Pre-populates stored learner profile and preferences, updating display name dynamically.
  */
-export default function LiveQuiz({ flashcards = [], onNavigateView }) {
+export default function LiveQuiz({ flashcards = [], profile = {}, onNavigateView }) {
   const [mode, setMode] = useState('select'); // 'select' | 'host_setup' | 'join_setup' | 'room_active'
   const [roomCode, setRoomCode] = useState('');
   const [roomData, setRoomData] = useState(null);
@@ -32,10 +32,10 @@ export default function LiveQuiz({ flashcards = [], onNavigateView }) {
   const storedProfile = useMemo(() => getStoredLearnerProfile(), []);
   const storedPrefs = useMemo(() => getStoredPreferences(), []);
 
-  const initialName = storedProfile.displayName || 'Learner';
+  const activeName = profile?.displayName || storedProfile.displayName || 'Learner';
 
   // Host Setup Form state
-  const [hostName, setHostName] = useState(initialName);
+  const [hostName, setHostName] = useState(activeName);
   const [selectedCategory, setSelectedCategory] = useState('All Categories');
   const [selectedDifficulty, setSelectedDifficulty] = useState(storedPrefs.preferredDifficulty || 'All Difficulties');
   const [questionCount, setQuestionCount] = useState(storedPrefs.preferredQuestionCount || 5);
@@ -43,7 +43,7 @@ export default function LiveQuiz({ flashcards = [], onNavigateView }) {
 
   // Join Setup Form state
   const [joinCodeInput, setJoinCodeInput] = useState('');
-  const [playerNameInput, setPlayerNameInput] = useState(initialName);
+  const [playerNameInput, setPlayerNameInput] = useState(activeName);
 
   // Categories list derived from flashcards
   const categoriesList = useMemo(() => {
@@ -89,7 +89,7 @@ export default function LiveQuiz({ flashcards = [], onNavigateView }) {
       setAuthUid(user.uid);
 
       const res = await createLiveRoom({
-        hostName,
+        hostName: hostName || activeName,
         category: selectedCategory,
         difficulty: selectedDifficulty,
         questionCount,
@@ -118,7 +118,7 @@ export default function LiveQuiz({ flashcards = [], onNavigateView }) {
 
       const res = await joinLiveRoom({
         roomCode: joinCodeInput,
-        displayName: playerNameInput
+        displayName: playerNameInput || activeName
       });
 
       setRoomCode(res.roomCode);

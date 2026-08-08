@@ -24,9 +24,9 @@ import {
 import './App.css';
 
 /**
- * Main Application Component - Phase 6A
+ * Main Application Component - Phase 6B
  * Coordinates Flashcards, Mock Quiz, Statistics, Live Quiz, Settings & Learner Profile,
- * Theme Mode (Light/Dark/System), and activeView navigation.
+ * Theme Mode (Light/Dark/System Auto-detection & OS listener), and activeView navigation.
  */
 function App() {
   const [activeView, setActiveView] = useState('dashboard');
@@ -38,7 +38,7 @@ function App() {
   const [profile, setProfile] = useState(getStoredLearnerProfile);
   const [preferences, setPreferences] = useState(getStoredPreferences);
 
-  // Sync theme attribute on document root (handling Light, Dark, and System Auto)
+  // Sync theme attribute on document root (handling Light, Dark, and System Auto with dynamic OS listener)
   useEffect(() => {
     const applyTheme = () => {
       let resolved = themeMode;
@@ -216,6 +216,7 @@ function App() {
           {activeView === 'live-quiz' && (
             <LiveQuiz
               flashcards={flashcards}
+              profile={profile}
               onNavigateView={handleNavigate}
             />
           )}

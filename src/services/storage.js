@@ -136,22 +136,32 @@ export const getAverageQuizScore = (history) => {
 
 /**
  * Learner Profile Storage
+ * Unifies learner profile with legacy live quiz display name key fallback
  */
 export const getStoredLearnerProfile = () => {
   try {
-    const saved = localStorage.getItem(PROFILE_KEY);
-    if (saved) {
-      const parsed = JSON.parse(saved);
+    const savedProfile = localStorage.getItem(PROFILE_KEY);
+    if (savedProfile) {
+      const parsed = JSON.parse(savedProfile);
+      if (parsed && typeof parsed.displayName === 'string' && parsed.displayName.trim() !== '' && parsed.displayName !== 'Learner') {
+        return parsed;
+      }
+    }
+    // Check legacy live display name fallback
+    const legacyName = localStorage.getItem(DISPLAY_NAME_KEY);
+    if (legacyName && legacyName.trim() !== '') {
+      return { displayName: legacyName.trim() };
+    }
+    if (savedProfile) {
+      const parsed = JSON.parse(savedProfile);
       if (parsed && typeof parsed.displayName === 'string') {
         return parsed;
       }
     }
-    // Fallback to existing live quiz display name key if set
-    const fallbackName = localStorage.getItem(DISPLAY_NAME_KEY) || 'Learner';
-    return { displayName: fallbackName };
-  } catch {
-    return { displayName: 'Learner' };
+  } catch (error) {
+    console.error('Error loading learner profile:', error);
   }
+  return { displayName: 'Learner' };
 };
 
 export const saveStoredLearnerProfile = (profile) => {
