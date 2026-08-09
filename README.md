@@ -392,6 +392,6 @@ This project is licensed under the **MIT License**.
 
 ## 👨‍💻 Author
 
-**Quizelle / CodeAlpha QuizGenerator Team**
+**Quizelle Product Team**
 GitHub: [sushankar4041](https://github.com/sushankar4041)
 Repository: [CodeAlpha_QuizGenerator](https://github.com/sushankar4041/CodeAlpha_QuizGenerator)

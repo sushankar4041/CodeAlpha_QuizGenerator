@@ -7,11 +7,11 @@ import { getAuth, signInAnonymously } from 'firebase/auth';
  * Uses environment variables if set, with safe fallback demo project config.
  */
 const firebaseConfig = {
-  apiKey: import.meta.env.VITE_FIREBASE_API_KEY || "AIzaSyDemoConfigKeyForCodeAlphaProject",
-  authDomain: import.meta.env.VITE_FIREBASE_AUTH_DOMAIN || "quiz-generator-codealpha.firebaseapp.com",
-  databaseURL: import.meta.env.VITE_FIREBASE_DATABASE_URL || "https://quiz-generator-codealpha-default-rtdb.firebaseio.com",
-  projectId: import.meta.env.VITE_FIREBASE_PROJECT_ID || "quiz-generator-codealpha",
-  storageBucket: import.meta.env.VITE_FIREBASE_STORAGE_BUCKET || "quiz-generator-codealpha.appspot.com",
+  apiKey: import.meta.env.VITE_FIREBASE_API_KEY || "AIzaSyDemoConfigKeyForQuizelleProject",
+  authDomain: import.meta.env.VITE_FIREBASE_AUTH_DOMAIN || "quiz-generator-quizelle.firebaseapp.com",
+  databaseURL: import.meta.env.VITE_FIREBASE_DATABASE_URL || "https://quiz-generator-quizelle-default-rtdb.firebaseio.com",
+  projectId: import.meta.env.VITE_FIREBASE_PROJECT_ID || "quiz-generator-quizelle",
+  storageBucket: import.meta.env.VITE_FIREBASE_STORAGE_BUCKET || "quiz-generator-quizelle.appspot.com",
   messagingSenderId: import.meta.env.VITE_FIREBASE_MESSAGING_SENDER_ID || "100000000000",
   appId: import.meta.env.VITE_FIREBASE_APP_ID || "1:100000000000:web:abcdef123456"
 };

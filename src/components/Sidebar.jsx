@@ -187,7 +187,7 @@ export default function Sidebar({ activeView, onViewChange, isOpen, onCloseMobil
         <div className="sidebar-footer">
           <div className="internship-badge">
             <span className="pulse-dot" aria-hidden="true"></span>
-            <span>CodeAlpha Internship</span>
+            <span>Quizelle v1.0</span>
           </div>
         </div>
       </aside>
