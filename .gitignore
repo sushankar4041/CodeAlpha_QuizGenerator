@@ -27,3 +27,7 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# Android Release Keystore
+quizelle-release-key.jks
+*.jks

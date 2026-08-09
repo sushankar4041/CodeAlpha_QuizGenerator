@@ -304,10 +304,16 @@ Quizelle is configured for seamless deployment on **Vercel** or any modern stati
 
 Quizelle is packaged as a native Android application using **Capacitor**.
 
-> 📱 **Download APK:** [Quizelle-v1.0.apk](Quizelle-v1.0.apk)
+> 📱 **Download Release APK:** [Quizelle-v1.0.0.apk](Quizelle-v1.0.0.apk) *(v1.0.0 Signed Release)*
+
+### Release Specifications:
+- **Current Release**: Quizelle v1.0.0
+- **Version Code**: `100`
+- **Application ID**: `com.quizelle.app`
+- **Signing**: APK Signature Scheme v2 (Signed Release)
 
 ### Installation Instructions:
-1. Download `Quizelle-v1.0.apk` to your Android device.
+1. Download `Quizelle-v1.0.0.apk` to your Android device.
 2. Enable **"Install Unknown Apps"** or **"Allow from this source"** in your Android device settings.
 3. Open the downloaded file and tap **Install** to launch Quizelle.
 
