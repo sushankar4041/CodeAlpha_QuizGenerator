@@ -300,6 +300,19 @@ Quizelle is configured for seamless deployment on **Vercel** or any modern stati
 
 ---
 
+## 📱 Android App
+
+Quizelle is packaged as a native Android application using **Capacitor**.
+
+> 📱 **Download APK:** [Quizelle-v1.0.apk](Quizelle-v1.0.apk)
+
+### Installation Instructions:
+1. Download `Quizelle-v1.0.apk` to your Android device.
+2. Enable **"Install Unknown Apps"** or **"Allow from this source"** in your Android device settings.
+3. Open the downloaded file and tap **Install** to launch Quizelle.
+
+---
+
 ## 💾 Data Persistence Schema
 
 User data is stored client-side in the browser's `localStorage` under isolated key namespaces:

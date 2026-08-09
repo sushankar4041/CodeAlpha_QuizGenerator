@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">Quizelle</string>
+    <string name="title_activity_main">Quizelle</string>
+    <string name="package_name">com.quizelle.app</string>
+    <string name="custom_url_scheme">com.quizelle.app</string>
+</resources>
